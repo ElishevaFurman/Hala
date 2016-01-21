@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">Hala</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_about">About Us</string>
+    <string name="nav_team">Our Team</string>
+    <string name="nav_services">Services</string>
+    <string name="nav_news">In The News</string>
+    <string name="nav_testimonials">Testimonials</string>
+    <string name="nav_grow">Help Us Grow</string>
+    <string name="nav_donate">Donate Now</string>
+    <string name="nav_contact">Contact Us</string>
+    <string name="nav_faqs">FAQs</string>
+
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
