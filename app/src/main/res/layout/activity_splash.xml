@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryExtraLight">
+
+
+    <TextView
+        android:id="@+id/logoTextView"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/circle_background"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/app_name"
+        android:textSize="56sp"
+        android:textStyle="bold" />
+
+</LinearLayout>
