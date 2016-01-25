@@ -3,13 +3,21 @@ package com.example.faigy.hala;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.TextView;
 
 
 public class ContactFragment extends Fragment {
+    // Declare controls
+    MainActivity mainActivity;
+    TextView titleTextView, locationTextView, phoneTextView, emailTextView;
+
 
     public ContactFragment() {
         // Required empty public constructor
@@ -25,15 +33,32 @@ public class ContactFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Initialize the views for this fragment
-        initializeViews();
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_contact, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_contact, container, false);
+        // Initialize the views for this fragment
+        initializeViews(rootView);
+
+        return rootView;
+
+    }
+    public void initializeViews(View rootView) {
+        //mapView.findViewById(R.id.mapView);
+        titleTextView = (TextView) rootView.findViewById(R.id.titleTextView);
+        titleTextView.setText(Html.fromHtml(getString(R.string.app_title)));
+
+        locationTextView = (TextView) rootView.findViewById(R.id.locationTextView);
+        locationTextView.setText(Html.fromHtml(getString(R.string.contact_location)));
+
+        phoneTextView = (TextView) rootView.findViewById(R.id.phoneTextView);
+        phoneTextView.setText(Html.fromHtml(getString(R.string.contact_phone)));
+
+        emailTextView = (TextView) rootView.findViewById(R.id.emailTextView);
+        emailTextView.setText(Html.fromHtml(getString(R.string.contact_email)));
 
     }
 
-    public void initializeViews() {
-
+    public void setMainActivity(MainActivity mainActivity){
+        this.mainActivity = mainActivity;
     }
 
 

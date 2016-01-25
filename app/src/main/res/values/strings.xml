@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Hala</string>
-    <string name="app_title">The Rachel Nash Jerusalem Comprehensive Breast Clinic</string>
+    <string name="html"><![CDATA[<p>Text<p>]]></string>
+    <string name="app_title"><![CDATA[The Rachel Nash Jerusalem <br /> Comprehensive Breast Clinic]]></string>
     <string name="nav_home">Home</string>
     <string name="nav_about">About Us</string>
     <string name="nav_team">Our Team</string>
@@ -17,5 +18,10 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string name="contact_location"><![CDATA[Bet Ofer <br /> 5 Nachum Heftzadi St. <br />
+    Jerusalem, 95484, Israel]]></string>
+    <string name="contact_phone"><![CDATA[T: <a href="">"+972.2.659.5533"</a>]]></string>
+    <string name="contact_email"><![CDATA[E: <a href="">"info@hala.org.il"</a>]]></string>
 
 </resources>

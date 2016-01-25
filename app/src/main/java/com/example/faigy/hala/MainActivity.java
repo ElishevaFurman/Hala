@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity
     DrawerLayout drawer;
     NavigationView navigationView;
     HomeFragment homeFragment;
+    ContactFragment contactFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity
     public void initializeFragments(){
         homeFragment = new HomeFragment();
         homeFragment.setMainActivity(this);
+        contactFragment = new ContactFragment();
+        contactFragment.setMainActivity(this);
     }
 
     @Override
@@ -87,6 +90,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_donate) {
 
         } else if (id == R.id.nav_contact) {
+
+            getFragmentManager().beginTransaction().replace(R.id.container,
+                    contactFragment).addToBackStack("Contact").commit();
 
         } else if (id == R.id.nav_faqs) {
 
