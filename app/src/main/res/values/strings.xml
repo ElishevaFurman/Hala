@@ -24,4 +24,17 @@
     <string name="contact_phone"><![CDATA[T: <a href="">"+972.2.659.5533"</a>]]></string>
     <string name="contact_email"><![CDATA[E: <a href="">"info@hala.org.il"</a>]]></string>
 
+
+
+    <!-- fragment_home -->
+    <string name="home_banner_large_text">THE COMPREHENSIVE MODEL PIONEERED BY HALA REPRESENTS A TRUE REVOLUTION IN PATIENT CARE.</string>
+    <string name="home_banner_small_text">Professor Hava Tabenkin, Head of the National Council of Women's Health</string>
+    <string name="about_icon">about icon</string>
+    <string name="services_icon">services icon</string>
+    <string name="contact_icon">contact icon</string>
+    <string name="about">ABOUT</string>
+    <string name="services">SERVICES</string>
+    <string name="contact">CONTACT</string>
+
+
 </resources>
