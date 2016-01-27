@@ -17,9 +17,15 @@
             android:layout_height="match_parent"
             android:layout_weight="0.6"
             android:orientation="vertical"
-            android:scaleType="center"
-            android:background="@drawable/home_image">
+            android:scaleType="center">
 
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView2"
+                android:src="@drawable/home_image"
+                android:layout_alignParentTop="true"/>
         </RelativeLayout>
 
         <LinearLayout
@@ -34,7 +40,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center|bottom"
                 android:orientation="horizontal"
-                android:paddingTop="100dp">
+                >
 
                 <LinearLayout
                     android:id="@+id/aboutLinearLayout"
