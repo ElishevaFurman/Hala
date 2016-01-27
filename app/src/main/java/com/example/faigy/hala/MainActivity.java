@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity
     NavigationView navigationView;
     HomeFragment homeFragment;
     ContactFragment contactFragment;
+    AboutUsFragment aboutUsFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,8 @@ public class MainActivity extends AppCompatActivity
         homeFragment.setMainActivity(this);
         contactFragment = new ContactFragment();
         contactFragment.setMainActivity(this);
+        aboutUsFragment = new AboutUsFragment();
+        aboutUsFragment.setMainActivity(this);
     }
 
     @Override
@@ -76,6 +79,7 @@ public class MainActivity extends AppCompatActivity
                     homeFragment).addToBackStack("Home").commit();
 
         } else if (id == R.id.nav_about) {
+            getFragmentManager().beginTransaction().replace(R.id.container, aboutUsFragment).addToBackStack("About us").commit();
 
         } else if (id == R.id.nav_team) {
 
