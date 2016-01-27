@@ -42,9 +42,8 @@ public class ContactFragment extends Fragment {
 
     }
     public void initializeViews(View rootView) {
-        //mapView.findViewById(R.id.mapView);
         titleTextView = (TextView) rootView.findViewById(R.id.titleTextView);
-        titleTextView.setText(Html.fromHtml(getString(R.string.app_title)));
+        titleTextView.setText(Html.fromHtml(getString(R.string.contact_title)));
 
         locationTextView = (TextView) rootView.findViewById(R.id.locationTextView);
         locationTextView.setText(Html.fromHtml(getString(R.string.contact_location)));
@@ -54,6 +53,7 @@ public class ContactFragment extends Fragment {
 
         emailTextView = (TextView) rootView.findViewById(R.id.emailTextView);
         emailTextView.setText(Html.fromHtml(getString(R.string.contact_email)));
+
 
     }
 

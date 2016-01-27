@@ -1,7 +1,7 @@
 <resources>
+    <!-- activity_main -->
     <string name="app_name">Hala</string>
-    <string name="html"><![CDATA[<p>Text<p>]]></string>
-    <string name="app_title"><![CDATA[The Rachel Nash Jerusalem <br /> Comprehensive Breast Clinic]]></string>
+    <string name="app_title">The Rachel Nash Jerusalem Comprehensive Breast Clinic</string>
     <string name="nav_home">Home</string>
     <string name="nav_about">About Us</string>
     <string name="nav_team">Our Team</string>
@@ -19,22 +19,28 @@
 
     <string name="action_settings">Settings</string>
 
+    <!-- fragment_contact -->
+    <string name="contact_title"><![CDATA[The Rachel Nash Jerusalem <br /> Comprehensive Breast Clinic]]></string>
     <string name="contact_location"><![CDATA[Bet Ofer <br /> 5 Nachum Heftzadi St. <br />
     Jerusalem, 95484, Israel]]></string>
     <string name="contact_phone"><![CDATA[T: <a href="">"+972.2.659.5533"</a>]]></string>
     <string name="contact_email"><![CDATA[E: <a href="">"info@hala.org.il"</a>]]></string>
-
+    <string name="contact_fax">F: +972.2.659.5535</string>
+    <string name="contact_bus">Buses #: 54, 74 and 75</string>
 
 
     <!-- fragment_home -->
     <string name="home_banner_large_text">THE COMPREHENSIVE MODEL PIONEERED BY HALA REPRESENTS A TRUE REVOLUTION IN PATIENT CARE.</string>
-    <string name="home_banner_small_text">Professor Hava Tabenkin, Head of the National Council of Women's Health</string>
+    <string name="home_banner_small_text">Professor Hava Tabenkin head of National Council of Women\'s Health</string>
     <string name="about_icon">about icon</string>
     <string name="services_icon">services icon</string>
     <string name="contact_icon">contact icon</string>
     <string name="about">ABOUT</string>
     <string name="services">SERVICES</string>
     <string name="contact">CONTACT</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

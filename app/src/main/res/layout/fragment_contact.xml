@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/app_title"
+            android:text="@string/contact_title"
             android:id="@+id/titleTextView"
             android:layout_gravity="center"
             android:paddingTop="16dp"
@@ -41,7 +41,6 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/locationImageView"
                     android:background="@drawable/ic_contact_location"
-                    android:backgroundTint="@color/colorPrimary"
                     android:layout_gravity="center" />
 
                 <TextView
@@ -66,8 +65,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/imageView5"
-                    android:background="@drawable/ic_menu_contact"
-                    android:backgroundTint="@color/colorPrimary"
+                    android:background="@drawable/ic_contact_phone"
                     android:layout_gravity="center" />
 
                 <TextView
@@ -93,13 +91,12 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/faxImageView"
                     android:background="@drawable/ic_contact_fax"
-                    android:backgroundTint="@color/colorPrimary"
                     android:layout_gravity="center" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="F: +972.2.659.5535"
+                    android:text="@string/contact_fax"
                     android:id="@+id/faxTextView"
                     android:paddingLeft="32dp"
                     android:height="48dp"
@@ -119,7 +116,6 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/emailImageView"
                     android:background="@drawable/ic_contact_email"
-                    android:backgroundTint="@color/colorPrimary"
                     android:layout_gravity="center" />
 
                 <TextView
@@ -151,7 +147,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Buses #: 54, 74 and 75"
+                    android:text="@string/contact_bus"
                     android:id="@+id/busTextView"
                     android:paddingLeft="32dp"
                     android:height="48dp"
@@ -161,12 +157,31 @@
 
         </LinearLayout>
 
-        <WebView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/mapView" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton"
+            android:background="@drawable/hala_map"
+            android:contentDescription="locationMap" />
 
 
     </LinearLayout>
 
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@android:drawable/ic_menu_call" />
+    </android.support.design.widget.CoordinatorLayout>
+
 </RelativeLayout>
+
+
+
+
