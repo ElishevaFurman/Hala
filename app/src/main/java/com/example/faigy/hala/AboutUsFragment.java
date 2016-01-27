@@ -101,6 +101,7 @@ public class AboutUsFragment extends android.app.Fragment {
             return mFragmentTitleList.get(position);
         }
     }
+
     public void setMainActivity(MainActivity mainActivity){
         this.mainActivity = mainActivity;
     }
