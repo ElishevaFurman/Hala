@@ -5,19 +5,10 @@
     android:background="@color/colorPrimaryExtraLight">
 
 
-    <TextView
-        android:id="@+id/logoTextView"
-        android:layout_width="144dp"
-        android:layout_height="144dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/circle_background"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="@string/app_name"
-        android:textSize="56sp"
-        android:textStyle="bold" />
-
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:src="@drawable/hala_logo2"
+        android:layout_gravity="center"/>
 </LinearLayout>

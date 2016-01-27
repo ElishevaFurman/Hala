@@ -4,9 +4,9 @@
 <color name="colorPrimaryDark">#B20269</color>
 <color name="colorPrimary">#D7047F</color>
 <color name="colorPrimaryLight">#E75194</color>
-<color name="colorPrimaryExtraLight">#ED92A7</color>
-<color name="colorAccent">#1C547F</color>
-<color name="colorAccentLight">#59B8E0</color>
+<color name="colorPrimaryExtraLight">#E97DA7</color>
+<color name="colorAccent">#0C599A</color>
+<color name="colorAccentLight">#1EA0DA</color>
 <color name="colorDivider">#7D94A6</color>
 <color name="colorPrimaryText">#212121</color>
 <color name="colorSecondaryText">#6F7076</color>

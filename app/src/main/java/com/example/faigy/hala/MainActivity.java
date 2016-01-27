@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity
     HomeFragment homeFragment;
     ContactFragment contactFragment;
     AboutUsFragment aboutUsFragment;
+    TestimonialFragment testimonialFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,9 @@ public class MainActivity extends AppCompatActivity
         contactFragment.setMainActivity(this);
         aboutUsFragment = new AboutUsFragment();
         aboutUsFragment.setMainActivity(this);
+        testimonialFragment = new TestimonialFragment();
+        testimonialFragment.setMainActivity(this);
+
     }
 
     @Override
@@ -79,7 +83,8 @@ public class MainActivity extends AppCompatActivity
                     homeFragment).addToBackStack("Home").commit();
 
         } else if (id == R.id.nav_about) {
-            getFragmentManager().beginTransaction().replace(R.id.container, aboutUsFragment).addToBackStack("About us").commit();
+            getFragmentManager().beginTransaction().replace(R.id.container,
+                    aboutUsFragment).addToBackStack("About us").commit();
 
         } else if (id == R.id.nav_team) {
 
@@ -88,13 +93,14 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_news) {
 
         } else if (id == R.id.nav_testimonials) {
+            getFragmentManager().beginTransaction().replace(R.id.container,
+                    testimonialFragment).addToBackStack("Testimonial").commit();
 
         } else if (id == R.id.nav_grow) {
 
         } else if (id == R.id.nav_donate) {
 
         } else if (id == R.id.nav_contact) {
-
             getFragmentManager().beginTransaction().replace(R.id.container,
                     contactFragment).addToBackStack("Contact").commit();
 
