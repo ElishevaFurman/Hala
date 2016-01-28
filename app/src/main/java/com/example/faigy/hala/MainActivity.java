@@ -65,6 +65,9 @@ public class MainActivity extends AppCompatActivity
         getFragmentManager().beginTransaction().replace(R.id.container,
                 homeFragment).addToBackStack("Home").commit();
 
+        getFragmentManager().beginTransaction().replace(R.id.container,
+                homeFragment).addToBackStack("Home").commit();
+
     }
 
     @Override
@@ -72,6 +75,8 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        } else if (getFragmentManager().getBackStackEntryCount() > 1) {
+            getFragmentManager().popBackStack();
         } else {
             super.onBackPressed();
         }
@@ -119,5 +124,7 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 
 }

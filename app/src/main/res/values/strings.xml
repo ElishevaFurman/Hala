@@ -40,6 +40,13 @@
     <string name="services">SERVICES</string>
     <string name="contact">CONTACT</string>
 
+    <!-- fragment_testimonials -->
+    <string name="testimonial1">Sarah Brown</string>
+    <string name="testimonial2">Lady Sharon Harel-Cohen</string>
+    <string name="testimonial3">Susan G. Comen for the Cure</string>
+    <string name="testimonial4">Israel\'s Ministry of Health</string>
+    <string name="testimonial_title"><![CDATA[Hear<br />what<br />people<br />are<br />saying<br />about<br />Hala!]]></string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
