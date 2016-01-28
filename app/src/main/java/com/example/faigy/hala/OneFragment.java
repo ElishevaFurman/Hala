@@ -8,7 +8,7 @@ import android.view.ViewGroup;
  * Created by Home on 1/25/2016.
  */
 public class OneFragment extends Fragment{
-
+AboutUsFragment aboutUsFragment;
     public OneFragment() {
         // Required empty public constructor
     }
@@ -22,7 +22,23 @@ public class OneFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.fragment_one, container, false);
     }
 
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//
+//        aboutUsFragment.viewPager.setVisibility(View.GONE);
+//        aboutUsFragment.tabLayout.setVisibility(View.GONE);
+//
+//    }
+//
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//
+//        aboutUsFragment.viewPager.setVisibility(View.VISIBLE);
+//        aboutUsFragment.tabLayout.setVisibility(View.VISIBLE);
+//    }
 }

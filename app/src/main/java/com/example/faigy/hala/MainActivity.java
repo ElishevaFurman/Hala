@@ -1,8 +1,10 @@
 package com.example.faigy.hala;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         initializeViews();
         initializeFragments();
@@ -58,6 +61,9 @@ public class MainActivity extends AppCompatActivity
         aboutUsFragment.setMainActivity(this);
         testimonialFragment = new TestimonialFragment();
         testimonialFragment.setMainActivity(this);
+        //inflate fragment_home
+        getFragmentManager().beginTransaction().replace(R.id.container,
+                homeFragment).addToBackStack("Home").commit();
 
     }
 
@@ -83,9 +89,11 @@ public class MainActivity extends AppCompatActivity
                     homeFragment).addToBackStack("Home").commit();
 
         } else if (id == R.id.nav_about) {
-            getFragmentManager().beginTransaction().replace(R.id.container,
+            getSupportFragmentManager().beginTransaction().replace(R.id.container,
                     aboutUsFragment).addToBackStack("About us").commit();
-
+           // Intent i = new Intent(this, AboutUsFragment.class);
+            //i.putExtra("PersonID", personID);
+//            startActivity(i);
         } else if (id == R.id.nav_team) {
 
         } else if (id == R.id.nav_services) {

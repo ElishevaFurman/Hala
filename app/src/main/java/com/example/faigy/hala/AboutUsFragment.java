@@ -1,107 +1,99 @@
 package com.example.faigy.hala;
 
-import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.*;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.List;
-
-
-public class AboutUsFragment extends android.app.Fragment {
-    MainActivity mainActivity;
-    //private Toolbar toolbar;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
-
-    public AboutUsFragment(){
-
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-
-    }
-
-
+public class AboutUsFragment extends Fragment {
+MainActivity mainActivity;
+TabLayout tabLayout;
+ViewPager viewPager;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_about_us, container, false);
-        // Initialize the views for this fragment
-        initializeViews(rootView);
+        View inflatedView = inflater.inflate(R.layout.fragment_about_us, container, false);
 
-        return rootView;
+        tabLayout = (TabLayout) inflatedView.findViewById(R.id.tabLayout);
+        tabLayout.addTab(tabLayout.newTab().setText("Our Mission"));
+        tabLayout.addTab(tabLayout.newTab().setText("The Hala Advantage"));
+        viewPager = (ViewPager) inflatedView.findViewById(R.id.viewpager);
 
+        viewPager.setAdapter(new PagerAdapter
+                (getFragmentManager(), tabLayout.getTabCount()));
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+        return inflatedView;
     }
 
-    public void initializeViews(View rootView) {
+    public class PagerAdapter extends FragmentStatePagerAdapter {
+        int mNumOfTabs;
 
-//        toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
-//        mainActivity.setSupportActionBar(toolbar);
-//
-//        mainActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
-
-        tabLayout = (TabLayout) rootView.findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
-
-    }
-
-    private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(mainActivity.getSupportFragmentManager());
-        adapter.addFragment(new OneFragment(), "OUR MISSION");
-        adapter.addFragment(new TwoFragment(), "THE HALA ADVANTAGE");
-        viewPager.setAdapter(adapter);
-    }
-
-    class ViewPagerAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
-
-        public ViewPagerAdapter(FragmentManager manager) {
-            super(manager);
+        public PagerAdapter(FragmentManager fm, int NumOfTabs) {
+            super(fm);
+            this.mNumOfTabs = NumOfTabs;
         }
 
         @Override
         public Fragment getItem(int position) {
-            return mFragmentList.get(position);
+
+            switch (position) {
+                case 0:
+                    OneFragment tab1 = new OneFragment();
+                    return tab1;
+                case 1:
+                    TwoFragment tab2 = new TwoFragment();
+                    return tab2;
+                default:
+                    return null;
+            }
         }
 
         @Override
         public int getCount() {
-            return mFragmentList.size();
-        }
-
-        public void addFragment(Fragment fragment, String title) {
-            mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
+            return mNumOfTabs;
         }
     }
 
+
+//
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//
+//        viewPager.setVisibility(View.GONE);
+//        tabLayout.setVisibility(View.GONE);
+//
+//    }
+//
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//
+//        viewPager.setVisibility(View.VISIBLE);
+//        tabLayout.setVisibility(View.VISIBLE);
+//    }
     public void setMainActivity(MainActivity mainActivity){
         this.mainActivity = mainActivity;
     }
