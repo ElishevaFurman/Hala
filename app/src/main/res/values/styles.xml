@@ -35,4 +35,24 @@
         <item name="android:background">@color/colorDivider</item>
     </style>
 
+    <!-- TabBar style. -->
+    <style name="TabBar" parent="Widget.Design.TabLayout">
+        <item name="tabBackground">@color/colorPrimary</item>
+    </style>
+
+    <style name="App_TabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
+        <item name="android:textSize">9sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+    </style>
+
+    <style name="App_TabLayoutImageAppearance">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:paddingTop">4dp</item>
+    </style>
+
 </resources>

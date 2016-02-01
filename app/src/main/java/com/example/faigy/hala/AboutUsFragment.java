@@ -1,5 +1,6 @@
 package com.example.faigy.hala;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.*;
 import android.support.v4.app.Fragment;
@@ -9,11 +10,23 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-public class AboutUsFragment extends Fragment {
+public class AboutUsFragment extends android.support.v4.app.Fragment {
 MainActivity mainActivity;
 TabLayout tabLayout;
 ViewPager viewPager;
+
+    public AboutUsFragment(){
+
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -22,6 +35,16 @@ ViewPager viewPager;
         tabLayout = (TabLayout) inflatedView.findViewById(R.id.tabLayout);
         tabLayout.addTab(tabLayout.newTab().setText("Our Mission"));
         tabLayout.addTab(tabLayout.newTab().setText("The Hala Advantage"));
+
+
+        Context context = mainActivity.getApplicationContext();
+        CharSequence text = "Hello toast!";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+
+
         viewPager = (ViewPager) inflatedView.findViewById(R.id.viewpager);
 
         viewPager.setAdapter(new PagerAdapter

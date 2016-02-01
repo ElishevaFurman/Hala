@@ -9,6 +9,7 @@ import android.view.ViewGroup;
  */
 public class OneFragment extends Fragment{
 AboutUsFragment aboutUsFragment;
+
     public OneFragment() {
         // Required empty public constructor
     }

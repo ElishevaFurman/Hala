@@ -19,6 +19,7 @@ public class ContactFragment extends Fragment {
     TextView titleTextView, locationTextView, phoneTextView, emailTextView;
 
 
+
     public ContactFragment() {
         // Required empty public constructor
     }
@@ -62,4 +63,10 @@ public class ContactFragment extends Fragment {
     }
 
 
+        @Override
+    public void onResume() {
+        super.onResume();
+
+
+    }
 }

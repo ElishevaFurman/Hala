@@ -1,10 +1,12 @@
 package com.example.faigy.hala;
 
+import android.support.v4.app.*;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -22,23 +24,34 @@ public class MainActivity extends AppCompatActivity
     Toolbar toolbar;
     DrawerLayout drawer;
     NavigationView navigationView;
+
+    // Declare Fragments
     HomeFragment homeFragment;
     ContactFragment contactFragment;
     AboutUsFragment aboutUsFragment;
     TestimonialFragment testimonialFragment;
+    TeamListFragment teamListFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // call the parent activities onCreate
         super.onCreate(savedInstanceState);
+        // attach xml to activity
         setContentView(R.layout.activity_main);
-
-
+        // send activity reference to Util class
+        Util.setReference(this);
         initializeViews();
         initializeFragments();
+        //inflate fragment_home
+        getFragmentManager().beginTransaction().replace(R.id.container,
+                homeFragment).addToBackStack("Home").commit();
     }
 
-
-    public void initializeViews(){
+    /**
+     * Function to initialize controls
+     */
+    public void initializeViews() {
+        // initialize and reference controls
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -52,7 +65,10 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    public void initializeFragments(){
+    /**
+     * Function to instantiate fragments
+     */
+    public void initializeFragments() {
         homeFragment = new HomeFragment();
         homeFragment.setMainActivity(this);
         contactFragment = new ContactFragment();
@@ -61,12 +77,8 @@ public class MainActivity extends AppCompatActivity
         aboutUsFragment.setMainActivity(this);
         testimonialFragment = new TestimonialFragment();
         testimonialFragment.setMainActivity(this);
-        //inflate fragment_home
-        getFragmentManager().beginTransaction().replace(R.id.container,
-                homeFragment).addToBackStack("Home").commit();
-
-        getFragmentManager().beginTransaction().replace(R.id.container,
-                homeFragment).addToBackStack("Home").commit();
+        teamListFragment = new TeamListFragment();
+        teamListFragment.setMainActivity(this);
 
     }
 
@@ -75,9 +87,13 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else if (getFragmentManager().getBackStackEntryCount() > 1) {
+        }
+        // if there are fragments in the back stack
+        else if (getFragmentManager().getBackStackEntryCount() > 1) {
+            // undo the last back stack transaction
             getFragmentManager().popBackStack();
         } else {
+            // finish this activity
             super.onBackPressed();
         }
     }
@@ -89,42 +105,59 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-
+            if (aboutUsFragment != null && aboutUsFragment.isVisible()) {
+                getSupportFragmentManager().beginTransaction().remove(aboutUsFragment).commit();
+            }
             getFragmentManager().beginTransaction().replace(R.id.container,
                     homeFragment).addToBackStack("Home").commit();
 
         } else if (id == R.id.nav_about) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container,
                     aboutUsFragment).addToBackStack("About us").commit();
-           // Intent i = new Intent(this, AboutUsFragment.class);
-            //i.putExtra("PersonID", personID);
-//            startActivity(i);
+
         } else if (id == R.id.nav_team) {
-
+            if (aboutUsFragment != null && aboutUsFragment.isVisible()) {
+                getSupportFragmentManager().beginTransaction().remove(aboutUsFragment).commit();
+            }
+            getFragmentManager().beginTransaction().replace(R.id.container,
+                    teamListFragment).addToBackStack("Team List Fragment").commit();
         } else if (id == R.id.nav_services) {
-
+            if (aboutUsFragment != null && aboutUsFragment.isVisible()) {
+                getSupportFragmentManager().beginTransaction().remove(aboutUsFragment).commit();
+            }
         } else if (id == R.id.nav_news) {
-
+            if (aboutUsFragment != null && aboutUsFragment.isVisible()) {
+                getSupportFragmentManager().beginTransaction().remove(aboutUsFragment).commit();
+            }
         } else if (id == R.id.nav_testimonials) {
+            if (aboutUsFragment != null && aboutUsFragment.isVisible()) {
+                getSupportFragmentManager().beginTransaction().remove(aboutUsFragment).commit();
+            }
             getFragmentManager().beginTransaction().replace(R.id.container,
                     testimonialFragment).addToBackStack("Testimonial").commit();
-
         } else if (id == R.id.nav_grow) {
-
+            if (aboutUsFragment != null && aboutUsFragment.isVisible()) {
+                getSupportFragmentManager().beginTransaction().remove(aboutUsFragment).commit();
+            }
         } else if (id == R.id.nav_donate) {
-
+            if (aboutUsFragment != null && aboutUsFragment.isVisible()) {
+                getSupportFragmentManager().beginTransaction().remove(aboutUsFragment).commit();
+            }
         } else if (id == R.id.nav_contact) {
+            if (aboutUsFragment != null && aboutUsFragment.isVisible()) {
+                getSupportFragmentManager().beginTransaction().remove(aboutUsFragment).commit();
+            }
             getFragmentManager().beginTransaction().replace(R.id.container,
                     contactFragment).addToBackStack("Contact").commit();
-
         } else if (id == R.id.nav_faqs) {
-
+            if (aboutUsFragment != null && aboutUsFragment.isVisible()) {
+                getSupportFragmentManager().beginTransaction().remove(aboutUsFragment).commit();
+            }
         }
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
 
 
 }
