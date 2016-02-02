@@ -47,6 +47,9 @@
     <string name="testimonial4">Israel\'s Ministry of Health</string>
     <string name="testimonial_title"><![CDATA[Hear<br />what<br />people<br />are<br />saying<br />about<br />Hala!]]></string>
 
+    <!-- fragment_testimonial_view -->
+    <string name="pdf_view">pdf view</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

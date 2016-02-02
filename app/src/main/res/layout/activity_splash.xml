@@ -9,6 +9,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView2"
-        android:src="@drawable/hala_logo2"
+        android:src="@drawable/splash_logo"
         android:layout_centerInParent="true" />
 </RelativeLayout>

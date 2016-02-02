@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity
     TestimonialFragment testimonialFragment;
     TeamListFragment teamListFragment;
     OurTeamFragment ourTeamFragment;
+    AskFragment askFragment;
+    FAQFragment faqFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +75,10 @@ public class MainActivity extends AppCompatActivity
         teamListFragment.setMainActivity(this);
         ourTeamFragment = new OurTeamFragment();
         ourTeamFragment.setMainActivity(this);
+        askFragment = new AskFragment();
+        askFragment.setMainActivity(this);
+        faqFragment = new FAQFragment();
+        faqFragment.setMainActivity(this);
     }
 
     /**
@@ -156,6 +162,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_faqs) {
             removeFragments(aboutUsFragment);
             removeFragments(ourTeamFragment);
+            getFragmentManager().beginTransaction().replace(R.id.container,
+                    faqFragment).addToBackStack("FAQ").commit();
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -167,11 +175,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public void removeFragments2(Fragment fragment) {
-        if (fragment != null && fragment.isVisible()) {
-            getSupportFragmentManager().beginTransaction().remove(fragment).commit();
-        }
-    }
+
 
 
 }

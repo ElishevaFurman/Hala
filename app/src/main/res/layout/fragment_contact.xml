@@ -165,15 +165,7 @@
 
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/imageButton"
-            android:src="@drawable/map"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="bottom" />
+
     </LinearLayout>
 
 
@@ -185,7 +177,7 @@
             android:layout_alignParentRight="true"
             android:elevation="4dp"
             android:layout_margin="@dimen/fab_margin"
-            android:src="@drawable/ic_fab_contact"
+            android:src="@drawable/ic_contact_map"
             android:nestedScrollingEnabled="false"/>
 
 
