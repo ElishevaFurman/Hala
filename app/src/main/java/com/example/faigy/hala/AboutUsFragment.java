@@ -36,19 +36,10 @@ ViewPager viewPager;
         tabLayout.addTab(tabLayout.newTab().setText("Our Mission"));
         tabLayout.addTab(tabLayout.newTab().setText("The Hala Advantage"));
 
-
-        Context context = mainActivity.getApplicationContext();
-        CharSequence text = "Hello toast!";
-        int duration = Toast.LENGTH_SHORT;
-
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-
-
         viewPager = (ViewPager) inflatedView.findViewById(R.id.viewpager);
 
         viewPager.setAdapter(new PagerAdapter
-                (getFragmentManager(), tabLayout.getTabCount()));
+                (getChildFragmentManager(), tabLayout.getTabCount()));
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
