@@ -4,13 +4,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 /**
  * Created by Home on 1/25/2016.
  */
-public class OneFragment extends Fragment{
+public class TheHalaAdvantageFragment extends Fragment{
 AboutUsFragment aboutUsFragment;
 
-    public OneFragment() {
+    public TheHalaAdvantageFragment() {
         // Required empty public constructor
     }
 
@@ -23,9 +24,8 @@ AboutUsFragment aboutUsFragment;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_one, container, false);
+        return inflater.inflate(R.layout.fragment_the_hala_advantage, container, false);
     }
-
 //    @Override
 //    public void onPause() {
 //        super.onPause();
@@ -34,7 +34,6 @@ AboutUsFragment aboutUsFragment;
 //        aboutUsFragment.tabLayout.setVisibility(View.GONE);
 //
 //    }
-//
 //    @Override
 //    public void onResume() {
 //        super.onResume();

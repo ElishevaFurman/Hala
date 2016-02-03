@@ -54,4 +54,55 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
+    <!-- fragment_our_mission -->
+    <string name="image_description">image description</string>
+    <string name="our_mission_title">Hala\'s mission is to save lives. How?</string>
+    <string name="our_mission_fact1">By providing the most advanced, comprehensive breast cancer
+        screening and diagnostic center in Israel.</string>
+   <string name="our_mission_fact2">By giving women the necessary exams in one place, at one time,
+       with on-the- spot results. If non-surgical needle biopsies are performed, results are
+       generally back within days, not weeks.</string>
+     <string name="our_mission_fact3">By detecting breast cancer at its earliest stages, before it\'s
+         too late to treat effectively.</string>
+   <string name="our_mission_fact4">By expanding the Center to include a wider range of services and
+       significantly increase capacity.</string>
+
+    <!-- fragment_the_hala_advantage -->
+ <string name="the_hala_advantage_fact1">Hala is Israel\'s only non-profit comprehensive breast
+     screening diagnostic clinic.</string>
+ <string name="the_hala_advantage_fact2">Hala is committed to providing a new level of diagnostic
+     expertise in the field of breast cancer detection</string>
+ <string name="the_hala_advantage_fact3">At Hala, all exams and procedures are conducted in one visit.</string>
+ <string name="the_hala_advantage_fact4">At Hala, exam results, other than biopsy, are given to
+     the patient on the spot.</string>
+ <string name="the_hala_advantage_fact5">Hala has an unsurpassed detection rate of 98.7%.</string>
+ <string name="the_hala_advantage_fact6">Hala\'s detection rate is a 31% increase from
+     non-comprehensive models.</string>
+ <string name="the_hala_advantage_fact7">Hala has reduced false positives (incorrect diagnoses
+     resulting in unnecessary surgery) by 48%.</string>
+ <string name="the_hala_advantage_fact8">Hala uses the world\'s most advanced technology to detect
+     irregularities.</string>
+ <string name="the_hala_advantage_fact9">Hala is the only breast screening center in Israel with
+     a 3D Tomosynthesis and C-View system.</string>
+ <string name="the_hala_advantage_fact10">Hala\'s specialists consistently catch the 20% of
+     early-stage tumors that are impossible to detect with conventional film techniques. </string>
+ <string name="the_hala_advantage_fact11">Hala\'s doors are open to every woman, regardless of social
+     status, race, religion or financial status.</string>
+ <string name="the_hala_advantage_fact12">Hala is internationally recognized as an innovator in
+     breast cancer detection.</string>
+ <string name="the_hala_advantage_fact13">Hala performs beta testing for companies from Israel and
+     abroad who are creating state-of-the-art breast imaging and cancer identification technologies.</string>
+     <string name="the_hala_advantage_fact14">Hala has screened over 150,000 women in the Middle
+         East over the past 15 years.</string>
+
+
+
+    <!-- fragment_ask -->
+    [2/3/16, 12:31 PM] Elisheva Furman (le7friedman@gmail.com):
+    <string name="name_hint">Name</string>
+    <string name="email_hint">Email Address</string>
+    <string name="phone_hint">Phone</string>
+    <string name="question_hint">Question</string>
+    <string name="ask_button">ASK</string>
+
 </resources>

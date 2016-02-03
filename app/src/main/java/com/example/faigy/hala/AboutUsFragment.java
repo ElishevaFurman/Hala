@@ -1,6 +1,5 @@
 package com.example.faigy.hala;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.*;
 import android.support.v4.app.Fragment;
@@ -10,14 +9,17 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 public class AboutUsFragment extends android.support.v4.app.Fragment {
-MainActivity mainActivity;
-TabLayout tabLayout;
-ViewPager viewPager;
 
-    public AboutUsFragment(){
+    // Declare controls
+    TabLayout tabLayout;
+    ViewPager viewPager;
+
+    // Declare activities
+    MainActivity mainActivity;
+
+    public AboutUsFragment() {
 
     }
 
@@ -30,14 +32,23 @@ ViewPager viewPager;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View inflatedView = inflater.inflate(R.layout.fragment_about_us, container, false);
+        // Inflate the layout for this fragment
+        View rootView = inflater.inflate(R.layout.fragment_about_us, container, false);
+        // Initialize the views for this fragment
+        initializeViews(rootView);
 
-        tabLayout = (TabLayout) inflatedView.findViewById(R.id.tabLayout);
+        return rootView;
+    }
+
+    /**
+     * Function to initialize controls
+     */
+    public void initializeViews(View rootView) {
+        // initialize and reference controls
+        tabLayout = (TabLayout) rootView.findViewById(R.id.tabLayout);
         tabLayout.addTab(tabLayout.newTab().setText("Our Mission"));
         tabLayout.addTab(tabLayout.newTab().setText("The Hala Advantage"));
-
-        viewPager = (ViewPager) inflatedView.findViewById(R.id.viewpager);
-
+        viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
         viewPager.setAdapter(new PagerAdapter
                 (getChildFragmentManager(), tabLayout.getTabCount()));
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -58,7 +69,6 @@ ViewPager viewPager;
             }
         });
 
-        return inflatedView;
     }
 
     public class PagerAdapter extends FragmentStatePagerAdapter {
@@ -74,10 +84,10 @@ ViewPager viewPager;
 
             switch (position) {
                 case 0:
-                    OneFragment tab1 = new OneFragment();
+                    OurMissionFragment tab1 = new OurMissionFragment();
                     return tab1;
                 case 1:
-                    TwoFragment tab2 = new TwoFragment();
+                    TheHalaAdvantageFragment tab2 = new TheHalaAdvantageFragment();
                     return tab2;
                 default:
                     return null;
@@ -90,25 +100,7 @@ ViewPager viewPager;
         }
     }
 
-
-//
-//    @Override
-//    public void onPause() {
-//        super.onPause();
-//
-//        viewPager.setVisibility(View.GONE);
-//        tabLayout.setVisibility(View.GONE);
-//
-//    }
-//
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//
-//        viewPager.setVisibility(View.VISIBLE);
-//        tabLayout.setVisibility(View.VISIBLE);
-//    }
-    public void setMainActivity(MainActivity mainActivity){
+    public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }
 }

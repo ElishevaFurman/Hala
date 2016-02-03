@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity
     OurTeamFragment ourTeamFragment;
     AskFragment askFragment;
     FAQFragment faqFragment;
+    TestimonialViewFragment testimonialViewFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +80,8 @@ public class MainActivity extends AppCompatActivity
         askFragment.setMainActivity(this);
         faqFragment = new FAQFragment();
         faqFragment.setMainActivity(this);
+        testimonialViewFragment = new TestimonialViewFragment();
+        testimonialViewFragment.setMainActivity(this);
     }
 
     /**
@@ -174,8 +177,6 @@ public class MainActivity extends AppCompatActivity
             getSupportFragmentManager().beginTransaction().remove(fragment).commit();
         }
     }
-
-
-
+    
 
 }
