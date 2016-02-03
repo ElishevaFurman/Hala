@@ -16,7 +16,6 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_settings">Settings</string>
 
     <!-- fragment_contact -->
@@ -27,6 +26,11 @@
     <string name="contact_email"><![CDATA[E: <a href="">"info@hala.org.il"</a>]]></string>
     <string name="contact_fax">F: +972.2.659.5535</string>
     <string name="contact_bus">Buses #: 6, 52, 54, 55, 65, 74, 78a and 75</string>
+    <string name="image_location">image location</string>
+    <string name="image_phone">image phone</string>
+    <string name="image_email">image email</string>
+    <string name="image_fax">image fax</string>
+    <string name="image_bus">image bus</string>
 
 
     <!-- fragment_home -->
@@ -45,14 +49,18 @@
     <string name="testimonial2">Lady Sharon Harel-Cohen</string>
     <string name="testimonial3">Susan G. Comen for the Cure</string>
     <string name="testimonial4">Israel\'s Ministry of Health</string>
+    <string name="image_testimonial">image testimonial</string>
     <string name="testimonial_title"><![CDATA[Hear<br />what<br />people<br />are<br />saying<br />about<br />Hala!]]></string>
 
     <!-- fragment_testimonial_view -->
     <string name="pdf_view">pdf view</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <!-- fragment_ask -->
+    <string name="name_hint">Name</string>
+    <string name="email_hint">Email Address</string>
+    <string name="phone_hint">Phone</string>
+    <string name="question_hint">Question</string>
+    <string name="ask_button">ASK</string>
 
     <!-- fragment_our_mission -->
     <string name="image_description">image description</string>
@@ -96,13 +104,5 @@
          East over the past 15 years.</string>
 
 
-
-    <!-- fragment_ask -->
-    [2/3/16, 12:31 PM] Elisheva Furman (le7friedman@gmail.com):
-    <string name="name_hint">Name</string>
-    <string name="email_hint">Email Address</string>
-    <string name="phone_hint">Phone</string>
-    <string name="question_hint">Question</string>
-    <string name="ask_button">ASK</string>
 
 </resources>

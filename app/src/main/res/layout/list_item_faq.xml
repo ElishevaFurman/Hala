@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#ffff">
+    android:orientation="vertical"
+    android:animateLayoutChanges="true">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:animateLayoutChanges="true">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -17,22 +15,21 @@
 
             <TextView
                 android:id="@+id/questionTextView"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
                 android:textStyle="bold"
-                android:layout_weight="3"
-                android:text="Question Title" />
+                android:layout_weight="3" />
 
             <ImageButton
                 android:id="@+id/expandArrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
                 android:layout_gravity="center_vertical"
-                android:layout_margin="16dp"
+                android:layout_margin="@dimen/default_margin"
                 android:background="#fff"
-                android:src="@drawable/ic_expand_more" />
+                android:src="@drawable/ic_expand_more"
+                android:contentDescription="@string/image_description"/>
         </LinearLayout>
 
         <LinearLayout
@@ -48,11 +45,8 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
-                android:paddingBottom="16dp"
-                android:text="Answer here"/>
+                android:paddingBottom="16dp"/>
 
         </LinearLayout>
 
-    </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>

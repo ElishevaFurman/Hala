@@ -72,6 +72,8 @@ public class MainActivity extends AppCompatActivity
         aboutUsFragment.setMainActivity(this);
         testimonialFragment = new TestimonialFragment();
         testimonialFragment.setMainActivity(this);
+        testimonialViewFragment = new TestimonialViewFragment();
+        testimonialViewFragment.setMainActivity(this);
         teamListFragment = new TeamListFragment();
         teamListFragment.setMainActivity(this);
         ourTeamFragment = new OurTeamFragment();

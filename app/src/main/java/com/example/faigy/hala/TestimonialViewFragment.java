@@ -2,7 +2,7 @@ package com.example.faigy.hala;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +12,9 @@ import android.view.ViewGroup;
  * A simple {@link Fragment} subclass.
  */
 public class TestimonialViewFragment extends Fragment {
+
+    // Declare Variables
+    MainActivity mainActivity;
 
 
     public TestimonialViewFragment() {
@@ -26,4 +29,7 @@ public class TestimonialViewFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_testimonial_view, container, false);
     }
 
+    public void setMainActivity(MainActivity mainActivity){
+        this.mainActivity = mainActivity;
+    }
 }

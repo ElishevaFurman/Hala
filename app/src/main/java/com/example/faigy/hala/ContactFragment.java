@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.design.widget.FloatingActionButton;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ public class ContactFragment extends Fragment {
     // Declare controls
     MainActivity mainActivity;
     TextView titleTextView, locationTextView, phoneTextView, emailTextView;
+    FloatingActionButton contactFab;
 
 
 
@@ -54,6 +56,15 @@ public class ContactFragment extends Fragment {
 
         emailTextView = (TextView) rootView.findViewById(R.id.emailTextView);
         emailTextView.setText(Html.fromHtml(getString(R.string.contact_email)));
+
+        contactFab = (FloatingActionButton) rootView.findViewById(R.id.contactFab);
+        contactFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().addToBackStack("TestimonialView")
+                        .replace(R.id.container, mainActivity.testimonialViewFragment).commit();
+            }
+        });
 
 
     }

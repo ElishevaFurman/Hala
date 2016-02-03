@@ -47,7 +47,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/locationImageView"
                     android:background="@drawable/ic_contact_location"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/image_location"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -55,6 +56,9 @@
                     android:text="@string/contact_location"
                     android:id="@+id/locationTextView"
                     android:paddingLeft="32dp"
+                    android:paddingStart="32dp"
+                    android:paddingEnd="16dp"
+                    android:paddingRight="16dp"
                     android:paddingTop="16dp"
                     android:gravity="center_vertical"
                     android:textSize="16sp" />
@@ -66,6 +70,8 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp"
                 android:paddingBottom="16dp">
 
                 <ImageView
@@ -73,7 +79,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/imageView5"
                     android:background="@drawable/ic_contact_phone"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/image_phone"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -81,6 +88,9 @@
                     android:text="@string/contact_phone"
                     android:id="@+id/phoneTextView"
                     android:paddingLeft="32dp"
+                    android:paddingStart="32dp"
+                    android:paddingEnd="16dp"
+                    android:paddingRight="16dp"
                     android:gravity="center_vertical"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -98,7 +108,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/faxImageView"
                     android:background="@drawable/ic_contact_fax"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/image_fax"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -106,6 +117,9 @@
                     android:text="@string/contact_fax"
                     android:id="@+id/faxTextView"
                     android:paddingLeft="32dp"
+                    android:paddingStart="32dp"
+                    android:paddingRight="16dp"
+                    android:paddingEnd="16dp"
                     android:gravity="center_vertical"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -115,7 +129,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="16dp"
+                android:paddingStart="16dp"
                 android:paddingRight="16dp"
+                android:paddingEnd="16dp"
                 android:paddingBottom="16dp">
 
                 <ImageView
@@ -123,7 +139,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/emailImageView"
                     android:background="@drawable/ic_contact_email"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/image_email"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -131,6 +148,9 @@
                     android:text="@string/contact_email"
                     android:id="@+id/emailTextView"
                     android:paddingLeft="32dp"
+                    android:paddingStart="32dp"
+                    android:paddingEnd="16dp"
+                    android:paddingRight="16dp"
                     android:gravity="center_vertical"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -148,8 +168,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/busImageView"
                     android:background="@drawable/ic_contact_bus"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/image_bus"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -157,6 +177,9 @@
                     android:text="@string/contact_bus"
                     android:id="@+id/busTextView"
                     android:paddingLeft="32dp"
+                    android:paddingStart="32dp"
+                    android:paddingEnd="16dp"
+                    android:paddingRight="16dp"
                     android:gravity="center_vertical"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -170,15 +193,14 @@
 
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
+            android:id="@+id/contactFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:elevation="4dp"
+            android:layout_alignParentEnd="true"
             android:layout_margin="@dimen/fab_margin"
-            android:src="@drawable/ic_contact_map"
-            android:nestedScrollingEnabled="false"/>
+            android:src="@drawable/ic_contact_map"/>
 
 
     </RelativeLayout>
