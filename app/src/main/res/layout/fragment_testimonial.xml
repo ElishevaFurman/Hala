@@ -39,7 +39,6 @@
             android:layout_marginLeft="@dimen/default_margin"
             android:layout_marginStart="@dimen/default_margin"
             style="@style/App_CardLayout_Button"
-
             android:layout_column="0"
             android:layout_row="0"
             android:layout_marginTop="@dimen/default_margin">

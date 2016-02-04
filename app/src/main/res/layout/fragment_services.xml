@@ -1,0 +1,311 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context="com.example.faigy.hala.ServicesFragment">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="2"
+        android:rowCount="4">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        style="@style/App_CardLayout_Button"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="0dp"
+        android:layout_column="0"
+        android:layout_columnSpan="2"
+        android:layout_row="0">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/services"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tomosynthesis"/>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cardViewServices"
+        style="@style/App_CardLayout_Button"
+        android:layout_column="0"
+        android:layout_row="1"
+        android:layout_marginTop="@dimen/default_margin">
+        <RelativeLayout
+            android:layout_width="125dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:text="Services"
+                android:gravity="center_vertical"
+                android:paddingRight="8dp"
+                android:paddingLeft="8dp"
+                android:layout_weight="2"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/colorAccentLight" >
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:src="@drawable/ic_service_arrow_right"
+                android:background="@color/colorAccentLight"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cardViewNeedle"
+            style="@style/App_CardLayout_Button"
+            android:layout_gravity="right"
+            android:layout_column="1"
+            android:layout_row="1"
+            android:layout_marginTop="@dimen/default_margin">
+            <RelativeLayout
+                android:layout_width="125dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:text="Services"
+                        android:gravity="center_vertical"
+                        android:paddingRight="8dp"
+                        android:paddingLeft="8dp"
+                        android:layout_weight="2"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorAccentLight" >
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|right"
+                            android:src="@drawable/ic_service_arrow_right"
+                            android:background="@color/colorAccentLight"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cardViewServi3"
+            style="@style/App_CardLayout_Button"
+            android:layout_column="0"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_row="2">
+            <RelativeLayout
+                android:layout_width="125dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:text="Services"
+                        android:gravity="center_vertical"
+                        android:paddingRight="8dp"
+                        android:paddingLeft="8dp"
+                        android:layout_weight="2"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorAccentLight" >
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|right"
+                            android:src="@drawable/ic_service_arrow_right"
+                            android:background="@color/colorAccentLight"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cardViewNeedle3"
+            style="@style/App_CardLayout_Button"
+            android:layout_gravity="right"
+            android:layout_column="1"
+            android:layout_row="2"
+            android:layout_marginTop="@dimen/default_margin">
+            <RelativeLayout
+                android:layout_width="125dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:text="Services"
+                        android:gravity="center_vertical"
+                        android:paddingRight="8dp"
+                        android:paddingLeft="8dp"
+                        android:layout_weight="2"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorAccentLight" >
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|right"
+                            android:src="@drawable/ic_service_arrow_right"
+                            android:background="@color/colorAccentLight"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cardViewServices3"
+            style="@style/App_CardLayout_Button"
+            android:layout_column="0"
+            android:layout_row="3"
+            android:layout_marginTop="@dimen/default_margin">
+            <RelativeLayout
+                android:layout_width="125dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:text="Services"
+                        android:gravity="center_vertical"
+                        android:paddingRight="8dp"
+                        android:paddingLeft="8dp"
+                        android:layout_weight="2"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorAccentLight" >
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|right"
+                            android:src="@drawable/ic_service_arrow_right"
+                            android:background="@color/colorAccentLight"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cardView3"
+            style="@style/App_CardLayout_Button"
+            android:layout_gravity="right"
+            android:layout_column="1"
+            android:layout_row="3"
+            android:layout_marginTop="@dimen/default_margin">
+            <RelativeLayout
+                android:layout_width="125dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:text="Services"
+                        android:gravity="center_vertical"
+                        android:paddingRight="8dp"
+                        android:paddingLeft="8dp"
+                        android:layout_weight="2"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorAccentLight" >
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|right"
+                            android:src="@drawable/ic_service_arrow_right"
+                            android:background="@color/colorAccentLight"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+    </GridLayout>
+
+</RelativeLayout>

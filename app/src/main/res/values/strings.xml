@@ -80,10 +80,10 @@
      screening diagnostic clinic.</string>
  <string name="the_hala_advantage_fact2">Hala is committed to providing a new level of diagnostic
      expertise in the field of breast cancer detection</string>
- <string name="the_hala_advantage_fact3">At Hala, all exams and procedures are conducted in one visit.</string>
+    <string name="the_hala_advantage_fact3">At Hala, all exams and procedures are conducted in one visit.</string>
  <string name="the_hala_advantage_fact4">At Hala, exam results, other than biopsy, are given to
      the patient on the spot.</string>
- <string name="the_hala_advantage_fact5">Hala has an unsurpassed detection rate of 98.7%.</string>
+    <string name="the_hala_advantage_fact5">Hala has an unsurpassed detection rate of 98.7%.</string>
  <string name="the_hala_advantage_fact6">Hala\'s detection rate is a 31% increase from
      non-comprehensive models.</string>
  <string name="the_hala_advantage_fact7">Hala has reduced false positives (incorrect diagnoses
@@ -103,6 +103,8 @@
      <string name="the_hala_advantage_fact14">Hala has screened over 150,000 women in the Middle
          East over the past 15 years.</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
