@@ -28,6 +28,9 @@ public class MainActivity extends AppCompatActivity
     AskFragment askFragment;
     FAQFragment faqFragment;
     TestimonialViewFragment testimonialViewFragment;
+    InTheNewsFragment inTheNewsFragment;
+    InTheNewsArticleFragment inTheNewsArticleFragment;
+    ServicesFragment servicesFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +87,12 @@ public class MainActivity extends AppCompatActivity
         faqFragment.setMainActivity(this);
         testimonialViewFragment = new TestimonialViewFragment();
         testimonialViewFragment.setMainActivity(this);
+        inTheNewsFragment = new InTheNewsFragment();
+        inTheNewsFragment.setMainActivity(this);
+        inTheNewsArticleFragment = new InTheNewsArticleFragment();
+        inTheNewsArticleFragment.setMainActivity(this);
+        servicesFragment = new ServicesFragment();
+        servicesFragment.setMainActivity(this);
     }
 
     /**
@@ -141,13 +150,16 @@ public class MainActivity extends AppCompatActivity
             removeFragments(aboutUsFragment);
             getSupportFragmentManager().beginTransaction().replace(R.id.container,
                     ourTeamFragment).addToBackStack("Team List Fragment").commit();
-
         } else if (id == R.id.nav_services) {
             removeFragments(aboutUsFragment);
             removeFragments(ourTeamFragment);
+            getFragmentManager().beginTransaction().replace(R.id.container, servicesFragment)
+                    .addToBackStack("Services").commit();
         } else if (id == R.id.nav_news) {
             removeFragments(aboutUsFragment);
             removeFragments(ourTeamFragment);
+            getFragmentManager().beginTransaction().replace(R.id.container,
+                    inTheNewsFragment).addToBackStack("In the news").commit();
         } else if (id == R.id.nav_testimonials) {
             removeFragments(aboutUsFragment);
             removeFragments(ourTeamFragment);

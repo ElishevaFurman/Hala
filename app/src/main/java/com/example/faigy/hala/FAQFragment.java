@@ -97,7 +97,7 @@ public class FAQFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
 
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListener() {
+        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListenerInterface() {
             @Override
             public void onClick(View view, int position) {
                 // Check for an expanded view, collapse if you find one
@@ -132,13 +132,6 @@ public class FAQFragment extends Fragment {
     public void setMainActivity(MainActivity mainActivity){
         this.mainActivity = mainActivity;
     }
-
-    public interface ClickListener {
-        void onClick(View view, int position);
-
-        void onLongClick(View view, int position);
-    }
-
 
 }
 

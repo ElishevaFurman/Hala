@@ -8,51 +8,87 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:padding="@dimen/activity_horizontal_margin"
-            android:src="@mipmap/dr_yamin_cohen" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:padding="@dimen/activity_horizontal_margin"
+                android:src="@mipmap/dr_yamin_cohen" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingRight="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    android:id="@+id/txtName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="Team member"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="18dp" />
+
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:text="title"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="right"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="36dp">
+            <ImageButton
+                android:id="@+id/expandArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:background="#fff"
+                android:src="@drawable/ic_expand_more"
+                android:contentDescription="@string/image_description"/>
+</LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/expandLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txtName"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:gravity="center_vertical"
-                android:text="Team member"
-                android:textColor="@color/colorPrimaryText"
-                android:textSize="18dp" />
-
-
-            <TextView
-                android:id="@+id/title"
+                android:id="@+id/answerTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center_vertical"
-                android:text="title"
-                android:textSize="14dp" />
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="50dp"
-                android:src="@drawable/ic_expand_more_24dp" />
+                android:paddingBottom="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="Dr. Cohen is Hala’s Acting Senior Medical Officer.
+                 Dr. Cohen did his medical training in his native South Africa at the University
+                  of Witwatersrand in Johannesburg. In 1995"/>
 
         </LinearLayout>
-
     </LinearLayout>
 </android.support.v7.widget.CardView>
