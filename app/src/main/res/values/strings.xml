@@ -45,10 +45,10 @@
     <string name="contact">CONTACT</string>
 
     <!-- fragment_testimonials -->
-    <string name="testimonial1">Sarah Brown</string>
-    <string name="testimonial2">Lady Sharon Harel-Cohen</string>
-    <string name="testimonial3">Susan G. Comen for the Cure</string>
-    <string name="testimonial4">Israel\'s Ministry of Health</string>
+    <string name="testimonial1">SARAH BROWN</string>
+    <string name="testimonial2">LADY SHARON HAREL - COHEN</string>
+    <string name="testimonial3">SUSAN G. COMEN</string>
+    <string name="testimonial4">ISRAEL\'S MINISTRY OF HEALTH</string>
     <string name="image_testimonial">image testimonial</string>
     <string name="testimonial_title"><![CDATA[Hear<br />what<br />people<br />are<br />saying<br />about<br />Hala!]]></string>
 
@@ -64,7 +64,7 @@
 
     <!-- fragment_our_mission -->
     <string name="image_description">image description</string>
-    <string name="our_mission_title">Hala\'s mission is to save lives. How?</string>
+    <string name="our_mission_title">HALA\'S MISSION IS TO SAVE LIVES. HOW?</string>
     <string name="our_mission_fact1">By providing the most advanced, comprehensive breast cancer
         screening and diagnostic center in Israel.</string>
    <string name="our_mission_fact2">By giving women the necessary exams in one place, at one time,
@@ -102,6 +102,25 @@
      abroad who are creating state-of-the-art breast imaging and cancer identification technologies.</string>
      <string name="the_hala_advantage_fact14">Hala has screened over 150,000 women in the Middle
          East over the past 15 years.</string>
+
+    <!-- fragment_help_us_grow -->
+    <string name="help_us_grow_fact1">An expanded diagnostic clinic</string>
+    <string name="help_us_grow_fact2">One of the world\'s most advanced, and Israel’s first,
+        breast-dedicated MRI Unit</string>
+    <string name="help_us_grow_fact3">A LumaGem Molecular Breast Imaging System (press here to get
+        Lavi\'s letter)</string>
+    <string name="help_us_grow_fact4">Tomosynthesis digital mammography units</string>
+    <string name="help_us_grow_fact5">An international research center for breast cancer experts in
+        Israel and around the world</string>
+    <string name="help_us_grow_fact6">Expanded laboratory facilities</string>
+    <string name="help_us_grow_fact7">A new live-tissue bank (press here to get Advantests’s letter)</string>
+    <string name="help_us_grow_fact8">A call center</string>
+    <string name="help_us_grow_fact9">Pre- and post-operation care unit for ongoing and follow-up
+        consultation</string>
+
+
+
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

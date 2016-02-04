@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity
     InTheNewsFragment inTheNewsFragment;
     InTheNewsArticleFragment inTheNewsArticleFragment;
     ServicesFragment servicesFragment;
+    HelpUsGrowFragment helpUsGrowFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +94,8 @@ public class MainActivity extends AppCompatActivity
         inTheNewsArticleFragment.setMainActivity(this);
         servicesFragment = new ServicesFragment();
         servicesFragment.setMainActivity(this);
+        helpUsGrowFragment = new HelpUsGrowFragment();
+        helpUsGrowFragment.setMainActivity(this);
     }
 
     /**
@@ -168,6 +171,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_grow) {
             removeFragments(aboutUsFragment);
             removeFragments(ourTeamFragment);
+            getFragmentManager().beginTransaction().replace(R.id.container,
+                    helpUsGrowFragment).addToBackStack("Help us grow").commit();
         } else if (id == R.id.nav_donate) {
             removeFragments(aboutUsFragment);
             removeFragments(ourTeamFragment);

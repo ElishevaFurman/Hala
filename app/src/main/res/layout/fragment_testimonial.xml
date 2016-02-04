@@ -55,7 +55,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/testimonial1"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/colorPrimary"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
 
         </RelativeLayout>
 
@@ -84,7 +85,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/testimonial2"
-                    android:textColor="@color/colorPrimary"/>
+                    android:textColor="@color/colorPrimary"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
 
             </RelativeLayout>
 
@@ -113,6 +115,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/testimonial3"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorPrimary"/>
 
             </RelativeLayout>
@@ -142,7 +145,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/testimonial4"
-                    android:textColor="@color/colorPrimary"/>
+                    android:textColor="@color/colorPrimary"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
 
             </RelativeLayout>
 
