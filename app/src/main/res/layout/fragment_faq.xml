@@ -1,23 +1,55 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.faigy.hala.FAQFragment">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:scrollbars="vertical"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_height="200dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryExtraLight"
+            android:id="@+id/topLayout"
+            android:text="ASK THE EXPERTS"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:textColor="@color/colorIcons"
+            android:textSize="24dp"
+            />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:scrollbars="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/askFab"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_add_24dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
+        app:layout_anchor="@id/topLayout"
+        app:layout_anchorGravity="bottom|right"
 
-</RelativeLayout>
+        >
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/askFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin"
+            android:layout_marginBottom="-8dp"
+            android:src="@drawable/ic_add_24dp"
+
+            />
+    </android.support.design.widget.CoordinatorLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
