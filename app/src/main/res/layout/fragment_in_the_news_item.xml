@@ -8,16 +8,30 @@
     android:orientation="vertical"
     android:padding="@dimen/activity_horizontal_margin">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="title"
+        android:layout_weight="1"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/colorPrimaryText"
-        android:layout_marginBottom="@dimen/activity_horizontal_margin"
-        android:textStyle="bold" />
+        android:layout_marginBottom="@dimen/activity_horizontal_margin" />
 
+        <ImageView
+            android:id="@+id/topImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_markunread_24dp" />
+
+</LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,6 +44,7 @@
             android:layout_weight="1"
             android:layout_below="@id/titleTextView"
             android:text="publication"
+            android:textColor="@color/colorSecondaryText"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
@@ -40,7 +55,7 @@
             android:layout_weight="1"
             android:text="date"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/colorPrimaryText" />
+            android:textColor="@color/colorSecondaryText" />
     </LinearLayout>
 
 </LinearLayout>

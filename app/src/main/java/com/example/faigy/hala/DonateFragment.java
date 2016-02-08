@@ -2,19 +2,15 @@ package com.example.faigy.hala;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by Home on 2/4/2016.
+ * Created by Home on 2/7/2016.
  */
-public class HelpUsGrowFragment extends Fragment {
+public class DonateFragment extends Fragment {
     MainActivity mainActivity;
-    // Declare Controls
-    FloatingActionButton fab;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,24 +20,16 @@ public class HelpUsGrowFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_help_us_grow, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_donate_now, container, false);
         // Initialize the views for this fragment
         initializeViews(rootView);
         return rootView;
     }
 
     public void initializeViews(final View rootView) {
-        fab = (FloatingActionButton) rootView.findViewById(R.id.askFab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               Util.replaceFragment(mainActivity.donateFragment, "Donate now");
-            }
-        });
 
     }
-
-    public void setMainActivity(MainActivity mainActivity) {
+    public void setMainActivity(MainActivity mainActivity){
         this.mainActivity = mainActivity;
     }
 }

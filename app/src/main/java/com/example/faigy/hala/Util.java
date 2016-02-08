@@ -1,6 +1,7 @@
 package com.example.faigy.hala;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Context;
 
 /**
@@ -62,4 +63,16 @@ public class Util extends Activity {
         setActivity(activity);
     }
 
-}
+    /**
+     * Function to add / replace fragment
+     *
+     * @param fragment - new fragment
+     * @param tag      - tag to add along with the fragment to the back stack
+     */
+    public static void replaceFragment(Fragment fragment, String tag) {
+        // replace fragment in container
+        Util.getActivity().getFragmentManager().beginTransaction().replace(R.id.container,
+                fragment).addToBackStack(tag).commit();
+    }
+
+    }

@@ -2,15 +2,15 @@ package com.example.faigy.hala;
 
 import android.os.Bundle;
 import android.support.design.widget.*;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class AboutUsFragment extends android.support.v4.app.Fragment {
+public class AboutUsFragment extends Fragment {
 
     // Declare controls
     TabLayout tabLayout;

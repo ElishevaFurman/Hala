@@ -1,7 +1,7 @@
 package com.example.faigy.hala;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity
     InTheNewsArticleFragment inTheNewsArticleFragment;
     ServicesFragment servicesFragment;
     HelpUsGrowFragment helpUsGrowFragment;
+    DonateFragment donateFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +97,8 @@ public class MainActivity extends AppCompatActivity
         servicesFragment.setMainActivity(this);
         helpUsGrowFragment = new HelpUsGrowFragment();
         helpUsGrowFragment.setMainActivity(this);
+        donateFragment = new DonateFragment();
+        donateFragment.setMainActivity(this);
     }
 
     /**
@@ -130,71 +133,33 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            removeFragments(aboutUsFragment);
-            removeFragments(ourTeamFragment);
-            getFragmentManager().beginTransaction().replace(R.id.container,
-                    homeFragment).addToBackStack("Home").commit();
-
+            Util.replaceFragment(homeFragment, "Home");
         } else if (id == R.id.nav_about) {
-            removeFragments(ourTeamFragment);
-            android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            // Replace whatever is in the fragment_container view with this fragment,
-            // and add the transaction to the back stack
-            transaction.replace(R.id.container, aboutUsFragment);
-            transaction.addToBackStack("About us");
-            // Commit the transaction
-            transaction.commit();
-//            getSupportFragmentManager().beginTransaction().replace(R.id.container,
-//                    aboutUsFragment).addToBackStack("About us").commit();
+            Util.replaceFragment(aboutUsFragment, "About us");
         } else if (id == R.id.nav_team) {
-            if (homeFragment != null && homeFragment.isVisible()) {
-                getFragmentManager().beginTransaction().remove(homeFragment).commit();
-            }
-            removeFragments(aboutUsFragment);
-            getSupportFragmentManager().beginTransaction().replace(R.id.container,
-                    ourTeamFragment).addToBackStack("Team List Fragment").commit();
+            Util.replaceFragment(ourTeamFragment, "Team List Fragment");
         } else if (id == R.id.nav_services) {
-            removeFragments(aboutUsFragment);
-            removeFragments(ourTeamFragment);
-            getFragmentManager().beginTransaction().replace(R.id.container, servicesFragment)
-                    .addToBackStack("Services").commit();
+            Util.replaceFragment(servicesFragment, "Services");
         } else if (id == R.id.nav_news) {
-            removeFragments(aboutUsFragment);
-            removeFragments(ourTeamFragment);
-            getFragmentManager().beginTransaction().replace(R.id.container,
-                    inTheNewsFragment).addToBackStack("In the news").commit();
+            Util.replaceFragment(inTheNewsFragment, "In the news");
         } else if (id == R.id.nav_testimonials) {
-            removeFragments(aboutUsFragment);
-            removeFragments(ourTeamFragment);
-            getFragmentManager().beginTransaction().replace(R.id.container,
-                    testimonialFragment).addToBackStack("Testimonial").commit();
+            Util.replaceFragment(testimonialFragment, "Testimonials");
         } else if (id == R.id.nav_grow) {
-            removeFragments(aboutUsFragment);
-            removeFragments(ourTeamFragment);
-            getFragmentManager().beginTransaction().replace(R.id.container,
-                    helpUsGrowFragment).addToBackStack("Help us grow").commit();
+            Util.replaceFragment(helpUsGrowFragment, "Help us grow");
         } else if (id == R.id.nav_donate) {
-            removeFragments(aboutUsFragment);
-            removeFragments(ourTeamFragment);
+            Util.replaceFragment(donateFragment, "Donate now");
         } else if (id == R.id.nav_contact) {
-            removeFragments(aboutUsFragment);
-            removeFragments(ourTeamFragment);
-            getFragmentManager().beginTransaction().replace(R.id.container,
-                    contactFragment).addToBackStack("Contact").commit();
+            Util.replaceFragment(contactFragment, "Contact");
         } else if (id == R.id.nav_faqs) {
-            removeFragments(aboutUsFragment);
-            removeFragments(ourTeamFragment);
-            getFragmentManager().beginTransaction().replace(R.id.container,
-                    faqFragment).addToBackStack("FAQ").commit();
+            Util.replaceFragment(faqFragment, "FAQ");
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    public void removeFragments(Fragment fragment) {
-        if (fragment != null && fragment.isVisible()) {
-            getSupportFragmentManager().beginTransaction().remove(fragment).commit();
-        }
+    public void replaceFragments(Fragment fragment, String tag) {
+        getFragmentManager().beginTransaction().replace(R.id.container,
+                fragment).addToBackStack(tag).commit();
     }
     
 

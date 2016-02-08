@@ -1,6 +1,6 @@
 package com.example.faigy.hala;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,20 +26,4 @@ AboutUsFragment aboutUsFragment;
         return inflater.inflate(R.layout.fragment_our_mission, container, false);
     }
 
-//    @Override
-//    public void onPause() {
-//        super.onPause();
-//
-//        aboutUsFragment.viewPager.setVisibility(View.GONE);
-//        aboutUsFragment.tabLayout.setVisibility(View.GONE);
-//
-//    }
-//
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//
-//        aboutUsFragment.viewPager.setVisibility(View.VISIBLE);
-//        aboutUsFragment.tabLayout.setVisibility(View.VISIBLE);
-//    }
 }
