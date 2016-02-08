@@ -37,7 +37,8 @@ public class HomeFragment extends Fragment {
         // Initialize the views for this fragment
         initializeViews(rootView);
         registerListeners();
-
+        // set toolbar title
+        Util.setToolbarTitle("Home", mainActivity.toolbar);
         return rootView;
     }
 

@@ -23,6 +23,8 @@ public class DonateFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_donate_now, container, false);
         // Initialize the views for this fragment
         initializeViews(rootView);
+        // set toolbar title
+        Util.setToolbarTitle("Donate now", mainActivity.toolbar);
         return rootView;
     }
 

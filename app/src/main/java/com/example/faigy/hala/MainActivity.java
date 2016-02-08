@@ -1,5 +1,6 @@
 package com.example.faigy.hala;
 
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.NavigationView;
@@ -9,6 +10,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity
     ServicesFragment servicesFragment;
     HelpUsGrowFragment helpUsGrowFragment;
     DonateFragment donateFragment;
+    ServiceDetailFragment serviceDetailFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,7 @@ public class MainActivity extends AppCompatActivity
         initializeViews();
         initializeFragments();
         inflateScrollViewWithFragment();
+        //setupToolbar();
     }
 
     /**
@@ -99,6 +103,8 @@ public class MainActivity extends AppCompatActivity
         helpUsGrowFragment.setMainActivity(this);
         donateFragment = new DonateFragment();
         donateFragment.setMainActivity(this);
+        serviceDetailFragment = new ServiceDetailFragment();
+        serviceDetailFragment.setMainActivity(this);
     }
 
     /**
@@ -156,10 +162,15 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-    public void replaceFragments(Fragment fragment, String tag) {
-        getFragmentManager().beginTransaction().replace(R.id.container,
-                fragment).addToBackStack(tag).commit();
+    /**
+     * Function to set up toolBar
+     */
+    private void setupToolbar() {
+        assert getSupportActionBar() != null;
+        // designate toolbar as the action bar for this activity
+        setSupportActionBar(toolbar);
+        // set title
+        getSupportActionBar().setTitle("Hala");
     }
     
 

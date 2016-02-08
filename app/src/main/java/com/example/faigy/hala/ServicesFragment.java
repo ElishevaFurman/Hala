@@ -33,12 +33,20 @@ public class ServicesFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_services, container, false);
         // Initialize the views for tis fragment
         initializeViews(rootView);
+        // set toolbar title
+        Util.setToolbarTitle("Services", mainActivity.toolbar);
         return rootView;
     }
 
     public void initializeViews(View rootView){
-//        CardView card = (CardView) rootView.findViewById(R.id.cardViewServices);
-//        card.setCardBackgroundColor(R.color.colorAccentLight);
+        CardView card = (CardView) rootView.findViewById(R.id.tomosynthesisCardView);
+
+        card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Util.replaceFragment(mainActivity.serviceDetailFragment, "Service Detail");
+            }
+        });
 
     }
 

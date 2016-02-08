@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import org.joda.time.LocalDate;
@@ -45,6 +46,8 @@ public class InTheNewsFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_in_the_news, container, false);
         // Initialize the views for this fragment
         initializeViews(rootView);
+        // set toolbar title
+        Util.setToolbarTitle("In the news", mainActivity.toolbar);
         return rootView;
     }
 
@@ -62,17 +65,20 @@ public class InTheNewsFragment extends Fragment {
         recyclerView.setAdapter(mAdapter);
         prepareNewsData();
 
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListenerInterface() {
-            @Override
-            public void onClick(View view, int position) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://m.jpost.com/In-Jerusalem/A-revolution-in-the-haredi-community-438940#article=6030QzIzMUJBMUZDNDcxNDFDQzNDRkVDMEE2M0I0NkU3MEQ=")));
-            }
+//        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListenerInterface() {
+//            @Override
+//            public void onClick(View view, int position) {
+//                startActivity(new Intent(Intent.ACTION_VIEW,
+//                        Uri.parse("http://m.jpost.com/In-Jerusalem/A-revolution-in-the-haredi-community-438940#article=6030QzIzMUJBMUZDNDcxNDFDQzNDRkVDMEE2M0I0NkU3MEQ=")));
+//            }
+//
+//            @Override
+//            public void onLongClick(View view, int position) {
+//
+//            }
+//        }));
 
-            @Override
-            public void onLongClick(View view, int position) {
 
-            }
-        }));
     }
 
     /**

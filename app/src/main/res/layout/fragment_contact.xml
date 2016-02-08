@@ -35,6 +35,7 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
+                android:id="@+id/addressLinearLayout"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -65,6 +66,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/phoneLinearLayout"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -96,6 +98,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/faxLinearLayout"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -125,6 +128,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/emailLinearLayout"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -156,6 +160,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/busesLinearLayout"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

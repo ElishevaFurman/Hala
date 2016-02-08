@@ -3,6 +3,10 @@ package com.example.faigy.hala;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 /**
  * Created by Home on 1/28/2016.
@@ -71,8 +75,122 @@ public class Util extends Activity {
      */
     public static void replaceFragment(Fragment fragment, String tag) {
         // replace fragment in container
-        Util.getActivity().getFragmentManager().beginTransaction().replace(R.id.container,
+        getActivity().getFragmentManager().beginTransaction().replace(R.id.container,
                 fragment).addToBackStack(tag).commit();
     }
 
+    /**
+     * Function to set title of toolbar
+     *
+     * @param toolbarTitle - int of string reference to add as toolbar title
+     * @param toolbar      - set title to this toolbar
+     */
+    public static void setToolbarTitle(String toolbarTitle, Toolbar toolbar) {
+        // set toolbar title
+        toolbar.setTitle(toolbarTitle);
     }
+
+    /**
+     * Function to open Google Maps with address populated
+     *
+     * @param address - address that is added to Uri for intent
+     */
+    public static void navigationIntent(String address) {
+        // Create a Uri from an intent string. Use the result to create an Intent.
+        Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + address);
+
+        // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        // Make the Intent explicit by setting the Google Maps package
+        mapIntent.setPackage("com.google.android.apps.maps");
+
+        // Attempt to start an activity that can handle the Intent
+        if (mapIntent.resolveActivity(context.getPackageManager()) != null) {
+            activity.startActivity(mapIntent);
+        }
+    }
+
+
+
+    /**
+     * Function to make a call with an intent
+     *
+     * @param number - number to call
+     */
+    public static void callIntent(String number) {
+        // Create a Uri from an intent string. Use the result to create an Intent.
+        Uri call = Uri.parse("tel:" + number);
+        // Create an Intent. Set the action to ACTION_CALL and send uri
+        Intent intent = new Intent(Intent.ACTION_CALL, call);
+
+        // Attempt to start an activity that can handle the Intent
+        if (intent.resolveActivity(context.getPackageManager()) != null) {
+            activity.startActivity(intent);
+        } else {
+            // Show message: "No phone clients installed."
+            Toast.makeText(context, "No phone clients installed.",
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /**
+     * Function to send email with an intent
+     *
+     * @param addresses - array of email addresses
+     * @param subject   - subject line of email
+     */
+    public static void composeEmail(String[] addresses, String subject) {
+        // Create an Intent. Set the action to ACTION_SENDTO
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        // Only email apps should handle this
+        // Create a Uri from an intent string.
+        intent.setData(Uri.parse("mailto:"));
+        // Add addresses to intent
+        intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+        // Add subject to intent
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+
+        // Attempt to start an activity that can handle the Intent
+        if (intent.resolveActivity(context.getPackageManager()) != null) {
+            activity.startActivity(intent);
+        } else {
+            // Show message: "No email clients installed."
+            Toast.makeText(context, "No email clients installed.",
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+    /**
+     * Function to send email with an intent
+     *
+     * @param addresses - array of email addresses
+     * @param subject   - subject line of email
+     */
+    public static void composeEmail2(String[] addresses, String subject, String link) {
+        // Create an Intent. Set the action to ACTION_SENDTO
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        // Only email apps should handle this
+        // Create a Uri from an intent string.
+        intent.setData(Uri.parse("mailto:"));
+        // Add addresses to intent
+        intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+        // Add subject to intent
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+
+        // Add subject to intent
+        intent.putExtra(Intent.EXTRA_TEXT, link);
+
+        // Attempt to start an activity that can handle the Intent
+        if (intent.resolveActivity(context.getPackageManager()) != null) {
+            activity.startActivity(intent);
+        } else {
+            // Show message: "No email clients installed."
+            Toast.makeText(context, "No email clients installed.",
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+
+}

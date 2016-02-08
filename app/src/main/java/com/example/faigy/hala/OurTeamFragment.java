@@ -32,7 +32,8 @@ public class OurTeamFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_our_team, container, false);
         initializeViews(rootView);
-
+        // set toolbar title
+        Util.setToolbarTitle("Our team", mainActivity.toolbar);
         return rootView;
     }
 
