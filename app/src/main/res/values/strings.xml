@@ -118,7 +118,22 @@
     <string name="help_us_grow_fact9">Pre- and post-operation care unit for ongoing and follow-up
         consultation</string>
 
+    <!-- fragment_service_detail -->
+    <string name="service1">ISRAEL\'S FIRST 3D TOMOSYNTHESIS SYSTEM AND C-VIEW SYNTHESIZER</string>
+    <string name="service3">PHYSICAL EXAM</string>
+    <string name="service2">DIGITAL MAMMOGRAPHY</string>
+    <string name="service5">NEEDLE BIOPSY</string>
+    <string name="service6">RESULTS</string>
+    <string name="service4">BREAST ULTRASOUND</string>
+    <string name="service7">STEREOTACTIC PRONE TABLE BIOPSY</string>
 
+
+
+    <!-- fragment_service_detail -->
+    <string name="impact_button">BE PART OF THE IMPACT!</string>
+
+    <!-- fragment_faq-->
+    <string name="faq_title">ASK THE DOCTOR</string>
 
 
 

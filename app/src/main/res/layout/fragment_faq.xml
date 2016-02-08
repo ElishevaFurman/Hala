@@ -15,11 +15,11 @@
             android:layout_weight="1"
             android:background="@color/colorPrimaryExtraLight"
             android:id="@+id/topLayout"
-            android:text="ASK THE EXPERTS"
+            android:text="@string/faq_title"
             android:gravity="center_vertical"
             android:padding="16dp"
             android:textColor="@color/colorIcons"
-            android:textSize="24dp"
+            android:textSize="24sp"
             />
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"

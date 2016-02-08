@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.faigy.hala.ServiceDetailFragment"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/serviceDetailImageView"
+        android:src="@drawable/service"
+        android:layout_gravity="top"
+        android:adjustViewBounds="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="The goal of a mammogram is the early detection of breast cancer, typically through detection of characteristic masses and/or microcalcifications.  Digital mammography, a technique which allows technicians to manipulate images and observe them at the highest possible resolution, has proven to be an extremely effective tool in early detection."
+        android:id="@+id/textView7"
+        android:layout_gravity="right"
+        android:padding="16dp"/>
+</LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorAccent">
+    <TextView
+        android:id="@+id/flashingTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/impact_button"
+        android:gravity="center"
+        android:textColor="@color/colorIcons"
+        android:layout_alignParentBottom="true"
+        android:padding="16dp"/>
+    </LinearLayout>
+</RelativeLayout>

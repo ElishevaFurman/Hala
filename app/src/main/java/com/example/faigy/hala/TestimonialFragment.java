@@ -4,6 +4,7 @@ package com.example.faigy.hala;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.CardView;
 import android.text.Html;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ public class TestimonialFragment extends Fragment {
     MainActivity mainActivity;
     TextView titleTextView;
     ImageView imageView;
+    CardView cardView;
     int height;
     int width;
 
@@ -40,7 +42,9 @@ public class TestimonialFragment extends Fragment {
 
         // Initialize the views for this fragment
         initializeViews(rootView);
-        //getScreenDimensions();
+
+        // set toolbar title
+        Util.setToolbarTitle("Testimonials", mainActivity.toolbar);
 
         return rootView;
     }
@@ -48,7 +52,13 @@ public class TestimonialFragment extends Fragment {
     public void initializeViews(View rootView) {
         titleTextView = (TextView) rootView.findViewById(R.id.titleTextView);
         titleTextView.setText(Html.fromHtml(getString(R.string.testimonial_title)));
-
+        cardView = (CardView) rootView.findViewById(R.id.testimonialCardView);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Util.replaceFragment(mainActivity.testimonialViewFragment, "Testimonial View");
+            }
+        });
         imageView = (ImageView) rootView.findViewById(R.id.testimonialImageView);
 
     }
