@@ -47,9 +47,9 @@ public class ContactFragment extends Fragment {
         initializeViews(rootView);
         registerListeners();
         // set toolbar title
-        Util.setToolbarTitle(R.string.fragment_contact, mainActivity.toolbar);
+       // Util.setToolbarTitle(R.string.fragment_contact, mainActivity.toolbar);
         // unlock navigation drawer
-        mainActivity.openNavigationDrawer();
+        //mainActivity.openNavigationDrawer();
         return rootView;
 
     }  /**

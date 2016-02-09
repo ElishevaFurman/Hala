@@ -34,8 +34,6 @@ public class ContactFormFragment extends Fragment {
         initializeViews(rootView);
         // set toolbar title
         Util.setToolbarTitle(R.string.fragment_contact, mainActivity.toolbar);
-        // set back icon on toolbar
-        Util.enableBackButton(R.drawable.ic_arrow_back_24dp, mainActivity.toolbar, mainActivity.drawer);
 
         return rootView;
 

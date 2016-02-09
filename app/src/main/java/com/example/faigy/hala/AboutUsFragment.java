@@ -47,8 +47,8 @@ public class AboutUsFragment extends Fragment {
     public void initializeViews(View rootView) {
         // initialize and reference controls
         tabLayout = (TabLayout) rootView.findViewById(R.id.tabLayout);
+        tabLayout.addTab(tabLayout.newTab().setText("Our Location"));
         tabLayout.addTab(tabLayout.newTab().setText("Our Mission"));
-        tabLayout.addTab(tabLayout.newTab().setText("The Hala Advantage"));
         viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
         viewPager.setAdapter(new PagerAdapter
                 (getChildFragmentManager(), tabLayout.getTabCount()));
@@ -85,7 +85,7 @@ public class AboutUsFragment extends Fragment {
 
             switch (position) {
                 case 0:
-                    OurMissionFragment tab1 = new OurMissionFragment();
+                    ContactFragment tab1 = new ContactFragment();
                     return tab1;
                 case 1:
                     TheHalaAdvantageFragment tab2 = new TheHalaAdvantageFragment();

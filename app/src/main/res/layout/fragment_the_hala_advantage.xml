@@ -28,7 +28,7 @@
                 android:layout_marginTop="@dimen/activity_horizontal_margin"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/image_description"
-                android:src="@drawable/hala_capture" />
+                android:src="@drawable/hala_keys" />
 
 
             <LinearLayout
@@ -44,7 +44,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
-                    android:background="@drawable/ic_radio_button_off_24dp"
+                    android:background="@drawable/ic_done_24dp"
                     android:contentDescription="@string/image_description" />
 
                 <TextView
@@ -72,7 +72,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
-                    android:background="@drawable/ic_radio_button_off_24dp"
+                    android:background="@drawable/ic_done_24dp"
                     android:contentDescription="@string/image_description" />
 
                 <TextView
@@ -99,7 +99,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
-                    android:background="@drawable/ic_radio_button_off_24dp"
+                    android:background="@drawable/ic_done_24dp"
                     android:contentDescription="@string/image_description" />
 
                 <TextView
@@ -127,7 +127,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
-                    android:background="@drawable/ic_radio_button_off_24dp"
+                    android:background="@drawable/ic_done_24dp"
                     android:contentDescription="@string/image_description" />
 
                 <TextView
@@ -155,7 +155,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
-                    android:background="@drawable/ic_radio_button_off_24dp"
+                    android:background="@drawable/ic_done_24dp"
                     android:contentDescription="@string/image_description" />
 
                 <TextView
@@ -183,7 +183,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
-                    android:background="@drawable/ic_radio_button_off_24dp"
+                    android:background="@drawable/ic_done_24dp"
                     android:contentDescription="@string/image_description" />
 
                 <TextView
@@ -210,7 +210,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
-                    android:background="@drawable/ic_radio_button_off_24dp"
+                    android:background="@drawable/ic_done_24dp"
                     android:contentDescription="@string/image_description" />
 
                 <TextView
@@ -237,7 +237,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
-                    android:background="@drawable/ic_radio_button_off_24dp"
+                    android:background="@drawable/ic_done_24dp"
                     android:contentDescription="@string/image_description" />
 
                 <TextView
@@ -265,7 +265,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
-                    android:background="@drawable/ic_radio_button_off_24dp"
+                    android:background="@drawable/ic_done_24dp"
                     android:contentDescription="@string/image_description" />
 
                 <TextView
@@ -293,7 +293,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
-                    android:background="@drawable/ic_radio_button_off_24dp"
+                    android:background="@drawable/ic_done_24dp"
                     android:contentDescription="@string/image_description" />
 
                 <TextView
@@ -321,7 +321,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
-                    android:background="@drawable/ic_radio_button_off_24dp"
+                    android:background="@drawable/ic_done_24dp"
                     android:contentDescription="@string/image_description" />
 
                 <TextView
@@ -348,7 +348,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
-                    android:background="@drawable/ic_radio_button_off_24dp"
+                    android:background="@drawable/ic_done_24dp"
                     android:contentDescription="@string/image_description" />
 
                 <TextView
@@ -376,7 +376,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
-                    android:background="@drawable/ic_radio_button_off_24dp"
+                    android:background="@drawable/ic_done_24dp"
                     android:contentDescription="@string/image_description" />
 
                 <TextView
@@ -403,7 +403,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
-                    android:background="@drawable/ic_radio_button_off_24dp"
+                    android:background="@drawable/ic_done_24dp"
                     android:contentDescription="@string/image_description" />
 
                 <TextView
@@ -414,6 +414,133 @@
                     android:paddingLeft="16dp"
                     android:text="@string/the_hala_advantage_fact14"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bottomLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:text="@string/our_mission_title"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <ImageView
+                        android:id="@+id/imageView15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:background="@drawable/ic_done_24dp"
+                        android:contentDescription="@string/image_description" />
+
+                    <TextView
+                        android:id="@+id/factTextView15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="16dp"
+                        android:text="@string/our_mission_fact1"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <ImageView
+                        android:id="@+id/imageView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:background="@drawable/ic_done_24dp"
+                        android:contentDescription="@string/image_description" />
+
+                    <TextView
+                        android:id="@+id/factTextView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="16dp"
+                        android:text="@string/our_mission_fact2"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <ImageView
+                        android:id="@+id/imageView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:background="@drawable/ic_done_24dp"
+                        android:contentDescription="@string/image_description" />
+
+                    <TextView
+                        android:id="@+id/factTextView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="16dp"
+                        android:text="@string/our_mission_fact2"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <ImageView
+                        android:id="@+id/imageView18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:background="@drawable/ic_done_24dp"
+                        android:contentDescription="@string/image_description" />
+
+                    <TextView
+                        android:id="@+id/factTextView19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="16dp"
+                        android:text="@string/our_mission_fact4"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                </LinearLayout>
 
             </LinearLayout>
 

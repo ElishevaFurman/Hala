@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_donate) {
             Util.replaceFragment(donateFragment, R.string.fragment_donate);
         } else if (id == R.id.nav_contact) {
-            Util.replaceFragment(contactFragment, R.string.fragment_contact);
+            Util.replaceFragment(contactFormFragment, R.string.fragment_contact);
         } else if (id == R.id.nav_faqs) {
             Util.replaceFragment(faqFragment, R.string.fragment_faq);
         }
