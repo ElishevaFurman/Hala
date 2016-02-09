@@ -5,57 +5,70 @@
     android:background="?android:attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true"
-    android:orientation="vertical"
-    android:padding="@dimen/activity_horizontal_margin">
+    android:orientation="vertical">
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
+
+        <LinearLayout
+            android:padding="@dimen/activity_horizontal_margin"
+            android:id="@+id/textLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical">
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="title"
-        android:layout_weight="1"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/colorPrimaryText"
-        android:layout_marginBottom="@dimen/activity_horizontal_margin" />
+        android:layout_marginBottom="8dp" />
 
-        <ImageView
-            android:id="@+id/emailImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:gravity="right"
-            android:adjustViewBounds="true"
-            android:src="@drawable/ic_markunread_24dp" />
+            <TextView
+                android:id="@+id/publicationTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/titleTextView"
+                android:text="publication"
+                android:textColor="@color/colorSecondaryText"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-</LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            <TextView
+                android:id="@+id/dateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="date"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/colorSecondaryText" />
 
-        <TextView
-            android:id="@+id/publicationTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_below="@id/titleTextView"
-            android:text="publication"
-            android:textColor="@color/colorSecondaryText"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+        <LinearLayout
+            android:padding="@dimen/activity_horizontal_margin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/shareLinearLayout"
+            android:layout_weight="4">
 
-        <TextView
-            android:id="@+id/dateTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:layout_weight="1"
-            android:text="date"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/colorSecondaryText" />
+            <ImageView
+                android:id="@+id/emailImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_share_24dp"
+
+                android:layout_gravity="right" />
+        </LinearLayout>
     </LinearLayout>
+
+
 
 </LinearLayout>

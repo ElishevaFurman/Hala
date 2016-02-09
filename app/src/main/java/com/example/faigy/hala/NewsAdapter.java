@@ -1,11 +1,15 @@
 package com.example.faigy.hala;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +25,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
     public class MyNewsHolder extends RecyclerView.ViewHolder {
         public TextView title, publication, date;
         ImageView emailImageView;
+        LinearLayout shareLinearLayout, textLinearLayout;
 
         public MyNewsHolder(View view) {
             super(view);
@@ -28,6 +33,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
             publication = (TextView) view.findViewById(R.id.publicationTextView);
             date = (TextView) view.findViewById(R.id.dateTextView);
             emailImageView = (ImageView)view.findViewById(R.id.emailImageView);
+            shareLinearLayout = (LinearLayout)view.findViewById(R.id.shareLinearLayout);
+            textLinearLayout = (LinearLayout)view.findViewById(R.id.textLinearLayout);
 
 
         }
@@ -63,16 +70,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
         holder.publication.setText(news.getPublication());
         holder.date.setText(news.getDate().toString());
 
-        holder.emailImageView.setOnClickListener(new View.OnClickListener() {
+        holder.shareLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Context context = Util.getContext();
-//                CharSequence text = "item clicked";
-//                int duration = Toast.LENGTH_SHORT;
-//
-//                Toast toast = Toast.makeText(context, text, duration);
-//                toast.show();
-                Util.composeEmail(null,"Hala Article","http://m.jpost.com/In-Jerusalem/A-revolution-in-the-haredi-" +
+                Util.share("http://m.jpost.com/In-Jerusalem/A-revolution-in-the-haredi-" +
                         "community-438940#article=6030QzIzMUJBMUZDNDcxNDFDQzNDRkVDMEE2M0I0NkU3MEQ=");
             }
         });
