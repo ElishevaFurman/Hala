@@ -1,23 +1,23 @@
 package com.example.faigy.hala;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-
-public class ContactFormFragment extends Fragment {
-
-    // Declare Controls
+/**
+ * Created by Home on 2/9/2016.
+ */
+public class About extends Fragment{
+    // Declare controls
     MainActivity mainActivity;
 
-    public ContactFormFragment() {
+
+    public About() {
         // Required empty public constructor
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,11 +29,13 @@ public class ContactFormFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_contact_form, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_the_hala_advantage, container, false);
         // Initialize the views for this fragment
         initializeViews(rootView);
         // set toolbar title
-        //Util.setToolbarTitle(R.string.fragment_contact, mainActivity.toolbar);
+        Util.setToolbarTitle(R.string.fragment_about, mainActivity.toolbar);
+        // set back icon on toolbar
+        //Util.enableBackButton(R.drawable.ic_arrow_back_24dp, mainActivity.toolbar, mainActivity.drawer);
 
         return rootView;
 
@@ -49,4 +51,3 @@ public class ContactFormFragment extends Fragment {
 
 
 }
-

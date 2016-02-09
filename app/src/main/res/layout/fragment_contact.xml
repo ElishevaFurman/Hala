@@ -2,246 +2,214 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.faigy.hala.ContactFragment"
-    >
+    tools:context="com.example.faigy.hala.ContactFragment">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/contact_title"
-            android:id="@+id/titleTextView"
-            android:layout_gravity="center"
-            android:paddingTop="16dp"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:gravity="center"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="16dp" />
-
-        <View
-            style="@style/App_Divider"
-            android:id="@+id/divider1" />
-
-        <LinearLayout
-            android:orientation="vertical"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
+
 
             <LinearLayout
-                android:id="@+id/addressLinearLayout"
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:paddingBottom="16dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/locationImageView"
-                    android:background="@drawable/ic_contact_location"
-                    android:layout_gravity="center"
-                    android:contentDescription="@string/image_location"/>
+                android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/titleTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/contact_location"
-                    android:id="@+id/locationTextView"
-                    android:paddingLeft="32dp"
-                    android:paddingStart="32dp"
-                    android:paddingEnd="16dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingBottom="16dp"
+                    android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:paddingTop="16dp"
-                    android:gravity="center_vertical"
-                    android:textSize="16sp" />
+                    android:text="@string/contact_title"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/divider1"
+                    style="@style/App_Divider" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/addressLinearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingBottom="16dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp">
+
+                        <ImageView
+                            android:id="@+id/locationImageView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_contact_location"
+                            android:contentDescription="@string/image_location" />
+
+                        <TextView
+                            android:id="@+id/locationTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:paddingEnd="16dp"
+                            android:paddingLeft="32dp"
+                            android:paddingRight="16dp"
+                            android:paddingStart="32dp"
+                            android:paddingTop="16dp"
+                            android:text="@string/contact_location"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/phoneLinearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingBottom="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:paddingStart="16dp">
+
+                        <ImageView
+                            android:id="@+id/imageView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_contact_phone"
+                            android:contentDescription="@string/image_phone" />
+
+                        <TextView
+                            android:id="@+id/phoneTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:paddingEnd="16dp"
+                            android:paddingLeft="32dp"
+                            android:paddingRight="16dp"
+                            android:paddingStart="32dp"
+                            android:text="@string/contact_phone"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/faxLinearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingBottom="16dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp">
+
+                        <ImageView
+                            android:id="@+id/faxImageView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_contact_fax"
+                            android:contentDescription="@string/image_fax" />
+
+                        <TextView
+                            android:id="@+id/faxTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:paddingEnd="16dp"
+                            android:paddingLeft="32dp"
+                            android:paddingRight="16dp"
+                            android:paddingStart="32dp"
+                            android:text="@string/contact_fax"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/emailLinearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingBottom="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:paddingStart="16dp">
+
+                        <ImageView
+                            android:id="@+id/emailImageView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_contact_email"
+                            android:contentDescription="@string/image_email" />
+
+                        <TextView
+                            android:id="@+id/emailTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:paddingEnd="16dp"
+                            android:paddingLeft="32dp"
+                            android:paddingRight="16dp"
+                            android:paddingStart="32dp"
+                            android:text="@string/contact_email"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/busesLinearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingBottom="16dp"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp">
+
+                        <ImageView
+                            android:id="@+id/busImageView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_contact_bus"
+                            android:contentDescription="@string/image_bus" />
+
+                        <TextView
+                            android:id="@+id/busTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:paddingEnd="16dp"
+                            android:paddingLeft="32dp"
+                            android:paddingRight="16dp"
+                            android:paddingStart="32dp"
+                            android:text="@string/contact_bus"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/mapView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:clickable="true"
+                        android:src="@drawable/map_view" />
+
+                </LinearLayout>
+
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/phoneLinearLayout"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:paddingEnd="16dp"
-                android:paddingStart="16dp"
-                android:paddingBottom="16dp">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageView5"
-                    android:background="@drawable/ic_contact_phone"
-                    android:layout_gravity="center"
-                    android:contentDescription="@string/image_phone"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/contact_phone"
-                    android:id="@+id/phoneTextView"
-                    android:paddingLeft="32dp"
-                    android:paddingStart="32dp"
-                    android:paddingEnd="16dp"
-                    android:paddingRight="16dp"
-                    android:gravity="center_vertical"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/faxLinearLayout"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:paddingBottom="16dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/faxImageView"
-                    android:background="@drawable/ic_contact_fax"
-                    android:layout_gravity="center"
-                    android:contentDescription="@string/image_fax"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/contact_fax"
-                    android:id="@+id/faxTextView"
-                    android:paddingLeft="32dp"
-                    android:paddingStart="32dp"
-                    android:paddingRight="16dp"
-                    android:paddingEnd="16dp"
-                    android:gravity="center_vertical"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/emailLinearLayout"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="16dp"
-                android:paddingStart="16dp"
-                android:paddingRight="16dp"
-                android:paddingEnd="16dp"
-                android:paddingBottom="16dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/emailImageView"
-                    android:background="@drawable/ic_contact_email"
-                    android:layout_gravity="center"
-                    android:contentDescription="@string/image_email"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/contact_email"
-                    android:id="@+id/emailTextView"
-                    android:paddingLeft="32dp"
-                    android:paddingStart="32dp"
-                    android:paddingEnd="16dp"
-                    android:paddingRight="16dp"
-                    android:gravity="center_vertical"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/busesLinearLayout"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:paddingBottom="16dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/busImageView"
-                    android:background="@drawable/ic_contact_bus"
-                    android:layout_gravity="center"
-                    android:contentDescription="@string/image_bus"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/contact_bus"
-                    android:id="@+id/busTextView"
-                    android:paddingLeft="32dp"
-                    android:paddingStart="32dp"
-                    android:paddingEnd="16dp"
-                    android:paddingRight="16dp"
-                    android:gravity="center_vertical"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/formLinearLayout"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:paddingBottom="16dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/formImageView"
-                    android:background="@drawable/ic_contact_bus"
-                    android:layout_gravity="center"
-                    android:contentDescription="@string/image_bus"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Contact Form"
-                    android:id="@+id/formTextView"
-                    android:paddingLeft="32dp"
-                    android:paddingStart="32dp"
-                    android:paddingEnd="16dp"
-                    android:paddingRight="16dp"
-                    android:gravity="center_vertical"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:src="@drawable/map_view"
-                android:id="@+id/mapView"
-                android:clickable="true"/>
-
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-
-
-    </RelativeLayout>
+        </RelativeLayout>
 
     </ScrollView>
 
@@ -250,11 +218,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_phone_24dp"/>
-
+        android:src="@drawable/ic_phone_24dp" />
 
 
 </RelativeLayout>

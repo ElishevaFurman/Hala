@@ -8,7 +8,7 @@ import android.view.ViewGroup;
  * Created by Home on 1/25/2016.
  */
 public class OurMissionFragment extends Fragment{
-AboutUsFragment aboutUsFragment;
+ContactUsFragment contactUsFragment;
 
     public OurMissionFragment() {
         // Required empty public constructor

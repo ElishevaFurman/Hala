@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class AboutUsFragment extends Fragment {
+public class ContactUsFragment extends Fragment {
 
     // Declare controls
     TabLayout tabLayout;
@@ -19,7 +19,7 @@ public class AboutUsFragment extends Fragment {
     // Declare activities
     MainActivity mainActivity;
 
-    public AboutUsFragment() {
+    public ContactUsFragment() {
 
     }
 
@@ -37,7 +37,7 @@ public class AboutUsFragment extends Fragment {
         // Initialize the views for this fragment
         initializeViews(rootView);
         // set toolbar title
-        Util.setToolbarTitle(R.string.fragment_about, mainActivity.toolbar);
+        Util.setToolbarTitle(R.string.fragment_contact, mainActivity.toolbar);
         return rootView;
     }
 
@@ -48,7 +48,7 @@ public class AboutUsFragment extends Fragment {
         // initialize and reference controls
         tabLayout = (TabLayout) rootView.findViewById(R.id.tabLayout);
         tabLayout.addTab(tabLayout.newTab().setText("Our Location"));
-        tabLayout.addTab(tabLayout.newTab().setText("Our Mission"));
+        tabLayout.addTab(tabLayout.newTab().setText("Contact Form"));
         viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
         viewPager.setAdapter(new PagerAdapter
                 (getChildFragmentManager(), tabLayout.getTabCount()));
@@ -88,7 +88,7 @@ public class AboutUsFragment extends Fragment {
                     ContactFragment tab1 = new ContactFragment();
                     return tab1;
                 case 1:
-                    TheHalaAdvantageFragment tab2 = new TheHalaAdvantageFragment();
+                    ContactFormFragment tab2 = new ContactFormFragment();
                     return tab2;
                 default:
                     return null;

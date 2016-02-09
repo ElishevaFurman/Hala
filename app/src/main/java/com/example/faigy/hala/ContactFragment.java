@@ -78,7 +78,7 @@ public class ContactFragment extends Fragment {
         faxLinearLayout = (LinearLayout) rootView.findViewById(R.id.faxLinearLayout);
         emailLinearLayout = (LinearLayout) rootView.findViewById(R.id.emailLinearLayout);
         busesLinearLayout = (LinearLayout) rootView.findViewById(R.id.busesLinearLayout);
-        formLinearLayout = (LinearLayout) rootView.findViewById(R.id.formLinearLayout);
+
     }
 
 
@@ -93,7 +93,6 @@ public class ContactFragment extends Fragment {
         phoneLinearLayout.setOnClickListener(phoneListener);
         emailLinearLayout.setOnClickListener(emailListener);
         busesLinearLayout.setOnClickListener(busesListener);
-        formLinearLayout.setOnClickListener(contactFormListener);
     }
 
     /**
@@ -142,17 +141,6 @@ public class ContactFragment extends Fragment {
         public void onClick(View v) {
             startActivity(new Intent(Intent.ACTION_VIEW,
                     Uri.parse("http://mslworld.egged.co.il/?language=he&state=2#/search")));
-        }
-    };
-
-    /**
-     * OnClickListener for contactFormListener
-     */
-    View.OnClickListener contactFormListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            // inflate ContactFormFragment
-            Util.replaceFragment(mainActivity.contactFormFragment, R.string.fragment_contact);
         }
     };
 

@@ -9,7 +9,7 @@ import android.view.ViewGroup;
  * Created by Home on 1/25/2016.
  */
 public class TheHalaAdvantageFragment extends Fragment{
-AboutUsFragment aboutUsFragment;
+ContactUsFragment contactUsFragment;
 
     public TheHalaAdvantageFragment() {
         // Required empty public constructor

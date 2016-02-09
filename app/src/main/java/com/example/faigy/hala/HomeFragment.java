@@ -2,13 +2,10 @@ package com.example.faigy.hala;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 /**
  * Created by Home on 1/21/2016.
@@ -61,7 +58,7 @@ public class HomeFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-     Util.replaceFragment(mainActivity.aboutUsFragment, R.string.fragment_about);
+     Util.replaceFragment(mainActivity.contactUsFragment, R.string.fragment_about);
         }
     };
 
@@ -83,7 +80,7 @@ public class HomeFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            Util.replaceFragment(mainActivity.contactFragment, R.string.fragment_contact);
+            Util.replaceFragment(mainActivity.contactFormFragment, R.string.fragment_contact);
         }
     };
     public void setMainActivity(MainActivity mainActivity){

@@ -1,8 +1,6 @@
 package com.example.faigy.hala;
 
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -10,7 +8,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -24,7 +21,7 @@ public class MainActivity extends AppCompatActivity
     HomeFragment homeFragment;
     ContactFragment contactFragment;
     ContactFormFragment contactFormFragment;
-    AboutUsFragment aboutUsFragment;
+    ContactUsFragment contactUsFragment;
     TestimonialFragment testimonialFragment;
     TeamListFragment teamListFragment;
     OurTeamFragment ourTeamFragment;
@@ -35,6 +32,7 @@ public class MainActivity extends AppCompatActivity
     HelpUsGrowFragment helpUsGrowFragment;
     DonateFragment donateFragment;
     ServiceDetailFragment serviceDetailFragment;
+    About about;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,8 +82,8 @@ public class MainActivity extends AppCompatActivity
         contactFragment.setMainActivity(this);
         contactFormFragment = new ContactFormFragment();
         contactFormFragment.setMainActivity(this);
-        aboutUsFragment = new AboutUsFragment();
-        aboutUsFragment.setMainActivity(this);
+        contactUsFragment = new ContactUsFragment();
+        contactUsFragment.setMainActivity(this);
         testimonialFragment = new TestimonialFragment();
         testimonialFragment.setMainActivity(this);
         teamListFragment = new TeamListFragment();
@@ -106,6 +104,8 @@ public class MainActivity extends AppCompatActivity
         donateFragment.setMainActivity(this);
         serviceDetailFragment = new ServiceDetailFragment();
         serviceDetailFragment.setMainActivity(this);
+        about = new About();
+        about.setMainActivity(this);
     }
 
     /**
@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             Util.replaceFragment(homeFragment, R.string.fragment_home);
         } else if (id == R.id.nav_about) {
-            Util.replaceFragment(aboutUsFragment, R.string.fragment_about);
+            Util.replaceFragment(about, R.string.fragment_about);
         } else if (id == R.id.nav_team) {
             Util.replaceFragment(ourTeamFragment, R.string.fragment_team);
         } else if (id == R.id.nav_services) {
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_donate) {
             Util.replaceFragment(donateFragment, R.string.fragment_donate);
         } else if (id == R.id.nav_contact) {
-            Util.replaceFragment(contactFormFragment, R.string.fragment_contact);
+            Util.replaceFragment(contactUsFragment, R.string.fragment_contact);
         } else if (id == R.id.nav_faqs) {
             Util.replaceFragment(faqFragment, R.string.fragment_faq);
         }
