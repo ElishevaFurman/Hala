@@ -1,19 +1,13 @@
 package com.example.faigy.hala;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Movie;
-import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.content.Intent;
-import android.net.Uri;
 
 import java.util.List;
 
@@ -54,7 +48,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Util.showArticle();
+                Util.openUrlInBrowser("http://m.jpost.com/In-Jerusalem/A-revolution-in-the-haredi-" +
+                        "community-438940#article=6030QzIzMUJBMUZDNDcxNDFDQzNDRkVDMEE2M0I0NkU3MEQ=");
             }
         });
 

@@ -56,9 +56,11 @@ public class TestimonialFragment extends Fragment {
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Util.replaceFragment(mainActivity.testimonialViewFragment, "Testimonial View");
+
+                Util.openUrlInBrowser("http://www.hala.org.il/Image/uploaded/lady-sarrah-letr-medium.jpg");
             }
         });
+
         imageView = (ImageView) rootView.findViewById(R.id.testimonialImageView);
 
     }

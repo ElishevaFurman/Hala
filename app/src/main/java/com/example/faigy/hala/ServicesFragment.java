@@ -35,6 +35,9 @@ public class ServicesFragment extends Fragment {
         initializeViews(rootView);
         // set toolbar title
         Util.setToolbarTitle("Services", mainActivity.toolbar);
+        // set navigation drawer to toggle
+        mainActivity.openNavigationDrawer();
+
         return rootView;
     }
 

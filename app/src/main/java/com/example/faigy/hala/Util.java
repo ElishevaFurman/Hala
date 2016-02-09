@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.Toast;
 
 /**
@@ -89,6 +92,25 @@ public class Util extends Activity {
         // set toolbar title
         toolbar.setTitle(toolbarTitle);
     }
+
+    /**
+     *
+     * @param icon - drawable for the toolbar icon
+     * @param toolbar - set the icon to this toolbar
+     */
+    public static void enableBackButton(int icon, Toolbar toolbar, DrawerLayout drawer) {
+        toolbar.setNavigationIcon(icon);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.getFragmentManager().popBackStack();
+            }
+        });
+
+        drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+    }
+
+
 
     /**
      * Function to open Google Maps with address populated
@@ -194,9 +216,9 @@ public class Util extends Activity {
      * Function to open link of article in browser
      *
      */
-    public static void showArticle() {
+    public static void openUrlInBrowser(String url) {
         getActivity().startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("http://m.jpost.com/In-Jerusalem/A-revolution-in-the-haredi-community-438940#article=6030QzIzMUJBMUZDNDcxNDFDQzNDRkVDMEE2M0I0NkU3MEQ=")));
+                        Uri.parse(url)));
 
     }
 }

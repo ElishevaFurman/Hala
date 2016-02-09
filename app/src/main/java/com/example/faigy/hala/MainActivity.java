@@ -58,16 +58,20 @@ public class MainActivity extends AppCompatActivity
         // initialize and reference controls
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        openNavigationDrawer();
+    }
+
+    public void openNavigationDrawer(){
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
     }
+
 
     /**
      * Function to instantiate fragments

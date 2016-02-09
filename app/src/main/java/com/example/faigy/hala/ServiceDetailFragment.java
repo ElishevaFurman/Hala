@@ -33,6 +33,11 @@ public class ServiceDetailFragment extends Fragment {
 
         // Initialize the views for this fragment
         initializeViews(rootView);
+        // set toolbar title
+        Util.setToolbarTitle("Tomosynthesis", mainActivity.toolbar);
+        //set back button on toolbar
+        Util.enableBackButton(R.drawable.ic_arrow_back_24dp, mainActivity.toolbar, mainActivity.drawer);
+
         return rootView;
     }
 

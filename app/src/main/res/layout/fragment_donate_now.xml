@@ -25,7 +25,8 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:alpha="0.4"
-        android:src="@drawable/hala_image2" />
+        android:src="@drawable/hala_image2"
+        android:contentDescription="@string/image_description"/>
 
     <TextView
         android:id="@+id/bannerTextView"
@@ -38,7 +39,8 @@
         android:text="HELP US MAKE A DIFFERENCE!"
         android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/colorPrimaryLight" />
+        android:textColor="@color/colorPrimaryLight"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
 
@@ -87,15 +89,13 @@
 
     <android.support.v7.widget.CardView
         android:layout_gravity="start"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/App_CardLayout_Button"
-        android:layout_column="0"
-        android:layout_row="3"
         android:layout_marginTop="16dp">
 
         <RelativeLayout
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:gravity="center">
@@ -117,15 +117,13 @@
 
     <android.support.v7.widget.CardView
         android:layout_gravity="start"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/App_CardLayout_Button"
-        android:layout_column="0"
-        android:layout_row="3"
         android:layout_marginTop="16dp">
 
         <RelativeLayout
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:gravity="center">
@@ -146,15 +144,13 @@
 
     <android.support.v7.widget.CardView
         android:layout_gravity="start"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/App_CardLayout_Button"
-        android:layout_column="0"
-        android:layout_row="3"
         android:layout_marginTop="16dp">
 
         <RelativeLayout
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:gravity="center">

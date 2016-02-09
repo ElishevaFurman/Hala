@@ -35,6 +35,9 @@ public class AskFragment extends Fragment {
         initializeViews(rootView);
         // set toolbar title
         Util.setToolbarTitle("Ask", mainActivity.toolbar);
+        // set back icon on toolbar
+        Util.enableBackButton(R.drawable.ic_arrow_back_24dp, mainActivity.toolbar, mainActivity.drawer);
+
         return rootView;
 
         }
