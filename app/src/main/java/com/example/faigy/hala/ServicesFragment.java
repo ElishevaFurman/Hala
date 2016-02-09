@@ -34,7 +34,7 @@ public class ServicesFragment extends Fragment {
         // Initialize the views for tis fragment
         initializeViews(rootView);
         // set toolbar title
-        Util.setToolbarTitle("Services", mainActivity.toolbar);
+        Util.setToolbarTitle(R.string.fragment_services, mainActivity.toolbar);
         // set navigation drawer to toggle
         mainActivity.openNavigationDrawer();
 
@@ -47,7 +47,7 @@ public class ServicesFragment extends Fragment {
         card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Util.replaceFragment(mainActivity.serviceDetailFragment, "Service Detail");
+                Util.replaceFragment(mainActivity.serviceDetailFragment, R.string.fragment_service_Detail);
             }
         });
 

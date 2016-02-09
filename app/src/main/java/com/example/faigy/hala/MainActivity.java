@@ -23,15 +23,14 @@ public class MainActivity extends AppCompatActivity
     // Declare Fragments
     HomeFragment homeFragment;
     ContactFragment contactFragment;
+    ContactFormFragment contactFormFragment;
     AboutUsFragment aboutUsFragment;
     TestimonialFragment testimonialFragment;
     TeamListFragment teamListFragment;
     OurTeamFragment ourTeamFragment;
     AskFragment askFragment;
     FAQFragment faqFragment;
-    TestimonialViewFragment testimonialViewFragment;
     InTheNewsFragment inTheNewsFragment;
-    InTheNewsArticleFragment inTheNewsArticleFragment;
     ServicesFragment servicesFragment;
     HelpUsGrowFragment helpUsGrowFragment;
     DonateFragment donateFragment;
@@ -83,12 +82,12 @@ public class MainActivity extends AppCompatActivity
         homeFragment.setMainActivity(this);
         contactFragment = new ContactFragment();
         contactFragment.setMainActivity(this);
+        contactFormFragment = new ContactFormFragment();
+        contactFormFragment.setMainActivity(this);
         aboutUsFragment = new AboutUsFragment();
         aboutUsFragment.setMainActivity(this);
         testimonialFragment = new TestimonialFragment();
         testimonialFragment.setMainActivity(this);
-        testimonialViewFragment = new TestimonialViewFragment();
-        testimonialViewFragment.setMainActivity(this);
         teamListFragment = new TeamListFragment();
         teamListFragment.setMainActivity(this);
         ourTeamFragment = new OurTeamFragment();
@@ -97,12 +96,8 @@ public class MainActivity extends AppCompatActivity
         askFragment.setMainActivity(this);
         faqFragment = new FAQFragment();
         faqFragment.setMainActivity(this);
-        testimonialViewFragment = new TestimonialViewFragment();
-        testimonialViewFragment.setMainActivity(this);
         inTheNewsFragment = new InTheNewsFragment();
         inTheNewsFragment.setMainActivity(this);
-        inTheNewsArticleFragment = new InTheNewsArticleFragment();
-        inTheNewsArticleFragment.setMainActivity(this);
         servicesFragment = new ServicesFragment();
         servicesFragment.setMainActivity(this);
         helpUsGrowFragment = new HelpUsGrowFragment();
@@ -145,25 +140,25 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            Util.replaceFragment(homeFragment, "Home");
+            Util.replaceFragment(homeFragment, R.string.fragment_home);
         } else if (id == R.id.nav_about) {
-            Util.replaceFragment(aboutUsFragment, "About us");
+            Util.replaceFragment(aboutUsFragment, R.string.fragment_about);
         } else if (id == R.id.nav_team) {
-            Util.replaceFragment(ourTeamFragment, "Team List Fragment");
+            Util.replaceFragment(ourTeamFragment, R.string.fragment_team);
         } else if (id == R.id.nav_services) {
-            Util.replaceFragment(servicesFragment, "Services");
+            Util.replaceFragment(servicesFragment, R.string.fragment_services);
         } else if (id == R.id.nav_news) {
-            Util.replaceFragment(inTheNewsFragment, "In the news");
+            Util.replaceFragment(inTheNewsFragment, R.string.fragment_news);
         } else if (id == R.id.nav_testimonials) {
-            Util.replaceFragment(testimonialFragment, "Testimonials");
+            Util.replaceFragment(testimonialFragment, R.string.fragment_testimonials);
         } else if (id == R.id.nav_grow) {
-            Util.replaceFragment(helpUsGrowFragment, "Help us grow");
+            Util.replaceFragment(helpUsGrowFragment, R.string.fragment_grow);
         } else if (id == R.id.nav_donate) {
-            Util.replaceFragment(donateFragment, "Donate now");
+            Util.replaceFragment(donateFragment, R.string.fragment_donate);
         } else if (id == R.id.nav_contact) {
-            Util.replaceFragment(contactFragment, "Contact");
+            Util.replaceFragment(contactFragment, R.string.fragment_contact);
         } else if (id == R.id.nav_faqs) {
-            Util.replaceFragment(faqFragment, "FAQ");
+            Util.replaceFragment(faqFragment, R.string.fragment_faq);
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;

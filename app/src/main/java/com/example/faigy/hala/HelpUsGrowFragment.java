@@ -28,7 +28,7 @@ public class HelpUsGrowFragment extends Fragment {
         // Initialize the views for this fragment
         initializeViews(rootView);
         // set toolbar title
-        Util.setToolbarTitle("Help us grow", mainActivity.toolbar);
+        Util.setToolbarTitle(R.string.fragment_grow, mainActivity.toolbar);
         return rootView;
     }
 
@@ -37,7 +37,7 @@ public class HelpUsGrowFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Util.replaceFragment(mainActivity.donateFragment, "Donate now");
+               Util.replaceFragment(mainActivity.donateFragment, R.string.fragment_donate);
             }
         });
 

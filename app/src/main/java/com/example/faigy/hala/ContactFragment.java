@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -24,7 +25,8 @@ public class ContactFragment extends Fragment {
     TextView titleTextView, locationTextView, phoneTextView, emailTextView;
     FloatingActionButton mapFab;
     LinearLayout addressLinearLayout, phoneLinearLayout, faxLinearLayout, emailLinearLayout,
-    busesLinearLayout;
+    busesLinearLayout, formLinearLayout;
+    ImageView mapView;
 
     public ContactFragment() {
         // Required empty public constructor
@@ -45,7 +47,9 @@ public class ContactFragment extends Fragment {
         initializeViews(rootView);
         registerListeners();
         // set toolbar title
-        Util.setToolbarTitle("Contact us", mainActivity.toolbar);
+        Util.setToolbarTitle(R.string.fragment_contact, mainActivity.toolbar);
+        // unlock navigation drawer
+        mainActivity.openNavigationDrawer();
         return rootView;
 
     }  /**
@@ -67,12 +71,14 @@ public class ContactFragment extends Fragment {
 
         mapFab = (FloatingActionButton) rootView.findViewById(R.id.contactFab);
 
-        addressLinearLayout = (LinearLayout)rootView.findViewById(R.id.addressLinearLayout);
-        phoneLinearLayout = (LinearLayout)rootView.findViewById(R.id.phoneLinearLayout);
-        faxLinearLayout = (LinearLayout)rootView.findViewById(R.id.faxLinearLayout);
-        emailLinearLayout = (LinearLayout)rootView.findViewById(R.id.emailLinearLayout);
-        busesLinearLayout = (LinearLayout)rootView.findViewById(R.id.busesLinearLayout);
+        mapView = (ImageView) rootView.findViewById(R.id.mapView);
 
+        addressLinearLayout = (LinearLayout) rootView.findViewById(R.id.addressLinearLayout);
+        phoneLinearLayout = (LinearLayout )rootView.findViewById(R.id.phoneLinearLayout);
+        faxLinearLayout = (LinearLayout) rootView.findViewById(R.id.faxLinearLayout);
+        emailLinearLayout = (LinearLayout) rootView.findViewById(R.id.emailLinearLayout);
+        busesLinearLayout = (LinearLayout) rootView.findViewById(R.id.busesLinearLayout);
+        formLinearLayout = (LinearLayout) rootView.findViewById(R.id.formLinearLayout);
     }
 
 
@@ -81,11 +87,13 @@ public class ContactFragment extends Fragment {
      */
     private void registerListeners() {
         // set onClickListeners
-        mapFab.setOnClickListener(addressListener);
+        mapView.setOnClickListener(addressListener);
+        mapFab.setOnClickListener(phoneListener);
         addressLinearLayout.setOnClickListener(addressListener);
         phoneLinearLayout.setOnClickListener(phoneListener);
         emailLinearLayout.setOnClickListener(emailListener);
         busesLinearLayout.setOnClickListener(busesListener);
+        formLinearLayout.setOnClickListener(contactFormListener);
     }
 
     /**
@@ -122,7 +130,7 @@ public class ContactFragment extends Fragment {
             // subject line
             String subject = "Contact Hala";
             // compose email using email address and subject line
-            Util.composeEmail(addresses, subject,null);
+            Util.composeEmail(addresses, subject, null);
         }
     };
 
@@ -134,6 +142,17 @@ public class ContactFragment extends Fragment {
         public void onClick(View v) {
             startActivity(new Intent(Intent.ACTION_VIEW,
                     Uri.parse("http://mslworld.egged.co.il/?language=he&state=2#/search")));
+        }
+    };
+
+    /**
+     * OnClickListener for contactFormListener
+     */
+    View.OnClickListener contactFormListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            // inflate ContactFormFragment
+            Util.replaceFragment(mainActivity.contactFormFragment, R.string.fragment_contact);
         }
     };
 

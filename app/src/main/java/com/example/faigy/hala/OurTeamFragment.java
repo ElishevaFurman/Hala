@@ -33,7 +33,7 @@ public class OurTeamFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_our_team, container, false);
         initializeViews(rootView);
         // set toolbar title
-        Util.setToolbarTitle("Our team", mainActivity.toolbar);
+        Util.setToolbarTitle(R.string.fragment_team, mainActivity.toolbar);
         return rootView;
     }
 

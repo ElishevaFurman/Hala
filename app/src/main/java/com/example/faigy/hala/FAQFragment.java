@@ -36,7 +36,7 @@ public class FAQFragment extends Fragment {
         // Initialize the views for this fragment
         initializeViews(rootView);
         // set toolbar title
-        Util.setToolbarTitle("Faq", mainActivity.toolbar);
+        Util.setToolbarTitle(R.string.fragment_faq, mainActivity.toolbar);
         mainActivity.openNavigationDrawer();
 
         return rootView;

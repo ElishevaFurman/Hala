@@ -4,12 +4,18 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Parcelable;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Home on 1/28/2016.
@@ -76,10 +82,10 @@ public class Util extends Activity {
      * @param fragment - new fragment
      * @param tag      - tag to add along with the fragment to the back stack
      */
-    public static void replaceFragment(Fragment fragment, String tag) {
+    public static void replaceFragment(Fragment fragment, int tag) {
         // replace fragment in container
         getActivity().getFragmentManager().beginTransaction().replace(R.id.container,
-                fragment).addToBackStack(tag).commit();
+                fragment).addToBackStack(tag + "").commit();
     }
 
     /**
@@ -88,7 +94,7 @@ public class Util extends Activity {
      * @param toolbarTitle - int of string reference to add as toolbar title
      * @param toolbar      - set title to this toolbar
      */
-    public static void setToolbarTitle(String toolbarTitle, Toolbar toolbar) {
+    public static void setToolbarTitle(int toolbarTitle, Toolbar toolbar) {
         // set toolbar title
         toolbar.setTitle(toolbarTitle);
     }
@@ -192,6 +198,31 @@ public class Util extends Activity {
         getActivity().startActivity(new Intent(Intent.ACTION_VIEW,
                 Uri.parse(url)));
 
+    }
+
+    public static void share(String link) {
+        List<Intent> targetedShareIntents = new ArrayList<Intent>();
+        Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        List<ResolveInfo> resInfo = activity.getPackageManager().queryIntentActivities(shareIntent, 0);
+        if (!resInfo.isEmpty()) {
+            for (ResolveInfo resolveInfo : resInfo) {
+                String packageName = resolveInfo.activityInfo.packageName;
+                Intent targetedShareIntent = new Intent(android.content.Intent.ACTION_SEND);
+                targetedShareIntent.setType("text/plain");
+                targetedShareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "hala article");
+                if (TextUtils.equals(packageName, "com.facebook.katana")) {
+                    targetedShareIntent.putExtra(android.content.Intent.EXTRA_TEXT, link);
+                } else {
+                    targetedShareIntent.putExtra(android.content.Intent.EXTRA_TEXT, link);
+                }
+                targetedShareIntent.setPackage(packageName);
+                targetedShareIntents.add(targetedShareIntent);
+            }
+            Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), "Select app to share");
+            chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
+            activity.startActivity(chooserIntent);
+        }
     }
 }
 

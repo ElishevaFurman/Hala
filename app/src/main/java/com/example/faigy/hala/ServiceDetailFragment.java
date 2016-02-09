@@ -34,7 +34,7 @@ public class ServiceDetailFragment extends Fragment {
         // Initialize the views for this fragment
         initializeViews(rootView);
         // set toolbar title
-        Util.setToolbarTitle("Tomosynthesis", mainActivity.toolbar);
+        Util.setToolbarTitle(R.string.fragment_service_Detail, mainActivity.toolbar);
         //set back button on toolbar
         Util.enableBackButton(R.drawable.ic_arrow_back_24dp, mainActivity.toolbar, mainActivity.drawer);
 
@@ -46,7 +46,7 @@ public class ServiceDetailFragment extends Fragment {
         flashingTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Util.replaceFragment(mainActivity.helpUsGrowFragment, "Help Us Grow");
+                Util.replaceFragment(mainActivity.helpUsGrowFragment, R.string.fragment_grow);
             }
         });
 

@@ -44,7 +44,7 @@ public class TestimonialFragment extends Fragment {
         initializeViews(rootView);
 
         // set toolbar title
-        Util.setToolbarTitle("Testimonials", mainActivity.toolbar);
+        Util.setToolbarTitle(R.string.fragment_testimonials, mainActivity.toolbar);
 
         return rootView;
     }

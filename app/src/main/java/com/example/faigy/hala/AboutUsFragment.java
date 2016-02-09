@@ -37,7 +37,7 @@ public class AboutUsFragment extends Fragment {
         // Initialize the views for this fragment
         initializeViews(rootView);
         // set toolbar title
-        Util.setToolbarTitle("About us", mainActivity.toolbar);
+        Util.setToolbarTitle(R.string.fragment_about, mainActivity.toolbar);
         return rootView;
     }
 

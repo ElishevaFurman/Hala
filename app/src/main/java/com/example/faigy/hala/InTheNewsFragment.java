@@ -47,7 +47,7 @@ public class InTheNewsFragment extends Fragment {
         // Initialize the views for this fragment
         initializeViews(rootView);
         // set toolbar title
-        Util.setToolbarTitle("In the news", mainActivity.toolbar);
+        Util.setToolbarTitle(R.string.fragment_news, mainActivity.toolbar);
         return rootView;
     }
 

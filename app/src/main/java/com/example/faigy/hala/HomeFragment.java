@@ -38,7 +38,7 @@ public class HomeFragment extends Fragment {
         initializeViews(rootView);
         registerListeners();
         // set toolbar title
-        Util.setToolbarTitle("Home", mainActivity.toolbar);
+        Util.setToolbarTitle(R.string.fragment_home, mainActivity.toolbar);
         return rootView;
     }
 
@@ -61,7 +61,7 @@ public class HomeFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-     Util.replaceFragment(mainActivity.aboutUsFragment, "About us");
+     Util.replaceFragment(mainActivity.aboutUsFragment, R.string.fragment_about);
         }
     };
 
@@ -72,7 +72,7 @@ public class HomeFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            Util.replaceFragment(mainActivity.servicesFragment, "Services");
+            Util.replaceFragment(mainActivity.servicesFragment, R.string.fragment_services);
         }
     };
 
@@ -83,7 +83,7 @@ public class HomeFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            Util.replaceFragment(mainActivity.contactFragment, "Contact");
+            Util.replaceFragment(mainActivity.contactFragment, R.string.fragment_contact);
         }
     };
     public void setMainActivity(MainActivity mainActivity){
