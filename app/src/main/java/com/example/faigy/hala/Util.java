@@ -94,8 +94,7 @@ public class Util extends Activity {
     }
 
     /**
-     *
-     * @param icon - drawable for the toolbar icon
+     * @param icon    - drawable for the toolbar icon
      * @param toolbar - set the icon to this toolbar
      */
     public static void enableBackButton(int icon, Toolbar toolbar, DrawerLayout drawer) {
@@ -109,7 +108,6 @@ public class Util extends Activity {
 
         drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
     }
-
 
 
     /**
@@ -159,49 +157,24 @@ public class Util extends Activity {
      *
      * @param addresses - array of email addresses
      * @param subject   - subject line of email
+     * @param text      - text for the body of the email
      */
-    public static void composeEmail(String[] addresses, String subject) {
+    public static void composeEmail(String[] addresses, String subject, String text) {
         // Create an Intent. Set the action to ACTION_SENDTO
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         // Only email apps should handle this
         // Create a Uri from an intent string.
         intent.setData(Uri.parse("mailto:"));
-        // Add addresses to intent
-        intent.putExtra(Intent.EXTRA_EMAIL, addresses);
-        // Add subject to intent
-        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-
-        // Attempt to start an activity that can handle the Intent
-        if (intent.resolveActivity(context.getPackageManager()) != null) {
-            activity.startActivity(intent);
-        } else {
-            // Show message: "No email clients installed."
-            Toast.makeText(context, "No email clients installed.",
-                    Toast.LENGTH_SHORT).show();
+        if (addresses != null) {
+            // Add addresses to intent
+            intent.putExtra(Intent.EXTRA_EMAIL, addresses);
         }
-    }
-
-
-    /**
-     * Function to send email with an intent
-     *
-     * @param addresses - array of email addresses
-     * @param subject   - subject line of email
-     */
-    public static void composeEmail2(String[] addresses, String subject, String link) {
-        // Create an Intent. Set the action to ACTION_SENDTO
-        Intent intent = new Intent(Intent.ACTION_SENDTO);
-        // Only email apps should handle this
-        // Create a Uri from an intent string.
-        intent.setData(Uri.parse("mailto:"));
-        // Add addresses to intent
-        intent.putExtra(Intent.EXTRA_EMAIL, addresses);
         // Add subject to intent
         intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-
-        // Add subject to intent
-        intent.putExtra(Intent.EXTRA_TEXT, link);
-
+        if (text != null) {
+            // Add subject to intent
+            intent.putExtra(Intent.EXTRA_TEXT, text);
+        }
         // Attempt to start an activity that can handle the Intent
         if (intent.resolveActivity(context.getPackageManager()) != null) {
             activity.startActivity(intent);
@@ -214,11 +187,10 @@ public class Util extends Activity {
 
     /**
      * Function to open link of article in browser
-     *
      */
     public static void openUrlInBrowser(String url) {
         getActivity().startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse(url)));
+                Uri.parse(url)));
 
     }
 }

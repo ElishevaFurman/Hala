@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity
     public void initializeViews() {
         // initialize and reference controls
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        assert getSupportActionBar() != null;
+        // designate toolbar as the action bar for this activity
         setSupportActionBar(toolbar);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -166,16 +168,5 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-    /**
-     * Function to set up toolBar
-     */
-    private void setupToolbar() {
-        assert getSupportActionBar() != null;
-        // designate toolbar as the action bar for this activity
-        setSupportActionBar(toolbar);
-        // set title
-        getSupportActionBar().setTitle("Hala");
-    }
-    
 
 }

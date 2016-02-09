@@ -66,12 +66,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
         holder.emailImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Context context = Util.getContext();
-                CharSequence text = "item clicked";
-                int duration = Toast.LENGTH_SHORT;
-
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
+//                Context context = Util.getContext();
+//                CharSequence text = "item clicked";
+//                int duration = Toast.LENGTH_SHORT;
+//
+//                Toast toast = Toast.makeText(context, text, duration);
+//                toast.show();
+                Util.composeEmail(null,"Hala Article","http://m.jpost.com/In-Jerusalem/A-revolution-in-the-haredi-" +
+                        "community-438940#article=6030QzIzMUJBMUZDNDcxNDFDQzNDRkVDMEE2M0I0NkU3MEQ=");
             }
         });
 

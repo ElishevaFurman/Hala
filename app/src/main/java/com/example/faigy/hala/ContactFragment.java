@@ -122,7 +122,7 @@ public class ContactFragment extends Fragment {
             // subject line
             String subject = "Contact Hala";
             // compose email using email address and subject line
-            Util.composeEmail(addresses, subject);
+            Util.composeEmail(addresses, subject,null);
         }
     };
 
