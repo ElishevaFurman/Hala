@@ -111,7 +111,6 @@ public class Util extends Activity {
     }
 
 
-
     /**
      * Function to make a call with an intent
      *
@@ -191,6 +190,15 @@ public class Util extends Activity {
         }
     }
 
+    /**
+     * Function to open link of article in browser
+     *
+     */
+    public static void showArticle() {
+        getActivity().startActivity(new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("http://m.jpost.com/In-Jerusalem/A-revolution-in-the-haredi-community-438940#article=6030QzIzMUJBMUZDNDcxNDFDQzNDRkVDMEE2M0I0NkU3MEQ=")));
 
-
+    }
 }
+
+

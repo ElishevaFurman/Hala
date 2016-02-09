@@ -1,7 +1,9 @@
 package com.example.faigy.hala;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Movie;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -10,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Intent;
+import android.net.Uri;
 
 import java.util.List;
 
@@ -45,17 +49,12 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
     public MyNewsHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_in_the_news_item, parent, false);
-//          for recyclerviewitemclicklistener
+
         final MyNewsHolder holder = new MyNewsHolder(itemView);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Context context = Util.getContext();
-                CharSequence text = holder.getAdapterPosition()+"";
-                int duration = Toast.LENGTH_SHORT;
-
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
+                Util.showArticle();
             }
         });
 
