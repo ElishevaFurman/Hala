@@ -36,9 +36,10 @@
 
     <!-- fragment_home -->
     <string name="fragment_home">Home</string>
-    <string name="home_banner_large_text">"THE COMPREHENSIVE MODEL PIONEERED BY HALA REPRESENTS A TRUE REVOLUTION IN PATIENT CARE."</string>
-    <string name="home_banner_small_text">-- Professor Hava Tabenkin</string>
-    <string name="home_banner_small_text2">Head of National Council of Women\'s Health</string>
+    <string name="home_banner_large_text">Hala clinic has gained it\'s reputation as Israel\'s
+        leading and most advanced breast cancer detection center, and probably one of the best in  the world</string>
+    <string name="home_banner_small_text">-- Yaakov Litzman</string>
+    <string name="home_banner_small_text2">Minister of Health, State of Israel</string>
     <string name="about_icon">about icon</string>
     <string name="services_icon">services icon</string>
     <string name="contact_icon">contact icon</string>
@@ -80,6 +81,7 @@
        significantly increase capacity.</string>
 
     <!-- fragment_the_hala_advantage -->
+     <string name="the_hala_advantage_title">THE HALA ADVANTAGE</string>
  <string name="the_hala_advantage_fact1">Hala is Israel\'s only non-profit comprehensive breast
      screening diagnostic clinic.</string>
  <string name="the_hala_advantage_fact2">Hala is committed to providing a new level of diagnostic

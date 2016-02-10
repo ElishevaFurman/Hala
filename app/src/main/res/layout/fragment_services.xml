@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:src="@drawable/services"
+            android:layout_gravity="center"
             android:contentDescription="@string/image_description"/>
 
         <TextView
