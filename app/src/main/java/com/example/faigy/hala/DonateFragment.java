@@ -25,6 +25,8 @@ public class DonateFragment extends Fragment {
         initializeViews(rootView);
         // set toolbar title
         Util.setToolbarTitle(R.string.fragment_donate, mainActivity.toolbar);
+        // set navigation drawer to toggle
+        mainActivity.openNavigationDrawer();
         return rootView;
     }
 

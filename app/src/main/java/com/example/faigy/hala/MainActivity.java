@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity
     HelpUsGrowFragment helpUsGrowFragment;
     DonateFragment donateFragment;
     ServiceDetailFragment serviceDetailFragment;
-    About about;
+    AboutUsFragment aboutUsFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,8 +104,8 @@ public class MainActivity extends AppCompatActivity
         donateFragment.setMainActivity(this);
         serviceDetailFragment = new ServiceDetailFragment();
         serviceDetailFragment.setMainActivity(this);
-        about = new About();
-        about.setMainActivity(this);
+        aboutUsFragment = new AboutUsFragment();
+        aboutUsFragment.setMainActivity(this);
     }
 
     /**
@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             Util.replaceFragment(homeFragment, R.string.fragment_home);
         } else if (id == R.id.nav_about) {
-            Util.replaceFragment(about, R.string.fragment_about);
+            Util.replaceFragment(aboutUsFragment, R.string.fragment_about);
         } else if (id == R.id.nav_team) {
             Util.replaceFragment(ourTeamFragment, R.string.fragment_team);
         } else if (id == R.id.nav_services) {

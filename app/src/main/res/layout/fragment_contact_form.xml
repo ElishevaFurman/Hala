@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
 
     tools:context="layout.AskFragment">
 
@@ -16,13 +17,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/imageView7"
+            android:background="#fff"
             android:contentDescription="@string/image_description"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
+            android:background="@color/colorPrimaryExtraLight"
+            android:alpha="0.3"
             android:id="@+id/imageView8"
             android:contentDescription="@string/image_description"/>
 
@@ -55,12 +58,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin">
+
 
         <android.support.v7.widget.AppCompatEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="32dp"
             android:hint="@string/name_hint"
             android:textColorHint="@color/colorPrimaryLight"
             android:inputType="textCapWords"
@@ -101,29 +110,28 @@
             android:imeOptions="actionDone"
             android:textSize="16sp"
             />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/colorPrimaryLight"
+            android:text="SUBMIT"
+            android:inputType="textCapSentences|textMultiLine|textAutoComplete"
+            android:imeOptions="actionDone"
+            android:textSize="16dp"
+            />
+
+
     </LinearLayout>
 
-
         </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            style="@style/App_CardLayout_Button">
 
-            <android.support.v7.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SUBMIT"
-                android:padding="16dp"
-                android:layout_gravity="center"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimaryLight"
-                android:textSize="16sp"
-                />
-
-        </android.support.v7.widget.CardView>
 
     </LinearLayout>
 

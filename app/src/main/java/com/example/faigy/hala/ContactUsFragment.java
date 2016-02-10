@@ -33,7 +33,7 @@ public class ContactUsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_about_us, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_contact_us, container, false);
         // Initialize the views for this fragment
         initializeViews(rootView);
         // set toolbar title

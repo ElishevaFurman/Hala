@@ -35,9 +35,12 @@
 
 
     <!-- fragment_home -->
-    <string name="fragment_home">Home</string>
+    <string name="fragment_home">Hala</string>
+     <string name="home_banner_large_text2">CANCER IS A WORD. NOT A SENTENCE!</string>
     <string name="home_banner_large_text">Hala clinic has gained it\'s reputation as Israel\'s
         leading and most advanced breast cancer detection center, and probably one of the best in  the world</string>
+        <string name="home_banner_large_text1">HALA CLINIC HAS GAINED IT\'S REPUTATION AS ISRAEL\'S
+            LEADING AND MOST ADVANCED BREAST CANCER DETECTION CENTER, AND PROBABT ONE OF THE BEST IN THE WORLD</string>
     <string name="home_banner_small_text">-- Yaakov Litzman</string>
     <string name="home_banner_small_text2">Minister of Health, State of Israel</string>
     <string name="about_icon">about icon</string>
@@ -54,7 +57,7 @@
     <string name="testimonial3">SUSAN G. COMEN</string>
     <string name="testimonial4">ISRAEL\'S MINISTRY OF HEALTH</string>
     <string name="image_testimonial">image testimonial</string>
-    <string name="testimonial_title"><![CDATA[Hear<br />what<br />people<br />are<br />saying<br />about<br />Hala!]]></string>
+    <string name="testimonial_title">HEAR WHAT PEOPLE ARE SAYING ABOUT HALA</string>
 
     <!-- fragment_testimonial_view -->
     <string name="pdf_view">pdf view</string>
@@ -80,7 +83,7 @@
    <string name="our_mission_fact4">By expanding the Center to include a wider range of services and
        significantly increase capacity.</string>
 
-    <!-- fragment_the_hala_advantage -->
+    <!-- fragment_about_us -->
      <string name="the_hala_advantage_title">THE HALA ADVANTAGE</string>
  <string name="the_hala_advantage_fact1">Hala is Israel\'s only non-profit comprehensive breast
      screening diagnostic clinic.</string>
@@ -126,11 +129,11 @@
 
     <!-- fragment_services -->
     <string name="fragment_services">Services</string>
-    <string name="service1">ISRAEL\'S FIRST 3D TOMOSYNTHESIS SYSTEM AND C-VIEW SYNTHESIZER</string>
+    <string name="service1">TOMOSYNTHESIS SYSTEM</string>
     <string name="service3">PHYSICAL EXAM</string>
     <string name="service2">DIGITAL MAMMOGRAPHY</string>
-    <string name="service5">NEEDLE BIOPSY</string>
-    <string name="service6">RESULTS</string>
+    <string name="service5">RESULTS</string>
+    <string name="service6">NEEDLE BIOPSY</string>
     <string name="service4">BREAST ULTRASOUND</string>
     <string name="service7">STEREOTACTIC PRONE TABLE BIOPSY</string>
 

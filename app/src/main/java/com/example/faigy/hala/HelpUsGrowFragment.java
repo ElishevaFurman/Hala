@@ -29,6 +29,8 @@ public class HelpUsGrowFragment extends Fragment {
         initializeViews(rootView);
         // set toolbar title
         Util.setToolbarTitle(R.string.fragment_grow, mainActivity.toolbar);
+        // set navigation drawer to toggle
+        mainActivity.openNavigationDrawer();
         return rootView;
     }
 

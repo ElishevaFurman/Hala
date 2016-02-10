@@ -9,12 +9,12 @@ import android.view.ViewGroup;
 /**
  * Created by Home on 2/9/2016.
  */
-public class About extends Fragment{
+public class AboutUsFragment extends Fragment{
     // Declare controls
     MainActivity mainActivity;
 
 
-    public About() {
+    public AboutUsFragment() {
         // Required empty public constructor
     }
 
@@ -29,7 +29,7 @@ public class About extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_the_hala_advantage, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_about_us, container, false);
         // Initialize the views for this fragment
         initializeViews(rootView);
         // set toolbar title
