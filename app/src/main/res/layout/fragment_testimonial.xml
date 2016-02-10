@@ -9,161 +9,245 @@
     android:orientation="vertical"
     tools:context="com.example.faigy.hala.TestimonialFragment">
 
-    <LinearLayout
-        android:id="@+id/bannerLinearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:orientation="vertical"
-        app:layout_anchor="@id/relativeLayout"
-        app:layout_anchorGravity="bottom">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/testimonialImageView"
-            android:src="@drawable/testimonials"
-            android:scaleType="fitEnd"
-            android:contentDescription="@string/image_testimonial"/>
-
-    </LinearLayout>
-
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:id="@+id/gridLayout">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/testimonialCardView"
-                android:layout_gravity="start"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/default_margin"
-                style="@style/App_CardLayout_Button"
-                android:layout_marginTop="@dimen/default_margin">
-
-                <RelativeLayout
-                    android:layout_width="175dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:gravity="center">
-
-                    <TextView
-                        android:id="@+id/textView1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/testimonial1"
-                        android:textColor="@color/colorPrimary"
-                        android:textAppearance="?android:attr/textAppearanceSmall"/>
-
-                </RelativeLayout>
-
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:layout_gravity="start"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/default_margin"
-                style="@style/App_CardLayout_Button"
-                android:layout_marginTop="16dp">
-
-                <RelativeLayout
-                    android:layout_width="175dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:gravity="center">
-
-                    <TextView
-                        android:id="@+id/textView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/testimonial2"
-                        android:textColor="@color/colorPrimary"
-                        android:textAppearance="?android:attr/textAppearanceSmall"/>
-
-                </RelativeLayout>
-
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:layout_gravity="start"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/default_margin"
-                style="@style/App_CardLayout_Button"
-                android:layout_marginTop="@dimen/default_margin">
-
-                <RelativeLayout
-                    android:layout_width="175dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:gravity="center">
-
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/testimonial3"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@color/colorPrimary"/>
-
-                </RelativeLayout>
-
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:layout_gravity="start"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/default_margin"
-                style="@style/App_CardLayout_Button"
-                android:layout_marginTop="16dp">
-
-                <RelativeLayout
-                    android:layout_width="175dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:gravity="center">
-
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/testimonial4"
-                        android:textColor="@color/colorPrimary"
-                        android:textAppearance="?android:attr/textAppearanceSmall"/>
-
-                </RelativeLayout>
-
-            </android.support.v7.widget.CardView>
-        </LinearLayout>
-
-
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:padding="16dp">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/testimonial_title"
             android:id="@+id/titleTextView"
-            android:gravity="top|center_horizontal"
-            android:textSize="24sp"
-            android:textStyle="bold"
             android:textColor="@color/colorAccent"
-            android:padding="16dp"
-            android:layout_weight="1"/>
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginBottom="16dp" />
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+            android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/testimonialCardView"
+                    android:layout_gravity="start"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardBackgroundColor="@color/colorIcons"
+                    style="@style/App_CardLayout_Button">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/sarah_brown"
+                            android:layout_margin="3dp" />
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/rounded_rect_image_frame"/>
+
+                    </FrameLayout>
+
+
+
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:layout_gravity="bottom"
+                        android:text="@string/testimonial1"
+                        android:textColor="@color/colorPrimary"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:background="#99ffffff"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"/>
+
+
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_gravity="start"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/default_margin"
+                    style="@style/App_CardLayout_Button">
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/sharon_harell"
+                            android:layout_margin="3dp" />
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/rounded_rect_image_frame"/>
+
+                    </FrameLayout>
+
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:gravity="center"
+                            android:layout_gravity="bottom"
+                            android:text="@string/testimonial2"
+                            android:textColor="@color/colorPrimary"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:background="#99ffffff"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"/>
+
+
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    >
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/testimonialCardView3"
+                    android:layout_gravity="start"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    style="@style/App_CardLayout_Button">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/susan_k"
+                            android:layout_margin="3dp" />
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/rounded_rect_image_frame"/>
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/textView64"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:layout_gravity="bottom"
+                        android:text="@string/testimonial3"
+                        android:textColor="@color/colorPrimary"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:background="#99ffffff"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"/>
+
+                </android.support.v7.widget.CardView>
+                    </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_weight="1">
+
+                <android.support.v7.widget.CardView
+                    android:layout_gravity="start"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/default_margin"
+                    style="@style/App_CardLayout_Button">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/lizman_yaakov"
+                            android:layout_margin="3dp" />
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/rounded_rect_image_frame"/>
+
+                    </FrameLayout>
+
+
+                    <TextView
+                        android:id="@+id/textView0"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:layout_gravity="bottom"
+                        android:text="@string/testimonial4"
+                        android:textColor="@color/colorPrimary"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:background="#99ffffff"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"/>
+
+
+                </android.support.v7.widget.CardView>
+                    </LinearLayout>
+
+            </LinearLayout>
+
 
     </LinearLayout>
 

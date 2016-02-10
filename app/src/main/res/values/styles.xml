@@ -20,7 +20,6 @@
     <!-- CardView style. -->
     <style name="App_CardLayout_Button" parent="CardView">
         <item name="android:layout_gravity">center</item>
-        <item name="android:layout_marginTop">32dp</item>
         <item name="android:clickable">true</item>
         <item name="android:background">@color/colorAccentLight</item>
         <item name="android:foreground">?android:attr/selectableItemBackground</item>

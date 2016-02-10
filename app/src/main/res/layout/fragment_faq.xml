@@ -10,13 +10,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <TextView
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorPrimaryExtraLight"
+            android:background="@drawable/ask"
             android:id="@+id/topLayout"
             android:text="@string/faq_title"
-            android:gravity="center_vertical"
+            android:gravity="top"
             android:padding="16dp"
             android:textColor="@color/colorIcons"
             android:textSize="24sp"

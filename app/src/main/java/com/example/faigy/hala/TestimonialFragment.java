@@ -25,8 +25,7 @@ public class TestimonialFragment extends Fragment {
     TextView titleTextView;
     ImageView imageView;
     CardView cardView;
-    int height;
-    int width;
+
 
 
     public TestimonialFragment() {
@@ -50,8 +49,8 @@ public class TestimonialFragment extends Fragment {
     }
 
     public void initializeViews(View rootView) {
-        titleTextView = (TextView) rootView.findViewById(R.id.titleTextView);
-        titleTextView.setText(Html.fromHtml(getString(R.string.testimonial_title)));
+//        titleTextView = (TextView) rootView.findViewById(R.id.titleTextView);
+//        titleTextView.setText(Html.fromHtml(getString(R.string.testimonial_title)));
         cardView = (CardView) rootView.findViewById(R.id.testimonialCardView);
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +60,7 @@ public class TestimonialFragment extends Fragment {
             }
         });
 
-        imageView = (ImageView) rootView.findViewById(R.id.testimonialImageView);
+
 
     }
 
