@@ -44,12 +44,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:text="@string/our_mission_title"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorAccent"
-                    android:textStyle="bold" />
+                    style="@style/tile_style"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
