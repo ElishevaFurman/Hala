@@ -53,8 +53,8 @@ public class ServiceDetailFragment extends Fragment {
 
         // Set Animation
         Animation anim = new AlphaAnimation(0.0f, 1.0f);
-        anim.setDuration(200); //You can manage the blinking time with this parameter
-        anim.setStartOffset(20);
+        anim.setDuration(1000); //You can manage the blinking time with this parameter
+        anim.setStartOffset(40);
         anim.setRepeatMode(Animation.REVERSE);
         anim.setRepeatCount(Animation.INFINITE);
         flashingTextView.startAnimation(anim);

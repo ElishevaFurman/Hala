@@ -56,7 +56,9 @@ public class TestimonialFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Util.openUrlInBrowser("http://www.hala.org.il/Image/uploaded/lady-sarrah-letr-medium.jpg");
+                String url = "http://www.hala.org.il/Image/uploaded/lady-sarrah-letr-medium.jpg";
+                Util.createDialog("Open Testimonial", "View testimonial in browser", "OPEN", "CANCEL", "url", url);
+
             }
         });
 

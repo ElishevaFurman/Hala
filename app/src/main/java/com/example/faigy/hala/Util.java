@@ -3,12 +3,14 @@ package com.example.faigy.hala;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Parcelable;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
@@ -223,6 +225,37 @@ public class Util extends Activity {
             chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
             activity.startActivity(chooserIntent);
         }
+    }
+
+    public static void createDialog(String title, String message, String positiveButtonText,
+                                    String negativeButtonText, final String tag, final String param) {
+        AlertDialog.Builder builder =
+                new AlertDialog.Builder(Util.getActivity(), R.style.AppCompatAlertDialogStyle);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.setPositiveButton(positiveButtonText, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (tag) {
+
+                    case "call":
+                        callIntent(param);
+                        break;
+                    case "url":
+                        openUrlInBrowser(param);
+                        break;
+                    default:
+                        break;
+
+                }
+
+            }
+        });
+
+
+        builder.setNegativeButton(negativeButtonText, null);
+        builder.show();
+
     }
 }
 

@@ -55,8 +55,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Util.openUrlInBrowser("http://m.jpost.com/In-Jerusalem/A-revolution-in-the-haredi-" +
-                        "community-438940#article=6030QzIzMUJBMUZDNDcxNDFDQzNDRkVDMEE2M0I0NkU3MEQ=");
+                String url = "http://m.jpost.com/In-Jerusalem/A-revolution-in-the-haredi-" +
+                        "community-438940#article=6030QzIzMUJBMUZDNDcxNDFDQzNDRkVDMEE2M0I0NkU3MEQ=";
+                Util.createDialog("Open Article", "View article in browser", "OPEN", "CANCEL", "url", url);
             }
         });
 

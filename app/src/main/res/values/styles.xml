@@ -17,6 +17,13 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <!-- Dialog style.-->
+    <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/colorPrimaryText</item>
+        <item name="android:background">@color/colorIcons</item>
+    </style>
+
     <!-- CardView style. -->
     <style name="App_CardLayout_Button" parent="CardView">
         <item name="android:layout_gravity">center</item>

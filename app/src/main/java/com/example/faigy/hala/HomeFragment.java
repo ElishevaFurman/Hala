@@ -81,7 +81,11 @@ public class HomeFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            Util.replaceFragment(mainActivity.contactUsFragment, R.string.fragment_contact);
+
+
+                Util.replaceFragment(mainActivity.contactUsFragment, R.string.fragment_contact);
+
+
         }
     };
     public void setMainActivity(MainActivity mainActivity){

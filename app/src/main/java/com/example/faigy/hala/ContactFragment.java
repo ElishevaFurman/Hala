@@ -1,6 +1,7 @@
 package com.example.faigy.hala;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.support.v7.app.AlertDialog;
 
 
 public class ContactFragment extends Fragment {
@@ -112,7 +114,8 @@ public class ContactFragment extends Fragment {
     View.OnClickListener phoneListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-        Util.callIntent(phoneTextView.getText().toString());
+
+           Util.createDialog("Call Hala", "Call", "CALL", "CANCEL", "call", "02-659-5533");
         }
     };
 
@@ -143,6 +146,7 @@ public class ContactFragment extends Fragment {
                     Uri.parse("http://mslworld.egged.co.il/?language=he&state=2#/search")));
         }
     };
+
 
     public void setMainActivity(MainActivity mainActivity){
         this.mainActivity = mainActivity;
