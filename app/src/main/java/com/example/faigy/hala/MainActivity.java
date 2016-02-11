@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity
     DonateFragment donateFragment;
     ServiceDetailFragment serviceDetailFragment;
     AboutUsFragment aboutUsFragment;
+    AppointmentFragment appointmentFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +107,8 @@ public class MainActivity extends AppCompatActivity
         serviceDetailFragment.setMainActivity(this);
         aboutUsFragment = new AboutUsFragment();
         aboutUsFragment.setMainActivity(this);
+        appointmentFragment = new AppointmentFragment();
+        appointmentFragment.setMainActivity(this);
     }
 
     /**
@@ -153,11 +156,13 @@ public class MainActivity extends AppCompatActivity
             Util.replaceFragment(testimonialFragment, R.string.fragment_testimonials);
         } else if (id == R.id.nav_grow) {
             Util.replaceFragment(helpUsGrowFragment, R.string.fragment_grow);
-        } else if (id == R.id.nav_donate) {
-            Util.replaceFragment(donateFragment, R.string.fragment_donate);
+//        } else if (id == R.id.nav_donate) {
+//            Util.replaceFragment(donateFragment, R.string.fragment_donate);
+       } else if (id == R.id.nav_appointments) {
+            Util.replaceFragment(appointmentFragment, R.string.fragment_appointment);
         } else if (id == R.id.nav_contact) {
             Util.replaceFragment(contactUsFragment, R.string.fragment_contact);
-        } else if (id == R.id.nav_faqs) {
+        }else if (id == R.id.nav_faqs) {
             Util.replaceFragment(faqFragment, R.string.fragment_faq);
         }
         drawer.closeDrawer(GravityCompat.START);

@@ -1,20 +1,20 @@
 package com.example.faigy.hala;
 
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by Home on 2/9/2016.
+ * Created by Home on 2/11/2016.
  */
-public class AboutUsFragment extends Fragment{
+public class AppointmentFragment extends Fragment {
     // Declare controls
     MainActivity mainActivity;
 
 
-    public AboutUsFragment() {
+    public AppointmentFragment() {
         // Required empty public constructor
     }
 
@@ -29,11 +29,11 @@ public class AboutUsFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_about_us, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_appointment, container, false);
         // Initialize the views for this fragment
         initializeViews(rootView);
         // set toolbar title
-        Util.setToolbarTitle(R.string.fragment_about, mainActivity.toolbar);
+        Util.setToolbarTitle(R.string.fragment_appointment, mainActivity.toolbar);
         // set back icon on toolbar
         //Util.enableBackButton(R.drawable.ic_arrow_back_24dp, mainActivity.toolbar, mainActivity.drawer);
 

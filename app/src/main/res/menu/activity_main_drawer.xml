@@ -32,9 +32,13 @@
         android:icon="@drawable/ic_menu_grow"
         android:title="@string/nav_grow" />
         <item
+            android:id="@+id/nav_appointments"
+            android:icon="@drawable/ic_event_24dp"
+            android:title="@string/nav_appointments" />
+        <!--item
             android:id="@+id/nav_donate"
             android:icon="@drawable/ic_menu_donate"
-            android:title="@string/nav_donate" />
+            android:title="@string/nav_donate" /-->
         <item
             android:id="@+id/nav_contact"
             android:icon="@drawable/ic_menu_contact"

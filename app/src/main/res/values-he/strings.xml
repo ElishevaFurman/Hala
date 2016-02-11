@@ -9,7 +9,6 @@
     <string name="nav_news">In The News</string>
     <string name="nav_testimonials">Testimonials</string>
     <string name="nav_grow">Help Us Grow</string>
-    <string name="nav_appointments">Appointments</string>
     <string name="nav_donate">Donate Now</string>
     <string name="nav_contact">Contact Us</string>
     <string name="nav_faqs">FAQs</string>
@@ -47,9 +46,9 @@
     <string name="about_icon">about icon</string>
     <string name="services_icon">services icon</string>
     <string name="contact_icon">contact icon</string>
-    <string name="about">ABOUT</string>
-    <string name="services">SERVICES</string>
-    <string name="contact">CONTACT</string>
+    <string name="about">אודות</string>
+    <string name="services">שירותים</string>
+    <string name="contact">צור קשר</string>
 
     <!-- fragment_testimonials -->
     <string name="fragment_testimonials">Testimonials</string>
@@ -162,8 +161,6 @@
     <!-- fragment_team-->
     <string name="fragment_team">Our Team</string>
 
-    <!-- fragment_appointment-->
-    <string name="fragment_appointment">Appointment Info</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

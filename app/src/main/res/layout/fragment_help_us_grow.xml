@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ScrollView
@@ -13,7 +14,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/topImageView"
                 android:layout_width="wrap_content"
@@ -27,11 +30,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/activity_horizontal_margin"
-                android:text="The new Center will accelerate Hala to the forefront of worldwide breast
-         cancer screening. It will include four new wings that provide:"
+                android:text="JOIN US TO BUILD A LANDMARK WOMEN'S HEALTH CENTER... AND SAVE LIVES"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/colorAccent" />
-
+                android:textStyle="bold"
+                android:gravity="bottom"
+                android:textColor="#fff"
+                android:layout_alignParentBottom="true" />
+</RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -301,4 +306,4 @@
             android:src="@drawable/ic_credit_card_24dp" />
 
 
-</RelativeLayout>
+</LinearLayout>
