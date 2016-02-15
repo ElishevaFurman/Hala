@@ -44,7 +44,7 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
             // collapse view
             teamMemberViewHolder.expandLinearLayout.setVisibility(View.GONE);
             // set icon to expand more icon
-           teamMemberViewHolder.expandArrow.setImageResource(R.drawable.ic_expand_more);
+            teamMemberViewHolder.expandArrow.setImageResource(R.drawable.ic_expand_more);
         }
 
     }
@@ -66,7 +66,7 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
 
         public TeamMemberViewHolder(View v) {
             super(v);
-            vName =  (TextView) v.findViewById(R.id.txtName);
+            vName = (TextView) v.findViewById(R.id.txtName);
             vTitle = (TextView) v.findViewById(R.id.title);
             expandLinearLayout = (LinearLayout) v.findViewById(R.id.expandLinearLayout);
             expandArrow = (ImageButton) v.findViewById(R.id.expandArrow);

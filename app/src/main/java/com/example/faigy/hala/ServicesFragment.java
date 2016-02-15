@@ -20,7 +20,7 @@ public class ServicesFragment extends Fragment {
 
     //Declare Controls
     RelativeLayout servicesRelativeLayout1, servicesRelativeLayout2, servicesRelativeLayout3,
-    servicesRelativeLayout4, servicesRelativeLayout5, servicesRelativeLayout6, servicesRelativeLayout7;
+            servicesRelativeLayout4, servicesRelativeLayout5, servicesRelativeLayout6, servicesRelativeLayout7;
 
     public ServicesFragment() {
 
@@ -45,16 +45,23 @@ public class ServicesFragment extends Fragment {
         return rootView;
     }
 
+    /**
+     * Function to initialize controls
+     */
     public void initializeViews(View rootView) {
-        servicesRelativeLayout1= (RelativeLayout)rootView.findViewById(R.id.servicesRelativeLayout1);
-        servicesRelativeLayout2= (RelativeLayout)rootView.findViewById(R.id.servicesRelativeLayout2);
-        servicesRelativeLayout3= (RelativeLayout)rootView.findViewById(R.id.servicesRelativeLayout3);
-        servicesRelativeLayout4= (RelativeLayout)rootView.findViewById(R.id.servicesRelativeLayout4);
-        servicesRelativeLayout5= (RelativeLayout)rootView.findViewById(R.id.servicesRelativeLayout5);
-        servicesRelativeLayout6= (RelativeLayout)rootView.findViewById(R.id.servicesRelativeLayout6);
-        servicesRelativeLayout7= (RelativeLayout)rootView.findViewById(R.id.servicesRelativeLayout7);
+        servicesRelativeLayout1 = (RelativeLayout) rootView.findViewById(R.id.servicesRelativeLayout1);
+        servicesRelativeLayout2 = (RelativeLayout) rootView.findViewById(R.id.servicesRelativeLayout2);
+        servicesRelativeLayout3 = (RelativeLayout) rootView.findViewById(R.id.servicesRelativeLayout3);
+        servicesRelativeLayout4 = (RelativeLayout) rootView.findViewById(R.id.servicesRelativeLayout4);
+        servicesRelativeLayout5 = (RelativeLayout) rootView.findViewById(R.id.servicesRelativeLayout5);
+        servicesRelativeLayout6 = (RelativeLayout) rootView.findViewById(R.id.servicesRelativeLayout6);
+        servicesRelativeLayout7 = (RelativeLayout) rootView.findViewById(R.id.servicesRelativeLayout7);
     }
-    public void registerListeners(){
+
+    /**
+     * Function to register Listeners
+     */
+    public void registerListeners() {
         servicesRelativeLayout1.setOnClickListener(servicesRelativeLayoutListener);
         servicesRelativeLayout2.setOnClickListener(servicesRelativeLayoutListener);
         servicesRelativeLayout3.setOnClickListener(servicesRelativeLayoutListener);

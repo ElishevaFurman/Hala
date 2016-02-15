@@ -32,9 +32,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
             title = (TextView) view.findViewById(R.id.titleTextView);
             publication = (TextView) view.findViewById(R.id.publicationTextView);
             date = (TextView) view.findViewById(R.id.dateTextView);
-            emailImageView = (ImageView)view.findViewById(R.id.emailImageView);
-            shareLinearLayout = (LinearLayout)view.findViewById(R.id.shareLinearLayout);
-            textLinearLayout = (LinearLayout)view.findViewById(R.id.textLinearLayout);
+            emailImageView = (ImageView) view.findViewById(R.id.emailImageView);
+            shareLinearLayout = (LinearLayout) view.findViewById(R.id.shareLinearLayout);
+            textLinearLayout = (LinearLayout) view.findViewById(R.id.textLinearLayout);
 
 
         }

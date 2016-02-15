@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import java.lang.reflect.Field;
+
 /**
  * Created by Home on 1/21/2016.
  */
@@ -20,7 +22,7 @@ public class HomeFragment extends Fragment {
     LinearLayout aboutLinearLayout, servicesLinearLayout, contactLinearLayout;
     ImageView homeImageView;
 
-    public HomeFragment(){
+    public HomeFragment() {
 
     }
 
@@ -45,10 +47,13 @@ public class HomeFragment extends Fragment {
         return rootView;
     }
 
+    /**
+     * Function to initialize controls
+     */
     public void initializeViews(View rootView) {
-       aboutLinearLayout = (LinearLayout)rootView.findViewById(R.id.aboutLinearLayout);
-       servicesLinearLayout = (LinearLayout)rootView.findViewById(R.id.servicesLinearLayout);
-       contactLinearLayout = (LinearLayout)rootView.findViewById(R.id.contactLinearLayout);
+        aboutLinearLayout = (LinearLayout) rootView.findViewById(R.id.aboutLinearLayout);
+        servicesLinearLayout = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout);
+        contactLinearLayout = (LinearLayout) rootView.findViewById(R.id.contactLinearLayout);
         homeImageView = (ImageView) rootView.findViewById(R.id.homeImageView);
 
 //        BitmapFactory.Options options = new BitmapFactory.Options();
@@ -59,7 +64,7 @@ public class HomeFragment extends Fragment {
 //        String imageType = options.outMimeType;
 
         homeImageView.setImageBitmap(
-            Util.decodeSampledBitmapFromResource(getResources(), R.drawable.home_pg, 100, 100));
+                Util.decodeSampledBitmapFromResource(getResources(), R.drawable.home_pg, 100, 100));
     }
 
     public void registerListeners() {
@@ -75,7 +80,7 @@ public class HomeFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-     Util.replaceFragment(mainActivity.aboutUsFragment, R.string.fragment_about);
+            Util.replaceFragment(mainActivity.aboutUsFragment, R.string.fragment_about);
         }
     };
 
@@ -98,13 +103,33 @@ public class HomeFragment extends Fragment {
         @Override
         public void onClick(View v) {
 
-
-                Util.replaceFragment(mainActivity.contactUsFragment, R.string.fragment_contact);
+            Util.replaceFragment(mainActivity.contactUsFragment, R.string.fragment_contact);
+            mainActivity.chageSelectedItem(8);
+//            Util.getActivity().getFragmentManager().beginTransaction().replace(R.id.container,
+//                    mainActivity.contactUsFragment).addToBackStack(null).commit();
 
 
         }
     };
-    public void setMainActivity(MainActivity mainActivity){
+
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+
+        try {
+            Field childFragmentManager = Fragment.class.getDeclaredField("mChildFragmentManager");
+            childFragmentManager.setAccessible(true);
+            childFragmentManager.set(this, null);
+
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }
 

@@ -11,14 +11,12 @@ import android.view.ViewGroup;
  * Created by faigy on 2/1/2016.
  */
 public class AskFragment extends Fragment {
-    // Declare controls
+    // Declare Activity
     MainActivity mainActivity;
-
 
     public AskFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,13 +38,16 @@ public class AskFragment extends Fragment {
 
         return rootView;
 
-        }
+    }
 
+    /**
+     * Function to initialize controls
+     */
     public void initializeViews(View rootView) {
 
-
     }
-    public void setMainActivity(MainActivity mainActivity){
+
+    public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }
 

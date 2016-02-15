@@ -7,13 +7,13 @@ public class TeamMember {
     // class members
     protected String name, title, bio;
 
-    public TeamMember(String name, String title, String bio){
+    public TeamMember(String name, String title, String bio) {
         this.name = name;
         this.title = title;
         this.bio = bio;
     }
 
-    public TeamMember(){
+    public TeamMember() {
 
     }
 
@@ -40,8 +40,6 @@ public class TeamMember {
     public void setBio(String bio) {
         this.bio = bio;
     }
-
-
 
 
 }

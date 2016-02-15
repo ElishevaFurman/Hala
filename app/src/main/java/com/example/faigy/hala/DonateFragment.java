@@ -2,6 +2,7 @@ package com.example.faigy.hala;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import android.view.ViewGroup;
  */
 public class DonateFragment extends Fragment {
     MainActivity mainActivity;
+    CardView donateCardView;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,10 +33,23 @@ public class DonateFragment extends Fragment {
         return rootView;
     }
 
+    /**
+     * Function to initialize controls
+     */
     public void initializeViews(final View rootView) {
+        donateCardView = (CardView) rootView.findViewById(R.id.donateCardView);
+        donateCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                String url = "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=SCKZLDNUTW3DW&lc=US&item_name=Hala&currency_code=AUD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted";
+                Util.createDialog("Donate Now", "Donate through paypal", "DONATE NOW", "CANCEL", "url", url);
+
+            }
+        });
     }
-    public void setMainActivity(MainActivity mainActivity){
+
+    public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }
 }

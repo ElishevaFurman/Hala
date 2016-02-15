@@ -1,6 +1,7 @@
 package com.example.faigy.hala;
 
 import android.os.Bundle;
+import android.support.design.internal.NavigationMenuView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -61,9 +62,10 @@ public class MainActivity extends AppCompatActivity
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         openNavigationDrawer();
+        disableNavigationViewScrollbars(navigationView);
     }
 
-    public void openNavigationDrawer(){
+    public void openNavigationDrawer() {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -72,6 +74,21 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
     }
 
+    private void disableNavigationViewScrollbars(NavigationView navigationView) {
+        if (navigationView != null) {
+            NavigationMenuView navigationMenuView = (NavigationMenuView) navigationView.getChildAt(0);
+            if (navigationMenuView != null) {
+                navigationMenuView.setVerticalScrollBarEnabled(false);
+            }
+        }
+    }
+
+    /**
+     * @param item - position of item to be selected to
+     */
+    public void chageSelectedItem(int item) {
+        navigationView.getMenu().getItem(item).setChecked(true);
+    }
 
     /**
      * Function to instantiate fragments
@@ -154,15 +171,15 @@ public class MainActivity extends AppCompatActivity
             Util.replaceFragment(inTheNewsFragment, R.string.fragment_news);
         } else if (id == R.id.nav_testimonials) {
             Util.replaceFragment(testimonialFragment, R.string.fragment_testimonials);
-        } else if (id == R.id.nav_grow) {
-            Util.replaceFragment(helpUsGrowFragment, R.string.fragment_grow);
-//        } else if (id == R.id.nav_donate) {
-//            Util.replaceFragment(donateFragment, R.string.fragment_donate);
-       } else if (id == R.id.nav_appointments) {
+//        } else if (id == R.id.nav_grow) {
+//            Util.replaceFragment(helpUsGrowFragment, R.string.fragment_grow);
+        } else if (id == R.id.nav_donate) {
+            Util.replaceFragment(donateFragment, R.string.fragment_donate);
+        } else if (id == R.id.nav_appointments) {
             Util.replaceFragment(appointmentFragment, R.string.fragment_appointment);
         } else if (id == R.id.nav_contact) {
             Util.replaceFragment(contactUsFragment, R.string.fragment_contact);
-        }else if (id == R.id.nav_faqs) {
+        } else if (id == R.id.nav_faqs) {
             Util.replaceFragment(faqFragment, R.string.fragment_faq);
         }
         drawer.closeDrawer(GravityCompat.START);

@@ -231,13 +231,12 @@ public class Util extends Activity {
     }
 
     /**
-     *
-     * @param title - set dialog title
-     * @param message - set dialog message
+     * @param title              - set dialog title
+     * @param message            - set dialog message
      * @param positiveButtonText - set text for positive button in dialog
      * @param negativeButtonText - set text for negative butoon in dialog
-     * @param tag - set tag for listener in dialog
-     * @param param - set param for listener in dialog
+     * @param tag                - set tag for listener in dialog
+     * @param param              - set param for listener in dialog
      */
     public static void createDialog(String title, String message, String positiveButtonText,
                                     String negativeButtonText, final String tag, final String param) {

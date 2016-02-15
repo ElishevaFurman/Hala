@@ -15,8 +15,6 @@ public class FAQExpandableAdapter extends RecyclerView.Adapter<FAQExpandableAdap
 //implements View.OnClickListener{
 
     // Declare controls
-
-
     private ArrayList<String> questionList;
     private ArrayList<String> answerList;
     public static int expandedPosition = -1;
@@ -50,8 +48,7 @@ public class FAQExpandableAdapter extends RecyclerView.Adapter<FAQExpandableAdap
     }
 
     /**
-     *
-     * @param holder - current viewHolder
+     * @param holder   - current viewHolder
      * @param position - current inflated position in viewHolder
      */
     @Override

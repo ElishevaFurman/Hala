@@ -34,12 +34,15 @@ public class HelpUsGrowFragment extends Fragment {
         return rootView;
     }
 
+    /**
+     * Function to initialize controls
+     */
     public void initializeViews(final View rootView) {
         fab = (FloatingActionButton) rootView.findViewById(R.id.askFab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Util.replaceFragment(mainActivity.donateFragment, R.string.fragment_donate);
+                Util.replaceFragment(mainActivity.donateFragment, R.string.fragment_donate);
             }
         });
 

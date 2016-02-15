@@ -9,15 +9,14 @@ import android.view.ViewGroup;
 /**
  * Created by Home on 2/9/2016.
  */
-public class AboutUsFragment extends Fragment{
-    // Declare controls
-    MainActivity mainActivity;
+public class AboutUsFragment extends Fragment {
 
+    // Declare Activities
+    MainActivity mainActivity;
 
     public AboutUsFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,15 +37,16 @@ public class AboutUsFragment extends Fragment{
         //Util.enableBackButton(R.drawable.ic_arrow_back_24dp, mainActivity.toolbar, mainActivity.drawer);
 
         return rootView;
-
     }
 
+    /**
+     * Function to initialize controls
+     */
     public void initializeViews(View rootView) {
 
-
     }
-    public void setMainActivity(MainActivity mainActivity){
+
+    public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }
-
 }

@@ -9,9 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import java.util.ArrayList;
-
-
 
 public class FAQFragment extends Fragment {
     // Declare Controls
@@ -91,7 +90,6 @@ public class FAQFragment extends Fragment {
         });
 
 
-
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         mAdapter = new FAQExpandableAdapter(questionList, answerList);
         recyclerView.setHasFixedSize(true);
@@ -133,7 +131,7 @@ public class FAQFragment extends Fragment {
     }
 
 
-    public void setMainActivity(MainActivity mainActivity){
+    public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }
 

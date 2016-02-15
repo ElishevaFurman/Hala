@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.FloatingActionButton;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.support.v7.app.AlertDialog;
+
+import java.lang.reflect.Field;
 
 
 public class ContactFragment extends Fragment {
@@ -54,7 +57,9 @@ public class ContactFragment extends Fragment {
         //mainActivity.openNavigationDrawer();
         return rootView;
 
-    }  /**
+    }
+
+    /**
      * Function to initialize controls
      */
     public void initializeViews(View rootView) {
@@ -146,7 +151,6 @@ public class ContactFragment extends Fragment {
                     Uri.parse("http://mslworld.egged.co.il/?language=he&state=2#/search")));
         }
     };
-
 
     public void setMainActivity(MainActivity mainActivity){
         this.mainActivity = mainActivity;

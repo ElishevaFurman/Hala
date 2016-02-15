@@ -13,11 +13,12 @@ import java.util.List;
 
 
 public class TeamListFragment extends Fragment {
-MainActivity mainActivity;
+    MainActivity mainActivity;
     RecyclerView recList;
     LinearLayoutManager llm;
     TeamMemberAdapter tm;
     int prev = -1;
+
     public TeamListFragment() {
         // Required empty public constructor
     }
@@ -32,8 +33,8 @@ MainActivity mainActivity;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView =  inflater.inflate(R.layout.fragment_team_list, container, false);
-        intializeViews(rootView);
+        View rootView = inflater.inflate(R.layout.fragment_team_list, container, false);
+        initializeViews(rootView);
 
         return rootView;
     }
@@ -41,7 +42,7 @@ MainActivity mainActivity;
     private List createList(int size) {
 
         List result = new ArrayList();
-        for (int i=1; i <= size; i++) {
+        for (int i = 1; i <= size; i++) {
             TeamMember tm = new TeamMember();
             tm.name = "Dr. Yamin Cohen";
             tm.title = "Chief Diagnostic Clinic - Senior Medical Officer";
@@ -53,7 +54,10 @@ MainActivity mainActivity;
         return result;
     }
 
-    public void intializeViews(View rootView){
+    /**
+     * Function to initialize controls
+     */
+    public void initializeViews(View rootView) {
         recList = (RecyclerView) rootView.findViewById(R.id.cardList);
         recList.setHasFixedSize(true);
         llm = new LinearLayoutManager(getActivity().getBaseContext());
@@ -91,8 +95,6 @@ MainActivity mainActivity;
 
             }
         }));
-
-
 
 
     }

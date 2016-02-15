@@ -27,7 +27,6 @@ public class TestimonialFragment extends Fragment {
     CardView cardView;
 
 
-
     public TestimonialFragment() {
         // Required empty public constructor
     }
@@ -48,6 +47,9 @@ public class TestimonialFragment extends Fragment {
         return rootView;
     }
 
+    /**
+     * Function to initialize controls
+     */
     public void initializeViews(View rootView) {
 //        titleTextView = (TextView) rootView.findViewById(R.id.titleTextView);
 //        titleTextView.setText(Html.fromHtml(getString(R.string.testimonial_title)));
@@ -61,7 +63,6 @@ public class TestimonialFragment extends Fragment {
 
             }
         });
-
 
 
     }
@@ -79,7 +80,7 @@ public class TestimonialFragment extends Fragment {
 
     }
 
-    public void setMainActivity(MainActivity mainActivity){
+    public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }
 

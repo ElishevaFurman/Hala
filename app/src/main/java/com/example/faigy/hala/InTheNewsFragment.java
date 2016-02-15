@@ -68,8 +68,8 @@ public class InTheNewsFragment extends Fragment {
 //        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListenerInterface() {
 //            @Override
 //            public void onClick(View view, int position) {
-               // startActivity(new Intent(Intent.ACTION_VIEW,
-                       // Uri.parse("http://m.jpost.com/In-Jerusalem/A-revolution-in-the-haredi-community-438940#article=6030QzIzMUJBMUZDNDcxNDFDQzNDRkVDMEE2M0I0NkU3MEQ=")));
+        // startActivity(new Intent(Intent.ACTION_VIEW,
+        // Uri.parse("http://m.jpost.com/In-Jerusalem/A-revolution-in-the-haredi-community-438940#article=6030QzIzMUJBMUZDNDcxNDFDQzNDRkVDMEE2M0I0NkU3MEQ=")));
 //            }
 //
 //            @Override

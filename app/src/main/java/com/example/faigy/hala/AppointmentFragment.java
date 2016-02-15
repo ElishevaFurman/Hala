@@ -10,14 +10,13 @@ import android.view.ViewGroup;
  * Created by Home on 2/11/2016.
  */
 public class AppointmentFragment extends Fragment {
-    // Declare controls
-    MainActivity mainActivity;
 
+    // Declare Activity
+    MainActivity mainActivity;
 
     public AppointmentFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,11 +40,14 @@ public class AppointmentFragment extends Fragment {
 
     }
 
+    /**
+     * Function to initialize controls
+     */
     public void initializeViews(View rootView) {
 
-
     }
-    public void setMainActivity(MainActivity mainActivity){
+
+    public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }
 

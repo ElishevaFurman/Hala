@@ -1,5 +1,7 @@
 package com.example.faigy.hala;
+
 import org.joda.time.LocalDate;
+
 /**
  * Created by Home on 2/3/2016.
  */
@@ -9,16 +11,15 @@ public class News {
     LocalDate date;
 
     // constructor
-    public News(){
+    public News() {
 
     }
+
     public News(String title, String publication, LocalDate date) {
         this.title = title;
         this.publication = publication;
         this.date = date;
     }
-
-
 
 
     public String getTitle() {

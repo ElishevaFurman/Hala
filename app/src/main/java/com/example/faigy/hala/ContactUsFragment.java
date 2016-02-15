@@ -1,11 +1,13 @@
 package com.example.faigy.hala;
 
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.*;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +25,21 @@ public class ContactUsFragment extends Fragment {
 
     public ContactUsFragment() {
 
+    }
+
+    private static final Field sChildFragmentManagerField;
+
+    private static final String LOGTAG = "a";
+
+    static {
+        Field f = null;
+        try {
+            f = Fragment.class.getDeclaredField("mChildFragmentManager");
+            f.setAccessible(true);
+        } catch (NoSuchFieldException e) {
+            Log.e(LOGTAG, "Error getting mChildFragmentManager field", e);
+        }
+        sChildFragmentManagerField = f;
     }
 
     @Override
@@ -101,23 +118,27 @@ public class ContactUsFragment extends Fragment {
         public int getCount() {
             return mNumOfTabs;
         }
+
+        @Override
+        public void restoreState(Parcelable arg0, ClassLoader arg1) {
+            //do nothing here! no call to super.restoreState(arg0, arg1);
+        }
     }
 
-//    @Override
-//    public void onDetach() {
-//        super.onDetach();
-//
-//        try {
-//            Field childFragmentManager = Fragment.class.getDeclaredField("mChildFragmentManager");
-//            childFragmentManager.setAccessible(true);
-//            childFragmentManager.set(this, null);
-//
-//        } catch (NoSuchFieldException e) {
-//            throw new RuntimeException(e);
-//        } catch (IllegalAccessException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+
+        if (sChildFragmentManagerField != null) {
+            try {
+                sChildFragmentManagerField.set(this, null);
+            } catch (Exception e) {
+                Log.e(LOGTAG, "Error setting mChildFragmentManager field", e);
+            }
+        }
+    }
+
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }
