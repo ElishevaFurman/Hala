@@ -1,6 +1,7 @@
 package com.example.faigy.hala;
 
 import android.content.Context;
+import android.graphics.PathEffect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -9,6 +10,7 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,16 +20,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import java.lang.reflect.Field;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class ContactFormFragment extends Fragment {
 
     // Declare Controls
     MainActivity mainActivity;
-    private EditText inputName, inputEmail, inputPassword;
-    private TextInputLayout inputLayoutName, inputLayoutEmail, inputLayoutPassword;
-    private Button btnSignUp;
+    private EditText inputName, inputEmail, inputPhone, inputQuestion;
+    private TextInputLayout inputLayoutName, inputLayoutEmail, inputLayoutQuestion, inputLayoutPhone;
+    private TextView submitButton;
 
     public ContactFormFragment() {
         // Required empty public constructor
@@ -59,17 +64,20 @@ public class ContactFormFragment extends Fragment {
     public void initializeViews(View rootView) {
         inputLayoutName = (TextInputLayout) rootView.findViewById(R.id.input_layout_name);
         inputLayoutEmail = (TextInputLayout) rootView.findViewById(R.id.input_layout_email);
-        inputLayoutPassword = (TextInputLayout) rootView.findViewById(R.id.input_layout_password);
+        inputLayoutPhone = (TextInputLayout) rootView.findViewById(R.id.input_layout_phone);
+        inputLayoutQuestion = (TextInputLayout) rootView.findViewById(R.id.input_layout_question);
         inputName = (EditText) rootView.findViewById(R.id.input_name);
         inputEmail = (EditText) rootView.findViewById(R.id.input_email);
-        inputPassword = (EditText) rootView.findViewById(R.id.input_password);
-        btnSignUp = (Button) rootView.findViewById(R.id.btn_signup);
+        inputPhone = (EditText) rootView.findViewById(R.id.input_phone);
+        inputQuestion = (EditText) rootView.findViewById(R.id.input_question);
+        submitButton = (TextView) rootView.findViewById(R.id.submit_text);
 
         inputName.addTextChangedListener(new MyTextWatcher(inputName));
         inputEmail.addTextChangedListener(new MyTextWatcher(inputEmail));
-        inputPassword.addTextChangedListener(new MyTextWatcher(inputPassword));
+        inputPhone.addTextChangedListener(new MyTextWatcher(inputPhone));
+        inputQuestion.addTextChangedListener(new MyTextWatcher(inputQuestion));
 
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
+        submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 submitForm();
@@ -90,11 +98,15 @@ public class ContactFormFragment extends Fragment {
             return;
         }
 
-        if (!validatePassword()) {
+        if (!validatePhone()) {
             return;
         }
 
-        Toast.makeText(Util.getContext(), "Thank You!", Toast.LENGTH_SHORT).show();
+        if (!validateQuestion()) {
+            return;
+        }
+
+        Toast.makeText(Util.getContext(), "Thank you for contacting Hala!", Toast.LENGTH_SHORT).show();
     }
 
     private boolean validateName() {
@@ -123,13 +135,29 @@ public class ContactFormFragment extends Fragment {
         return true;
     }
 
-    private boolean validatePassword() {
-        if (inputPassword.getText().toString().trim().isEmpty()) {
-            inputLayoutPassword.setError(getString(R.string.err_msg_password));
-            requestFocus(inputPassword);
+    private boolean validatePhone() {
+        String phone = inputPhone.getText().toString().trim();
+
+        if (phone.isEmpty() || !isValidPhone(phone)) {
+            inputLayoutPhone.setError(getString(R.string.err_msg_phone));
+            requestFocus(inputPhone);
             return false;
         } else {
-            inputLayoutPassword.setErrorEnabled(false);
+            inputLayoutPhone.setErrorEnabled(false);
+        }
+
+        return true;
+    }
+
+    private boolean validateQuestion() {
+        String question = inputQuestion.getText().toString().trim();
+
+        if (question.isEmpty()) {
+            inputLayoutQuestion.setError(getString(R.string.err_msg_question));
+            requestFocus(inputQuestion);
+            return false;
+        } else {
+            inputLayoutQuestion.setErrorEnabled(false);
         }
 
         return true;
@@ -137,6 +165,15 @@ public class ContactFormFragment extends Fragment {
 
     private static boolean isValidEmail(String email) {
         return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
+    private static boolean isValidPhone(String phone) {
+        String regex = "^[+]?[0-9]{10,13}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(phone);
+
+       return  !TextUtils.isEmpty(phone) && matcher.matches();
+
     }
 
     private void requestFocus(View view) {
@@ -167,8 +204,11 @@ public class ContactFormFragment extends Fragment {
                 case R.id.input_email:
                     validateEmail();
                     break;
-                case R.id.input_password:
-                    validatePassword();
+                case R.id.input_phone:
+                    validatePhone();
+                    break;
+                case R.id.input_question:
+                    validateQuestion();
                     break;
             }
         }

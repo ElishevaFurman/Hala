@@ -33,6 +33,7 @@
     <string name="image_email">image email</string>
     <string name="image_fax">image fax</string>
     <string name="image_bus">image bus</string>
+    <string name="submit_button">SUBMIT</string>
 
 
     <!-- fragment_home -->
@@ -68,7 +69,7 @@
     <string name="name_hint">Name</string>
     <string name="email_hint">Email Address</string>
     <string name="phone_hint">Phone</string>
-    <string name="question_hint">Question</string>
+    <string name="question_hint">Message</string>
     <string name="ask_button">ASK</string>
 
     <!-- fragment_our_mission -->
@@ -177,6 +178,7 @@
     <string name="hint_password">Password</string>
     <string name="btn_sign_up">Sign Up</string>
     <string name="err_msg_name">Enter your full name</string>
+    <string name="err_msg_phone">Enter valid phone number</string>
     <string name="err_msg_email">Enter valid email address</string>
-    <string name="err_msg_password">Enter the password</string>
+    <string name="err_msg_question">Enter your message</string>
 </resources>
