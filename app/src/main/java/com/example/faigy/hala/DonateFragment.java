@@ -6,13 +6,14 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 /**
  * Created by Home on 2/7/2016.
  */
 public class DonateFragment extends Fragment {
     MainActivity mainActivity;
-    CardView donateCardView;
+    RelativeLayout donateRelativeLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,8 +42,8 @@ public class DonateFragment extends Fragment {
      * Function to initialize controls
      */
     public void initializeViews(final View rootView) {
-        donateCardView = (CardView) rootView.findViewById(R.id.donateCardView);
-        donateCardView.setOnClickListener(new View.OnClickListener() {
+        donateRelativeLayout = (RelativeLayout) rootView.findViewById(R.id.donateRelativeLayout);
+        donateRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
