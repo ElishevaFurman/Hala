@@ -174,6 +174,11 @@ public class ContactFormFragment extends Fragment {
         }
     }
 
+    public void onPause(){
+        super.onPause();
+        // remove keyboard from screen
+        Util.hideSoftKeyboard();
+    }
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }

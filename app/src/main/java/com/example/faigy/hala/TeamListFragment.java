@@ -35,7 +35,8 @@ public class TeamListFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_team_list, container, false);
         initializeViews(rootView);
-
+        // remove keyboard from screen
+        Util.hideSoftKeyboard();
         return rootView;
     }
 

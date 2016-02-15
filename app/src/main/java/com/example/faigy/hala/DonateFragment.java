@@ -30,6 +30,10 @@ public class DonateFragment extends Fragment {
         Util.setToolbarTitle(R.string.fragment_donate, mainActivity.toolbar);
         // set navigation drawer to toggle
         mainActivity.openNavigationDrawer();
+        // remove keyboard from screen
+        Util.hideSoftKeyboard();
+        //set navigation selected to current fragment
+        mainActivity.setSelectedNavigationItem(R.id.nav_donate);
         return rootView;
     }
 

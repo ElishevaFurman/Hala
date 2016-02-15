@@ -3,7 +3,6 @@ package com.example.faigy.hala;
 
 import android.os.Bundle;
 import android.app.Fragment;
-import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +40,10 @@ public class ServicesFragment extends Fragment {
         Util.setToolbarTitle(R.string.fragment_services, mainActivity.toolbar);
         // set navigation drawer to toggle
         mainActivity.openNavigationDrawer();
-
+        // remove keyboard from screen
+        Util.hideSoftKeyboard();
+        //set navigation selected to current fragment
+        mainActivity.setSelectedNavigationItem(R.id.nav_services);
         return rootView;
     }
 

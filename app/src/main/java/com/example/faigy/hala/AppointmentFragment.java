@@ -35,7 +35,10 @@ public class AppointmentFragment extends Fragment {
         Util.setToolbarTitle(R.string.fragment_appointment, mainActivity.toolbar);
         // set back icon on toolbar
         //Util.enableBackButton(R.drawable.ic_arrow_back_24dp, mainActivity.toolbar, mainActivity.drawer);
-
+        // remove keyboard from screen
+        Util.hideSoftKeyboard();
+        //set navigation selected to current fragment
+        mainActivity.setSelectedNavigationItem(R.id.nav_appointments);
         return rootView;
 
     }

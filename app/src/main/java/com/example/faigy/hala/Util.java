@@ -17,6 +17,8 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -91,7 +93,10 @@ public class Util extends Activity {
         // replace fragment in container
         getActivity().getFragmentManager().beginTransaction().replace(R.id.container,
                 fragment).addToBackStack(tag + "").commit();
+
     }
+
+
 
     /**
      * Function to set title of toolbar
@@ -118,6 +123,27 @@ public class Util extends Activity {
         });
 
         drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+    }
+
+
+    /**
+     * Function to hide keyboard
+     */
+    public static void hideSoftKeyboard() {
+        // get instance of keyboard through InputMethodManager
+        InputMethodManager inputMethodManager = (InputMethodManager)
+                Util.getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+
+        // find the currently focused view, so we can get the correct window token from it.
+        View view = Util.getActivity().getCurrentFocus();
+
+        // if no view currently has focus, create a new one, so we can grab a window token from it
+        if (view == null) {
+            view = new View(Util.getActivity());
+        }
+
+        // hide keyboard
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
 

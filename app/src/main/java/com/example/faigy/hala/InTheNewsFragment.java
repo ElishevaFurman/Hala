@@ -48,6 +48,10 @@ public class InTheNewsFragment extends Fragment {
         initializeViews(rootView);
         // set toolbar title
         Util.setToolbarTitle(R.string.fragment_news, mainActivity.toolbar);
+        // remove keyboard from screen
+        Util.hideSoftKeyboard();
+        //set navigation selected to current fragment
+        mainActivity.setSelectedNavigationItem(R.id.nav_news);
         return rootView;
     }
 
@@ -64,20 +68,6 @@ public class InTheNewsFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
         prepareNewsData();
-
-//        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListenerInterface() {
-//            @Override
-//            public void onClick(View view, int position) {
-        // startActivity(new Intent(Intent.ACTION_VIEW,
-        // Uri.parse("http://m.jpost.com/In-Jerusalem/A-revolution-in-the-haredi-community-438940#article=6030QzIzMUJBMUZDNDcxNDFDQzNDRkVDMEE2M0I0NkU3MEQ=")));
-//            }
-//
-//            @Override
-//            public void onLongClick(View view, int position) {
-//
-//            }
-//        }));
-
 
     }
 

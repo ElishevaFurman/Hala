@@ -1,5 +1,8 @@
 package com.example.faigy.hala;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.internal.NavigationMenuView;
 import android.support.design.widget.NavigationView;
@@ -9,6 +12,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -63,6 +68,25 @@ public class MainActivity extends AppCompatActivity
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         openNavigationDrawer();
         disableNavigationViewScrollbars(navigationView);
+
+        drawer.setDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+             Util.hideSoftKeyboard();
+            }
+        });
     }
 
     public void openNavigationDrawer() {
@@ -72,6 +96,9 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+        Util.hideSoftKeyboard();
+
+
     }
 
     private void disableNavigationViewScrollbars(NavigationView navigationView) {
@@ -83,11 +110,14 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+
+
     /**
      * @param item - position of item to be selected to
      */
-    public void chageSelectedItem(int item) {
-        navigationView.getMenu().getItem(item).setChecked(true);
+    public void setSelectedNavigationItem(int item) {
+       // navigationView.getMenu().getItem(item).setChecked(true);
+        navigationView.setCheckedItem(item);
     }
 
     /**
@@ -146,7 +176,7 @@ public class MainActivity extends AppCompatActivity
         // if there are fragments in the back stack
         else if (getFragmentManager().getBackStackEntryCount() > 1) {
             // undo the last back stack transaction
-            getFragmentManager().popBackStack();
+             getFragmentManager().popBackStack();
         } else {
             // finish this activity
             super.onBackPressed();

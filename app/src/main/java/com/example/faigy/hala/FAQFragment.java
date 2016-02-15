@@ -37,7 +37,10 @@ public class FAQFragment extends Fragment {
         // set toolbar title
         Util.setToolbarTitle(R.string.fragment_faq, mainActivity.toolbar);
         mainActivity.openNavigationDrawer();
-
+        // remove keyboard from screen
+        Util.hideSoftKeyboard();
+        //set navigation selected to current fragment
+        mainActivity.setSelectedNavigationItem(R.id.nav_faqs);
         return rootView;
     }
 

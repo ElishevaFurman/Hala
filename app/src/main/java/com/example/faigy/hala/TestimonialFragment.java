@@ -43,7 +43,10 @@ public class TestimonialFragment extends Fragment {
 
         // set toolbar title
         Util.setToolbarTitle(R.string.fragment_testimonials, mainActivity.toolbar);
-
+        // remove keyboard from screen
+        Util.hideSoftKeyboard();
+        //set navigation selected to current fragment
+        mainActivity.setSelectedNavigationItem(R.id.nav_testimonials);
         return rootView;
     }
 

@@ -1,9 +1,6 @@
 package com.example.faigy.hala;
 
 import android.app.Fragment;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,7 +40,10 @@ public class HomeFragment extends Fragment {
         registerListeners();
         // set toolbar title
         Util.setToolbarTitle(R.string.fragment_home, mainActivity.toolbar);
-
+        // remove keyboard from screen
+        Util.hideSoftKeyboard();
+        //set navigation selected to current fragment
+        mainActivity.setSelectedNavigationItem(R.id.nav_home);
         return rootView;
     }
 
@@ -55,14 +55,6 @@ public class HomeFragment extends Fragment {
         servicesLinearLayout = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout);
         contactLinearLayout = (LinearLayout) rootView.findViewById(R.id.contactLinearLayout);
         homeImageView = (ImageView) rootView.findViewById(R.id.homeImageView);
-
-//        BitmapFactory.Options options = new BitmapFactory.Options();
-//        options.inJustDecodeBounds = true;
-//        BitmapFactory.decodeResource(getResources(), R.drawable.home_pg, options);
-//        int imageHeight = options.outHeight;
-//        int imageWidth = options.outWidth;
-//        String imageType = options.outMimeType;
-
         homeImageView.setImageBitmap(
                 Util.decodeSampledBitmapFromResource(getResources(), R.drawable.home_pg, 100, 100));
     }
@@ -81,6 +73,8 @@ public class HomeFragment extends Fragment {
         @Override
         public void onClick(View v) {
             Util.replaceFragment(mainActivity.aboutUsFragment, R.string.fragment_about);
+            //set navigation selected to current fragment
+            mainActivity.setSelectedNavigationItem(R.id.nav_about);
         }
     };
 
@@ -92,6 +86,8 @@ public class HomeFragment extends Fragment {
         @Override
         public void onClick(View v) {
             Util.replaceFragment(mainActivity.servicesFragment, R.string.fragment_services);
+            //set navigation selected to current fragment
+            mainActivity.setSelectedNavigationItem(R.id.nav_services);
         }
     };
 
@@ -104,9 +100,8 @@ public class HomeFragment extends Fragment {
         public void onClick(View v) {
 
             Util.replaceFragment(mainActivity.contactUsFragment, R.string.fragment_contact);
-            mainActivity.chageSelectedItem(8);
-//            Util.getActivity().getFragmentManager().beginTransaction().replace(R.id.container,
-//                    mainActivity.contactUsFragment).addToBackStack(null).commit();
+            //set navigation selected to current fragment
+            mainActivity.setSelectedNavigationItem(R.id.nav_contact);
 
 
         }

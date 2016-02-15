@@ -31,6 +31,9 @@ public class HelpUsGrowFragment extends Fragment {
         Util.setToolbarTitle(R.string.fragment_grow, mainActivity.toolbar);
         // set navigation drawer to toggle
         mainActivity.openNavigationDrawer();
+        // remove keyboard from screen
+        Util.hideSoftKeyboard();
+
         return rootView;
     }
 

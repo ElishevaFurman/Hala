@@ -52,6 +52,10 @@ public class OurTeamFragment extends Fragment {
         initializeViews(rootView);
         // set toolbar title
         Util.setToolbarTitle(R.string.fragment_team, mainActivity.toolbar);
+        // remove keyboard from screen
+        Util.hideSoftKeyboard();
+        //set navigation selected to current fragment
+        mainActivity.setSelectedNavigationItem(R.id.nav_team);
         return rootView;
     }
 

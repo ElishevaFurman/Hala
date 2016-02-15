@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 
 
 /**
@@ -46,7 +47,6 @@ public class AskFragment extends Fragment {
     public void initializeViews(View rootView) {
 
     }
-
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }

@@ -51,10 +51,8 @@ public class ContactFragment extends Fragment {
         // Initialize the views for this fragment
         initializeViews(rootView);
         registerListeners();
-        // set toolbar title
-       // Util.setToolbarTitle(R.string.fragment_contact, mainActivity.toolbar);
-        // unlock navigation drawer
-        //mainActivity.openNavigationDrawer();
+        // remove keyboard from screen
+        Util.hideSoftKeyboard();
         return rootView;
 
     }

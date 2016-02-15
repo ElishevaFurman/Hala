@@ -57,6 +57,10 @@ public class ContactUsFragment extends Fragment {
         initializeViews(rootView);
         // set toolbar title
         Util.setToolbarTitle(R.string.fragment_contact, mainActivity.toolbar);
+        // remove keyboard from screen
+        Util.hideSoftKeyboard();
+        //set navigation selected to current fragment
+        mainActivity.setSelectedNavigationItem(R.id.nav_contact);
         return rootView;
     }
 
@@ -76,6 +80,9 @@ public class ContactUsFragment extends Fragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
+                if (tab.getPosition() != 1) {
+                    Util.hideSoftKeyboard();
+                }
             }
 
             @Override

@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fillViewport="true"
-        android:scrollIndicators="none">
+        android:scrollIndicators="none"
+        android:scrollbars="none">
 
         <LinearLayout
             android:id="@+id/topLinearLayout"
