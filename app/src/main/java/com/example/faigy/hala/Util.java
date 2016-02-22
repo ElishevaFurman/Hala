@@ -16,10 +16,16 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
+
+import org.apache.http.NameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -332,6 +338,63 @@ public class Util extends Activity {
         // Decode bitmap with inSampleSize set
         options.inJustDecodeBounds = false;
         return BitmapFactory.decodeResource(res, resId, options);
+    }
+
+    /**
+     * Function to return string from resource
+     *
+     * @param resourceReference - reference to position in resource file
+     * @return String
+     */
+    public static String getStringValue(int resourceReference) {
+        // get string from resource and return
+        return context.getString(resourceReference);
+    }
+
+
+    /**
+     * Function to call http request that return a JsonObject and then convert it to a JsonArray
+     *
+     * @param url    - url to get the JSON string from
+     * @param tag    - tag of node to get objects from
+     * @param params - list of key values to pass along to the http request
+     * @return JsonArray
+     */
+    public static JSONArray getJsonArray(String url, String tag, List<NameValuePair> params) {
+        // instantiate new JsonArray
+        JSONArray jsonArray = new JSONArray();
+
+        // instantiate new JsonParser
+        JSONParser jsonParser = new JSONParser();
+
+        // create JSON Object from request made to url
+        JSONObject json = jsonParser.makeHttpRequest(url, "POST", params);
+
+        // initialize int to receive value of success (0 or 1)
+        int success = 0;
+
+        try {
+            // get int with tag "success" from json object
+            success = json.getInt("success");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        // if success is 0 ; either because the query of the http request was not successful
+        // or because the http request itself was unsuccessful and therefor the JsonObject is null
+        if (success != 0) {
+            try {
+                // get JSON Array node
+                jsonArray = json.getJSONArray(tag);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } else {
+            // could not get JSON Array node
+            Log.e("Json Parser", "Couldn't get any data from the url");
+        }
+
+        return jsonArray;
     }
 }
 
