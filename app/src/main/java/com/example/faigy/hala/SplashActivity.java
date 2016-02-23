@@ -7,7 +7,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.JsonReader;
+
 import com.crashlytics.android.Crashlytics;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.List;
+
 import io.fabric.sdk.android.Fabric;
 
 public class SplashActivity extends Activity {
@@ -20,6 +28,10 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_splash);
+
+
+
+
 
         new Handler().postDelayed(new Runnable() {
 
@@ -42,4 +54,9 @@ public class SplashActivity extends Activity {
         }, SPLASH_TIME_OUT);
     }
 
+
+
+
+
 }
+

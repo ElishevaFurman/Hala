@@ -4,7 +4,9 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +23,9 @@ import java.util.List;
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> {
 
     private List<News> newsList;
+    public static boolean openDialog = false;
+    public News news;
+    Context context;
 
     public class MyNewsHolder extends RecyclerView.ViewHolder {
         public TextView title, publication, date;
@@ -42,8 +47,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
     }
 
 
-    public NewsAdapter(List<News> newsList) {
+    public NewsAdapter(List<News> newsList, Context context) {
         this.newsList = newsList;
+        this.context = context;
     }
 
     @Override
@@ -51,35 +57,38 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_in_the_news_item, parent, false);
 
-        final MyNewsHolder holder = new MyNewsHolder(itemView);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String url = "http://m.jpost.com/In-Jerusalem/A-revolution-in-the-haredi-" +
-                        "community-438940#article=6030QzIzMUJBMUZDNDcxNDFDQzNDRkVDMEE2M0I0NkU3MEQ=";
-                Util.createDialog("Open Article", "View article in browser", "OPEN", "CANCEL", "url", url);
-            }
-        });
+
+
 
         return new MyNewsHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(MyNewsHolder holder, int position) {
-        News news = newsList.get(position);
-        holder.title.setText(news.getTitle());
+    public void onBindViewHolder(final MyNewsHolder holder, int position) {
+        news = newsList.get(position);
+        holder.title.setText("Title goes here");
         holder.publication.setText(news.getPublication());
         holder.date.setText(news.getDate().toString());
 
         holder.shareLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Util.share("http://m.jpost.com/In-Jerusalem/A-revolution-in-the-haredi-" +
-                        "community-438940#article=6030QzIzMUJBMUZDNDcxNDFDQzNDRkVDMEE2M0I0NkU3MEQ=");
+                Util.share(news.getUrl());
+
             }
         });
 
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                openDialog = true;
+//
+//
+//            }
+//        });
+
     }
+
 
     @Override
     public int getItemCount() {

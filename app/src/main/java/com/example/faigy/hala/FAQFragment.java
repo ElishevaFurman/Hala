@@ -88,7 +88,7 @@ public class FAQFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction().addToBackStack("ASK").replace(R.id.container,
-                        mainActivity.askFragment).commit();
+                        mainActivity.contactFormFragment).commit();
             }
         });
 

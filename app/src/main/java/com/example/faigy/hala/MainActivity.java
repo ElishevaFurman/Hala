@@ -2,7 +2,11 @@ package com.example.faigy.hala;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.internal.NavigationMenuView;
 import android.support.design.widget.NavigationView;
@@ -14,6 +18,25 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import org.apache.http.NameValuePair;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -22,6 +45,8 @@ public class MainActivity extends AppCompatActivity
     Toolbar toolbar;
     DrawerLayout drawer;
     NavigationView navigationView;
+    ArrayList<News> newsList;
+
 
     // Declare Fragments
     HomeFragment homeFragment;
@@ -40,6 +65,7 @@ public class MainActivity extends AppCompatActivity
     ServiceDetailFragment serviceDetailFragment;
     AboutUsFragment aboutUsFragment;
     AppointmentFragment appointmentFragment;
+    protected MyApplication app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +78,12 @@ public class MainActivity extends AppCompatActivity
         initializeViews();
         initializeFragments();
         inflateScrollViewWithFragment();
+        DownloadJson json = new DownloadJson();
+        json.execute();
+        new DownloadJson().execute();
         //setupToolbar();
+        app = (MyApplication)getApplication();
+
     }
 
     /**
@@ -84,7 +115,7 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public void onDrawerStateChanged(int newState) {
-             Util.hideSoftKeyboard();
+                Util.hideSoftKeyboard();
             }
         });
     }
@@ -216,4 +247,52 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+
+
+
+public class DownloadJson extends AsyncTask<Void, Void, Void> {
+
+
+    JSONArray newsArray;
+    News[] data;
+
+
+    @Override
+    public void onPreExecute() {
+            super.onPreExecute();
+
+            }
+
+    @Override
+    protected Void doInBackground(Void... voids) {
+
+        //newsArray = new JSONArray();
+        try {
+        newsArray =  Util.getJsonArray("http://162.243.100.186/news.php", "newsArray", new ArrayList<NameValuePair>());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Gson gson = new Gson();
+        String jsonOutput = newsArray.toString();
+        data = gson.fromJson(jsonOutput, News[].class);
+        newsList = new ArrayList<>(Arrays.asList(data));
+        app.setNewsArrayList(newsList);
+
+
+            return null;
+            }
+
+    @Override
+    protected void onPostExecute(Void aVoid) {
+        super.onPostExecute(aVoid);
+
+            }
+
+
+    }
+
+
 }
+
+
