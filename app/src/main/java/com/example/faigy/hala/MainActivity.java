@@ -1,13 +1,16 @@
 package com.example.faigy.hala;
 
+import android.app.AlarmManager;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.design.internal.NavigationMenuView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -45,7 +48,8 @@ public class MainActivity extends AppCompatActivity
     Toolbar toolbar;
     DrawerLayout drawer;
     NavigationView navigationView;
-    ArrayList<News> newsList;
+
+
 
 
     // Declare Fragments
@@ -67,6 +71,7 @@ public class MainActivity extends AppCompatActivity
     AppointmentFragment appointmentFragment;
     protected MyApplication app;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // call the parent activities onCreate
@@ -78,12 +83,29 @@ public class MainActivity extends AppCompatActivity
         initializeViews();
         initializeFragments();
         inflateScrollViewWithFragment();
-        DownloadJson json = new DownloadJson();
-        json.execute();
-        new DownloadJson().execute();
-        //setupToolbar();
-        app = (MyApplication)getApplication();
 
+
+
+        app = (MyApplication)getApplication();
+        DownloadData json = new DownloadData();
+        json.execute();
+
+        startAlarm();
+
+
+
+
+    }
+
+    public void startAlarm(){
+        Intent intent = new Intent(this, AlarmReceiver.class);
+
+        PendingIntent alarmIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+
+        AlarmManager alarmMgr = (AlarmManager)this.getSystemService(Context.ALARM_SERVICE);
+        alarmMgr.setRepeating(AlarmManager.ELAPSED_REALTIME,
+                SystemClock.elapsedRealtime(),  1 * 60 * 1000, alarmIntent);
+        //DataBaseOperations.taskGetLocations = new GetLocations().execute();
     }
 
     /**
@@ -248,50 +270,54 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+    public ArrayList<News> getNewsArrayList() {
+        return app.getNewsArrayList();
+    }
+
+    public class DownloadData extends AsyncTask<Void, Void, Void> {
 
 
-public class DownloadJson extends AsyncTask<Void, Void, Void> {
+        JSONArray newsArray;
+        News[] data;
+        ArrayList<News> newsList;
 
 
-    JSONArray newsArray;
-    News[] data;
-
-
-    @Override
-    public void onPreExecute() {
+        @Override
+        public void onPreExecute() {
             super.onPreExecute();
 
-            }
 
-    @Override
-    protected Void doInBackground(Void... voids) {
-
-        //newsArray = new JSONArray();
-        try {
-        newsArray =  Util.getJsonArray("http://162.243.100.186/news.php", "newsArray", new ArrayList<NameValuePair>());
-        } catch (Exception e) {
-            e.printStackTrace();
         }
 
-        Gson gson = new Gson();
-        String jsonOutput = newsArray.toString();
-        data = gson.fromJson(jsonOutput, News[].class);
-        newsList = new ArrayList<>(Arrays.asList(data));
-        app.setNewsArrayList(newsList);
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            //newsArray = new JSONArray();
+            try {
+                newsArray = Util.getJsonArray("http://162.243.100.186/news.php", "newsArray", new ArrayList<NameValuePair>());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            Gson gson = new Gson();
+            String jsonOutput = newsArray.toString();
+            data = gson.fromJson(jsonOutput, News[].class);
+            newsList = new ArrayList<>(Arrays.asList(data));
+            app.setNewsArrayList(newsList);
 
 
             return null;
-            }
+        }
 
-    @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
 
-            }
 
+
+        }
 
     }
-
 
 }
 

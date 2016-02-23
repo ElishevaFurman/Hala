@@ -25,14 +25,5 @@ public class MyApplication extends Application {
     }
 
 
-//    public void startAlarm(){
-//        Intent intent = new Intent(Util.getContext(), AlarmReceiver.class);
-//
-//        PendingIntent alarmIntent = PendingIntent.getBroadcast(Util.getContext(), 0, intent, 0);
-//
-//        AlarmManager alarmMgr = (AlarmManager)Util.getContext().getSystemService(Context.ALARM_SERVICE);
-//        alarmMgr.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
-//                SystemClock.elapsedRealtime() + 5 * 1000, 60 * 1000, alarmIntent);
-//        //DataBaseOperations.taskGetLocations = new GetLocations().execute();
-//    }
+
 }

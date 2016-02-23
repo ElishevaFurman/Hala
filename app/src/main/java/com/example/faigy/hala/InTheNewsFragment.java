@@ -33,6 +33,7 @@ public class InTheNewsFragment extends Fragment {
 
     // Declare activities
     MainActivity mainActivity;
+    protected MyApplication app;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,7 +63,7 @@ public class InTheNewsFragment extends Fragment {
     public void initializeViews(final View rootView) {
         // initialize and reference controls
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
-        NewsList = mainActivity.newsList;
+        NewsList = mainActivity.getNewsArrayList();
         mAdapter = new NewsAdapter(NewsList, getActivity());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -84,7 +85,7 @@ public class InTheNewsFragment extends Fragment {
         recyclerView.setAdapter(mAdapter);
 
         mAdapter.notifyDataSetChanged();
-        //prepareNewsData();
+       // prepareNewsData();
         if (mAdapter.openDialog) {
             Util.createDialog("Open Article", "View article in browser", "OPEN", "CANCEL", "url", "https://www.google.com/");
         }
