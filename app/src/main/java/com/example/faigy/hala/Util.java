@@ -1,6 +1,7 @@
 package com.example.faigy.hala;
 
 import android.app.Activity;
+import android.app.Application;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -37,7 +38,7 @@ public class Util extends Activity {
     // initialize variables
     private static Context context = null;
     private static Activity activity = null;
-
+    private static Application application = null;
     /**
      * Function to set reference of current activity
      *
@@ -76,6 +77,8 @@ public class Util extends Activity {
         // set this context to current context
         Util.context = context;
     }
+
+
 
     /**
      * Function to call methods that set reference to current activity
@@ -396,6 +399,9 @@ public class Util extends Activity {
 
         return jsonArray;
     }
+
+
+
 }
 
 

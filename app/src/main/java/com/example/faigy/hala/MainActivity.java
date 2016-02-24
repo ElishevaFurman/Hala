@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity
     DrawerLayout drawer;
     NavigationView navigationView;
 
-
+    ArrayList<News> newsList;
 
 
     // Declare Fragments
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity
     AboutUsFragment aboutUsFragment;
     AppointmentFragment appointmentFragment;
     protected MyApplication app;
-
+    DataBaseOperations dataBaseOperations;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,8 +87,6 @@ public class MainActivity extends AppCompatActivity
 
 
         app = (MyApplication)getApplication();
-        DownloadData json = new DownloadData();
-        json.execute();
 
         startAlarm();
 
@@ -104,7 +102,7 @@ public class MainActivity extends AppCompatActivity
 
         AlarmManager alarmMgr = (AlarmManager)this.getSystemService(Context.ALARM_SERVICE);
         alarmMgr.setRepeating(AlarmManager.ELAPSED_REALTIME,
-                SystemClock.elapsedRealtime(),  1 * 60 * 1000, alarmIntent);
+                SystemClock.elapsedRealtime(), 1 * 60 * 1000, alarmIntent);
         //DataBaseOperations.taskGetLocations = new GetLocations().execute();
     }
 
@@ -209,6 +207,8 @@ public class MainActivity extends AppCompatActivity
         aboutUsFragment.setMainActivity(this);
         appointmentFragment = new AppointmentFragment();
         appointmentFragment.setMainActivity(this);
+        dataBaseOperations = new DataBaseOperations(this);
+        //dataBaseOperations.setMainActivity(this);
     }
 
     /**
@@ -274,51 +274,19 @@ public class MainActivity extends AppCompatActivity
         return app.getNewsArrayList();
     }
 
-    public class DownloadData extends AsyncTask<Void, Void, Void> {
-
-
-        JSONArray newsArray;
-        News[] data;
-        ArrayList<News> newsList;
-
-
-        @Override
-        public void onPreExecute() {
-            super.onPreExecute();
-
-
-        }
-
-        @Override
-        protected Void doInBackground(Void... params) {
-
-            //newsArray = new JSONArray();
-            try {
-                newsArray = Util.getJsonArray("http://162.243.100.186/news.php", "newsArray", new ArrayList<NameValuePair>());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            Gson gson = new Gson();
-            String jsonOutput = newsArray.toString();
-            data = gson.fromJson(jsonOutput, News[].class);
-            newsList = new ArrayList<>(Arrays.asList(data));
-            app.setNewsArrayList(newsList);
-
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute(result);
-
-
-
-        }
-
+    public void setNewsArrayList(ArrayList<News> newsArrayList) {
+      app.setNewsArrayList(newsArrayList);
     }
 
+
+//
+//    public ArrayList<News> getNewsArrayList() {
+//        return newsList;
+//    }
+//
+//    public void setNewsArrayList(ArrayList<News> newsArray) {
+//       newsList= newsArray;
+//    }
 }
 
 

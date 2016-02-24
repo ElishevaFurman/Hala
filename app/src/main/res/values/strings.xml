@@ -181,4 +181,8 @@
     <string name="err_msg_phone">Enter valid phone number</string>
     <string name="err_msg_email">Enter valid email address</string>
     <string name="err_msg_question">Enter your message</string>
+
+
+    <!-- node to check success of query -->
+    <string name="TAG_SUCCESS">success</string>
 </resources>

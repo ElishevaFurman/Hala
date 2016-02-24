@@ -18,50 +18,28 @@
             android:layout_gravity="center_horizontal" />
 
 
-        <LinearLayout
-            android:id="@+id/bannerLinearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:alpha="0.4"
-            android:background="@color/colorAccent"
-            android:elevation="8dp"
-            android:orientation="vertical"
-            android:layout_gravity="bottom"
-            android:paddingBottom="@dimen/default_margin"
-            android:paddingLeft="@dimen/default_margin"
-            android:paddingRight="@dimen/default_margin"
-            android:paddingTop="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="36dp"
-            android:layout_alignParentBottom="false"
-            android:layout_alignParentTop="true">
-            <TextView
-                android:id="@+id/bannerTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="8dp"
-                android:text="@string/home_banner_large_text1"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textStyle="bold"
-                android:textColor="#fff"/>
 
-            <TextView
-                android:id="@+id/bannerTextView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:text="@string/home_banner_small_text"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="#fff"/>
 
-            <TextView
-                android:id="@+id/bannerTextView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:text="@string/home_banner_small_text2"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="#fff"/>
-        </LinearLayout>
+
+    <Button
+        android:id="@+id/btnArrayRequest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="Make JSON Array Request" />
+
+    <TextView
+        android:id="@+id/txtResponse"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnArrayRequest"
+        android:layout_marginTop="40px"
+        android:padding="20dp" />
+
+
 
 
 

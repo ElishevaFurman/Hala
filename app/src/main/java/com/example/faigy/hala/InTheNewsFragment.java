@@ -39,6 +39,7 @@ public class InTheNewsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
     }
 
     @Override
@@ -46,6 +47,8 @@ public class InTheNewsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_in_the_news, container, false);
+
+
         // Initialize the views for this fragment
         initializeViews(rootView);
         // set toolbar title
@@ -54,6 +57,7 @@ public class InTheNewsFragment extends Fragment {
         Util.hideSoftKeyboard();
         //set navigation selected to current fragment
         mainActivity.setSelectedNavigationItem(R.id.nav_news);
+
         return rootView;
     }
 
@@ -63,6 +67,8 @@ public class InTheNewsFragment extends Fragment {
     public void initializeViews(final View rootView) {
         // initialize and reference controls
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+
+
         NewsList = mainActivity.getNewsArrayList();
         mAdapter = new NewsAdapter(NewsList, getActivity());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
@@ -113,5 +119,26 @@ public class InTheNewsFragment extends Fragment {
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
