@@ -11,6 +11,7 @@ public class News {
     // class members
     @SerializedName("Title")
     public String title;
+
     @SerializedName("Url")
     public String url;
 
@@ -24,6 +25,7 @@ public class News {
 
     @SerializedName("Publication")
     public  String publication;
+
     @SerializedName("Date")
     String date;
 
@@ -32,10 +34,11 @@ public class News {
 
     }
 
-    public News(String title, String publication, String date) {
+    public News(String title, String publication, String date, String url) {
         this.title = title;
         this.publication = publication;
         this.date = date;
+        this.url = url;
     }
 
 

@@ -5,6 +5,10 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import de.greenrobot.event.EventBus;
+
 
 /**
  * Created by Home on 2/9/2016.
@@ -16,6 +20,14 @@ public class AboutUsFragment extends Fragment {
 
     public AboutUsFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        EventBus.getDefault().register(this);
+        mainActivity.dataBaseOperations.makeJsonArrayRequest("news", "http://162.243.100.186/news_array.php");
+
     }
 
     @Override
@@ -44,10 +56,25 @@ public class AboutUsFragment extends Fragment {
      * Function to initialize controls
      */
     public void initializeViews(View rootView) {
-
+        EventBus.getDefault().post(new DownloadDataEvent(""));
     }
 
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
+    }
+
+    // This method will be called when a HelloWorldEvent is posted
+    public void onEvent(DownloadDataEvent event){
+        // your implementation
+        //Toast.makeText(Util.getContext(), event.getTag(), Toast.LENGTH_LONG).show();
+        //mainActivity.dataBaseOperations.makeJsonArrayRequest("news");
+        event.download();
+    }
+
+    @Override
+    public void onPause() {
+
+        EventBus.getDefault().unregister(this);
+        super.onPause();
     }
 }

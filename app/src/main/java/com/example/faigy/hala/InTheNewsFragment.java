@@ -20,6 +20,8 @@ import org.joda.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.greenrobot.event.EventBus;
+
 /**
  * Created by Home on 2/3/2016.
  */
@@ -34,6 +36,14 @@ public class InTheNewsFragment extends Fragment {
     // Declare activities
     MainActivity mainActivity;
     protected MyApplication app;
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        //mainActivity.dataBaseOperations.makeJsonArrayRequest("news");
+
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,8 +78,7 @@ public class InTheNewsFragment extends Fragment {
         // initialize and reference controls
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
 
-
-        NewsList = mainActivity.getNewsArrayList();
+        NewsList =MySingleton.getInstance().getNewsArrayList();
         mAdapter = new NewsAdapter(NewsList, getActivity());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -79,7 +88,7 @@ public class InTheNewsFragment extends Fragment {
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListenerInterface() {
             @Override
             public void onClick(View view, int position) {
-                Util.createDialog("Open Article", "View article in browser", "OPEN", "CANCEL", "url", "https://www.google.com/");
+                Util.createDialog("Open Article", "View article in browser", "OPEN", "CANCEL", "url", "http://"+"www.google.com");
             }
 
             @Override
@@ -99,17 +108,17 @@ public class InTheNewsFragment extends Fragment {
     }
 
     /**
-     * Function to add data to NewsList
+     * Function to add newsData to NewsList
      */
     private void prepareNewsData() {
-        News news = new News("Revolution in the Haredi Community", "Jerusalem Post", "12-01-2015");
-        NewsList.add(news);
-        news = new News("Revolution in the Haredi Community", "Jerusalem Post", "12-01-2015");
-        NewsList.add(news);
-        news = new News("Revolution in the Haredi Community", "Jerusalem Post", "12-01-2015");
-        NewsList.add(news);
-        news = new News("Revolution in the Haredi Community", "Jerusalem Post", "12-01-2015");
-        NewsList.add(news);
+//        News news = new News("Revolution in the Haredi Community", "Jerusalem Post", "12-01-2015");
+//        NewsList.add(news);
+//        news = new News("Revolution in the Haredi Community", "Jerusalem Post", "12-01-2015");
+//        NewsList.add(news);
+//        news = new News("Revolution in the Haredi Community", "Jerusalem Post", "12-01-2015");
+//        NewsList.add(news);
+//        news = new News("Revolution in the Haredi Community", "Jerusalem Post", "12-01-2015");
+//        NewsList.add(news);
 
 
         mAdapter.notifyDataSetChanged();

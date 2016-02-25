@@ -41,6 +41,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import de.greenrobot.event.EventBus;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -72,6 +74,14 @@ public class MainActivity extends AppCompatActivity
     protected MyApplication app;
     DataBaseOperations dataBaseOperations;
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        EventBus.getDefault().register(this);
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // call the parent activities onCreate
@@ -86,21 +96,27 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        app = (MyApplication)getApplication();
 
-        startAlarm();
+        app = (MyApplication) getApplication();
+
+        dataBaseOperations.makeJsonArrayRequest("news","http://162.243.100.186/news_array.php");
+        dataBaseOperations.makeJsonArrayRequest("members","http://162.243.100.186/members_array.php");
+        // startAlarm();
+        //EventBus myEventBus = EventBus.getDefault();
 
 
 
 
     }
 
-    public void startAlarm(){
+
+
+    public void startAlarm() {
         Intent intent = new Intent(this, AlarmReceiver.class);
 
         PendingIntent alarmIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
-        AlarmManager alarmMgr = (AlarmManager)this.getSystemService(Context.ALARM_SERVICE);
+        AlarmManager alarmMgr = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
         alarmMgr.setRepeating(AlarmManager.ELAPSED_REALTIME,
                 SystemClock.elapsedRealtime(), 1 * 60 * 1000, alarmIntent);
         //DataBaseOperations.taskGetLocations = new GetLocations().execute();
@@ -162,12 +178,11 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-
     /**
      * @param item - position of item to be selected to
      */
     public void setSelectedNavigationItem(int item) {
-       // navigationView.getMenu().getItem(item).setChecked(true);
+        // navigationView.getMenu().getItem(item).setChecked(true);
         navigationView.setCheckedItem(item);
     }
 
@@ -229,7 +244,7 @@ public class MainActivity extends AppCompatActivity
         // if there are fragments in the back stack
         else if (getFragmentManager().getBackStackEntryCount() > 1) {
             // undo the last back stack transaction
-             getFragmentManager().popBackStack();
+            getFragmentManager().popBackStack();
         } else {
             // finish this activity
             super.onBackPressed();
@@ -251,6 +266,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_services) {
             Util.replaceFragment(servicesFragment, R.string.fragment_services);
         } else if (id == R.id.nav_news) {
+
             Util.replaceFragment(inTheNewsFragment, R.string.fragment_news);
         } else if (id == R.id.nav_testimonials) {
             Util.replaceFragment(testimonialFragment, R.string.fragment_testimonials);
@@ -275,7 +291,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void setNewsArrayList(ArrayList<News> newsArrayList) {
-      app.setNewsArrayList(newsArrayList);
+        app.setNewsArrayList(newsArrayList);
     }
 
 
@@ -287,6 +303,19 @@ public class MainActivity extends AppCompatActivity
 //    public void setNewsArrayList(ArrayList<News> newsArray) {
 //       newsList= newsArray;
 //    }
+
+    // This method will be called when a HelloWorldEvent is posted
+    public void onEvent(DownloadDataEvent event){
+        // your implementation
+       // Toast.makeText(Util.getContext(), event.getTag(), Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onPause() {
+
+        EventBus.getDefault().unregister(this);
+        super.onPause();
+    }
 }
 
 

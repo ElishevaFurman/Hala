@@ -394,7 +394,7 @@ public class Util extends Activity {
             }
         } else {
             // could not get JSON Array node
-            Log.e("Json Parser", "Couldn't get any data from the url");
+            Log.e("Json Parser", "Couldn't get any newsData from the url");
         }
 
         return jsonArray;

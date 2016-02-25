@@ -7,12 +7,13 @@ import com.path.android.jobqueue.Job;
 import com.path.android.jobqueue.Params;
 
 import org.apache.http.NameValuePair;
-import org.greenrobot.eventbus.EventBus;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+
+import de.greenrobot.event.EventBus;
 
 /**
  * Created by Home on 2/18/2016.

@@ -28,10 +28,11 @@ import org.apache.http.NameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import de.greenrobot.event.EventBus;
 
 /**
  * Created by Home on 1/21/2016.
@@ -51,7 +52,6 @@ public class HomeFragment extends Fragment {
     News[] data;
     ArrayList<News> newsList;
 
-
     private static String TAG = MainActivity.class.getSimpleName();
     private Button btnMakeArrayRequest;
 
@@ -69,6 +69,13 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        EventBus.getDefault().register(this);
+
+    }
+
+        @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -96,6 +103,7 @@ public class HomeFragment extends Fragment {
      * Function to initialize controls
      */
     public void initializeViews(View rootView) {
+        EventBus.getDefault().post(new DownloadDataEvent("hi"));
         aboutLinearLayout = (LinearLayout) rootView.findViewById(R.id.aboutLinearLayout);
         servicesLinearLayout = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout);
         contactLinearLayout = (LinearLayout) rootView.findViewById(R.id.contactLinearLayout);
@@ -116,7 +124,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // making json array request
-                makeJsonArrayRequest();
+                //makeJsonArrayRequest();
+
             }
         });
 
@@ -139,7 +148,8 @@ public class HomeFragment extends Fragment {
                             String jsonOutput = response.toString();
                             data = gson.fromJson(jsonOutput, News[].class);
                             newsList = new ArrayList<>(Arrays.asList(data));
-                            mainActivity.app.setNewsArrayList(newsList);
+                           // mainActivity.app.setNewsArrayList(newsList);
+                            MySingleton.getInstance().setNewsArrayList(newsList);
                         } catch (JsonSyntaxException e) {
                             e.printStackTrace();
                         }
@@ -267,5 +277,19 @@ public class HomeFragment extends Fragment {
         this.mainActivity = mainActivity;
     }
 
+
+    // This method will be called when a HelloWorldEvent is posted
+    public void onEvent(DownloadDataEvent event){
+        // your implementation
+        //Toast.makeText(Util.getContext(), event.getTag(), Toast.LENGTH_LONG).show();
+       event.download();
+    }
+
+    @Override
+    public void onPause() {
+
+        EventBus.getDefault().unregister(this);
+        super.onPause();
+    }
 
 }

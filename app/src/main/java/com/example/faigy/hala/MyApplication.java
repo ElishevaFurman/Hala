@@ -50,7 +50,15 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         mInstance = this;
-        context = getApplicationContext(); }
+        context = getApplicationContext();
+        initSingletons();
+    }
+
+    protected void initSingletons()
+    {
+        // Initialize the instance of MySingleton
+        MySingleton.initInstance();
+    }
 
     public static synchronized MyApplication getInstance() {
         return mInstance;

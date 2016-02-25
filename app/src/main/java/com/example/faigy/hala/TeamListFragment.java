@@ -18,7 +18,7 @@ public class TeamListFragment extends Fragment {
     LinearLayoutManager llm;
     TeamMemberAdapter tm;
     int prev = -1;
-
+    ArrayList<TeamMember>teamMemberArrayList;
     public TeamListFragment() {
         // Required empty public constructor
     }
@@ -64,7 +64,8 @@ public class TeamListFragment extends Fragment {
         llm = new LinearLayoutManager(getActivity().getBaseContext());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
-        tm = new TeamMemberAdapter(createList(10));
+        teamMemberArrayList =MySingleton.getInstance().getTeamMembersArrayList();
+        tm = new TeamMemberAdapter(teamMemberArrayList,Util.getContext());
         recList.setAdapter(tm);
 
         recList.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recList, new ClickListenerInterface() {

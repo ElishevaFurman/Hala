@@ -66,14 +66,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
     @Override
     public void onBindViewHolder(final MyNewsHolder holder, int position) {
         news = newsList.get(position);
-        holder.title.setText("Title goes here");
+        holder.title.setText(news.getTitle());
         holder.publication.setText(news.getPublication());
         holder.date.setText(news.getDate().toString());
 
         holder.shareLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Util.share(news.getUrl());
+                Util.share("http://"+news.getUrl());
 
             }
         });

@@ -1,13 +1,18 @@
 package com.example.faigy.hala;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
+import java.io.File;
 import java.util.List;
 
 /**
@@ -17,10 +22,11 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
 
     private List<TeamMember> teamMembersList;
     public static int expandedPosition = -1;
+    public Context context;
 
-
-    public TeamMemberAdapter(List<TeamMember> contactList) {
+    public TeamMemberAdapter(List<TeamMember> contactList, Context context) {
         this.teamMembersList = contactList;
+        this.context = context;
     }
 
     @Override
@@ -31,8 +37,11 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
     @Override
     public void onBindViewHolder(TeamMemberViewHolder teamMemberViewHolder, int i) {
         TeamMember tm = teamMembersList.get(i);
-        teamMemberViewHolder.vName.setText(tm.name);
-        teamMemberViewHolder.vTitle.setText(tm.title);
+        teamMemberViewHolder.vName.setText(tm.title + " " + tm.name);
+        teamMemberViewHolder.vTitle.setText(tm.description);
+        File f = new File("162.243.100.186/images/dr_yamin_cohen.jpg");
+        Picasso.with(context).load("http://162.243.100.186/images/dr_yamin_cohen.jpg").placeholder(R.mipmap.ic_launcher_hala).into(teamMemberViewHolder.teamMemberImageView);
+        //Picasso.with(Util.getContext()).load(tm.getImage()).into(teamMemberViewHolder.teamMemberImageView);
 
         // if position is equal to expanded position
         if (i == expandedPosition) {
@@ -63,6 +72,7 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
         protected TextView vTitle;
         public LinearLayout expandLinearLayout;
         public ImageButton expandArrow;
+        public ImageView teamMemberImageView;
 
         public TeamMemberViewHolder(View v) {
             super(v);
@@ -70,6 +80,7 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
             vTitle = (TextView) v.findViewById(R.id.title);
             expandLinearLayout = (LinearLayout) v.findViewById(R.id.expandLinearLayout);
             expandArrow = (ImageButton) v.findViewById(R.id.expandArrow);
+            teamMemberImageView = (ImageView) v.findViewById(R.id.teamMemberImageView);
         }
     }
 }
