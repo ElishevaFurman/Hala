@@ -112,22 +112,6 @@ public class HomeFragment extends Fragment {
                 Util.decodeSampledBitmapFromResource(getResources(), R.drawable.home_pg, 100, 100));
 
 
-        btnMakeArrayRequest = (Button) rootView.findViewById(R.id.btnArrayRequest);
-        txtResponse = (TextView) rootView.findViewById(R.id.txtResponse);
-
-        pDialog = new ProgressDialog(Util.getActivity());
-        pDialog.setMessage("Please wait...");
-        pDialog.setCancelable(false);
-
-        btnMakeArrayRequest.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // making json array request
-                //makeJsonArrayRequest();
-
-            }
-        });
 
     }
 

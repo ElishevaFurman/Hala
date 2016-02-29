@@ -39,9 +39,9 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
         TeamMember tm = teamMembersList.get(i);
         teamMemberViewHolder.vName.setText(tm.title + " " + tm.name);
         teamMemberViewHolder.vTitle.setText(tm.description);
-        File f = new File("162.243.100.186/images/dr_yamin_cohen.jpg");
-        Picasso.with(context).load("http://162.243.100.186/images/dr_yamin_cohen.jpg").placeholder(R.mipmap.ic_launcher_hala).into(teamMemberViewHolder.teamMemberImageView);
-        //Picasso.with(Util.getContext()).load(tm.getImage()).into(teamMemberViewHolder.teamMemberImageView);
+        teamMemberViewHolder.vBio.setText(tm.bio);
+        //File f = new File("162.243.100.186/images/dr_yamin_cohen.jpg");
+        Picasso.with(context).load("http://"+tm.getImage()).placeholder(R.mipmap.ic_launcher_hala).transform(new CircleTransform()).into(teamMemberViewHolder.teamMemberImageView);
 
         // if position is equal to expanded position
         if (i == expandedPosition) {
@@ -68,8 +68,7 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
     }
 
     public class TeamMemberViewHolder extends RecyclerView.ViewHolder {
-        protected TextView vName;
-        protected TextView vTitle;
+        protected TextView vName,  vTitle, vBio;
         public LinearLayout expandLinearLayout;
         public ImageButton expandArrow;
         public ImageView teamMemberImageView;
@@ -78,6 +77,7 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
             super(v);
             vName = (TextView) v.findViewById(R.id.txtName);
             vTitle = (TextView) v.findViewById(R.id.title);
+            vBio = (TextView) v.findViewById(R.id.bioTextView);
             expandLinearLayout = (LinearLayout) v.findViewById(R.id.expandLinearLayout);
             expandArrow = (ImageButton) v.findViewById(R.id.expandArrow);
             teamMemberImageView = (ImageView) v.findViewById(R.id.teamMemberImageView);
