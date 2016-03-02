@@ -35,8 +35,14 @@ public class TeamListFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_team_list, container, false);
         initializeViews(rootView);
+
+        // set toolbar title
+        Util.setToolbarTitle(R.string.fragment_team, mainActivity.toolbar);
         // remove keyboard from screen
         Util.hideSoftKeyboard();
+        //set navigation selected to current fragment
+        mainActivity.setSelectedNavigationItem(R.id.nav_team);
+
         return rootView;
     }
 

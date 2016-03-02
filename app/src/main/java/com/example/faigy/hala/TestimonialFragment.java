@@ -24,7 +24,7 @@ public class TestimonialFragment extends Fragment {
     MainActivity mainActivity;
     TextView titleTextView;
     ImageView imageView;
-    CardView cardView;
+    CardView cardView1, cardView2, cardView3, cardView4;
 
 
     public TestimonialFragment() {
@@ -56,8 +56,8 @@ public class TestimonialFragment extends Fragment {
     public void initializeViews(View rootView) {
 //        titleTextView = (TextView) rootView.findViewById(R.id.titleTextView);
 //        titleTextView.setText(Html.fromHtml(getString(R.string.testimonial_title)));
-        cardView = (CardView) rootView.findViewById(R.id.testimonialCardView);
-        cardView.setOnClickListener(new View.OnClickListener() {
+        cardView1 = (CardView) rootView.findViewById(R.id.saraBrownCardView);
+        cardView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -67,6 +67,39 @@ public class TestimonialFragment extends Fragment {
             }
         });
 
+        cardView2 = (CardView) rootView.findViewById(R.id.sharonHarelCardView);
+        cardView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String url = "http://www.hala.org.il/Image/uploaded/lady-sharon-letr-medium1.jpg";
+                Util.createDialog("Open Testimonial", "View testimonial in browser", "OPEN", "CANCEL", "url", url);
+
+            }
+        });
+
+
+        cardView3 = (CardView) rootView.findViewById(R.id.susangKomenCardView);
+        cardView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String url = "http://www.hala.org.il/Image/uploaded/Hala_Komen_Partnership.pdf";
+                Util.createDialog("Open Testimonial", "View testimonial in browser", "OPEN", "CANCEL", "url", url);
+
+            }
+        });
+
+        cardView4 = (CardView) rootView.findViewById(R.id.yaakovLitzmanCardView);
+        cardView4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String url = "http://www.hala.org.il/Image/uploaded/Letter%20from%20Ministry%20of%20Health.pdf";
+                Util.createDialog("Open Testimonial", "View testimonial in browser", "OPEN", "CANCEL", "url", url);
+
+            }
+        });
 
     }
 

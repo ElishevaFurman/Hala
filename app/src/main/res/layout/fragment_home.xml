@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:alpha="0.5"
+            android:alpha="0.8"
             android:adjustViewBounds="true"
             android:layout_gravity="center_horizontal" />
 
@@ -28,7 +28,8 @@
         android:paddingLeft="@dimen/default_margin"
         android:paddingRight="@dimen/default_margin"
         android:paddingTop="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="100dp"
+        android:textStyle="bold"
         android:layout_alignParentBottom="false"
         android:layout_alignParentTop="true">
         <TextView
@@ -38,8 +39,7 @@
             android:paddingBottom="8dp"
             android:text="@string/home_banner_large_text1"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/colorAccentLight"
-            android:alpha="0.8"/>
+            android:textColor="#fff"/>
 
         <TextView
             android:id="@+id/bannerTextView1"
@@ -48,8 +48,7 @@
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:text="@string/home_banner_small_text"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/colorAccentLight"
-            android:alpha="0.5"/>
+            android:textColor="#fff"/>
 
         <TextView
             android:id="@+id/bannerTextView2"
@@ -58,8 +57,7 @@
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:text="@string/home_banner_small_text2"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/colorAccentLight"
-            android:alpha="0.5"/>
+            android:textColor="#fff"/>
     </LinearLayout>
 
 
@@ -80,6 +78,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+
                 <ImageView
                     android:id="@+id/aboutImageView"
                     android:layout_width="wrap_content"
@@ -90,7 +89,7 @@
                     android:layout_marginTop="32dp"
                     android:background="@drawable/circle_background"
                     android:contentDescription="@string/about_icon"
-                    android:padding="16dp"
+                    android:padding="22dp"
                     android:src="@drawable/ic_group_24dp" />
 
                 <TextView
@@ -101,7 +100,7 @@
                     android:layout_marginTop="@dimen/default_margin"
                     android:text="@string/about"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorPrimary" />
+                    android:textColor="#fff" />
             </LinearLayout>
 
             <LinearLayout
@@ -120,7 +119,7 @@
                     android:layout_marginTop="32dp"
                     android:background="@drawable/circle_background"
                     android:contentDescription="@string/services_icon"
-                    android:padding="16dp"
+                    android:padding="22dp"
                     android:src="@drawable/ic_assignment_24dp" />
 
                 <TextView
@@ -131,7 +130,7 @@
                     android:layout_marginTop="@dimen/default_margin"
                     android:text="@string/services"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorPrimary" />
+                    android:textColor="#fff" />
             </LinearLayout>
 
 
@@ -151,7 +150,7 @@
                     android:layout_marginTop="32dp"
                     android:background="@drawable/circle_background"
                     android:contentDescription="@string/contact_icon"
-                    android:padding="16dp"
+                    android:padding="22dp"
                     android:src="@drawable/ic_phone_24dp" />
 
                 <TextView
@@ -162,7 +161,7 @@
                     android:layout_marginTop="@dimen/default_margin"
                     android:text="@string/contact"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorPrimary" />
+                    android:textColor="#fff" />
             </LinearLayout>
 
     </LinearLayout>

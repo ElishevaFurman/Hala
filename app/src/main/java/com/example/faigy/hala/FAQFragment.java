@@ -2,15 +2,20 @@ package com.example.faigy.hala;
 
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.support.v7.widget.Toolbar;
 
 import java.util.ArrayList;
+
+import de.greenrobot.event.EventBus;
 
 public class FAQFragment extends Fragment {
     // Declare Controls
@@ -31,20 +36,49 @@ public class FAQFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_faq, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_faq2, container, false);
         // Initialize the views for this fragment
         initializeViews(rootView);
+        mainActivity.getSupportActionBar().hide();
         // set toolbar title
-        Util.setToolbarTitle(R.string.fragment_faq, mainActivity.toolbar);
+        //Util.setToolbarTitle(R.string.fragment_faq, mainActivity.toolbar);
+
         mainActivity.openNavigationDrawer();
         // remove keyboard from screen
         Util.hideSoftKeyboard();
         //set navigation selected to current fragment
         mainActivity.setSelectedNavigationItem(R.id.nav_faqs);
+
         return rootView;
     }
 
     public void initializeViews(final View rootView) {
+
+
+
+        final Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_menu_24dp);
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainActivity.openNavigationDrawer();
+            }
+        });
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //activity.getFragmentManager().popBackStack();
+                mainActivity.openNavigationDrawer2(toolbar);
+            }
+        });
+//        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+//        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) rootView.findViewById(R.id.collapsing_toolbar);
+        collapsingToolbar.setTitle("Faq's");
+//        Util.setNavigationIcon(R.drawable.ic_menu_24dp, toolbar, mainActivity.drawer);
+//        mainActivity.openNavigationDrawer();
+
 
         answerList = new ArrayList<>();
         questionList = new ArrayList<>();
@@ -137,6 +171,24 @@ public class FAQFragment extends Fragment {
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }
+
+    @Override
+    public void onPause() {
+
+        super.onPause();
+
+        mainActivity.getSupportActionBar().show();
+        //Util.setToolbarTitle(R.string.fragment_faq, mainActivity.toolbar);
+    }
+
+    @Override
+    public void onStop() {
+
+        super.onStop();
+        //mainActivity.getSupportActionBar().show();
+        //Util.setToolbarTitle(R.string.fragment_faq, mainActivity.toolbar);
+    }
+
 
 }
 

@@ -46,13 +46,11 @@ import de.greenrobot.event.EventBus;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+
     // Declare controls
     Toolbar toolbar;
     DrawerLayout drawer;
     NavigationView navigationView;
-
-    ArrayList<News> newsList;
-
 
     // Declare Fragments
     HomeFragment homeFragment;
@@ -73,6 +71,7 @@ public class MainActivity extends AppCompatActivity
     AppointmentFragment appointmentFragment;
     protected MyApplication app;
     DataBaseOperations dataBaseOperations;
+    NewsTabFragment newsTabFragment;
 
 
     @Override
@@ -99,7 +98,7 @@ public class MainActivity extends AppCompatActivity
 
         app = (MyApplication) getApplication();
 
-        dataBaseOperations.makeJsonArrayRequest("news","http://162.243.100.186/news_array.php");
+//        dataBaseOperations.makeJsonArrayRequest("news","http://162.243.100.186/news_array.php");
         dataBaseOperations.makeJsonArrayRequest("members","http://162.243.100.186/members_array.php");
         // startAlarm();
         //EventBus myEventBus = EventBus.getDefault();
@@ -165,6 +164,16 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
         Util.hideSoftKeyboard();
 
+    }
+
+    public void openNavigationDrawer2(Toolbar toolbar) {
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
+        drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+        Util.hideSoftKeyboard();
 
     }
 
@@ -224,6 +233,8 @@ public class MainActivity extends AppCompatActivity
         appointmentFragment.setMainActivity(this);
         dataBaseOperations = new DataBaseOperations(this);
         //dataBaseOperations.setMainActivity(this);
+        newsTabFragment = new NewsTabFragment();
+        newsTabFragment.setMainActivity(this);
     }
 
     /**
@@ -262,12 +273,11 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_about) {
             Util.replaceFragment(aboutUsFragment, R.string.fragment_about);
         } else if (id == R.id.nav_team) {
-            Util.replaceFragment(ourTeamFragment, R.string.fragment_team);
+            Util.replaceFragment(teamListFragment, R.string.fragment_team);
         } else if (id == R.id.nav_services) {
             Util.replaceFragment(servicesFragment, R.string.fragment_services);
         } else if (id == R.id.nav_news) {
-
-            Util.replaceFragment(inTheNewsFragment, R.string.fragment_news);
+            Util.replaceFragment(newsTabFragment, R.string.fragment_news);
         } else if (id == R.id.nav_testimonials) {
             Util.replaceFragment(testimonialFragment, R.string.fragment_testimonials);
 //        } else if (id == R.id.nav_grow) {
@@ -294,16 +304,6 @@ public class MainActivity extends AppCompatActivity
         app.setNewsArrayList(newsArrayList);
     }
 
-
-//
-//    public ArrayList<News> getNewsArrayList() {
-//        return newsList;
-//    }
-//
-//    public void setNewsArrayList(ArrayList<News> newsArray) {
-//       newsList= newsArray;
-//    }
-
     // This method will be called when a HelloWorldEvent is posted
     public void onEvent(DownloadDataEvent event){
         // your implementation
@@ -316,6 +316,8 @@ public class MainActivity extends AppCompatActivity
         EventBus.getDefault().unregister(this);
         super.onPause();
     }
+
+
 }
 
 

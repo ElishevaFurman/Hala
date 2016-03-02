@@ -1,5 +1,6 @@
 package com.example.faigy.hala;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -8,6 +9,7 @@ import android.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +17,20 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import org.joda.time.LocalDate;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 
+import org.joda.time.LocalDate;
+import org.json.JSONArray;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import de.greenrobot.event.EventBus;
@@ -31,24 +44,26 @@ public class InTheNewsFragment extends Fragment {
     private NewsAdapter mAdapter;
 
     // Declare variables
-    private List<News> NewsList = new ArrayList<>();
+    News[] newsData;
+    ArrayList<News> newsList, news2List, publicationList,presentationList;
+    private RequestQueue requestQueue;
+
+    // Declare class
+    private VolleySingleton volleySingleton;
+
+    private static String TAG = MainActivity.class.getSimpleName();
 
     // Declare activities
     MainActivity mainActivity;
     protected MyApplication app;
-
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        //mainActivity.dataBaseOperations.makeJsonArrayRequest("news");
-
-    }
+    ProgressDialog pDialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        volleySingleton = VolleySingleton.getInstance();
+        requestQueue = volleySingleton.getRequestQueue();
 
     }
 
@@ -58,16 +73,18 @@ public class InTheNewsFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_in_the_news, container, false);
 
-
         // Initialize the views for this fragment
         initializeViews(rootView);
         // set toolbar title
-        Util.setToolbarTitle(R.string.fragment_news, mainActivity.toolbar);
+        //Util.setToolbarTitle(R.string.fragment_news, mainActivity.toolbar);
         // remove keyboard from screen
         Util.hideSoftKeyboard();
         //set navigation selected to current fragment
-        mainActivity.setSelectedNavigationItem(R.id.nav_news);
+       // mainActivity.setSelectedNavigationItem(R.id.nav_news);
 
+        pDialog = new ProgressDialog(Util.getContext());
+        pDialog.setMessage("Loading...");
+        pDialog.show();
         return rootView;
     }
 
@@ -75,79 +92,66 @@ public class InTheNewsFragment extends Fragment {
      * Function to initialize controls
      */
     public void initializeViews(final View rootView) {
+
         // initialize and reference controls
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
-
-        NewsList =MySingleton.getInstance().getNewsArrayList();
-        mAdapter = new NewsAdapter(NewsList, getActivity());
+        mAdapter = new NewsAdapter(getActivity());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListenerInterface() {
-            @Override
-            public void onClick(View view, int position) {
-                Util.createDialog("Open Article", "View article in browser", "OPEN", "CANCEL", "url", "http://"+"www.google.com");
-            }
-
-            @Override
-            public void onLongClick(View view, int position) {
-
-            }
-        }));
-
         recyclerView.setAdapter(mAdapter);
-
-        mAdapter.notifyDataSetChanged();
-       // prepareNewsData();
-        if (mAdapter.openDialog) {
-            Util.createDialog("Open Article", "View article in browser", "OPEN", "CANCEL", "url", "https://www.google.com/");
-        }
+        makeJsonArrayRequest("http://162.243.100.186/news_array.php");
 
     }
 
     /**
-     * Function to add newsData to NewsList
-     */
-    private void prepareNewsData() {
-//        News news = new News("Revolution in the Haredi Community", "Jerusalem Post", "12-01-2015");
-//        NewsList.add(news);
-//        news = new News("Revolution in the Haredi Community", "Jerusalem Post", "12-01-2015");
-//        NewsList.add(news);
-//        news = new News("Revolution in the Haredi Community", "Jerusalem Post", "12-01-2015");
-//        NewsList.add(news);
-//        news = new News("Revolution in the Haredi Community", "Jerusalem Post", "12-01-2015");
-//        NewsList.add(news);
+     * Method to make json array request where response starts with
+     * */
+    public void makeJsonArrayRequest(String urlJsonArry) {
 
+        JsonArrayRequest req = new JsonArrayRequest(urlJsonArry,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Log.d(TAG, response.toString());
+                        pDialog.hide();
+                        Gson gson = new Gson();
+                        String jsonOutput = response.toString();
+                        try {
+                                newsData = gson.fromJson(jsonOutput, News[].class);
+                                newsList = new ArrayList<>(Arrays.asList(newsData));
+                                news2List = new ArrayList<>();
+                                publicationList = new ArrayList<>();
+                                presentationList = new ArrayList<>();
+                            for (News n: newsList){
+                                if (n.getCategory().equals(1))
+                                    newsList.add(n);
+                            }else if (n.getCater){
 
-        mAdapter.notifyDataSetChanged();
+                            }else{
+
+                            }
+                                mAdapter.setNewsList(newsList);
+                        } catch (JsonSyntaxException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                pDialog.hide();
+                VolleyLog.d(TAG, "Error: " + error.getMessage());
+                Toast.makeText(Util.getContext(),
+                        error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        requestQueue.add(req);
+
     }
-
 
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-

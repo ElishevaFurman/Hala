@@ -3,10 +3,15 @@ package com.example.faigy.hala;
 
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.andexert.library.RippleView;
 
 
 /**
@@ -36,6 +41,7 @@ public class ServicesFragment extends Fragment {
         // Initialize the views for tis fragment
         initializeViews(rootView);
         registerListeners();
+        //mainActivity.getSupportActionBar().hide();
         // set toolbar title
         Util.setToolbarTitle(R.string.fragment_services, mainActivity.toolbar);
         // set navigation drawer to toggle
@@ -58,6 +64,22 @@ public class ServicesFragment extends Fragment {
         servicesRelativeLayout5 = (RelativeLayout) rootView.findViewById(R.id.servicesRelativeLayout5);
         servicesRelativeLayout6 = (RelativeLayout) rootView.findViewById(R.id.servicesRelativeLayout6);
         servicesRelativeLayout7 = (RelativeLayout) rootView.findViewById(R.id.servicesRelativeLayout7);
+
+//        final RippleView rippleView = (RippleView) rootView.findViewById(R.id.rect);
+//        rippleView.setOnClickListener(new View.OnClickListener()
+//        {
+//            @Override
+//            public void onClick(View v)
+//            {
+//                Log.e("Sample", "Click Rect !");
+//            }
+//        });
+//        rippleView.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
+//            @Override
+//            public void onComplete(RippleView rippleView) {
+//                Log.d("Sample", "Ripple completed");
+//            }
+//        });
     }
 
     /**
@@ -88,4 +110,10 @@ public class ServicesFragment extends Fragment {
         this.mainActivity = mainActivity;
     }
 
+    @Override
+    public void onPause() {
+
+        super.onPause();
+        mainActivity.getSupportActionBar().show();
+    }
 }

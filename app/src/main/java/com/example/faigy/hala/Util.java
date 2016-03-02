@@ -13,6 +13,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Parcelable;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
@@ -39,6 +40,8 @@ public class Util extends Activity {
     private static Context context = null;
     private static Activity activity = null;
     private static Application application = null;
+
+
     /**
      * Function to set reference of current activity
      *
@@ -134,6 +137,22 @@ public class Util extends Activity {
         drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
     }
 
+    /**
+     * @param icon    - drawable for the toolbar icon
+     * @param toolbar - set the icon to this toolbar
+     */
+    public static void setNavigationIcon(int icon, Toolbar toolbar, DrawerLayout drawer) {
+        toolbar.setNavigationIcon(icon);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //activity.getFragmentManager().popBackStack();
+
+            }
+        });
+
+        drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+    }
 
     /**
      * Function to hide keyboard
@@ -399,8 +418,6 @@ public class Util extends Activity {
 
         return jsonArray;
     }
-
-
 
 }
 

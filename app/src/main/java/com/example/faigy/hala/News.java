@@ -9,41 +9,30 @@ import org.joda.time.LocalDate;
  */
 public class News {
     // class members
-    @SerializedName("Title")
-    public String title;
-
-    @SerializedName("Url")
-    public String url;
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    @SerializedName("Publication")
-    public  String publication;
-
-    @SerializedName("Date")
-    String date;
+    public String title, publication, url, date, category;
 
     // constructor
     public News() {
 
     }
 
-    public News(String title, String publication, String date, String url) {
+    public News(String title, String publication, String date, String url, String category) {
         this.title = title;
         this.publication = publication;
         this.date = date;
         this.url = url;
     }
 
-
     public String getTitle() {
         return title;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public void setTitle(String title) {
@@ -65,4 +54,13 @@ public class News {
     public void setDate(String date) {
         this.date = date;
     }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
 }

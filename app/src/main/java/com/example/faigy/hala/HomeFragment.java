@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.andexert.library.RippleView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -109,80 +110,9 @@ public class HomeFragment extends Fragment {
         contactLinearLayout = (LinearLayout) rootView.findViewById(R.id.contactLinearLayout);
         homeImageView = (ImageView) rootView.findViewById(R.id.homeImageView);
         homeImageView.setImageBitmap(
-                Util.decodeSampledBitmapFromResource(getResources(), R.drawable.home_pg, 100, 100));
-
-
+                Util.decodeSampledBitmapFromResource(getResources(), R.drawable.hala_home3, 180, 180));
 
     }
-
-
-    /**
-     * Method to make json array request where response starts with [
-     * */
-    private void makeJsonArrayRequest() {
-
-        JsonArrayRequest req = new JsonArrayRequest(urlJsonArry,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        Log.d(TAG, response.toString());
-
-                        try {
-                            Gson gson = new Gson();
-                            String jsonOutput = response.toString();
-                            data = gson.fromJson(jsonOutput, News[].class);
-                            newsList = new ArrayList<>(Arrays.asList(data));
-                           // mainActivity.app.setNewsArrayList(newsList);
-                            MySingleton.getInstance().setNewsArrayList(newsList);
-                        } catch (JsonSyntaxException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-                Toast.makeText(Util.getContext(),
-                        error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        // Adding request to request queue
-        MyApplication.getInstance().addToRequestQueue(req);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

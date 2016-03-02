@@ -20,6 +20,12 @@ public class AskFragment extends Fragment {
     }
 
     @Override
+    public void onResume(){
+        super.onResume();
+        mainActivity.getSupportActionBar().show();
+        Util.setToolbarTitle(R.string.fragment_faq, mainActivity.toolbar);
+    }
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -31,6 +37,7 @@ public class AskFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_ask, container, false);
         // Initialize the views for this fragment
+        mainActivity.getSupportActionBar().show();
         initializeViews(rootView);
         // set toolbar title
         Util.setToolbarTitle(R.string.fragment_ask, mainActivity.toolbar);
