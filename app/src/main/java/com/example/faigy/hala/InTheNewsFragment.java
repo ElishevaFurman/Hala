@@ -45,7 +45,7 @@ public class InTheNewsFragment extends Fragment {
 
     // Declare variables
     News[] newsData;
-    ArrayList<News> newsList, news2List, publicationList,presentationList;
+    ArrayList<News> newsList;
     private RequestQueue requestQueue;
 
     // Declare class
@@ -57,6 +57,11 @@ public class InTheNewsFragment extends Fragment {
     MainActivity mainActivity;
     protected MyApplication app;
     ProgressDialog pDialog;
+
+    String p;
+
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -72,7 +77,8 @@ public class InTheNewsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_in_the_news, container, false);
-
+        // get the position of the tab in the layout
+        p = container.getTag().toString();
         // Initialize the views for this fragment
         initializeViews(rootView);
         // set toolbar title
@@ -85,6 +91,7 @@ public class InTheNewsFragment extends Fragment {
         pDialog = new ProgressDialog(Util.getContext());
         pDialog.setMessage("Loading...");
         pDialog.show();
+
         return rootView;
     }
 
@@ -102,6 +109,7 @@ public class InTheNewsFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
         makeJsonArrayRequest("http://162.243.100.186/news_array.php");
+
 
     }
 
@@ -121,18 +129,7 @@ public class InTheNewsFragment extends Fragment {
                         try {
                                 newsData = gson.fromJson(jsonOutput, News[].class);
                                 newsList = new ArrayList<>(Arrays.asList(newsData));
-                                news2List = new ArrayList<>();
-                                publicationList = new ArrayList<>();
-                                presentationList = new ArrayList<>();
-                            for (News n: newsList){
-                                if (n.getCategory().equals(1))
-                                    newsList.add(n);
-                            }else if (n.getCater){
-
-                            }else{
-
-                            }
-                                mAdapter.setNewsList(newsList);
+                                mAdapter.setNewsList(sortList(newsList, p));
                         } catch (JsonSyntaxException e) {
                             e.printStackTrace();
                         }
@@ -148,6 +145,16 @@ public class InTheNewsFragment extends Fragment {
         });
         requestQueue.add(req);
 
+    }
+
+
+    public ArrayList<News> sortList(ArrayList<News> newsList ,String p){
+        ArrayList<News> list = new ArrayList<>();
+        for (News n: newsList){
+            if (n.getCategory().equals(p))
+                list.add(n);
+        }
+        return list;
     }
 
     public void setMainActivity(MainActivity mainActivity) {

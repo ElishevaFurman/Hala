@@ -10,18 +10,19 @@
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scrollbars="none"/>
+                android:scrollbars="none"
+                android:layout_marginBottom="36dp"/>
 
 
-        <ImageView
-            android:id="@+id/topImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:alpha="0.6"
-            android:contentDescription="@string/image_description"
-            android:src="@drawable/hala_capture3"
-            android:layout_gravity="bottom"/>
+        <!--<ImageView-->
+            <!--android:id="@+id/topImageView"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:adjustViewBounds="true"-->
+            <!--android:alpha="0.6"-->
+            <!--android:contentDescription="@string/image_description"-->
+            <!--android:src="@drawable/hala_capture3"-->
+            <!--android:layout_gravity="bottom"/>-->
 
 
 </LinearLayout>

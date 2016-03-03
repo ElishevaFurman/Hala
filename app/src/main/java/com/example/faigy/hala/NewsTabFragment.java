@@ -19,6 +19,7 @@ public class NewsTabFragment extends Fragment {
     ViewPager viewPager;
     TabLayout tabLayout;
     ViewPagerAdapter adapter;
+    int id;
 
     public NewsTabFragment() {
         // Required empty public constructor
@@ -62,23 +63,51 @@ public class NewsTabFragment extends Fragment {
     /**
      * Function to initialize controls
      */
-    public void initializeViews(View rootView) {
+    public void initializeViews(final View rootView) {
         viewPager = (ViewPager) rootView.findViewById(R.id.tabanim_viewpager);
         setupViewPager(viewPager);
         tabLayout = (TabLayout) rootView.findViewById(R.id.tabanim_tabs);
         tabLayout.setupWithViewPager(viewPager);
+
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setTag(tab.getPosition());
+                viewPager.setAdapter(adapter);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+
+
     }
 
     /**
      * Function to setup ViewPager
      * @param viewPager
      */
-    private void setupViewPager(ViewPager viewPager) {
+    private void setupViewPager(final ViewPager viewPager) {
         adapter = new ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFrag((new InTheNewsFragment()), "NEWS");
-        adapter.addFrag((new InTheNewsFragment()), "PUBLICATION");
-        adapter.addFrag((new InTheNewsFragment()), "PRESENTATIONS");
+        final String NewsTag = "NEWS";
+        final String PublicationTag = "PUBLICATION";
+        String PresentationTag = "PRESENTATIONS";
+
+        adapter.addFrag((new InTheNewsFragment()), NewsTag);
+        adapter.addFrag((new InTheNewsFragment()), PublicationTag);
+        adapter.addFrag((new InTheNewsFragment()), PresentationTag);
+
+        viewPager.setTag("0");
         viewPager.setAdapter(adapter);
+
     }
 
 
