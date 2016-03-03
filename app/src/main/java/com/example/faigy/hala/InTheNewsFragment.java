@@ -57,11 +57,7 @@ public class InTheNewsFragment extends Fragment {
     MainActivity mainActivity;
     protected MyApplication app;
     ProgressDialog pDialog;
-
     String p;
-
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -109,7 +105,6 @@ public class InTheNewsFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
         makeJsonArrayRequest("http://162.243.100.186/news_array.php");
-
 
     }
 

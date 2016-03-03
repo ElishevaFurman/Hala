@@ -1,5 +1,6 @@
 package com.example.faigy.hala;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -8,12 +9,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
+
+import org.json.JSONArray;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import de.greenrobot.event.EventBus;
 
@@ -22,14 +36,24 @@ public class FAQFragment extends Fragment {
     RecyclerView recyclerView;
     FAQExpandableAdapter mAdapter;
     FloatingActionButton fab;
-    ArrayList<String> questionList, answerList;
+    ArrayList<Faqs> faqArrayList;
     MainActivity mainActivity;
-    int prev = -1;
+
+
+    Faqs[] newsData;
+    private RequestQueue requestQueue;
+    private VolleySingleton volleySingleton;
+    private static String TAG = MainActivity.class.getSimpleName();
+    ProgressDialog pDialog;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        volleySingleton = VolleySingleton.getInstance();
+        requestQueue = volleySingleton.getRequestQueue();
+
     }
 
     @Override
@@ -39,15 +63,14 @@ public class FAQFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_faq2, container, false);
         // Initialize the views for this fragment
         initializeViews(rootView);
-        mainActivity.getSupportActionBar().hide();
-        // set toolbar title
-        //Util.setToolbarTitle(R.string.fragment_faq, mainActivity.toolbar);
-
-        mainActivity.openNavigationDrawer();
         // remove keyboard from screen
         Util.hideSoftKeyboard();
         //set navigation selected to current fragment
         mainActivity.setSelectedNavigationItem(R.id.nav_faqs);
+
+        pDialog = new ProgressDialog(Util.getContext());
+        pDialog.setMessage("Loading...");
+        pDialog.show();
 
         return rootView;
     }
@@ -55,67 +78,12 @@ public class FAQFragment extends Fragment {
     public void initializeViews(final View rootView) {
 
 
-
         final Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_menu_24dp);
-        toolbar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mainActivity.openNavigationDrawer();
-            }
-        });
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //activity.getFragmentManager().popBackStack();
-                mainActivity.openNavigationDrawer2(toolbar);
-            }
-        });
-//        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
-//        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        mainActivity.openNavigationDrawer2(toolbar, R.drawable.ic_menu_24dp);
+
 
         CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) rootView.findViewById(R.id.collapsing_toolbar);
         collapsingToolbar.setTitle("Faq's");
-//        Util.setNavigationIcon(R.drawable.ic_menu_24dp, toolbar, mainActivity.drawer);
-//        mainActivity.openNavigationDrawer();
-
-
-        answerList = new ArrayList<>();
-        questionList = new ArrayList<>();
-
-        // and items to question/answer list
-        questionList.add("What is a mammogram?");
-        answerList.add("Mammogram is a photograph (imaging, picture) of a breast, taken using" +
-                " low-dose X-RAYS. The mammogram is used for early detection of breast cancer, " +
-                "typically through detection of characteristic masses and/or micro-calcifications.");
-        questionList.add(" At what age should women begin to go for breast cancer screening?");
-        answerList.add("Israel’s Ministry of Health recommends that women begin going for " +
-                "mammograms at the age of 50. For women who are at higher risk due to breast " +
-                "cancer history in the family, dense breast tissue, HRT, IVF and prior cancer " +
-                "elsewhere, the recommendation is to begin screening at the age of 40, and to " +
-                "receive a yearly mammogram thereafter.");
-        questionList.add(" Are there any risks from the examination?");
-        answerList.add("The theoretical radiation risk from screening mammography is extremely " +
-                "small, compared with the established benefit from this life-saving procedure " +
-                "and should not unduly distract women. A similar level of risk we get by: " +
-                "400 miles travel by air, 60 miles travel by car, smoking ¾ of one cigarette, " +
-                "90 seconds of mountain climbing, 20 minutes of being a man aged 60.");
-        questionList.add("Why should I undergo a mammography examination?");
-        answerList.add("Screening mammography offers the potential for significant benefits in " +
-                "addition to mortality reduction, including early diagnosis, less aggressive " +
-                "therapy and improved cosmetic results.");
-        questionList.add("Why must the breast be squeezed?");
-        answerList.add("-- In order to reduce radiation dose\n" +
-                "-- In order to increase image quality and accuracy of mammography. " +
-                "The bigger compression the smaller cancer can be identified.");
-        questionList.add("question 6");
-        answerList.add("answer 6");
-        questionList.add("question 7");
-        answerList.add("answer 7");
-        questionList.add("question 8");
-        answerList.add("answer 8");
-        questionList.add("question 9");
-        answerList.add("answer 9");
 
         fab = (FloatingActionButton) rootView.findViewById(R.id.askFab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -128,45 +96,80 @@ public class FAQFragment extends Fragment {
 
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
-        mAdapter = new FAQExpandableAdapter(questionList, answerList);
+
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+        makeJsonArrayRequest("http://162.243.100.186/faqs_array.php");
         recyclerView.setAdapter(mAdapter);
-
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListenerInterface() {
-            @Override
-            public void onClick(View view, int position) {
-                // Check for an expanded view, collapse if you find one
-                if (mAdapter.expandedPosition >= 0) {
-                    // set pre to expandedPosition
-                    prev = mAdapter.expandedPosition;
-                    // notify adapter on item changed
-                    mAdapter.notifyItemChanged(prev);
-                }
-                // if position is expanded
-                if (position == mAdapter.expandedPosition) {
-                    // Set the current position to "collapse"
-                    mAdapter.expandedPosition = -1;
-                    // notify adapter on item changed
-                    mAdapter.notifyItemChanged(mAdapter.expandedPosition);
-                } else {
-                    // Set the current position to "expanded"
-                    mAdapter.expandedPosition = position;
-                    // notify adapter on item changed
-                    mAdapter.notifyItemChanged(mAdapter.expandedPosition);
-                }
-            }
-
-            @Override
-            public void onLongClick(View view, int position) {
-
-            }
-        }));
     }
 
+//        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListenerInterface() {
+//            @Override
+//            public void onClick(View view, int position) {
+//                // Check for an expanded view, collapse if you find one
+//                if (mAdapter.expandedPosition >= 0) {
+//                    // set pre to expandedPosition
+//                    prev = mAdapter.expandedPosition;
+//                    // notify adapter on item changed
+//                    mAdapter.notifyItemChanged(prev);
+//                }
+//                // if position is expanded
+//                if (position == mAdapter.expandedPosition) {
+//                    // Set the current position to "collapse"
+//                    mAdapter.expandedPosition = -1;
+//                    // notify adapter on item changed
+//                    mAdapter.notifyItemChanged(mAdapter.expandedPosition);
+//                } else {
+//                    // Set the current position to "expanded"
+//                    mAdapter.expandedPosition = position;
+//                    // notify adapter on item changed
+//                    mAdapter.notifyItemChanged(mAdapter.expandedPosition);
+//                }
+//            }
+//
+//            @Override
+//            public void onLongClick(View view, int position) {
+//
+//            }
+//        }));
+//    }
+
+    /**
+     * Method to make json array request where response starts with
+     * */
+    public void makeJsonArrayRequest(String urlJsonArry) {
+
+        JsonArrayRequest req = new JsonArrayRequest(urlJsonArry,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Log.d(TAG, response.toString());
+                        pDialog.hide();
+                        Gson gson = new Gson();
+                        String jsonOutput = response.toString();
+                        try {
+                            newsData = gson.fromJson(jsonOutput, Faqs[].class);
+                            faqArrayList = new ArrayList<>(Arrays.asList(newsData));
+                            mAdapter = new FAQExpandableAdapter(faqArrayList);
+                        } catch (JsonSyntaxException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                pDialog.hide();
+                VolleyLog.d(TAG, "Error: " + error.getMessage());
+                Toast.makeText(Util.getContext(),
+                        error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        requestQueue.add(req);
+
+    }
 
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
@@ -179,6 +182,12 @@ public class FAQFragment extends Fragment {
 
         mainActivity.getSupportActionBar().show();
         //Util.setToolbarTitle(R.string.fragment_faq, mainActivity.toolbar);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mainActivity.getSupportActionBar().hide();
     }
 
     @Override

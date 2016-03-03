@@ -15,9 +15,9 @@ public class FAQExpandableAdapter extends RecyclerView.Adapter<FAQExpandableAdap
 //implements View.OnClickListener{
 
     // Declare controls
-    private ArrayList<String> questionList;
-    private ArrayList<String> answerList;
+    private ArrayList<Faqs> faqList;
     public static int expandedPosition = -1;
+    int prev = -1;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView question, answer;
@@ -34,9 +34,9 @@ public class FAQExpandableAdapter extends RecyclerView.Adapter<FAQExpandableAdap
     }
 
 
-    public FAQExpandableAdapter(ArrayList<String> questionList, ArrayList<String> answerList) {
-        this.questionList = questionList;
-        this.answerList = answerList;
+    public FAQExpandableAdapter(ArrayList<Faqs> faqList) {
+        this.faqList = faqList;
+
     }
 
     @Override
@@ -45,6 +45,8 @@ public class FAQExpandableAdapter extends RecyclerView.Adapter<FAQExpandableAdap
                 .inflate(R.layout.list_item_faq, parent, false);
 
         return new MyViewHolder(itemView);
+
+
     }
 
     /**
@@ -52,10 +54,10 @@ public class FAQExpandableAdapter extends RecyclerView.Adapter<FAQExpandableAdap
      * @param position - current inflated position in viewHolder
      */
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
         // setting text of question/answer of current position
-        holder.question.setText(questionList.get(position));
-        holder.answer.setText(answerList.get(position));
+        holder.question.setText(faqList.get(position).getId() + ". " + faqList.get(position).getQuestion());
+        holder.answer.setText(faqList.get(position).getAnswer());
         // if position is equal to expanded position
         if (position == expandedPosition) {
             // expand view of selected position
@@ -68,11 +70,37 @@ public class FAQExpandableAdapter extends RecyclerView.Adapter<FAQExpandableAdap
             // set icon to expand more icon
             holder.expandArrow.setImageResource(R.drawable.ic_expand_more);
         }
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Check for an expanded view, collapse if you find one
+                if (expandedPosition >= 0) {
+                    // set pre to expandedPosition
+                    prev = expandedPosition;
+                    // notify adapter on item changed
+                    notifyItemChanged(prev);
+                }
+                // if position is expanded
+                if (position == expandedPosition) {
+                    // Set the current position to "collapse"
+                    expandedPosition = -1;
+                    // notify adapter on item changed
+                    notifyItemChanged(expandedPosition);
+                } else {
+                    // Set the current position to "expanded"
+                    expandedPosition = position;
+                    // notify adapter on item changed
+                    notifyItemChanged(expandedPosition);
+                }
+            }
+        });
+
     }
 
     @Override
     public int getItemCount() {
-        return questionList.size();
+        return faqList.size();
     }
 
 }
