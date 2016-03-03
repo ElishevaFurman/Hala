@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity
     ContactUsFragment contactUsFragment;
     TestimonialFragment testimonialFragment;
     TeamListFragment teamListFragment;
-    OurTeamFragment ourTeamFragment;
+    //OurTeamFragment ourTeamFragment;
     AskFragment askFragment;
     FAQFragment faqFragment;
     InTheNewsFragment inTheNewsFragment;
@@ -211,8 +211,8 @@ public class MainActivity extends AppCompatActivity
         testimonialFragment.setMainActivity(this);
         teamListFragment = new TeamListFragment();
         teamListFragment.setMainActivity(this);
-        ourTeamFragment = new OurTeamFragment();
-        ourTeamFragment.setMainActivity(this);
+//        ourTeamFragment = new OurTeamFragment();
+//        ourTeamFragment.setMainActivity(this);
         askFragment = new AskFragment();
         askFragment.setMainActivity(this);
         faqFragment = new FAQFragment();

@@ -2,6 +2,7 @@ package com.example.faigy.hala;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v13.app.FragmentPagerAdapter;
 
@@ -25,7 +26,10 @@ class ViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
+
         return mFragmentList.get(position);
+
+
     }
 
     @Override
@@ -44,7 +48,7 @@ class ViewPagerAdapter extends FragmentPagerAdapter {
     }
 
     @Override
-    public CharSequence getPageTitle(int position) {
+    public String getPageTitle(int position) {
         return mFragmentTitleList.get(position);
     }
 
