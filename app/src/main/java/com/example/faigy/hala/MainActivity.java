@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -166,7 +167,8 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    public void openNavigationDrawer2(Toolbar toolbar) {
+    public void openNavigationDrawer2(Toolbar toolbar, int icon) {
+        toolbar.setNavigationIcon(icon);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
