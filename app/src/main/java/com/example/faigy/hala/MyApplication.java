@@ -23,6 +23,7 @@ public class MyApplication extends Application {
 
     private ArrayList<News> newsArrayList;
 
+
     public ArrayList<News> getNewsArrayList() {
         return newsArrayList;
     }

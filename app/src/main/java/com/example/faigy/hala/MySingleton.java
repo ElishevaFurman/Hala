@@ -11,6 +11,16 @@ public class MySingleton {
     private ArrayList<News> newsArrayList;
     private ArrayList<TeamMember> teamMembersArrayList;
 
+    public int postion;
+
+    public int getPostion() {
+        return postion;
+    }
+
+    public void setPostion(int postion) {
+        this.postion = postion;
+    }
+
     public ArrayList<News> getNewsArrayList() {
         return newsArrayList;
     }
