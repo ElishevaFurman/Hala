@@ -23,7 +23,8 @@ public class AppIntroActivity extends Activity{
 
     private static final String SAVING_STATE_SLIDER_ANIMATION = "SliderAnimationSavingState";
     private boolean isSliderAnimation = false;
-    ImageView nextImageView;
+    //ImageView nextImageView;
+    TextView doneTextView, skipTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,18 +34,23 @@ public class AppIntroActivity extends Activity{
         window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.splash_main);
 
-        ImageView nextImageView = (ImageView)findViewById(R.id.nextImageView);
-        nextImageView.setOnClickListener(new View.OnClickListener() {
+        TextView doneTextView = (TextView)findViewById(R.id.doneTextView);
+        //TextView skipTextView = (TextView)findViewById(R.id.skipTextView);
+        //skipTextView.setVisibility(View.INVISIBLE);
+        //skipTextView.setBackgroundColor(80000000);
+        //skipTextView.setAlpha(0.5f);
+        doneTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(AppIntroActivity.this, MainActivity.class);
                 startActivity(i);
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-
+                //overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
                 // close this activity
                 finish();
             }
         });
+
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
 
         viewPager.setAdapter(new ViewPagerAdapter(R.array.icons, R.array.titles, R.array.hints));

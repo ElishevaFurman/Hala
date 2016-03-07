@@ -9,22 +9,21 @@
         <item>@color/colorPrimaryExtraLight</item>
         <item>@color/colorPrimaryLight</item>
         <item>@color/colorPrimary</item>
-        <item>@color/colorPrimaryDark</item>
+
     </array>
 
     <array name="icons">
-        <item>@drawable/circle_background</item>
-        <item>@drawable/circle_background</item>
-        <item>@drawable/circle_background</item>
-        <item>@drawable/circle_background</item>
+        <item>@drawable/services_image</item>
+        <item>@drawable/newspaper_image1</item>
+        <item>@drawable/ask_image</item>
+
 
     </array>
 
     <string-array name="titles" >
-        <item>@string/title</item>
-        <item>@string/title</item>
-        <item>@string/title</item>
-        <item>@string/title</item>
+        <item>@string/title1</item>
+        <item>@string/title2</item>
+        <item>@string/title3</item>
     </string-array>
 
     <string-array name="hints" >
@@ -32,6 +31,5 @@
         <item>@string/slide1</item>
         <item>@string/slide2</item>
         <item>@string/slide3</item>
-        <item>@string/slide4</item>
     </string-array>
 </resources>

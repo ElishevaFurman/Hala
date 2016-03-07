@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,9 +24,8 @@ public class ServicesFragment extends Fragment {
     MainActivity mainActivity;
 
     //Declare Controls
-    RelativeLayout servicesRelativeLayout1, servicesRelativeLayout2, servicesRelativeLayout3,
-            servicesRelativeLayout4, servicesRelativeLayout5, servicesRelativeLayout6, servicesRelativeLayout7;
-
+    LinearLayout servicesLinearLayout1, servicesLinearLayout2, servicesLinearLayout3, servicesLinearLayout4,
+            servicesLinearLayout5, servicesLinearLayout6, servicesLinearLayout7;
     public ServicesFragment() {
 
         // Required empty public constructor
@@ -37,7 +37,7 @@ public class ServicesFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_services, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_services3, container, false);
         // Initialize the views for tis fragment
         initializeViews(rootView);
         registerListeners();
@@ -57,13 +57,13 @@ public class ServicesFragment extends Fragment {
      * Function to initialize controls
      */
     public void initializeViews(View rootView) {
-        servicesRelativeLayout1 = (RelativeLayout) rootView.findViewById(R.id.servicesRelativeLayout1);
-        servicesRelativeLayout2 = (RelativeLayout) rootView.findViewById(R.id.servicesRelativeLayout2);
-        servicesRelativeLayout3 = (RelativeLayout) rootView.findViewById(R.id.servicesRelativeLayout3);
-        servicesRelativeLayout4 = (RelativeLayout) rootView.findViewById(R.id.servicesRelativeLayout4);
-        servicesRelativeLayout5 = (RelativeLayout) rootView.findViewById(R.id.servicesRelativeLayout5);
-        servicesRelativeLayout6 = (RelativeLayout) rootView.findViewById(R.id.servicesRelativeLayout6);
-        servicesRelativeLayout7 = (RelativeLayout) rootView.findViewById(R.id.servicesRelativeLayout7);
+        servicesLinearLayout1 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout1);
+        servicesLinearLayout2 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout2);
+        servicesLinearLayout3 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout3);
+        servicesLinearLayout4 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout4);
+        servicesLinearLayout5 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout5);
+        servicesLinearLayout6 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout6);
+        servicesLinearLayout7 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout7);
 
 //        final RippleView rippleView = (RippleView) rootView.findViewById(R.id.rect);
 //        rippleView.setOnClickListener(new View.OnClickListener()
@@ -86,19 +86,19 @@ public class ServicesFragment extends Fragment {
      * Function to register Listeners
      */
     public void registerListeners() {
-        servicesRelativeLayout1.setOnClickListener(servicesRelativeLayoutListener);
-        servicesRelativeLayout2.setOnClickListener(servicesRelativeLayoutListener);
-        servicesRelativeLayout3.setOnClickListener(servicesRelativeLayoutListener);
-        servicesRelativeLayout4.setOnClickListener(servicesRelativeLayoutListener);
-        servicesRelativeLayout5.setOnClickListener(servicesRelativeLayoutListener);
-        servicesRelativeLayout6.setOnClickListener(servicesRelativeLayoutListener);
-        servicesRelativeLayout7.setOnClickListener(servicesRelativeLayoutListener);
+        servicesLinearLayout1.setOnClickListener(servicesLinearLayoutListener);
+        servicesLinearLayout2.setOnClickListener(servicesLinearLayoutListener);
+        servicesLinearLayout3.setOnClickListener(servicesLinearLayoutListener);
+        servicesLinearLayout4.setOnClickListener(servicesLinearLayoutListener);
+        servicesLinearLayout5.setOnClickListener(servicesLinearLayoutListener);
+        servicesLinearLayout6.setOnClickListener(servicesLinearLayoutListener);
+        servicesLinearLayout7.setOnClickListener(servicesLinearLayoutListener);
     }
 
     /**
      * OnClickListener for servicesRelativeLayoutListener
      */
-    View.OnClickListener servicesRelativeLayoutListener = new View.OnClickListener() {
+    View.OnClickListener servicesLinearLayoutListener = new View.OnClickListener() {
 
         @Override
         public void onClick(View v) {

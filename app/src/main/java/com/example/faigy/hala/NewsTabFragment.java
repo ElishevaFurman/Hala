@@ -107,7 +107,7 @@ public class NewsTabFragment extends Fragment {
     private void setupViewPager(final ViewPager viewPager) {
         adapter = new ViewPagerAdapter(getChildFragmentManager());
         final String NewsTag = "NEWS";
-        final String PublicationTag = "PUBLICATION";
+        final String PublicationTag = "PUBLICATIONS";
         String PresentationTag = "PRESENTATIONS";
 
         adapter.addFrag((new InTheNewsFragment()), NewsTag);

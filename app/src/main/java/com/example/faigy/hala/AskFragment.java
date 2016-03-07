@@ -23,7 +23,8 @@ public class AskFragment extends Fragment {
     public void onResume(){
         super.onResume();
         mainActivity.getSupportActionBar().show();
-        Util.setToolbarTitle(R.string.fragment_faq, mainActivity.toolbar);
+        Util.setToolbarTitle(R.string.fragment_ask, mainActivity.toolbar);
+        Util.enableBackButton(R.drawable.ic_arrow_back_24dp, mainActivity.toolbar, mainActivity.drawer);
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,12 +38,12 @@ public class AskFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_ask, container, false);
         // Initialize the views for this fragment
-        mainActivity.getSupportActionBar().show();
+        //mainActivity.getSupportActionBar().show();
         initializeViews(rootView);
         // set toolbar title
-        Util.setToolbarTitle(R.string.fragment_ask, mainActivity.toolbar);
+        //Util.setToolbarTitle(R.string.fragment_ask, mainActivity.toolbar);
         // set back icon on toolbar
-        Util.enableBackButton(R.drawable.ic_arrow_back_24dp, mainActivity.toolbar, mainActivity.drawer);
+
 
         return rootView;
 
@@ -53,6 +54,12 @@ public class AskFragment extends Fragment {
      */
     public void initializeViews(View rootView) {
 
+    }
+
+
+    public void onPause(){
+        super.onPause();
+        mainActivity.openNavigationDrawer();
     }
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
