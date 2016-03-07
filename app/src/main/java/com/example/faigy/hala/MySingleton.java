@@ -10,6 +10,7 @@ public class MySingleton {
 
     private ArrayList<News> newsArrayList;
     private ArrayList<TeamMember> teamMembersArrayList;
+    private ArrayList<Services> servicesArrayList;
 
     public int postion;
 
@@ -32,6 +33,16 @@ public class MySingleton {
     public void setTeamMembersArrayList(ArrayList<TeamMember> teamMembersArrayList) {
         this.teamMembersArrayList = teamMembersArrayList;
     }
+
+    public ArrayList<Services> getServicesArrayList() {
+        return servicesArrayList;
+    }
+
+    public void setServicesArrayList(ArrayList<Services> servicesArrayList) {
+        this.servicesArrayList = servicesArrayList;
+    }
+
+
 
     public void setNewsArrayList(ArrayList<News> newsArrayList) {
         this.newsArrayList = newsArrayList;

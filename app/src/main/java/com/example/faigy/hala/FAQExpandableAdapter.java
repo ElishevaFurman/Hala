@@ -49,14 +49,6 @@ public class FAQExpandableAdapter extends RecyclerView.Adapter<FAQExpandableAdap
         }
     }
 
-
-//    public FAQExpandableAdapter(ArrayList<Faqs> faqList) {
-//        this.faqList = faqList;
-//
-//    }
-
-
-
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())

@@ -45,7 +45,8 @@ public class FAQFragment extends Fragment {
     private VolleySingleton volleySingleton;
     private static String TAG = MainActivity.class.getSimpleName();
     ProgressDialog pDialog;
-
+    Toolbar toolbar;
+    CollapsingToolbarLayout collapsingToolbar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -76,15 +77,10 @@ public class FAQFragment extends Fragment {
     }
 
     public void initializeViews(final View rootView) {
-
-
-        final Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+        toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
         mainActivity.openNavigationDrawer2(toolbar, R.drawable.ic_menu_24dp);
-
-
-        CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) rootView.findViewById(R.id.collapsing_toolbar);
+        collapsingToolbar = (CollapsingToolbarLayout) rootView.findViewById(R.id.collapsing_toolbar);
         collapsingToolbar.setTitle("Faq's");
-
         fab = (FloatingActionButton) rootView.findViewById(R.id.askFab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,9 +90,7 @@ public class FAQFragment extends Fragment {
             }
         });
 
-
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
-
         //recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -151,6 +145,9 @@ public class FAQFragment extends Fragment {
         super.onPause();
 
         mainActivity.getSupportActionBar().show();
+        mainActivity.openNavigationDrawer();
+        toolbar.hideOverflowMenu();
+
         //Util.setToolbarTitle(R.string.fragment_faq, mainActivity.toolbar);
     }
 

@@ -10,6 +10,8 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,7 +19,8 @@ import android.widget.TextView;
 public class ServiceDetailFragment extends Fragment {
     // Declare Controls
     MainActivity mainActivity;
-    TextView flashingTextView;
+    TextView flashingTextView, serviceDescriptionTextViews;
+    ArrayList<Services> servicesArrayList;
 
 
     public ServiceDetailFragment() {
@@ -30,9 +33,10 @@ public class ServiceDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_service_detail, container, false);
-
+        servicesArrayList = MySingleton.getInstance().getServicesArrayList();
         // Initialize the views for this fragment
         initializeViews(rootView);
+        String title = servicesArrayList.get(0).getTitle();
         // set toolbar title
         Util.setToolbarTitle(R.string.fragment_service_Detail, mainActivity.toolbar);
         //set back button on toolbar
@@ -43,6 +47,10 @@ public class ServiceDetailFragment extends Fragment {
     }
 
     public void initializeViews(View rootView) {
+
+        TextView serviceDescriptionTextViews = (TextView)rootView.findViewById(R.id.serviceDescriptionTextViews);
+        serviceDescriptionTextViews.setText(servicesArrayList.get(0).getDescription());
+
         flashingTextView = (TextView) rootView.findViewById(R.id.flashingTextView);
         flashingTextView.setOnClickListener(new View.OnClickListener() {
             @Override
