@@ -102,6 +102,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
         LinearLayout shareLinearLayout, textLinearLayout;
         final RippleView rippleView;
         Boolean clicked = false;
+
         public MyNewsHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.titleTextView);

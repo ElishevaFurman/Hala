@@ -3,4 +3,35 @@
     <string-array name="addresses">
         <item>tor@hala.org.il</item>
     </string-array>
+
+
+    <array name="landing_bg">
+        <item>@color/colorPrimaryExtraLight</item>
+        <item>@color/colorPrimaryLight</item>
+        <item>@color/colorPrimary</item>
+        <item>@color/colorPrimaryDark</item>
+    </array>
+
+    <array name="icons">
+        <item>@drawable/circle_background</item>
+        <item>@drawable/circle_background</item>
+        <item>@drawable/circle_background</item>
+        <item>@drawable/circle_background</item>
+
+    </array>
+
+    <string-array name="titles" >
+        <item>@string/title</item>
+        <item>@string/title</item>
+        <item>@string/title</item>
+        <item>@string/title</item>
+    </string-array>
+
+    <string-array name="hints" >
+
+        <item>@string/slide1</item>
+        <item>@string/slide2</item>
+        <item>@string/slide3</item>
+        <item>@string/slide4</item>
+    </string-array>
 </resources>

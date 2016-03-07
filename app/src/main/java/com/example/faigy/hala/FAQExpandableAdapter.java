@@ -1,5 +1,6 @@
 package com.example.faigy.hala;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,21 @@ public class FAQExpandableAdapter extends RecyclerView.Adapter<FAQExpandableAdap
     private ArrayList<Faqs> faqList;
     public static int expandedPosition = -1;
     int prev = -1;
+    private VolleySingleton volleySingleton;
+    public Faqs faqs;
+    Context context;
+
+
+    public FAQExpandableAdapter(Context context) {
+        //this.newsList = newsList;
+        this.context = context;
+        volleySingleton = VolleySingleton.getInstance();
+    }
+
+    public void setFaqList(ArrayList<Faqs> faqList){
+        this.faqList = faqList;
+        notifyItemRangeChanged(0, faqList.size());
+    }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView question, answer;
@@ -34,10 +50,12 @@ public class FAQExpandableAdapter extends RecyclerView.Adapter<FAQExpandableAdap
     }
 
 
-    public FAQExpandableAdapter(ArrayList<Faqs> faqList) {
-        this.faqList = faqList;
+//    public FAQExpandableAdapter(ArrayList<Faqs> faqList) {
+//        this.faqList = faqList;
+//
+//    }
 
-    }
+
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -100,7 +118,10 @@ public class FAQExpandableAdapter extends RecyclerView.Adapter<FAQExpandableAdap
 
     @Override
     public int getItemCount() {
-        return faqList.size();
+        if (faqList != null) {
+            return faqList.size();
+        }
+        return 0;
     }
 
 }

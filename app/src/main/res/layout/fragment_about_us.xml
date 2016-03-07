@@ -36,7 +36,7 @@
                 android:layout_gravity="center"/>
 
 
-            <com.andexert.library.RippleView
+            <!--com.andexert.library.RippleView
                 android:id="@+id/rect"
                 android:layout_width="wrap_content"
                 android:layout_marginTop="20dp"
@@ -57,7 +57,7 @@
                     android:text="Hello World!"
                     android:background="@android:color/holo_green_light"/>
 
-            </com.andexert.library.RippleView>
+            </com.andexert.library.RippleView-->
             <LinearLayout
                 android:id="@+id/bottomLinearLayout"
                 android:layout_width="match_parent"

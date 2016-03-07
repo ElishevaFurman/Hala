@@ -61,28 +61,28 @@ public class AboutUsFragment extends Fragment {
      */
     public void initializeViews(View rootView) {
         EventBus.getDefault().post(new DownloadDataEvent(""));
-        final RippleView rippleView = (RippleView) rootView.findViewById(R.id.rect);
-        final TextView textView = (TextView) rootView.findViewById(R.id.rect_child);
-        rippleView.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Log.e("Sample", "Click Rect !");
-            }
-        });
-        rippleView.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
-            @Override
-            public void onComplete(RippleView rippleView) {
-                Log.d("Sample", "Ripple completed");
-            }
-        });
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.e("Sample", "Click rect child !");
-            }
-        });
+//        final RippleView rippleView = (RippleView) rootView.findViewById(R.id.rect);
+//        final TextView textView = (TextView) rootView.findViewById(R.id.rect_child);
+//        rippleView.setOnClickListener(new View.OnClickListener()
+//        {
+//            @Override
+//            public void onClick(View v)
+//            {
+//                Log.e("Sample", "Click Rect !");
+//            }
+//        });
+//        rippleView.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
+//            @Override
+//            public void onComplete(RippleView rippleView) {
+//                Log.d("Sample", "Ripple completed");
+//            }
+//        });
+//        textView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.e("Sample", "Click rect child !");
+//            }
+//        });
     }
 
     public void setMainActivity(MainActivity mainActivity) {

@@ -6,6 +6,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -64,11 +65,12 @@ public class NewsTabFragment extends Fragment {
      * Function to initialize controls
      */
     public void initializeViews(final View rootView) {
+        //NonSwipeableViewPager viewPager = new NonSwipeableViewPager(Util.getContext(),);
         viewPager = (ViewPager) rootView.findViewById(R.id.tabanim_viewpager);
         setupViewPager(viewPager);
         tabLayout = (TabLayout) rootView.findViewById(R.id.tabanim_tabs);
         tabLayout.setupWithViewPager(viewPager);
-
+        viewPager.beginFakeDrag();
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -87,6 +89,13 @@ public class NewsTabFragment extends Fragment {
             }
         });
 
+
+//        viewPager.setOnTouchListener(new View.OnTouchListener() {
+//
+//            public boolean onTouch(View arg0, MotionEvent arg1) {
+//                return true;
+//            }
+//        });
 
 
     }
@@ -127,4 +136,5 @@ public class NewsTabFragment extends Fragment {
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }
+
 }

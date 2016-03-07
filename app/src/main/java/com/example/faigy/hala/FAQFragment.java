@@ -40,7 +40,7 @@ public class FAQFragment extends Fragment {
     MainActivity mainActivity;
 
 
-    Faqs[] newsData;
+    Faqs[] faqsData;
     private RequestQueue requestQueue;
     private VolleySingleton volleySingleton;
     private static String TAG = MainActivity.class.getSimpleName();
@@ -97,45 +97,15 @@ public class FAQFragment extends Fragment {
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
 
-        recyclerView.setHasFixedSize(true);
+        //recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        makeJsonArrayRequest("http://162.243.100.186/faqs_array.php");
+        mAdapter = new FAQExpandableAdapter(getActivity());
         recyclerView.setAdapter(mAdapter);
+        makeJsonArrayRequest("http://162.243.100.186/faqs_array.php");
     }
-
-//        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListenerInterface() {
-//            @Override
-//            public void onClick(View view, int position) {
-//                // Check for an expanded view, collapse if you find one
-//                if (mAdapter.expandedPosition >= 0) {
-//                    // set pre to expandedPosition
-//                    prev = mAdapter.expandedPosition;
-//                    // notify adapter on item changed
-//                    mAdapter.notifyItemChanged(prev);
-//                }
-//                // if position is expanded
-//                if (position == mAdapter.expandedPosition) {
-//                    // Set the current position to "collapse"
-//                    mAdapter.expandedPosition = -1;
-//                    // notify adapter on item changed
-//                    mAdapter.notifyItemChanged(mAdapter.expandedPosition);
-//                } else {
-//                    // Set the current position to "expanded"
-//                    mAdapter.expandedPosition = position;
-//                    // notify adapter on item changed
-//                    mAdapter.notifyItemChanged(mAdapter.expandedPosition);
-//                }
-//            }
-//
-//            @Override
-//            public void onLongClick(View view, int position) {
-//
-//            }
-//        }));
-//    }
 
     /**
      * Method to make json array request where response starts with
@@ -151,9 +121,9 @@ public class FAQFragment extends Fragment {
                         Gson gson = new Gson();
                         String jsonOutput = response.toString();
                         try {
-                            newsData = gson.fromJson(jsonOutput, Faqs[].class);
-                            faqArrayList = new ArrayList<>(Arrays.asList(newsData));
-                            mAdapter = new FAQExpandableAdapter(faqArrayList);
+                            faqsData = gson.fromJson(jsonOutput, Faqs[].class);
+                            faqArrayList = new ArrayList<>(Arrays.asList(faqsData));
+                            mAdapter.setFaqList(faqArrayList);
                         } catch (JsonSyntaxException e) {
                             e.printStackTrace();
                         }
@@ -189,15 +159,6 @@ public class FAQFragment extends Fragment {
         super.onResume();
         mainActivity.getSupportActionBar().hide();
     }
-
-    @Override
-    public void onStop() {
-
-        super.onStop();
-        //mainActivity.getSupportActionBar().show();
-        //Util.setToolbarTitle(R.string.fragment_faq, mainActivity.toolbar);
-    }
-
 
 }
 
