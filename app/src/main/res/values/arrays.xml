@@ -13,9 +13,9 @@
     </array>
 
     <array name="icons">
-        <item>@drawable/services_image</item>
-        <item>@drawable/newspaper_image1</item>
-        <item>@drawable/ask_image</item>
+        <item>@drawable/faq_icon</item>
+        <item>@drawable/services_icon</item>
+        <item>@drawable/news_icon</item>
 
 
     </array>

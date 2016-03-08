@@ -110,7 +110,7 @@ public class HomeFragment extends Fragment {
         contactLinearLayout = (LinearLayout) rootView.findViewById(R.id.contactLinearLayout);
         homeImageView = (ImageView) rootView.findViewById(R.id.homeImageView);
         homeImageView.setImageBitmap(
-                Util.decodeSampledBitmapFromResource(getResources(), R.drawable.home_image1, 180, 180));
+                Util.decodeSampledBitmapFromResource(getResources(), R.drawable.pink_ribbon_background, 180, 180));
 
     }
 

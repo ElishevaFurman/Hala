@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/landing_img_slide"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_centerHorizontal="true"
             android:scaleType="centerCrop" />
 
