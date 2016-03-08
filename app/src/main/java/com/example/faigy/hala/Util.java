@@ -322,7 +322,6 @@ public class Util extends Activity {
                         break;
                     default:
                         break;
-
                 }
 
             }

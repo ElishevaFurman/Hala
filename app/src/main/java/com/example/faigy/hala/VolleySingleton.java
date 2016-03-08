@@ -17,7 +17,6 @@ public class VolleySingleton {
         mRequestQueue = Volley.newRequestQueue(Util.getContext());
     }
 
-
     public static VolleySingleton getInstance() {
         if (sInstance == null) {
             sInstance = new VolleySingleton();

@@ -18,7 +18,6 @@ public class TeamMember {
         this.memberType = memberType;
     }
 
-
     public TeamMember() {
 
     }

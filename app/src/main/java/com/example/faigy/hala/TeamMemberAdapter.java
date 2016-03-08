@@ -40,7 +40,8 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
         teamMemberViewHolder.vName.setText(tm.title + " " + tm.name);
         teamMemberViewHolder.vTitle.setText(tm.description);
         teamMemberViewHolder.vBio.setText(tm.bio);
-        Picasso.with(context).load("http://" + tm.getImage()).placeholder(R.mipmap.ic_launcher_hala).transform(new CircleTransform()).into(teamMemberViewHolder.teamMemberImageView);
+        Picasso.with(context).load("http://" + tm.getImage()).placeholder(R.mipmap.ic_launcher_hala)
+                .transform(new CircleTransform()).into(teamMemberViewHolder.teamMemberImageView);
 
         // if position is equal to expanded position
         if (i == expandedPosition) {

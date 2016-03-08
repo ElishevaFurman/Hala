@@ -19,6 +19,7 @@ public class TeamListFragment extends Fragment {
     TeamMemberAdapter tm;
     int prev = -1;
     ArrayList<TeamMember>teamMemberArrayList;
+
     public TeamListFragment() {
         // Required empty public constructor
     }
@@ -35,7 +36,6 @@ public class TeamListFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_team_list, container, false);
         initializeViews(rootView);
-
         // set toolbar title
         Util.setToolbarTitle(R.string.fragment_team, mainActivity.toolbar);
         // remove keyboard from screen
@@ -44,21 +44,6 @@ public class TeamListFragment extends Fragment {
         mainActivity.setSelectedNavigationItem(R.id.nav_team);
 
         return rootView;
-    }
-
-    private List createList(int size) {
-
-        List result = new ArrayList();
-        for (int i = 1; i <= size; i++) {
-            TeamMember tm = new TeamMember();
-            tm.name = "Dr. Yamin Cohen";
-            tm.title = "Chief Diagnostic Clinic - Senior Medical Officer";
-
-            result.add(tm);
-
-        }
-
-        return result;
     }
 
     /**
@@ -103,7 +88,6 @@ public class TeamListFragment extends Fragment {
 
             }
         }));
-
 
     }
 

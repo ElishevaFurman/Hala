@@ -15,7 +15,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -30,7 +29,6 @@ public class TestimonialFragment extends Fragment {
     public TestimonialFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,16 +52,12 @@ public class TestimonialFragment extends Fragment {
      * Function to initialize controls
      */
     public void initializeViews(View rootView) {
-//        titleTextView = (TextView) rootView.findViewById(R.id.titleTextView);
-//        titleTextView.setText(Html.fromHtml(getString(R.string.testimonial_title)));
         cardView1 = (CardView) rootView.findViewById(R.id.saraBrownCardView);
         cardView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String url = "http://www.hala.org.il/Image/uploaded/lady-sarrah-letr-medium.jpg";
                 Util.createDialog("Open Testimonial", "View testimonial in browser", "OPEN", "CANCEL", "url", url);
-
             }
         });
 
@@ -71,10 +65,8 @@ public class TestimonialFragment extends Fragment {
         cardView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String url = "http://www.hala.org.il/Image/uploaded/lady-sharon-letr-medium1.jpg";
                 Util.createDialog("Open Testimonial", "View testimonial in browser", "OPEN", "CANCEL", "url", url);
-
             }
         });
 
@@ -83,7 +75,6 @@ public class TestimonialFragment extends Fragment {
         cardView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String url = "http://www.hala.org.il/Image/uploaded/Hala_Komen_Partnership.pdf";
                 Util.createDialog("Open Testimonial", "View testimonial in browser", "OPEN", "CANCEL", "url", url);
 
@@ -94,10 +85,8 @@ public class TestimonialFragment extends Fragment {
         cardView4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String url = "http://www.hala.org.il/Image/uploaded/Letter%20from%20Ministry%20of%20Health.pdf";
                 Util.createDialog("Open Testimonial", "View testimonial in browser", "OPEN", "CANCEL", "url", url);
-
             }
         });
 
@@ -108,12 +97,8 @@ public class TestimonialFragment extends Fragment {
         mainActivity.getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
         int height = displaymetrics.heightPixels;
         int width = displaymetrics.widthPixels;
-
-        //imageView.getLayoutParams().height = height;
         imageView.getLayoutParams().width = width;
         Toast.makeText(mainActivity.getApplicationContext(), height + " " + width + "", Toast.LENGTH_LONG).show();
-
-
     }
 
     public void setMainActivity(MainActivity mainActivity) {
