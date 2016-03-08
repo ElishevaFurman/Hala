@@ -11,8 +11,11 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Parcelable;
+import android.provider.Settings;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
@@ -270,6 +273,14 @@ public class Util extends Activity {
 
     }
 
+    /**
+     * Function to open link of article in browser
+     */
+    public static void openWifiSettings() {
+        getActivity().startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+
+    }
+
     public static void share(String link) {
         List<Intent> targetedShareIntents = new ArrayList<Intent>();
         Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
@@ -319,6 +330,9 @@ public class Util extends Activity {
                         break;
                     case "url":
                         openUrlInBrowser(param);
+                        break;
+                    case "internet":
+                        openWifiSettings();
                         break;
                     default:
                         break;
@@ -427,6 +441,25 @@ public class Util extends Activity {
         }
 
         return jsonArray;
+    }
+
+
+
+
+
+    public static boolean isConnected() {
+        ConnectivityManager cm = (ConnectivityManager) context
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        if (activeNetwork != null) {
+            if(activeNetwork.getType() == ConnectivityManager.TYPE_WIFI)
+                return true;
+
+            if(activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE)
+                return true;
+        }
+        return false;
     }
 
 }

@@ -84,9 +84,6 @@ public class InTheNewsFragment extends Fragment {
         //set navigation selected to current fragment
        // mainActivity.setSelectedNavigationItem(R.id.nav_news);
 
-        pDialog = new ProgressDialog(Util.getContext());
-        pDialog.setMessage("Loading...");
-        pDialog.show();
 
         return rootView;
     }
@@ -104,42 +101,60 @@ public class InTheNewsFragment extends Fragment {
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
-        makeJsonArrayRequest("http://162.243.100.186/news_array.php");
 
+        if(Util.isConnected())
+        makeJsonArrayRequest("http://162.243.100.186/news_array.php");
+        else {
+            Toast.makeText(Util.getContext(),
+                    "no results found", Toast.LENGTH_SHORT).show();
+        }
+
+        checkArrayList();
+
+
+    }
+
+    public void checkArrayList() {
+        if(mAdapter.getItemCount() == 0) {
+            Toast.makeText(Util.getContext(),
+                    "no results found", Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**
      * Method to make json array request where response starts with
      * */
     public void makeJsonArrayRequest(String urlJsonArry) {
-
+        pDialog = new ProgressDialog(Util.getContext());
+        pDialog.setMessage("Loading...");
+        pDialog.show();
         JsonArrayRequest req = new JsonArrayRequest(urlJsonArry,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        Log.d(TAG, response.toString());
-                        pDialog.hide();
-                        Gson gson = new Gson();
-                        String jsonOutput = response.toString();
-                        try {
+                    new Response.Listener<JSONArray>() {
+                        @Override
+                        public void onResponse(JSONArray response) {
+
+                            Log.d(TAG, response.toString());
+                            pDialog.hide();
+                            Gson gson = new Gson();
+                            String jsonOutput = response.toString();
+                            try {
                                 newsData = gson.fromJson(jsonOutput, News[].class);
                                 newsList = new ArrayList<>(Arrays.asList(newsData));
                                 mAdapter.setNewsList(sortList(newsList, p));
-                        } catch (JsonSyntaxException e) {
-                            e.printStackTrace();
+                            } catch (JsonSyntaxException e) {
+                                e.printStackTrace();
+                            }
                         }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                pDialog.hide();
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-                Toast.makeText(Util.getContext(),
-                        error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-        requestQueue.add(req);
-
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    pDialog.hide();
+                    VolleyLog.d(TAG, "Error: " + error.getMessage());
+                    Toast.makeText(Util.getContext(),
+                            error.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+            requestQueue.add(req);
     }
 
 

@@ -89,7 +89,12 @@ public class MainActivity extends AppCompatActivity
         // attach xml to activity
         setContentView(R.layout.activity_main);
         // send activity reference to Util class
+
         Util.setReference(this);
+
+        if (!Util.isConnected()) {
+            Util.createDialog("Internet Connection", "No connection found. Please connect to internet.", "CONNECT", "CANCEL", "internet", null);
+        }
         initializeViews();
         initializeFragments();
         inflateScrollViewWithFragment();

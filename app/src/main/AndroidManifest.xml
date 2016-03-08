@@ -49,6 +49,13 @@
 
         </activity>
 
+        <receiver android:name=".NetworkStateReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
 
         <meta-data
             android:name="io.fabric.ApiKey"

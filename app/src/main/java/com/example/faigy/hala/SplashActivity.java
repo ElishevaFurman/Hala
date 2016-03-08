@@ -27,6 +27,9 @@ public class SplashActivity extends Activity {
 
 
 
+
+
+
         new Handler().postDelayed(new Runnable() {
 
             /*
