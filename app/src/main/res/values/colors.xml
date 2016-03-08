@@ -10,6 +10,7 @@
 <color name="colorDivider">#7D94A6</color>
 <color name="colorPrimaryText">#212121</color>
 <color name="colorSecondaryText">#6F7076</color>
+<color name="colorDarkGray">#4a4b4f</color>
 <color name="colorIcons">#FFFFFF</color>
 
 </resources>

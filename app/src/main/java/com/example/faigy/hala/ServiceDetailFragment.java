@@ -21,7 +21,7 @@ public class ServiceDetailFragment extends Fragment {
     MainActivity mainActivity;
     TextView flashingTextView, serviceDescriptionTextViews;
     ArrayList<Services> servicesArrayList;
-
+    int position;
 
     public ServiceDetailFragment() {
         // Required empty public constructor
@@ -36,9 +36,9 @@ public class ServiceDetailFragment extends Fragment {
         servicesArrayList = MySingleton.getInstance().getServicesArrayList();
         // Initialize the views for this fragment
         initializeViews(rootView);
-        String title = servicesArrayList.get(0).getTitle();
+        String title = mainActivity.servicesFragment.servicesList.get(position).getTitle();
         // set toolbar title
-        Util.setToolbarTitle(R.string.fragment_service_Detail, mainActivity.toolbar);
+        Util.setToolbarTitle(title, mainActivity.toolbar);
         //set back button on toolbar
         Util.enableBackButton(R.drawable.ic_arrow_back_24dp, mainActivity.toolbar, mainActivity.drawer);
         // remove keyboard from screen
@@ -47,9 +47,10 @@ public class ServiceDetailFragment extends Fragment {
     }
 
     public void initializeViews(View rootView) {
-
+        position = MySingleton.getInstance().getPostion();
         TextView serviceDescriptionTextViews = (TextView)rootView.findViewById(R.id.serviceDescriptionTextViews);
-        serviceDescriptionTextViews.setText(servicesArrayList.get(0).getDescription());
+//        serviceDescriptionTextViews.setText(servicesArrayList.get(0).getDescription());
+        serviceDescriptionTextViews.setText(mainActivity.servicesFragment.servicesList.get(position).getDescription());
 
         flashingTextView = (TextView) rootView.findViewById(R.id.flashingTextView);
         flashingTextView.setOnClickListener(new View.OnClickListener() {

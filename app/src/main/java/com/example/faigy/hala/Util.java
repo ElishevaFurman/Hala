@@ -122,6 +122,17 @@ public class Util extends Activity {
     }
 
     /**
+     * Function to set title of toolbar
+     *
+     * @param toolbarTitle - String of string reference to add as toolbar title
+     * @param toolbar      - set title to this toolbar
+     */
+    public static void setToolbarTitle(String toolbarTitle, Toolbar toolbar) {
+        // set toolbar title
+        toolbar.setTitle(toolbarTitle);
+    }
+
+    /**
      * @param icon    - drawable for the toolbar icon
      * @param toolbar - set the icon to this toolbar
      */

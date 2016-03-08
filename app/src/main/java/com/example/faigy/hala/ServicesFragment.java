@@ -2,9 +2,14 @@ package com.example.faigy.hala;
 
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +38,9 @@ import java.util.Arrays;
  * A simple {@link Fragment} subclass.
  */
 public class ServicesFragment extends Fragment {
+    // Declare controls
+    private RecyclerView recyclerView;
+    private ServicesAdapter mAdapter;
 
     // Declare variables
     Services[] servicesData;
@@ -72,10 +80,10 @@ public class ServicesFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_services3, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_services_list, container, false);
         // Initialize the views for tis fragment
         initializeViews(rootView);
-        registerListeners();
+        //registerListeners();
         //mainActivity.getSupportActionBar().hide();
         // set toolbar title
         Util.setToolbarTitle(R.string.fragment_services, mainActivity.toolbar);
@@ -85,6 +93,9 @@ public class ServicesFragment extends Fragment {
         Util.hideSoftKeyboard();
         //set navigation selected to current fragment
         mainActivity.setSelectedNavigationItem(R.id.nav_services);
+        pDialog = new ProgressDialog(Util.getContext());
+        pDialog.setMessage("Loading...");
+        pDialog.show();
         return rootView;
     }
 
@@ -92,18 +103,47 @@ public class ServicesFragment extends Fragment {
      * Function to initialize controls
      */
     public void initializeViews(View rootView) {
-        servicesLinearLayout1 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout1);
-        servicesLinearLayout2 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout2);
-        servicesLinearLayout3 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout3);
-        servicesLinearLayout4 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout4);
-        servicesLinearLayout5 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout5);
-        servicesLinearLayout6 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout6);
-        servicesLinearLayout7 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout7);
-        pDialog = new ProgressDialog(Util.getContext());
-        pDialog.setMessage("Loading...");
-        pDialog.show();
-
+//        servicesLinearLayout1 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout1);
+//        servicesLinearLayout2 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout2);
+//        servicesLinearLayout3 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout3);
+//        servicesLinearLayout4 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout4);
+//        servicesLinearLayout5 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout5);
+//        servicesLinearLayout6 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout6);
+//        servicesLinearLayout7 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout7);
+        // initialize and reference controls
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+        mAdapter = new ServicesAdapter(getActivity());
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
         makeJsonArrayRequest("http://162.243.100.186/services_array.php");
+
+
+        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListenerInterface() {
+                 @Override
+                      public void onClick(View view, int position) {
+
+                     MySingleton.getInstance().setPostion(position);
+                     Util.replaceFragment(mainActivity.serviceDetailFragment, R.string.fragment_service_Detail);
+                 }
+            @Override
+            public void onLongClick(View view, int position) {
+                MySingleton.getInstance().setPostion(position);
+                Util.replaceFragment(mainActivity.serviceDetailFragment, R.string.fragment_service_Detail);
+            }
+        }));
+
+
+
+
+
+
+
+
+
+
         //Toast.makeText(Util.getContext(),servicesList.size()+"",Toast.LENGTH_LONG).show();
 //        final RippleView rippleView = (RippleView) rootView.findViewById(R.id.rect);
 //        rippleView.setOnClickListener(new View.OnClickListener()
@@ -125,27 +165,27 @@ public class ServicesFragment extends Fragment {
     /**
      * Function to register Listeners
      */
-    public void registerListeners() {
-        servicesLinearLayout1.setOnClickListener(servicesLinearLayoutListener);
-        servicesLinearLayout2.setOnClickListener(servicesLinearLayoutListener);
-        servicesLinearLayout3.setOnClickListener(servicesLinearLayoutListener);
-        servicesLinearLayout4.setOnClickListener(servicesLinearLayoutListener);
-        servicesLinearLayout5.setOnClickListener(servicesLinearLayoutListener);
-        servicesLinearLayout6.setOnClickListener(servicesLinearLayoutListener);
-        servicesLinearLayout7.setOnClickListener(servicesLinearLayoutListener);
-    }
+//    public void registerListeners() {
+//        servicesLinearLayout1.setOnClickListener(servicesLinearLayoutListener);
+//        servicesLinearLayout2.setOnClickListener(servicesLinearLayoutListener);
+//        servicesLinearLayout3.setOnClickListener(servicesLinearLayoutListener);
+//        servicesLinearLayout4.setOnClickListener(servicesLinearLayoutListener);
+//        servicesLinearLayout5.setOnClickListener(servicesLinearLayoutListener);
+//        servicesLinearLayout6.setOnClickListener(servicesLinearLayoutListener);
+//        servicesLinearLayout7.setOnClickListener(servicesLinearLayoutListener);
+//    }
 
     /**
      * OnClickListener for servicesRelativeLayoutListener
      */
-    View.OnClickListener servicesLinearLayoutListener = new View.OnClickListener() {
-
-        @Override
-        public void onClick(View v) {
-            Util.replaceFragment(mainActivity.serviceDetailFragment, R.string.fragment_service_Detail);
-
-        }
-    };
+//    View.OnClickListener servicesLinearLayoutListener = new View.OnClickListener() {
+//
+//        @Override
+//        public void onClick(View v) {
+//            Util.replaceFragment(mainActivity.serviceDetailFragment, R.string.fragment_service_Detail);
+//
+//        }
+//    };
 
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
@@ -174,8 +214,8 @@ public class ServicesFragment extends Fragment {
                         try {
                             servicesData = gson.fromJson(jsonOutput, Services[].class);
                             servicesList = new ArrayList<>(Arrays.asList(servicesData));
-                            MySingleton.getInstance().setServicesArrayList(servicesList);
-                           // mAdapter.setNewsList(sortList(newsList, p));
+                           // MySingleton.getInstance().setServicesArrayList(servicesList);
+                            mAdapter.setServicesList(servicesList);
                         } catch (JsonSyntaxException e) {
                             e.printStackTrace();
                         }
