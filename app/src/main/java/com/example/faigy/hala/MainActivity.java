@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity
     AboutUsFragment aboutUsFragment;
     AppointmentFragment appointmentFragment;
     protected MyApplication app;
-    DataBaseOperations dataBaseOperations;
     NewsTabFragment newsTabFragment;
 
 
@@ -98,15 +97,8 @@ public class MainActivity extends AppCompatActivity
         initializeViews();
         initializeFragments();
         inflateScrollViewWithFragment();
-
-
-
-
         app = (MyApplication) getApplication();
 
-//        dataBaseOperations.makeJsonArrayRequest("news","http://162.243.100.186/news_array.php");
-        dataBaseOperations.makeJsonArrayRequest("members","http://162.243.100.186/members_array.php");
-        // startAlarm();
         //EventBus myEventBus = EventBus.getDefault();
 
 
@@ -238,8 +230,6 @@ public class MainActivity extends AppCompatActivity
         aboutUsFragment.setMainActivity(this);
         appointmentFragment = new AppointmentFragment();
         appointmentFragment.setMainActivity(this);
-        dataBaseOperations = new DataBaseOperations(this);
-        //dataBaseOperations.setMainActivity(this);
         newsTabFragment = new NewsTabFragment();
         newsTabFragment.setMainActivity(this);
     }

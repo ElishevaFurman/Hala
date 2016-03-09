@@ -30,7 +30,6 @@ public class AboutUsFragment extends Fragment {
     public void onResume() {
         super.onResume();
         EventBus.getDefault().register(this);
-        mainActivity.dataBaseOperations.makeJsonArrayRequest("news", "http://162.243.100.186/news_array.php");
 
     }
 

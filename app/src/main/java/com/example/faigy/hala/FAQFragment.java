@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -22,6 +23,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.google.gson.Gson;
+import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
 
 import org.json.JSONArray;
@@ -47,7 +49,7 @@ public class FAQFragment extends Fragment {
     ProgressDialog pDialog;
     Toolbar toolbar;
     CollapsingToolbarLayout collapsingToolbar;
-
+    TextView errorTextView;
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
@@ -98,6 +100,13 @@ public class FAQFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         mAdapter = new FAQExpandableAdapter(getActivity());
         recyclerView.setAdapter(mAdapter);
+        errorTextView = (TextView) rootView.findViewById(R.id.errorTextView);
+        errorTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                makeJsonArrayRequest("http://162.243.100.186/news_array.php");
+            }
+        });
         makeJsonArrayRequest("http://162.243.100.186/faqs_array.php");
     }
 
@@ -120,15 +129,15 @@ public class FAQFragment extends Fragment {
                             mAdapter.setFaqList(faqArrayList);
                         } catch (JsonSyntaxException e) {
                             e.printStackTrace();
+                        }catch (JsonParseException e) {
+                            e.printStackTrace();
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Util.handleVolleyError(error, errorTextView);
                 pDialog.hide();
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-                Toast.makeText(Util.getContext(),
-                        error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
         requestQueue.add(req);

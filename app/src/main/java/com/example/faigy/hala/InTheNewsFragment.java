@@ -15,14 +15,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkError;
+import com.android.volley.NoConnectionError;
+import com.android.volley.ParseError;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.google.gson.Gson;
+import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
 
 import org.joda.time.LocalDate;
@@ -58,6 +66,7 @@ public class InTheNewsFragment extends Fragment {
     protected MyApplication app;
     ProgressDialog pDialog;
     String p;
+    TextView errorTextView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -82,7 +91,7 @@ public class InTheNewsFragment extends Fragment {
         // remove keyboard from screen
         Util.hideSoftKeyboard();
         //set navigation selected to current fragment
-       // mainActivity.setSelectedNavigationItem(R.id.nav_news);
+        // mainActivity.setSelectedNavigationItem(R.id.nav_news);
 
 
         return rootView;
@@ -101,21 +110,27 @@ public class InTheNewsFragment extends Fragment {
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
-
-        if(Util.isConnected())
+        errorTextView = (TextView) rootView.findViewById(R.id.errorTextView);
+        errorTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                makeJsonArrayRequest("http://162.243.100.186/news_array.php");
+            }
+        });
+//        if(Util.isConnected())
+//        makeJsonArrayRequest("http://162.243.100.186/news_array.php");
+//        else {
+//            Toast.makeText(Util.getContext(),
+//                    "no results found", Toast.LENGTH_SHORT).show();
+//        }
         makeJsonArrayRequest("http://162.243.100.186/news_array.php");
-        else {
-            Toast.makeText(Util.getContext(),
-                    "no results found", Toast.LENGTH_SHORT).show();
-        }
-
-        checkArrayList();
+        //checkArrayList();
 
 
     }
 
     public void checkArrayList() {
-        if(mAdapter.getItemCount() == 0) {
+        if (mAdapter.getItemCount() == 0) {
             Toast.makeText(Util.getContext(),
                     "no results found", Toast.LENGTH_SHORT).show();
         }
@@ -123,44 +138,46 @@ public class InTheNewsFragment extends Fragment {
 
     /**
      * Method to make json array request where response starts with
-     * */
+     */
     public void makeJsonArrayRequest(String urlJsonArry) {
         pDialog = new ProgressDialog(Util.getContext());
         pDialog.setMessage("Loading...");
         pDialog.show();
         JsonArrayRequest req = new JsonArrayRequest(urlJsonArry,
-                    new Response.Listener<JSONArray>() {
-                        @Override
-                        public void onResponse(JSONArray response) {
-
-                            Log.d(TAG, response.toString());
-                            pDialog.hide();
-                            Gson gson = new Gson();
-                            String jsonOutput = response.toString();
-                            try {
-                                newsData = gson.fromJson(jsonOutput, News[].class);
-                                newsList = new ArrayList<>(Arrays.asList(newsData));
-                                mAdapter.setNewsList(sortList(newsList, p));
-                            } catch (JsonSyntaxException e) {
-                                e.printStackTrace();
-                            }
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        errorTextView.setVisibility(View.GONE);
+                        Log.d(TAG, response.toString());
+                        pDialog.hide();
+                        Gson gson = new Gson();
+                        String jsonOutput = response.toString();
+                        try {
+                            newsData = gson.fromJson(jsonOutput, News[].class);
+                            newsList = new ArrayList<>(Arrays.asList(newsData));
+                            mAdapter.setNewsList(sortList(newsList, p));
+                        } catch (JsonSyntaxException e) {
+                            e.printStackTrace();
+                        } catch (JsonParseException e) {
+                            e.printStackTrace();
                         }
-                    }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    pDialog.hide();
-                    VolleyLog.d(TAG, "Error: " + error.getMessage());
-                    Toast.makeText(Util.getContext(),
-                            error.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
-            requestQueue.add(req);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Util.handleVolleyError(error,errorTextView);
+                pDialog.hide();
+            }
+        });
+        requestQueue.add(req);
     }
 
 
-    public ArrayList<News> sortList(ArrayList<News> newsList ,String p){
+
+
+    public ArrayList<News> sortList(ArrayList<News> newsList, String p) {
         ArrayList<News> list = new ArrayList<>();
-        for (News n: newsList){
+        for (News n : newsList) {
             if (n.getCategory().equals(p))
                 list.add(n);
         }

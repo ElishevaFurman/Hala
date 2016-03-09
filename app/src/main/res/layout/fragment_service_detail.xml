@@ -2,47 +2,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.faigy.hala.ServiceDetailFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.example.faigy.hala.ServiceDetailFragment">
+
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scrollbars="none">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/serviceDetailImageView"
-        android:src="@drawable/service"
-        android:layout_gravity="top"
-        android:adjustViewBounds="true"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="The goal of a mammogram is the early detection of breast cancer, typically through detection of characteristic masses and/or microcalcifications.  Digital mammography, a technique which allows technicians to manipulate images and observe them at the highest possible resolution, has proven to be an extremely effective tool in early detection."
-        android:id="@+id/serviceDescriptionTextViews"
-        android:layout_gravity="right"
-        android:padding="16dp"/>
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/serviceDetailImageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:adjustViewBounds="true"
+                android:src="@drawable/services_image2" />
+
+            <TextView
+                android:id="@+id/serviceDescriptionTextViews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:padding="16dp"
+                android:text="The goal of a mammogram is the early detection of breast cancer, typically through detection of characteristic masses and/or microcalcifications.  Digital mammography, a technique which allows technicians to manipulate images and observe them at the highest possible resolution, has proven to be an extremely effective tool in early detection." />
+        </LinearLayout>
     </ScrollView>
 
-    <LinearLayout
+    <!--LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/colorAccent">
-    <TextView
-        android:id="@+id/flashingTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/impact_button"
-        android:gravity="center"
-        android:textColor="@color/colorIcons"
-        android:layout_alignParentBottom="true"
-        android:padding="16dp"/>
-    </LinearLayout>
+
+        <TextView
+            android:id="@+id/flashingTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/impact_button"
+            android:textColor="@color/colorIcons" />
+    </LinearLayout-->
 </RelativeLayout>

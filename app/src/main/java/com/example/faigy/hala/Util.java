@@ -25,7 +25,16 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkError;
+import com.android.volley.NoConnectionError;
+import com.android.volley.ParseError;
+import com.android.volley.ServerError;
+import com.android.volley.TimeoutError;
+import com.android.volley.VolleyError;
 
 import org.apache.http.NameValuePair;
 import org.json.JSONArray;
@@ -460,6 +469,21 @@ public class Util extends Activity {
                 return true;
         }
         return false;
+    }
+
+    public static void handleVolleyError(VolleyError error, TextView errorTextView) {
+        errorTextView.setVisibility(View.VISIBLE);
+        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+            errorTextView.setText(R.string.error_no_connection_found);
+        } else if (error instanceof AuthFailureError) {
+            errorTextView.setText(R.string.error_authentication_failed);
+        } else if (error instanceof ServerError) {
+            errorTextView.setText(R.string.error_server_error);
+        } else if (error instanceof NetworkError) {
+            errorTextView.setText(R.string.error_network_error);
+        } else if (error instanceof ParseError) {
+            errorTextView.setText(R.string.error_parsing_error);
+        }
     }
 
 }

@@ -26,6 +26,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.google.gson.Gson;
+import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
 
 import org.json.JSONArray;
@@ -56,11 +57,8 @@ public class ServicesFragment extends Fragment {
     MainActivity mainActivity;
     protected MyApplication app;
     ProgressDialog pDialog;
+    TextView errorTextView;
 
-
-    //Declare Controls
-    LinearLayout servicesLinearLayout1, servicesLinearLayout2, servicesLinearLayout3, servicesLinearLayout4,
-            servicesLinearLayout5, servicesLinearLayout6, servicesLinearLayout7;
     public ServicesFragment() {
 
         // Required empty public constructor
@@ -103,13 +101,6 @@ public class ServicesFragment extends Fragment {
      * Function to initialize controls
      */
     public void initializeViews(View rootView) {
-//        servicesLinearLayout1 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout1);
-//        servicesLinearLayout2 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout2);
-//        servicesLinearLayout3 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout3);
-//        servicesLinearLayout4 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout4);
-//        servicesLinearLayout5 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout5);
-//        servicesLinearLayout6 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout6);
-//        servicesLinearLayout7 = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout7);
         // initialize and reference controls
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         mAdapter = new ServicesAdapter(getActivity());
@@ -118,6 +109,13 @@ public class ServicesFragment extends Fragment {
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
+        errorTextView = (TextView) rootView.findViewById(R.id.errorTextView);
+        errorTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                makeJsonArrayRequest("http://162.243.100.186/news_array.php");
+            }
+        });
         makeJsonArrayRequest("http://162.243.100.186/services_array.php");
 
 
@@ -133,59 +131,7 @@ public class ServicesFragment extends Fragment {
                 MySingleton.getInstance().setPostion(position);
                 Util.replaceFragment(mainActivity.serviceDetailFragment, R.string.fragment_service_Detail);
             }
-        }));
-
-
-
-
-
-
-
-
-
-
-        //Toast.makeText(Util.getContext(),servicesList.size()+"",Toast.LENGTH_LONG).show();
-//        final RippleView rippleView = (RippleView) rootView.findViewById(R.id.rect);
-//        rippleView.setOnClickListener(new View.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(View v)
-//            {
-//                Log.e("Sample", "Click Rect !");
-//            }
-//        });
-//        rippleView.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
-//            @Override
-//            public void onComplete(RippleView rippleView) {
-//                Log.d("Sample", "Ripple completed");
-//            }
-//        });
-    }
-
-    /**
-     * Function to register Listeners
-     */
-//    public void registerListeners() {
-//        servicesLinearLayout1.setOnClickListener(servicesLinearLayoutListener);
-//        servicesLinearLayout2.setOnClickListener(servicesLinearLayoutListener);
-//        servicesLinearLayout3.setOnClickListener(servicesLinearLayoutListener);
-//        servicesLinearLayout4.setOnClickListener(servicesLinearLayoutListener);
-//        servicesLinearLayout5.setOnClickListener(servicesLinearLayoutListener);
-//        servicesLinearLayout6.setOnClickListener(servicesLinearLayoutListener);
-//        servicesLinearLayout7.setOnClickListener(servicesLinearLayoutListener);
-//    }
-
-    /**
-     * OnClickListener for servicesRelativeLayoutListener
-     */
-//    View.OnClickListener servicesLinearLayoutListener = new View.OnClickListener() {
-//
-//        @Override
-//        public void onClick(View v) {
-//            Util.replaceFragment(mainActivity.serviceDetailFragment, R.string.fragment_service_Detail);
-//
-//        }
-//    };
+        }));}
 
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
@@ -218,15 +164,16 @@ public class ServicesFragment extends Fragment {
                             mAdapter.setServicesList(servicesList);
                         } catch (JsonSyntaxException e) {
                             e.printStackTrace();
+                        }catch (JsonParseException e) {
+                            e.printStackTrace();
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Util.handleVolleyError(error,errorTextView);
                 pDialog.hide();
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-                Toast.makeText(Util.getContext(),
-                        error.getMessage(), Toast.LENGTH_SHORT).show();
+
             }
         });
         requestQueue.add(req);

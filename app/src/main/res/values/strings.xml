@@ -201,4 +201,12 @@
     <string name="slide3">Submit a question and get an answer from the doctors</string>
 
     <string name="skip">SKIP</string>
+
+    <!-- Volley error messages -->
+    <string name="error_no_connection_found">"No connection found. Click here to download again."</string>
+    <string name="error_authentication_failed">"Authentication Failed. Click here to to download again."</string>
+    <string name="error_server_error">"A server error occurred. Click here to to download again."</string>
+    <string name="error_network_error">"A network error occurred. Click here to to download again."</string>
+    <string name="error_parsing_error">"Unable to parse data. Click here to to download again."</string>
+
 </resources>

@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,17 +23,29 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
 
     private List<TeamMember> teamMembersList;
     public static int expandedPosition = -1;
-    public Context context;
+    private VolleySingleton volleySingleton;
+    public TeamMember teamMember;
+    Context context;
 
-    public TeamMemberAdapter(List<TeamMember> contactList, Context context) {
-        this.teamMembersList = contactList;
+    public TeamMemberAdapter(Context context) {
         this.context = context;
+        volleySingleton = VolleySingleton.getInstance();
+    }
+
+    public void setTeamMembersList(ArrayList<TeamMember> teamMembersList){
+        this.teamMembersList = teamMembersList;
+        notifyItemRangeChanged(0, teamMembersList.size());
     }
 
     @Override
-    public int getItemCount() {
-        return teamMembersList.size();
+    public TeamMemberViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View itemView = LayoutInflater.
+                from(viewGroup.getContext()).
+                inflate(R.layout.fragment_team_list_item, viewGroup, false);
+
+        return new TeamMemberViewHolder(itemView);
     }
+
 
     @Override
     public void onBindViewHolder(TeamMemberViewHolder teamMemberViewHolder, int i) {
@@ -58,14 +71,17 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
 
     }
 
-    @Override
-    public TeamMemberViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View itemView = LayoutInflater.
-                from(viewGroup.getContext()).
-                inflate(R.layout.fragment_team_list_item, viewGroup, false);
 
-        return new TeamMemberViewHolder(itemView);
+    @Override
+    public int getItemCount() {
+        if (teamMembersList != null) {
+            return teamMembersList.size();
+        }
+        return 0;
     }
+
+
+
 
     public class TeamMemberViewHolder extends RecyclerView.ViewHolder {
         protected TextView vName,  vTitle, vBio;
