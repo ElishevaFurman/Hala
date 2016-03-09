@@ -24,11 +24,11 @@ public class ContactUsFragment extends Fragment {
     MainActivity mainActivity;
 
     public ContactUsFragment() {
-
+        // Required empty public constructor
     }
 
+    // Declare variables
     private static final Field sChildFragmentManagerField;
-
     private static final String LOGTAG = "a";
 
     static {

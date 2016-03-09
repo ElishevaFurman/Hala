@@ -6,7 +6,7 @@ package com.example.faigy.hala;
 public class TeamMember {
     // class members
     int id;
-    protected String name, title, bio, description, image, memberType;
+    public String name, title, bio, description, image, memberType;
 
     public TeamMember(int id, String name, String title, String bio, String description, String image, String memberType) {
         this.id = id;

@@ -43,10 +43,7 @@ public class AskFragment extends Fragment {
         // set toolbar title
         //Util.setToolbarTitle(R.string.fragment_ask, mainActivity.toolbar);
         // set back icon on toolbar
-
-
         return rootView;
-
     }
 
     /**
@@ -55,7 +52,6 @@ public class AskFragment extends Fragment {
     public void initializeViews(View rootView) {
 
     }
-
 
     public void onPause(){
         super.onPause();

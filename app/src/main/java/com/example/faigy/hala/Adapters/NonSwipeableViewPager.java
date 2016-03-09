@@ -1,4 +1,4 @@
-package com.example.faigy.hala;
+package com.example.faigy.hala.Adapters;
 
 /**
  * Created by Home on 3/3/2016.

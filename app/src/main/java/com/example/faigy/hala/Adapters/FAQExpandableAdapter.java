@@ -1,4 +1,4 @@
-package com.example.faigy.hala;
+package com.example.faigy.hala.Adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,34 +8,47 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.faigy.hala.Faqs;
+import com.example.faigy.hala.R;
+import com.example.faigy.hala.VolleySingleton;
 
 import java.util.ArrayList;
 
 public class FAQExpandableAdapter extends RecyclerView.Adapter<FAQExpandableAdapter.MyViewHolder> {
-//implements View.OnClickListener{
 
-    // Declare controls
+    // Declare ArrayList
     private ArrayList<Faqs> faqList;
+
+    // Declare veriables
     public static int expandedPosition = -1;
     int prev = -1;
+
+    // Declare class
     private VolleySingleton volleySingleton;
-    public Faqs faqs;
+
+    // Declare context
     Context context;
 
-
+    // Constructor
     public FAQExpandableAdapter(Context context) {
-        //this.newsList = newsList;
         this.context = context;
         volleySingleton = VolleySingleton.getInstance();
     }
 
+    /**
+     * Function sets the newsList
+     * @return ArrayList
+     */
     public void setFaqList(ArrayList<Faqs> faqList){
         this.faqList = faqList;
+        // notify the adapter of item range changed
         notifyItemRangeChanged(0, faqList.size());
     }
 
+    // this will store the references to our view
     public class MyViewHolder extends RecyclerView.ViewHolder {
+        // declare the controls in the views
         public TextView question, answer;
         public LinearLayout expandLinearLayout;
         public ImageButton expandArrow;
@@ -49,17 +62,23 @@ public class FAQExpandableAdapter extends RecyclerView.Adapter<FAQExpandableAdap
         }
     }
 
+    /**
+     * Function that create new views (invoked by the layout manager)
+     *
+     */
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        // initialize itemView
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_item_faq, parent, false);
-
+        // return itemView
         return new MyViewHolder(itemView);
 
 
     }
 
     /**
+     * Function that replace the contents of a view (invoked by the layout manager)
      * @param holder   - current viewHolder
      * @param position - current inflated position in viewHolder
      */
@@ -108,9 +127,15 @@ public class FAQExpandableAdapter extends RecyclerView.Adapter<FAQExpandableAdap
 
     }
 
+    /**
+     * Function that returns the number of items in newsList
+     * @return int
+     */
     @Override
     public int getItemCount() {
+        // if newsList is not null
         if (faqList != null) {
+            // return size of newsList
             return faqList.size();
         }
         return 0;

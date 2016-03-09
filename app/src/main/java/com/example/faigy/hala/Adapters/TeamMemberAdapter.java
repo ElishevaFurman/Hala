@@ -1,4 +1,4 @@
-package com.example.faigy.hala;
+package com.example.faigy.hala.Adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,9 +10,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.faigy.hala.CircleTransform;
+import com.example.faigy.hala.R;
+import com.example.faigy.hala.TeamMember;
+import com.example.faigy.hala.VolleySingleton;
 import com.squareup.picasso.Picasso;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,36 +23,60 @@ import java.util.List;
  * Created by Home on 1/31/2016.
  */
 public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.TeamMemberViewHolder> {
-
+    // Declare ArrayList
     private List<TeamMember> teamMembersList;
+
+    // Declare variables
     public static int expandedPosition = -1;
+
+    // Declare class
     private VolleySingleton volleySingleton;
-    public TeamMember teamMember;
+    public TeamMember tm;
+
+    // Declare context
     Context context;
 
+    // Constructor
     public TeamMemberAdapter(Context context) {
         this.context = context;
         volleySingleton = VolleySingleton.getInstance();
     }
 
+    /**
+     * Function sets the newsList
+     * @return ArrayList
+     */
     public void setTeamMembersList(ArrayList<TeamMember> teamMembersList){
         this.teamMembersList = teamMembersList;
+        // notify the adapter of item range changed
         notifyItemRangeChanged(0, teamMembersList.size());
     }
 
+    /**
+     * Function that create new views (invoked by the layout manager)
+     *
+     */
     @Override
     public TeamMemberViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        // initialize itemView
         View itemView = LayoutInflater.
                 from(viewGroup.getContext()).
                 inflate(R.layout.fragment_team_list_item, viewGroup, false);
-
+        // return itemView
         return new TeamMemberViewHolder(itemView);
     }
 
-
+    /**
+     * Function that replace the contents of a view (invoked by the layout manager)
+     * @param teamMemberViewHolder   - current viewHolder
+     * @param position - current inflated position in viewHolder
+     *
+     */
     @Override
-    public void onBindViewHolder(TeamMemberViewHolder teamMemberViewHolder, int i) {
-        TeamMember tm = teamMembersList.get(i);
+    public void onBindViewHolder(TeamMemberViewHolder teamMemberViewHolder, int position) {
+        // get data from your newsList at this position
+        // replace the contents of the view with that newsList data
+        tm = teamMembersList.get(position);
         teamMemberViewHolder.vName.setText(tm.title + " " + tm.name);
         teamMemberViewHolder.vTitle.setText(tm.description);
         teamMemberViewHolder.vBio.setText(tm.bio);
@@ -57,7 +84,7 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
                 .transform(new CircleTransform()).into(teamMemberViewHolder.teamMemberImageView);
 
         // if position is equal to expanded position
-        if (i == expandedPosition) {
+        if (position == expandedPosition) {
             // expand view of selected position
             teamMemberViewHolder.expandLinearLayout.setVisibility(View.VISIBLE);
             // set icon to expand less icon
@@ -71,18 +98,21 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
 
     }
 
-
+    /**
+     * Function that returns the number of items in newsList
+     * @return int
+     */
     @Override
     public int getItemCount() {
+        // if newsList is not null
         if (teamMembersList != null) {
+            // return size of newsList
             return teamMembersList.size();
         }
         return 0;
     }
 
-
-
-
+    // this will store the references to our view
     public class TeamMemberViewHolder extends RecyclerView.ViewHolder {
         protected TextView vName,  vTitle, vBio;
         public LinearLayout expandLinearLayout;

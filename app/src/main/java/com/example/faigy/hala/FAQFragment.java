@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,13 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.example.faigy.hala.Adapters.FAQExpandableAdapter;
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
@@ -30,8 +28,6 @@ import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import de.greenrobot.event.EventBus;
 
 public class FAQFragment extends Fragment {
     // Declare Controls

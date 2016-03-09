@@ -32,7 +32,7 @@ public class ServiceDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_service_detail, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_service_detail2, container, false);
         servicesArrayList = MySingleton.getInstance().getServicesArrayList();
         // Initialize the views for this fragment
         initializeViews(rootView);
@@ -52,22 +52,22 @@ public class ServiceDetailFragment extends Fragment {
 //        serviceDescriptionTextViews.setText(servicesArrayList.get(0).getDescription());
         serviceDescriptionTextViews.setText(mainActivity.servicesFragment.servicesList.get(position).getDescription());
 
-        flashingTextView = (TextView) rootView.findViewById(R.id.flashingTextView);
-        flashingTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Util.replaceFragment(mainActivity.helpUsGrowFragment, R.string.fragment_grow);
-            }
-        });
-
-
-        // Set Animation
-        Animation anim = new AlphaAnimation(0.0f, 1.0f);
-        anim.setDuration(1000); //You can manage the blinking time with this parameter
-        anim.setStartOffset(40);
-        anim.setRepeatMode(Animation.REVERSE);
-        anim.setRepeatCount(Animation.INFINITE);
-        flashingTextView.startAnimation(anim);
+//        flashingTextView = (TextView) rootView.findViewById(R.id.flashingTextView);
+//        flashingTextView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Util.replaceFragment(mainActivity.helpUsGrowFragment, R.string.fragment_grow);
+//            }
+//        });
+//
+//
+//        // Set Animation
+//        Animation anim = new AlphaAnimation(0.0f, 1.0f);
+//        anim.setDuration(1000); //You can manage the blinking time with this parameter
+//        anim.setStartOffset(40);
+//        anim.setRepeatMode(Animation.REVERSE);
+//        anim.setRepeatCount(Animation.INFINITE);
+//        flashingTextView.startAnimation(anim);
 
     }
 

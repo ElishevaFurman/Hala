@@ -42,11 +42,11 @@ public class DonateFragment extends Fragment {
      * Function to initialize controls
      */
     public void initializeViews(final View rootView) {
+        // initialize and reference controls
         donateRelativeLayout = (RelativeLayout) rootView.findViewById(R.id.donateRelativeLayout);
         donateRelativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String url = "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=SCKZLDNUTW3DW&lc=US&item_name=Hala&currency_code=AUD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted";
                 Util.createDialog("Donate Now", "Donate through paypal", "DONATE NOW", "CANCEL", "url", url);
 

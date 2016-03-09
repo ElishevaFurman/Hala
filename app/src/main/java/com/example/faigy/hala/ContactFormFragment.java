@@ -62,6 +62,7 @@ public class ContactFormFragment extends Fragment {
      * Function to initialize controls
      */
     public void initializeViews(View rootView) {
+        // initialize and reference controls
         inputLayoutName = (TextInputLayout) rootView.findViewById(R.id.input_layout_name);
         inputLayoutEmail = (TextInputLayout) rootView.findViewById(R.id.input_layout_email);
         inputLayoutPhone = (TextInputLayout) rootView.findViewById(R.id.input_layout_phone);
@@ -71,12 +72,10 @@ public class ContactFormFragment extends Fragment {
         inputPhone = (EditText) rootView.findViewById(R.id.input_phone);
         inputQuestion = (EditText) rootView.findViewById(R.id.input_question);
         submitButton = (TextView) rootView.findViewById(R.id.submit_text);
-
         inputName.addTextChangedListener(new MyTextWatcher(inputName));
         inputEmail.addTextChangedListener(new MyTextWatcher(inputEmail));
         inputPhone.addTextChangedListener(new MyTextWatcher(inputPhone));
         inputQuestion.addTextChangedListener(new MyTextWatcher(inputQuestion));
-
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

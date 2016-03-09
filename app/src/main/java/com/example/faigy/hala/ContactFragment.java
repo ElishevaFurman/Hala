@@ -64,20 +64,14 @@ public class ContactFragment extends Fragment {
         // initialize and reference controls
         titleTextView = (TextView) rootView.findViewById(R.id.titleTextView);
         titleTextView.setText(Html.fromHtml(getString(R.string.contact_title)));
-
         locationTextView = (TextView) rootView.findViewById(R.id.locationTextView);
         locationTextView.setText(Html.fromHtml(getString(R.string.contact_location)));
-
         phoneTextView = (TextView) rootView.findViewById(R.id.phoneTextView);
         phoneTextView.setText(Html.fromHtml(getString(R.string.contact_phone)));
-
         emailTextView = (TextView) rootView.findViewById(R.id.emailTextView);
         emailTextView.setText(Html.fromHtml(getString(R.string.contact_email)));
-
         mapFab = (FloatingActionButton) rootView.findViewById(R.id.contactFab);
-
         mapView = (ImageView) rootView.findViewById(R.id.mapView);
-
         addressLinearLayout = (LinearLayout) rootView.findViewById(R.id.addressLinearLayout);
         phoneLinearLayout = (LinearLayout )rootView.findViewById(R.id.phoneLinearLayout);
         faxLinearLayout = (LinearLayout) rootView.findViewById(R.id.faxLinearLayout);
