@@ -10,20 +10,17 @@ import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Parcelable;
 import android.provider.Settings;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,7 +49,6 @@ public class Util extends Activity {
     private static Context context = null;
     private static Activity activity = null;
     private static Application application = null;
-
 
     /**
      * Function to set reference of current activity
@@ -93,8 +89,6 @@ public class Util extends Activity {
         Util.context = context;
     }
 
-
-
     /**
      * Function to call methods that set reference to current activity
      *
@@ -119,8 +113,6 @@ public class Util extends Activity {
                 fragment).addToBackStack(tag + "").commit();
 
     }
-
-
 
     /**
      * Function to set title of toolbar
@@ -218,7 +210,6 @@ public class Util extends Activity {
         }
     }
 
-
     /**
      * Function to make a call with an intent
      *
@@ -290,6 +281,11 @@ public class Util extends Activity {
 
     }
 
+    /**
+     * Function to share link of article
+     *
+     * @param link - link of article
+     */
     public static void share(String link) {
         List<Intent> targetedShareIntents = new ArrayList<Intent>();
         Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
@@ -349,13 +345,19 @@ public class Util extends Activity {
 
             }
         });
-
-
         builder.setNegativeButton(negativeButtonText, null);
         builder.show();
 
     }
 
+    /**
+     * Function to get the size of an image
+     *
+     * @param options
+     * @param reqWidth  - set requested width of image
+     * @param reqHeight - set requested height of image
+     * @return sample size of image
+     */
     public static int calculateInSampleSize(
             BitmapFactory.Options options, int reqWidth, int reqHeight) {
         // Raw height and width of image
@@ -375,13 +377,20 @@ public class Util extends Activity {
                 inSampleSize *= 2;
             }
         }
-
         return inSampleSize;
     }
 
+    /**
+     * Function to decode bitmap sample size and set it
+     *
+     * @param res
+     * @param resId
+     * @param reqWidth  - width of image
+     * @param reqHeight - height of image
+     * @return
+     */
     public static Bitmap decodeSampledBitmapFromResource(Resources res, int resId,
                                                          int reqWidth, int reqHeight) {
-
         // First decode with inJustDecodeBounds=true to check dimensions
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
@@ -406,71 +415,32 @@ public class Util extends Activity {
         return context.getString(resourceReference);
     }
 
-
     /**
-     * Function to call http request that return a JsonObject and then convert it to a JsonArray
+     * Function to check internet connection status
      *
-     * @param url    - url to get the JSON string from
-     * @param tag    - tag of node to get objects from
-     * @param params - list of key values to pass along to the http request
-     * @return JsonArray
+     * @return boolean if connected true else false
      */
-    public static JSONArray getJsonArray(String url, String tag, List<NameValuePair> params) {
-        // instantiate new JsonArray
-        JSONArray jsonArray = new JSONArray();
-
-        // instantiate new JsonParser
-        JSONParser jsonParser = new JSONParser();
-
-        // create JSON Object from request made to url
-        JSONObject json = jsonParser.makeHttpRequest(url, "POST", params);
-
-        // initialize int to receive value of success (0 or 1)
-        int success = 0;
-
-        try {
-            // get int with tag "success" from json object
-            success = json.getInt("success");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        // if success is 0 ; either because the query of the http request was not successful
-        // or because the http request itself was unsuccessful and therefor the JsonObject is null
-        if (success != 0) {
-            try {
-                // get JSON Array node
-                jsonArray = json.getJSONArray(tag);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        } else {
-            // could not get JSON Array node
-            Log.e("Json Parser", "Couldn't get any newsData from the url");
-        }
-
-        return jsonArray;
-    }
-
-
-
-
-
     public static boolean isConnected() {
         ConnectivityManager cm = (ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
-
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        // check if there is connection
         if (activeNetwork != null) {
-            if(activeNetwork.getType() == ConnectivityManager.TYPE_WIFI)
+            if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI)
                 return true;
 
-            if(activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE)
+            if (activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE)
                 return true;
         }
         return false;
     }
 
+    /**
+     * Function to handle error exceptions for making a request to download data
+     *
+     * @param error         - set error
+     * @param errorTextView - set textView to display error message
+     */
     public static void handleVolleyError(VolleyError error, TextView errorTextView) {
         errorTextView.setVisibility(View.VISIBLE);
         if (error instanceof TimeoutError || error instanceof NoConnectionError) {

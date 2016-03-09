@@ -19,12 +19,13 @@ import android.widget.Toast;
  * A simple {@link Fragment} subclass.
  */
 public class TestimonialFragment extends Fragment {
-    // Declare Controls
+    // Declare Activities
     MainActivity mainActivity;
+
+    // Declare Controls
     TextView titleTextView;
     ImageView imageView;
     CardView cardView1, cardView2, cardView3, cardView4;
-
 
     public TestimonialFragment() {
         // Required empty public constructor
@@ -35,10 +36,8 @@ public class TestimonialFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_testimonial, container, false);
-
         // Initialize the views for this fragment
         initializeViews(rootView);
-
         // set toolbar title
         Util.setToolbarTitle(R.string.fragment_testimonials, mainActivity.toolbar);
         // remove keyboard from screen
@@ -92,15 +91,11 @@ public class TestimonialFragment extends Fragment {
 
     }
 
-    public void getScreenDimensions() {
-        DisplayMetrics displaymetrics = new DisplayMetrics();
-        mainActivity.getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
-        int height = displaymetrics.heightPixels;
-        int width = displaymetrics.widthPixels;
-        imageView.getLayoutParams().width = width;
-        Toast.makeText(mainActivity.getApplicationContext(), height + " " + width + "", Toast.LENGTH_LONG).show();
-    }
-
+    /**
+     * Function to set mainActivity to this fragment
+     *
+     * @param mainActivity - set mainActivity
+     */
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }

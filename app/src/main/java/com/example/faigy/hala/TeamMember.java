@@ -19,7 +19,7 @@ public class TeamMember {
     }
 
     public TeamMember() {
-
+        // Required empty public constructor
     }
 
     public int getId() {

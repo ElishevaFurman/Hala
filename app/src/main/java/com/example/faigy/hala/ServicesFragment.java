@@ -1,6 +1,5 @@
 package com.example.faigy.hala;
 
-
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -40,11 +39,10 @@ public class ServicesFragment extends Fragment {
     Services[] servicesData;
     ArrayList<Services> servicesList;
     private RequestQueue requestQueue;
+    private static String TAG = MainActivity.class.getSimpleName();
 
     // Declare class
     private VolleySingleton volleySingleton;
-
-    private static String TAG = MainActivity.class.getSimpleName();
 
     // Declare activities
     MainActivity mainActivity;
@@ -53,7 +51,6 @@ public class ServicesFragment extends Fragment {
     TextView errorTextView;
 
     public ServicesFragment() {
-
         // Required empty public constructor
     }
 
@@ -61,6 +58,7 @@ public class ServicesFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // initialize variables
         volleySingleton = VolleySingleton.getInstance();
         requestQueue = volleySingleton.getRequestQueue();
 
@@ -72,21 +70,22 @@ public class ServicesFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_services_list, container, false);
+
         // Initialize the views for tis fragment
         initializeViews(rootView);
-        //registerListeners();
-        //mainActivity.getSupportActionBar().hide();
+
         // set toolbar title
         Util.setToolbarTitle(R.string.fragment_services, mainActivity.toolbar);
+
         // set navigation drawer to toggle
         mainActivity.openNavigationDrawer();
+
         // remove keyboard from screen
         Util.hideSoftKeyboard();
+
         //set navigation selected to current fragment
         mainActivity.setSelectedNavigationItem(R.id.nav_services);
-        pDialog = new ProgressDialog(Util.getContext());
-        pDialog.setMessage("Loading...");
-        pDialog.show();
+
         return rootView;
     }
 
@@ -101,70 +100,91 @@ public class ServicesFragment extends Fragment {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+        // set adapter
         recyclerView.setAdapter(mAdapter);
         errorTextView = (TextView) rootView.findViewById(R.id.errorTextView);
+        // set on click listener to refresh the data in the recycler view
         errorTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // send json request to retrieve data
                 makeJsonArrayRequest("http://162.243.100.186/news_array.php");
             }
         });
+        // send json request to retrieve data
         makeJsonArrayRequest("http://162.243.100.186/services_array.php");
-
-
+        // set item click listener for the recycler view
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListenerInterface() {
-                 @Override
-                      public void onClick(View view, int position) {
-
-                     MySingleton.getInstance().setPostion(position);
-                     Util.replaceFragment(mainActivity.serviceDetailFragment, R.string.fragment_service_Detail);
-                 }
             @Override
-            public void onLongClick(View view, int position) {
+            public void onClick(View view, int position) {
+                // set and store the clicked position in the recycler view
                 MySingleton.getInstance().setPostion(position);
+                // switch to service detail fragment
                 Util.replaceFragment(mainActivity.serviceDetailFragment, R.string.fragment_service_Detail);
             }
-        }));}
+        }));
+    }
 
+    /**
+     * Function to set fragment to this main activity
+     *
+     * @param mainActivity - set main activity
+     */
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }
 
     @Override
     public void onPause() {
-
         super.onPause();
+        // display the toolbar for the next fragment
         mainActivity.getSupportActionBar().show();
     }
 
     /**
      * Method to make json array request where response starts with
-     * */
-    public void makeJsonArrayRequest(String urlJsonArry) {
+     */
+    public void makeJsonArrayRequest(String urlJsonArray) {
 
-        JsonArrayRequest req = new JsonArrayRequest(urlJsonArry,
+        // initialize progress dialog
+        pDialog = new ProgressDialog(Util.getContext());
+        // set message for dialog
+        pDialog.setMessage("Loading...");
+        // display the dialog
+        pDialog.show();
+
+        JsonArrayRequest req = new JsonArrayRequest(urlJsonArray,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
+                        // hide the text view from displaying error message
+                        errorTextView.setVisibility(View.GONE);
                         Log.d(TAG, response.toString());
+                        // hide progress dialog
                         pDialog.hide();
+                        // initialize Gson object
                         Gson gson = new Gson();
+                        // initialize string to store json result
                         String jsonOutput = response.toString();
                         try {
+                            // convert json array into array of class type
                             servicesData = gson.fromJson(jsonOutput, Services[].class);
+                            // convert array to arrayList
                             servicesList = new ArrayList<>(Arrays.asList(servicesData));
-                           // MySingleton.getInstance().setServicesArrayList(servicesList);
+                            // set list to adapter
                             mAdapter.setServicesList(servicesList);
                         } catch (JsonSyntaxException e) {
                             e.printStackTrace();
-                        }catch (JsonParseException e) {
+                        } catch (JsonParseException e) {
                             e.printStackTrace();
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Util.handleVolleyError(error,errorTextView);
+                // handle error exceptions
+                Util.handleVolleyError(error, errorTextView);
+                // hide dialog after successfully retrieving data
                 pDialog.hide();
 
             }

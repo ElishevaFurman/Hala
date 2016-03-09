@@ -3,6 +3,7 @@ package com.example.faigy.hala;
 /**
  * Created by faigy on 2/1/2016.
  */
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,13 +24,7 @@ public class SplashActivity extends Activity {
         Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_splash);
 
-
-
-
-
-
-
-
+        // set handler to delay start of mainActivity for 3 seconds
         new Handler().postDelayed(new Runnable() {
 
             /*
@@ -43,8 +38,8 @@ public class SplashActivity extends Activity {
                 // Start your app main activity
                 Intent i = new Intent(SplashActivity.this, AppIntroActivity.class);
                 startActivity(i);
+                // set transition between activities
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-
                 // close this activity
                 finish();
             }
@@ -52,8 +47,4 @@ public class SplashActivity extends Activity {
     }
 
 
-
-
-
 }
-

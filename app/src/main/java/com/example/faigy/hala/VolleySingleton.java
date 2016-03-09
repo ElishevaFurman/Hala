@@ -10,6 +10,7 @@ import com.android.volley.toolbox.Volley;
  * Created by Home on 3/1/2016.
  */
 public class VolleySingleton {
+    // Declare Variables
     private static VolleySingleton sInstance = null;
     private RequestQueue mRequestQueue;
 

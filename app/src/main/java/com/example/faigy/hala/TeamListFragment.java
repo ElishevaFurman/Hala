@@ -27,26 +27,25 @@ import java.util.Arrays;
 
 
 public class TeamListFragment extends Fragment {
+    // Declare application
+    protected MyApplication app;
+    // Declare activity
     MainActivity mainActivity;
+    // Declare controls
     RecyclerView recyclerView;
     LinearLayoutManager llm;
+    ProgressDialog pDialog;
+    TextView errorTextView;
+    // Declare adapter
     TeamMemberAdapter mAdapter;
-    int prev = -1;
-    //ArrayList<TeamMember>teamMemberArrayList;
-
     // Declare variables
     TeamMember[] teamMembersData;
     ArrayList<TeamMember> teamMembersList;
     private RequestQueue requestQueue;
-
+    private static String TAG = MainActivity.class.getSimpleName();
+    int prev = -1;
     // Declare class
     private VolleySingleton volleySingleton;
-
-    private static String TAG = MainActivity.class.getSimpleName();
-    protected MyApplication app;
-    ProgressDialog pDialog;
-    TextView errorTextView;
-
 
 
     public TeamListFragment() {
@@ -57,9 +56,9 @@ public class TeamListFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // initialize variables
         volleySingleton = VolleySingleton.getInstance();
         requestQueue = volleySingleton.getRequestQueue();
-
     }
 
     @Override
@@ -82,28 +81,29 @@ public class TeamListFragment extends Fragment {
      * Function to initialize controls
      */
     public void initializeViews(View rootView) {
+        // initialize controls
         recyclerView = (RecyclerView) rootView.findViewById(R.id.cardList);
         mAdapter = new TeamMemberAdapter(getActivity());
-        //recyclerView.setHasFixedSize(true);
         llm = new LinearLayoutManager(getActivity().getBaseContext());
-        recyclerView.setLayoutManager(llm);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-
-        //teamMemberArrayList =MySingleton.getInstance().getTeamMembersArrayList();
-        //tm = new TeamMemberAdapter(teamMemberArrayList,Util.getContext());
-        recyclerView.setAdapter(mAdapter);
         errorTextView = (TextView) rootView.findViewById(R.id.errorTextView);
+        // set layout manager to recycler view
+        recyclerView.setLayoutManager(llm);
+        // set orientation for linear layout manager
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        // set adapter for recycler view
+        recyclerView.setAdapter(mAdapter);
+        // set click listener for error text view to refresh data
         errorTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // send json request to retrieve data from server
                 makeJsonArrayRequest("http://162.243.100.186/members_array.php");
             }
         });
+        // send json request to retrieve data from server
         makeJsonArrayRequest("http://162.243.100.186/members_array.php");
 
-
-
-
+        // set click listener for items in recyclerView to expand and collapse
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListenerInterface() {
             @Override
             public void onClick(View view, int position) {
@@ -127,34 +127,38 @@ public class TeamListFragment extends Fragment {
                     mAdapter.notifyItemChanged(mAdapter.expandedPosition);
                 }
             }
-
-            @Override
-            public void onLongClick(View view, int position) {
-
-            }
         }));
-
     }
 
     /**
      * Method to make json array request where response starts with
      */
     public void makeJsonArrayRequest(String urlJsonArry) {
+        // initialize progress dialog
         pDialog = new ProgressDialog(Util.getContext());
+        // set message to display in progress dialog
         pDialog.setMessage("Loading...");
+        // display dialog
         pDialog.show();
         JsonArrayRequest req = new JsonArrayRequest(urlJsonArry,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
+                        // hide the text view from displaying error message
                         errorTextView.setVisibility(View.GONE);
                         Log.d(TAG, response.toString());
+                        // hide progress dialog
                         pDialog.hide();
+                        // initialize Gson object
                         Gson gson = new Gson();
+                        // initialize string to store json result
                         String jsonOutput = response.toString();
                         try {
+                            // convert json array into array of class type
                             teamMembersData = gson.fromJson(jsonOutput, TeamMember[].class);
+                            // convert array to arrayList
                             teamMembersList = new ArrayList<>(Arrays.asList(teamMembersData));
+                            // set list to adapter
                             mAdapter.setTeamMembersList(teamMembersList);
                         } catch (JsonSyntaxException e) {
                             e.printStackTrace();
@@ -165,15 +169,16 @@ public class TeamListFragment extends Fragment {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Util.handleVolleyError(error,errorTextView);
+                // handle error exceptions
+                Util.handleVolleyError(error, errorTextView);
+                // hide dialog after successfully retrieving data
                 pDialog.hide();
             }
         });
         requestQueue.add(req);
     }
 
-
-
+    // set current fragment to this main activity
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }
