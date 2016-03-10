@@ -1,8 +1,10 @@
 package com.example.faigy.hala;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.PathEffect;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.TextInputLayout;
@@ -21,9 +23,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 
 public class ContactFormFragment extends Fragment {
@@ -89,34 +101,30 @@ public class ContactFormFragment extends Fragment {
      * Validating form
      */
     private void submitForm() {
-        if (!validateName()) {
-            return;
-        }
+//        if (!validateName()) {
+//            return;
+//        }
+//
+//        if (!validateEmail()) {
+//            return;
+//        }
+//
+//        if (!validatePhone()) {
+//            return;
+//        }
+//
+//        if (!validateQuestion()) {
+//            return;
+//        }
 
-        if (!validateEmail()) {
-            return;
-        }
 
-        if (!validatePhone()) {
-            return;
-        }
-
-        if (!validateQuestion()) {
-            return;
-        }
+        new SendMailTask().execute();
 
 
-        try {
-            GMailSender sender = new GMailSender("le7friedman@gmail.com", "100508701");
-            sender.sendMail("Contact Form From Hala App",
-                    inputQuestion.getText().toString() + " /n " + inputName.getText().toString() +" /n " + inputPhone.getText().toString(),
-                    inputEmail.getText().toString(),
-                    "le7friedman@gmail.com");
-           // Toast.makeText(Util.getContext(), "Thank you for contacting Hala!", Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            Log.e("SendMail", e.getMessage(), e);
-        }
+
     }
+
+
 
     private boolean validateName() {
         if (inputName.getText().toString().trim().isEmpty()) {
@@ -232,5 +240,40 @@ public class ContactFormFragment extends Fragment {
         this.mainActivity = mainActivity;
     }
 
+
+    private class SendMailTask extends AsyncTask<Void, Void, Void> {
+        private ProgressDialog progressDialog;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog = ProgressDialog.show(Util.getActivity(), "Please wait", "Sending mail", true, false);
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            progressDialog.dismiss();
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+                GMailSender sender = new GMailSender("le7friedman@gmail.com", "100508701");
+                sender.sendMail("Contact Form From Hala App",
+                        "hello",
+                        "le7friedman@gmail.com",
+                        "le7friedman@gmail.com");
+            } catch (Exception e) {
+                Log.e("SendMail", e.getMessage(), e);
+            }
+
+            return null;
+        }
+    }
 }
+
+
+
+
 

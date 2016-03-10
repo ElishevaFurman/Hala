@@ -8,6 +8,7 @@ import android.widget.Toast;
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.mail.Message;
+import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
@@ -64,8 +65,10 @@ final class GMailSender extends javax.mail.Authenticator {
             else
                 message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipients));
             Transport.send(message);
-            Toast.makeText(Util.getContext(), "hi", Toast.LENGTH_SHORT).show();
-        }catch(Exception e){
+            Toast.makeText(Util.getContext(), "message successfully sent:)", Toast.LENGTH_SHORT).show();
+        }catch(MessagingException e){
+            e.printStackTrace();
+//            Toast.makeText(Util.getContext(), "message was not sent successfully", Toast.LENGTH_SHORT).show();
 
         }
     }

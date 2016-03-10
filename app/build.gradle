@@ -59,4 +59,6 @@ dependencies {
         transitive = true;
     }
     compile files('libs/activation.jar')
+    compile files('libs/additionnal.jar')
+    compile files('libs/mail.jar')
 }
