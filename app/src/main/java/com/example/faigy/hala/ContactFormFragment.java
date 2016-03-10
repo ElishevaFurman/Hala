@@ -105,7 +105,17 @@ public class ContactFormFragment extends Fragment {
             return;
         }
 
-        Toast.makeText(Util.getContext(), "Thank you for contacting Hala!", Toast.LENGTH_SHORT).show();
+
+        try {
+            GMailSender sender = new GMailSender("le7friedman@gmail.com", "100508701");
+            sender.sendMail("Contact Form From Hala App",
+                    inputQuestion.getText().toString() + " /n " + inputName.getText().toString() +" /n " + inputPhone.getText().toString(),
+                    inputEmail.getText().toString(),
+                    "le7friedman@gmail.com");
+           // Toast.makeText(Util.getContext(), "Thank you for contacting Hala!", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Log.e("SendMail", e.getMessage(), e);
+        }
     }
 
     private boolean validateName() {
