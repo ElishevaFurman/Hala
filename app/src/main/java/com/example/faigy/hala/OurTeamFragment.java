@@ -16,7 +16,7 @@
 // */
 //public class OurTeamFragment extends Fragment {
 //    MainActivity mainActivity;
-//    ViewPager viewPager;
+//    ViewPager customViewPager;
 //    TabLayout tabLayout;
 //    ViewPagerAdapter adapter;
 //
@@ -63,22 +63,22 @@
 //     * Function to initialize controls
 //     */
 //    public void initializeViews(View rootView) {
-//        viewPager = (ViewPager) rootView.findViewById(R.id.tabanim_viewpager);
-//        setupViewPager(viewPager);
+//        customViewPager = (ViewPager) rootView.findViewById(R.id.tabanim_viewpager);
+//        setupViewPager(customViewPager);
 //        tabLayout = (TabLayout) rootView.findViewById(R.id.tabanim_tabs);
-//        tabLayout.setupWithViewPager(viewPager);
+//        tabLayout.setupWithViewPager(customViewPager);
 //    }
 //
 //    /**
 //     * Function to setup ViewPager
-//     * @param viewPager
+//     * @param customViewPager
 //     */
-//    private void setupViewPager(ViewPager viewPager) {
+//    private void setupViewPager(ViewPager customViewPager) {
 //        adapter = new ViewPagerAdapter(getChildFragmentManager());
 //        adapter.addFrag((new TeamListFragment()), "TEAM");
 //        adapter.addFrag((new TeamListFragment()), "BOARD");
 //        adapter.addFrag((new TeamListFragment()), "FRIENDS");
-//        viewPager.setAdapter(adapter);
+//        customViewPager.setAdapter(adapter);
 //    }
 //
 //

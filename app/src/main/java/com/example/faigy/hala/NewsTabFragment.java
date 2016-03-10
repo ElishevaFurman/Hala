@@ -16,10 +16,11 @@ import java.lang.reflect.Field;
  * Created by Home on 2/1/2016.
  */
 public class NewsTabFragment extends Fragment {
+    // Declare controls
     MainActivity mainActivity;
-    ViewPager viewPager;
     TabLayout tabLayout;
     ViewPagerAdapter adapter;
+    CustomViewPager customViewPager;
     int id;
 
     public NewsTabFragment() {
@@ -65,17 +66,24 @@ public class NewsTabFragment extends Fragment {
      * Function to initialize controls
      */
     public void initializeViews(final View rootView) {
-        //NonSwipeableViewPager viewPager = new NonSwipeableViewPager(Util.getContext(),);
-        viewPager = (ViewPager) rootView.findViewById(R.id.tabanim_viewpager);
-        setupViewPager(viewPager);
+        // initialize viewpager
+        customViewPager = (CustomViewPager) rootView.findViewById(R.id.tabanim_viewpager);
+        setupViewPager(this.customViewPager);
+
+        // initialize tabs
         tabLayout = (TabLayout) rootView.findViewById(R.id.tabanim_tabs);
-        tabLayout.setupWithViewPager(viewPager);
-        viewPager.beginFakeDrag();
+        tabLayout.setupWithViewPager(this.customViewPager);
+        this.customViewPager.beginFakeDrag();
+
+        // disable swiping in viewpager
+        customViewPager.setPagingEnabled(false);
+
+        // set on click listener for tabs
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setTag(tab.getPosition());
-                viewPager.setAdapter(adapter);
+                NewsTabFragment.this.customViewPager.setTag(tab.getPosition());
+                NewsTabFragment.this.customViewPager.setAdapter(adapter);
             }
 
             @Override
@@ -89,15 +97,6 @@ public class NewsTabFragment extends Fragment {
             }
         });
 
-
-//        viewPager.setOnTouchListener(new View.OnTouchListener() {
-//
-//            public boolean onTouch(View arg0, MotionEvent arg1) {
-//                return true;
-//            }
-//        });
-
-
     }
 
     /**
@@ -108,7 +107,7 @@ public class NewsTabFragment extends Fragment {
         adapter = new ViewPagerAdapter(getChildFragmentManager());
         final String NewsTag = "NEWS";
         final String PublicationTag = "PUBLICATIONS";
-        String PresentationTag = "PRESENTATIONS";
+        final String PresentationTag = "PRESENTATIONS";
 
         adapter.addFrag((new InTheNewsFragment()), NewsTag);
         adapter.addFrag((new InTheNewsFragment()), PublicationTag);
@@ -116,9 +115,7 @@ public class NewsTabFragment extends Fragment {
 
         viewPager.setTag("0");
         viewPager.setAdapter(adapter);
-
     }
-
 
     @Override
     public void onDetach() {
