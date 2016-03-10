@@ -167,7 +167,7 @@ public class ContactFormFragment extends Fragment {
     }
 
     private static boolean isValidPhone(String phone) {
-        String regex = "^[+]?[0-9]{10,13}$";
+        String regex = "^[+]?[0-9]{9,13}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(phone);
 

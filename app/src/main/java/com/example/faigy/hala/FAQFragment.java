@@ -43,6 +43,8 @@ public class FAQFragment extends Fragment {
     private VolleySingleton volleySingleton;
     private static String TAG = MainActivity.class.getSimpleName();
     ProgressDialog pDialog;
+    public static final int COLLAPSE_MODE_PARALLAX=2;
+
     Toolbar toolbar;
     CollapsingToolbarLayout collapsingToolbar;
     TextView errorTextView;
@@ -77,8 +79,11 @@ public class FAQFragment extends Fragment {
     public void initializeViews(final View rootView) {
         toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
         mainActivity.openNavigationDrawer2(toolbar, R.drawable.ic_menu_24dp);
+        //mainActivity.getSupportActionBar(toolbar);
+        mainActivity.getSupportActionBar().setDisplayShowHomeEnabled(true);
         collapsingToolbar = (CollapsingToolbarLayout) rootView.findViewById(R.id.collapsing_toolbar);
         collapsingToolbar.setTitle("Faq's");
+        collapsingToolbar.setExpandedTitleColor(getResources().getColor(R.color.colorAccent));
         fab = (FloatingActionButton) rootView.findViewById(R.id.askFab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +94,7 @@ public class FAQFragment extends Fragment {
         });
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
-        //recyclerView.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(false);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));

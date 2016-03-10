@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity
     ContactUsFragment contactUsFragment;
     TestimonialFragment testimonialFragment;
     TeamListFragment teamListFragment;
-    //OurTeamFragment ourTeamFragment;
     AskFragment askFragment;
     FAQFragment faqFragment;
     InTheNewsFragment inTheNewsFragment;
@@ -106,18 +105,6 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-
-
-    public void startAlarm() {
-        Intent intent = new Intent(this, AlarmReceiver.class);
-
-        PendingIntent alarmIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-
-        AlarmManager alarmMgr = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
-        alarmMgr.setRepeating(AlarmManager.ELAPSED_REALTIME,
-                SystemClock.elapsedRealtime(), 1 * 60 * 1000, alarmIntent);
-        //DataBaseOperations.taskGetLocations = new GetLocations().execute();
-    }
 
     /**
      * Function to initialize controls
@@ -210,8 +197,6 @@ public class MainActivity extends AppCompatActivity
         testimonialFragment.setMainActivity(this);
         teamListFragment = new TeamListFragment();
         teamListFragment.setMainActivity(this);
-//        ourTeamFragment = new OurTeamFragment();
-//        ourTeamFragment.setMainActivity(this);
         askFragment = new AskFragment();
         askFragment.setMainActivity(this);
         faqFragment = new FAQFragment();
@@ -277,8 +262,6 @@ public class MainActivity extends AppCompatActivity
             Util.replaceFragment(newsTabFragment, R.string.fragment_news);
         } else if (id == R.id.nav_testimonials) {
             Util.replaceFragment(testimonialFragment, R.string.fragment_testimonials);
-//        } else if (id == R.id.nav_grow) {
-//            Util.replaceFragment(helpUsGrowFragment, R.string.fragment_grow);
         } else if (id == R.id.nav_donate) {
             Util.replaceFragment(donateFragment, R.string.fragment_donate);
         } else if (id == R.id.nav_appointments) {
@@ -290,15 +273,6 @@ public class MainActivity extends AppCompatActivity
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-
-    public ArrayList<News> getNewsArrayList() {
-        return app.getNewsArrayList();
-    }
-
-    public void setNewsArrayList(ArrayList<News> newsArrayList) {
-        app.setNewsArrayList(newsArrayList);
     }
 
     // This method will be called when a HelloWorldEvent is posted
