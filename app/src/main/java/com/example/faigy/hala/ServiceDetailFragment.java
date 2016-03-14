@@ -117,7 +117,7 @@ public class ServiceDetailFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-       //mainActivity.getSupportActionBar().hide();
+       mainActivity.getSupportActionBar().hide();
         String title = mainActivity.servicesFragment.servicesList.get(position).getTitle();
         // set toolbar title
         Util.setToolbarTitle(title, mainActivity.toolbar);
