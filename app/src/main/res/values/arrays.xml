@@ -4,32 +4,27 @@
         <item>tor@hala.org.il</item>
     </string-array>
 
-
     <array name="landing_bg">
         <item>@color/colorPrimary</item>
         <item>@color/colorAccent</item>
-        <item>@color/colorDarkGray</item>
-
+        <item>@color/colorAccentLight</item>
     </array>
 
     <array name="icons">
-        <item>@drawable/faq_icon</item>
         <item>@drawable/services_icon</item>
         <item>@drawable/news_icon</item>
-
-
+        <item>@drawable/faq_icon</item>
     </array>
 
-    <string-array name="titles" >
-        <item>@string/title1</item>
-        <item>@string/title2</item>
-        <item>@string/title3</item>
+    <string-array name="titles">
+        <item>@string/servicesTitle</item>
+        <item>@string/newsTitle</item>
+        <item>@string/faqTitle</item>
     </string-array>
 
-    <string-array name="hints" >
-
-        <item>@string/slide1</item>
-        <item>@string/slide2</item>
-        <item>@string/slide3</item>
+    <string-array name="descriptions">
+        <item>@string/servicesDescription</item>
+        <item>@string/newsDescription</item>
+        <item>@string/faqDescription</item>
     </string-array>
 </resources>

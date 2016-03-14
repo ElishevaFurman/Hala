@@ -192,13 +192,13 @@
 
   <!-- app intro -->
 
-    <string name="title1">SERVICES</string>
-    <string name="title2">NEWS</string>
-    <string name="title3">ASK</string>
+    <string name="servicesTitle">SERVICES</string>
+    <string name="newsTitle">NEWS</string>
+    <string name="faqTitle">ASK</string>
 
-    <string name="slide1">Get a list of Halas services</string>
-    <string name="slide2">Read and share Hala in the news and publications</string>
-    <string name="slide3">Submit a question and get an answer from the doctors</string>
+    <string name="servicesDescription">Get a list of Halas services</string>
+    <string name="newsDescription">Read and share Hala in the news and publications</string>
+    <string name="faqDescription">Submit a question and get an answer from the doctors</string>
 
     <string name="skip">SKIP</string>
 

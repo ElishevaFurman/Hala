@@ -12,7 +12,16 @@ public class MySingleton {
     private ArrayList<TeamMember> teamMembersArrayList;
     private ArrayList<Services> servicesArrayList;
 
+    public Boolean getSuccess() {
+        return success;
+    }
+
+    public void setSuccess(Boolean success) {
+        this.success = success;
+    }
+
     public int postion;
+    public Boolean success;
 
     public int getPostion() {
         return postion;

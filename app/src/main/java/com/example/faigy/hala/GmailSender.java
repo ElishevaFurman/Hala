@@ -65,10 +65,10 @@ final class GMailSender extends javax.mail.Authenticator {
             else
                 message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipients));
             Transport.send(message);
-            Toast.makeText(Util.getContext(), "message successfully sent:)", Toast.LENGTH_SHORT).show();
+            MySingleton.getInstance().setSuccess(true);
         }catch(MessagingException e){
             e.printStackTrace();
-//            Toast.makeText(Util.getContext(), "message was not sent successfully", Toast.LENGTH_SHORT).show();
+            MySingleton.getInstance().setSuccess(false);
 
         }
     }

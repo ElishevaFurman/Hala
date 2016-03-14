@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -45,6 +47,8 @@ public class ContactFormFragment extends Fragment {
     private EditText inputName, inputEmail, inputPhone, inputQuestion;
     private TextInputLayout inputLayoutName, inputLayoutEmail, inputLayoutQuestion, inputLayoutPhone;
     private TextView submitButton;
+    String getMessage;
+    CoordinatorLayout coordinatorLayout;
 
     public ContactFormFragment() {
         // Required empty public constructor
@@ -75,6 +79,9 @@ public class ContactFormFragment extends Fragment {
      */
     public void initializeViews(View rootView) {
         // initialize and reference controls
+
+        coordinatorLayout = (CoordinatorLayout) rootView.findViewById(R.id
+                .coordinatorLayout);
         inputLayoutName = (TextInputLayout) rootView.findViewById(R.id.input_layout_name);
         inputLayoutEmail = (TextInputLayout) rootView.findViewById(R.id.input_layout_email);
         inputLayoutPhone = (TextInputLayout) rootView.findViewById(R.id.input_layout_phone);
@@ -94,6 +101,8 @@ public class ContactFormFragment extends Fragment {
                 submitForm();
             }
         });
+
+        getMessage = inputQuestion.getText().toString();
 
     }
 
@@ -118,12 +127,12 @@ public class ContactFormFragment extends Fragment {
 //        }
 
 
-        new SendMailTask().execute();
+        new SendMailTask(inputName.getText().toString(),inputEmail.getText().toString(),
+                inputPhone.getText().toString(),inputQuestion.getText().toString()).execute();
 
 
 
     }
-
 
 
     private boolean validateName() {
@@ -189,7 +198,7 @@ public class ContactFormFragment extends Fragment {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(phone);
 
-       return  !TextUtils.isEmpty(phone) && matcher.matches();
+        return  !TextUtils.isEmpty(phone) && matcher.matches();
 
     }
 
@@ -242,38 +251,61 @@ public class ContactFormFragment extends Fragment {
 
 
     private class SendMailTask extends AsyncTask<Void, Void, Void> {
+        private String name, email, phone, message;
+        Boolean success=false;
+
+        public SendMailTask(String name, String email, String phone, String message) {
+            this.name = name;
+            this.email = email;
+            this.phone = phone;
+            this.message = message;
+
+
+        }
+
         private ProgressDialog progressDialog;
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             progressDialog = ProgressDialog.show(Util.getActivity(), "Please wait", "Sending mail", true, false);
+
+
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             progressDialog.dismiss();
+            Boolean success = MySingleton.getInstance().getSuccess();
+            if (success){
+                Snackbar.make(coordinatorLayout, "Email sent to Hala", Snackbar.LENGTH_LONG).show();
+            }else {
+                Snackbar.make(coordinatorLayout, "Email failed to send to Hala", Snackbar.LENGTH_LONG).show();
+            }
+
+
+
+
         }
 
         @Override
-        protected Void doInBackground(Void... params) {
+        protected Void doInBackground(Void... aVoid) {
             try {
                 GMailSender sender = new GMailSender("le7friedman@gmail.com", "100508701");
                 sender.sendMail("Contact Form From Hala App",
-                        "hello",
-                        "le7friedman@gmail.com",
+                        "Name: "+ name + "\n" +
+                                "Phone: " + phone + "\n" +
+                                "Message " + message ,
+                        email,
                         "le7friedman@gmail.com");
+                success = true;
             } catch (Exception e) {
                 Log.e("SendMail", e.getMessage(), e);
+                success = false;
             }
 
             return null;
         }
     }
 }
-
-
-
-
-

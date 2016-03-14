@@ -5,10 +5,18 @@ package com.example.faigy.hala;
  */
 public class Services {
     int id;
-    String title, description;
+    String title, description, image;
 
     public int getId() {
         return id;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public void setId(int id) {

@@ -53,7 +53,7 @@ public class AppIntroActivity extends Activity{
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
 
-        viewPager.setAdapter(new ViewPagerAdapter(R.array.icons, R.array.titles, R.array.hints));
+        viewPager.setAdapter(new ViewPagerAdapter(R.array.icons, R.array.titles, R.array.descriptions));
 
         CirclePageIndicator mIndicator  = (CirclePageIndicator) findViewById(R.id.indicator);
         mIndicator.setViewPager(viewPager);
