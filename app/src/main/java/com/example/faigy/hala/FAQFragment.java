@@ -79,7 +79,6 @@ public class FAQFragment extends Fragment {
     public void initializeViews(final View rootView) {
         toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
         mainActivity.openNavigationDrawer2(toolbar, R.drawable.ic_menu_24dp);
-        //mainActivity.getSupportActionBar(toolbar);
         mainActivity.getSupportActionBar().setDisplayShowHomeEnabled(true);
         collapsingToolbar = (CollapsingToolbarLayout) rootView.findViewById(R.id.collapsing_toolbar);
         collapsingToolbar.setTitle("Faq's");
@@ -157,8 +156,6 @@ public class FAQFragment extends Fragment {
         mainActivity.getSupportActionBar().show();
         mainActivity.openNavigationDrawer();
         toolbar.hideOverflowMenu();
-
-        //Util.setToolbarTitle(R.string.fragment_faq, mainActivity.toolbar);
     }
 
     @Override
