@@ -284,9 +284,6 @@ public class ContactFormFragment extends Fragment {
                 Snackbar.make(coordinatorLayout, "Email failed to send to Hala", Snackbar.LENGTH_LONG).show();
             }
 
-
-
-
         }
 
         @Override
