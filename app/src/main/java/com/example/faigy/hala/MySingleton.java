@@ -22,9 +22,18 @@ public class MySingleton {
 
     public int postion;
     public Boolean success;
+    public Boolean servicesDetails;
 
     public int getPostion() {
         return postion;
+    }
+
+    public Boolean getServicesDetails() {
+        return servicesDetails;
+    }
+
+    public void setServicesDetails(Boolean servicesDetails) {
+        this.servicesDetails = servicesDetails;
     }
 
     public void setPostion(int postion) {

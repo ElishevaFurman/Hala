@@ -111,7 +111,12 @@ public class ServicesFragment extends Fragment {
                 makeJsonArrayRequest("http://162.243.100.186/news_array.php");
             }
         });
-        // send json request to retrieve data
+//        if (MySingleton.getInstance().getServicesDetails()){
+//            MySingleton.getInstance().setServicesDetails(false);
+//        }else {
+//            // send json request to retrieve data
+//            makeJsonArrayRequest("http://162.243.100.186/services_array.php");
+//        }
         makeJsonArrayRequest("http://162.243.100.186/services_array.php");
         // set item click listener for the recycler view
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListenerInterface() {
