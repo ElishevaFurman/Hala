@@ -131,17 +131,9 @@
 
     <!-- fragment_services -->
     <string name="fragment_services">Services</string>
-    <string name="service1">TOMOSYNTHESIS SYSTEM</string>
-    <string name="service3">PHYSICAL EXAM</string>
-    <string name="service2">DIGITAL MAMMOGRAPHY</string>
-    <string name="service5">RESULTS</string>
-    <string name="service6">NEEDLE BIOPSY</string>
-    <string name="service4">BREAST ULTRASOUND</string>
-    <string name="service7">STEREOTACTIC PRONE TABLE BIOPSY</string>
-
 
     <!-- fragment_service_detail -->
-    <string name="fragment_service_Detail">Services</string>
+    <string name="fragment_service_Detail">Service Detail</string>
     <string name="impact_button">BE PART OF THE IMPACT!</string>
 
     <!-- fragment_faq-->

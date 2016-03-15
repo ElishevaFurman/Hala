@@ -1,5 +1,7 @@
 package com.example.faigy.hala;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -11,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -40,6 +43,7 @@ public class ServicesFragment extends Fragment {
     ArrayList<Services> servicesList;
     private RequestQueue requestQueue;
     private static String TAG = MainActivity.class.getSimpleName();
+    FragmentManager.BackStackEntry backStackEntry;
 
     // Declare class
     private VolleySingleton volleySingleton;
@@ -49,6 +53,7 @@ public class ServicesFragment extends Fragment {
     protected MyApplication app;
     ProgressDialog pDialog;
     TextView errorTextView;
+
 
     public ServicesFragment() {
         // Required empty public constructor
@@ -61,6 +66,7 @@ public class ServicesFragment extends Fragment {
         // initialize variables
         volleySingleton = VolleySingleton.getInstance();
         requestQueue = volleySingleton.getRequestQueue();
+
 
     }
 
@@ -111,13 +117,19 @@ public class ServicesFragment extends Fragment {
                 makeJsonArrayRequest("http://162.243.100.186/news_array.php");
             }
         });
-//        if (MySingleton.getInstance().getServicesDetails()){
-//            MySingleton.getInstance().setServicesDetails(false);
-//        }else {
-//            // send json request to retrieve data
-//            makeJsonArrayRequest("http://162.243.100.186/services_array.php");
-//        }
-        makeJsonArrayRequest("http://162.243.100.186/services_array.php");
+
+
+        backStackEntry = getFragmentManager().getBackStackEntryAt(getActivity().getFragmentManager().getBackStackEntryCount()-1);
+
+        // check if the latest fragment in back stack is not service fragment
+        if (!backStackEntry.getName().equals(R.string.fragment_services + "") ) {
+            // download data into service array
+            makeJsonArrayRequest("http://162.243.100.186/services_array.php");
+        } else {
+            // set adapter to service list that was previously downloaded
+            mAdapter.setServicesList(servicesList);
+        }
+
         // set item click listener for the recycler view
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListenerInterface() {
             @Override
