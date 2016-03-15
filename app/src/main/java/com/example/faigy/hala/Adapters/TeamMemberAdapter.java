@@ -8,12 +8,15 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.faigy.hala.CircleTransform;
 import com.example.faigy.hala.R;
 import com.example.faigy.hala.TeamMember;
+import com.example.faigy.hala.Util;
 import com.example.faigy.hala.VolleySingleton;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -73,7 +76,7 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
      *
      */
     @Override
-    public void onBindViewHolder(TeamMemberViewHolder teamMemberViewHolder, int position) {
+    public void onBindViewHolder(final TeamMemberViewHolder teamMemberViewHolder, int position) {
         // get data from your newsList at this position
         // replace the contents of the view with that newsList data
         tm = teamMembersList.get(position);
@@ -81,7 +84,23 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
         teamMemberViewHolder.vTitle.setText(tm.description);
         teamMemberViewHolder.vBio.setText(tm.bio);
         Picasso.with(context).load("http://" + tm.getImage()).placeholder(R.mipmap.ic_launcher_hala)
-                .transform(new CircleTransform()).into(teamMemberViewHolder.teamMemberImageView);
+                .transform(new CircleTransform()).into(teamMemberViewHolder.teamMemberImageView
+                , new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        // TODO Auto-generated method stub
+                        teamMemberViewHolder.imageProgressBar.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onError() {
+                        // TODO Auto-generated method stub
+                        teamMemberViewHolder.imageProgressBar.setVisibility(View.GONE);
+                        teamMemberViewHolder.teamMemberImageView.setBackgroundResource(R.drawable.ic_add_24dp);
+                    }
+                });
+
+
 
         // if position is equal to expanded position
         if (position == expandedPosition) {
@@ -118,6 +137,7 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
         public LinearLayout expandLinearLayout;
         public ImageButton expandArrow;
         public ImageView teamMemberImageView;
+        public ProgressBar imageProgressBar;
 
         public TeamMemberViewHolder(View v) {
             super(v);
@@ -127,6 +147,7 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
             expandLinearLayout = (LinearLayout) v.findViewById(R.id.expandLinearLayout);
             expandArrow = (ImageButton) v.findViewById(R.id.expandArrow);
             teamMemberImageView = (ImageView) v.findViewById(R.id.teamMemberImageView);
+            imageProgressBar = (ProgressBar) v.findViewById(R.id.imageProgressBar);
         }
     }
 }
