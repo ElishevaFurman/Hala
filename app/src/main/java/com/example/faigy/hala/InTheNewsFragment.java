@@ -124,8 +124,9 @@ public class InTheNewsFragment extends Fragment {
      * Method to make json array request where response starts with
      */
     public void makeJsonArrayRequest(String urlJsonArry) {
-        pDialog = new ProgressDialog(Util.getContext());
-        pDialog.setMessage("Loading...");
+        if (pDialog == null) {
+            pDialog = Util.createProgressDialog(Util.getActivity());
+        }
         pDialog.show();
         JsonArrayRequest req = new JsonArrayRequest(urlJsonArry,
                 new Response.Listener<JSONArray>() {

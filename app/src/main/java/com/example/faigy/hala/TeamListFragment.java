@@ -134,12 +134,13 @@ public class TeamListFragment extends Fragment {
      * Method to make json array request where response starts with
      */
     public void makeJsonArrayRequest(String urlJsonArry) {
-        // initialize progress dialog
-        pDialog = new ProgressDialog(Util.getContext());
-        // set message to display in progress dialog
-        pDialog.setMessage("Loading...");
-        // display dialog
-        pDialog.show();
+
+        if (pDialog == null) {
+            pDialog = Util.createProgressDialog(Util.getActivity());
+        }
+            pDialog.show();
+
+
         JsonArrayRequest req = new JsonArrayRequest(urlJsonArry,
                 new Response.Listener<JSONArray>() {
                     @Override

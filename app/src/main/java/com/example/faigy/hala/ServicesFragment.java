@@ -126,8 +126,14 @@ public class ServicesFragment extends Fragment {
             // download data into service array
             makeJsonArrayRequest("http://162.243.100.186/services_array.php");
         } else {
-            // set adapter to service list that was previously downloaded
-            mAdapter.setServicesList(servicesList);
+            if (servicesList != null && servicesList.size() != 0) {
+                // set adapter to service list that was previously downloaded
+                mAdapter.setServicesList(servicesList);
+            } else {
+                makeJsonArrayRequest("http://162.243.100.186/services_array.php");
+            }
+
+
         }
 
         // set item click listener for the recycler view
@@ -164,10 +170,9 @@ public class ServicesFragment extends Fragment {
     public void makeJsonArrayRequest(String urlJsonArray) {
 
         // initialize progress dialog
-        pDialog = new ProgressDialog(Util.getContext());
-        // set message for dialog
-        pDialog.setMessage("Loading...");
-        // display the dialog
+        if (pDialog == null) {
+            pDialog = Util.createProgressDialog(Util.getActivity());
+        }
         pDialog.show();
 
         JsonArrayRequest req = new JsonArrayRequest(urlJsonArray,

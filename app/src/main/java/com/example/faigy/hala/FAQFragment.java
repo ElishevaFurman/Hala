@@ -69,10 +69,6 @@ public class FAQFragment extends Fragment {
         //set navigation selected to current fragment
         mainActivity.setSelectedNavigationItem(R.id.nav_faqs);
 
-        pDialog = new ProgressDialog(Util.getContext());
-        pDialog.setMessage("Loading...");
-        pDialog.show();
-
         return rootView;
     }
 
@@ -114,6 +110,10 @@ public class FAQFragment extends Fragment {
      * Method to make json array request where response starts with
      * */
     public void makeJsonArrayRequest(String urlJsonArry) {
+        if (pDialog == null) {
+            pDialog = Util.createProgressDialog(Util.getActivity());
+        }
+        pDialog.show();
 
         JsonArrayRequest req = new JsonArrayRequest(urlJsonArry,
                 new Response.Listener<JSONArray>() {
