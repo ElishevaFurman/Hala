@@ -83,7 +83,7 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
         teamMemberViewHolder.vName.setText(tm.title + " " + tm.name);
         teamMemberViewHolder.vTitle.setText(tm.description);
         teamMemberViewHolder.vBio.setText(tm.bio);
-        Picasso.with(context).load("http://" + tm.getImage()).placeholder(R.mipmap.ic_launcher_hala)
+        Picasso.with(context).load("http://" + tm.getImage())
                 .transform(new CircleTransform()).into(teamMemberViewHolder.teamMemberImageView
                 , new Callback() {
                     @Override
@@ -96,7 +96,7 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
                     public void onError() {
                         // TODO Auto-generated method stub
                         teamMemberViewHolder.imageProgressBar.setVisibility(View.GONE);
-                        teamMemberViewHolder.teamMemberImageView.setBackgroundResource(R.drawable.ic_add_24dp);
+                        teamMemberViewHolder.teamMemberImageView.setBackgroundResource(R.mipmap.ic_launcher_hala);
                     }
                 });
 

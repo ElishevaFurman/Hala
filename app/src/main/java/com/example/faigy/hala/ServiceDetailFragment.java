@@ -1,9 +1,6 @@
 package com.example.faigy.hala;
 
 
-import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -11,12 +8,9 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 
 import com.squareup.picasso.Callback;
@@ -60,7 +54,7 @@ public class ServiceDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_service_detail2, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_service_detail, container, false);
         // get servicesArrayList from MySingleton class
         servicesArrayList = MySingleton.getInstance().getServicesArrayList();
         // Initialize the views for this fragment
@@ -88,7 +82,7 @@ public class ServiceDetailFragment extends Fragment {
         String content = String.valueOf(Html
                 .fromHtml("<![CDATA[<body style=\"text-align:justify;\">"
                         + mainActivity.servicesFragment.servicesList.get(position).getDescription()
-                        .replace("\n","<br />") + "</body>]]>"));
+                        .replace("\n", "<br />") + "</body>]]>"));
         serviceDescriptionTextViews.loadData(content, "text/html", "utf-8");
         Picasso.with(Util.getActivity()).load("http://" + mainActivity.servicesFragment.servicesList.get(position).getImage())
                 .into(image, new Callback() {

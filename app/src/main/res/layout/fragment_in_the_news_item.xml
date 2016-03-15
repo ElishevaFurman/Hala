@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:text="publication"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorSecondaryText" />
+                    android:textColor="@color/colorPrimaryLight" />
 
                 <TextView
                     android:id="@+id/dateTextView"
@@ -52,7 +52,7 @@
                     android:text="date"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:layout_alignParentRight="true"
-                    android:textColor="@color/colorSecondaryText" />
+                    android:textColor="@color/colorPrimaryLight" />
             </LinearLayout>
 
         </LinearLayout>
