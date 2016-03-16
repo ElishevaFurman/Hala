@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity
     AppointmentFragment appointmentFragment;
     protected MyApplication app;
     NewsTabFragment newsTabFragment;
-
+    DatabaseOperations databaseOperations;
 
     @Override
     public void onResume() {
@@ -217,6 +217,7 @@ public class MainActivity extends AppCompatActivity
         appointmentFragment.setMainActivity(this);
         newsTabFragment = new NewsTabFragment();
         newsTabFragment.setMainActivity(this);
+        databaseOperations = new DatabaseOperations();
     }
 
     /**

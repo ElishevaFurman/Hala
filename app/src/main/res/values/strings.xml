@@ -189,8 +189,8 @@
     <string name="faqTitle">ASK</string>
 
     <string name="servicesDescription">Get a list of Halas services</string>
-    <string name="newsDescription">Read and share Hala in the news and publications</string>
-    <string name="faqDescription">Submit a question and get an answer from the doctors</string>
+    <string name="newsDescription">Read and share the latest news about Hala</string>
+    <string name="faqDescription">Submit a question and get an answer from one of our doctors</string>
 
     <string name="skip">SKIP</string>
 

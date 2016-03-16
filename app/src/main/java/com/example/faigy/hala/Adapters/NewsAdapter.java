@@ -35,7 +35,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
     // Constructor
     public NewsAdapter(Context context) {
         this.context = context;
+       // this.newsList = newsList;
         volleySingleton = VolleySingleton.getInstance();
+//        notifyItemRangeChanged(0, newsList.size());
     }
 
     /**

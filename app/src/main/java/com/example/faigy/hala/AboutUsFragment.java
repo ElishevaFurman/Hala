@@ -60,7 +60,8 @@ public class AboutUsFragment extends Fragment {
      */
     public void initializeViews(View rootView) {
         EventBus.getDefault().post(new DownloadDataEvent(""));
-
+        //int size = MySingleton.getInstance().getNewsArrayList().size();
+        //Toast.makeText(Util.getContext(),size+"",Toast.LENGTH_LONG).show();
     }
 
     public void setMainActivity(MainActivity mainActivity) {

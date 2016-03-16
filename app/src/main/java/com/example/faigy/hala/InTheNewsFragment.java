@@ -1,8 +1,10 @@
 package com.example.faigy.hala;
 
+import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -23,6 +26,8 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,32 +38,27 @@ import java.util.Arrays;
 public class InTheNewsFragment extends Fragment {
     // Declare controls
     private RecyclerView recyclerView;
-    private NewsAdapter mAdapter;
+    public NewsAdapter mAdapter;
 
     // Declare variables
     News[] newsData;
     ArrayList<News> newsList;
-    private RequestQueue requestQueue;
 
-    // Declare class
-    private VolleySingleton volleySingleton;
-
-    private static String TAG = MainActivity.class.getSimpleName();
+    //private static String TAG = MainActivity.class.getSimpleName();
+    public static String TAG ="json_news_request";
+    String url = "http://162.243.100.186/news_array.php";
 
     // Declare activities
     MainActivity mainActivity;
     protected MyApplication app;
-    ProgressDialog pDialog;
     String p;
     TextView errorTextView;
+    DatabaseOperations databaseOperations;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        volleySingleton = VolleySingleton.getInstance();
-        requestQueue = volleySingleton.getRequestQueue();
-
+        databaseOperations = new DatabaseOperations();
     }
 
     @Override
@@ -76,8 +76,6 @@ public class InTheNewsFragment extends Fragment {
         Util.hideSoftKeyboard();
         //set navigation selected to current fragment
         // mainActivity.setSelectedNavigationItem(R.id.nav_news);
-
-
         return rootView;
     }
 
@@ -85,7 +83,6 @@ public class InTheNewsFragment extends Fragment {
      * Function to initialize controls
      */
     public void initializeViews(final View rootView) {
-
         // initialize and reference controls
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         mAdapter = new NewsAdapter(getActivity());
@@ -95,69 +92,42 @@ public class InTheNewsFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
         errorTextView = (TextView) rootView.findViewById(R.id.errorTextView);
+        databaseOperations.makeJsonArrayRequest(url, TAG,errorTextView,
+                new DatabaseOperations.VolleyCallback() {
+                    @Override
+                    public void onSuccessResponse(String result) {
+                        Gson gson = new Gson();
+                        try {
+                            newsData = gson.fromJson(result, News[].class);
+                            newsList = new ArrayList<>(Arrays.asList(newsData));
+                            mAdapter.setNewsList(sortList(newsList, p));
+
+                        } catch (JsonSyntaxException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
         errorTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeJsonArrayRequest("http://162.243.100.186/news_array.php");
+                    refreshFragment();
+
             }
         });
-//        if(Util.isConnected())
-//        makeJsonArrayRequest("http://162.243.100.186/news_array.php");
-//        else {
-//            Toast.makeText(Util.getContext(),
-//                    "no results found", Toast.LENGTH_SHORT).show();
-//        }
-        makeJsonArrayRequest("http://162.243.100.186/news_array.php");
-        //checkArrayList();
-
 
     }
 
+    public void refreshFragment(){
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.detach(this).attach(this).commit();
+    }
     public void checkArrayList() {
         if (mAdapter.getItemCount() == 0) {
             Toast.makeText(Util.getContext(),
                     "no results found", Toast.LENGTH_SHORT).show();
         }
     }
-
-    /**
-     * Method to make json array request where response starts with
-     */
-    public void makeJsonArrayRequest(String urlJsonArry) {
-        if (pDialog == null) {
-            pDialog = Util.createProgressDialog(Util.getActivity());
-        }
-        pDialog.show();
-        JsonArrayRequest req = new JsonArrayRequest(urlJsonArry,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        errorTextView.setVisibility(View.GONE);
-                        Log.d(TAG, response.toString());
-                        pDialog.hide();
-                        Gson gson = new Gson();
-                        String jsonOutput = response.toString();
-                        try {
-                            newsData = gson.fromJson(jsonOutput, News[].class);
-                            newsList = new ArrayList<>(Arrays.asList(newsData));
-                            mAdapter.setNewsList(sortList(newsList, p));
-                        } catch (JsonSyntaxException e) {
-                            e.printStackTrace();
-                        } catch (JsonParseException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Util.handleVolleyError(error, errorTextView);
-                pDialog.hide();
-            }
-        });
-        requestQueue.add(req);
-    }
-
-
 
 
     public ArrayList<News> sortList(ArrayList<News> newsList, String p) {
