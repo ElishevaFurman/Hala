@@ -41,12 +41,10 @@ public class ServicesFragment extends Fragment {
     // Declare variables
     Services[] servicesData;
     ArrayList<Services> servicesList;
-    private RequestQueue requestQueue;
-    private static String TAG = MainActivity.class.getSimpleName();
+    private static String TAG = "json_services_request";
     FragmentManager.BackStackEntry backStackEntry;
 
     // Declare class
-    private VolleySingleton volleySingleton;
 
     // Declare activities
     MainActivity mainActivity;
@@ -62,10 +60,6 @@ public class ServicesFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // initialize variables
-        volleySingleton = VolleySingleton.getInstance();
-        requestQueue = volleySingleton.getRequestQueue();
 
 
     }
@@ -188,6 +182,7 @@ public class ServicesFragment extends Fragment {
                         Gson gson = new Gson();
                         // initialize string to store json result
                         String jsonOutput = response.toString();
+
                         try {
                             // convert json array into array of class type
                             servicesData = gson.fromJson(jsonOutput, Services[].class);
@@ -195,6 +190,8 @@ public class ServicesFragment extends Fragment {
                             servicesList = new ArrayList<>(Arrays.asList(servicesData));
                             // set list to adapter
                             mAdapter.setServicesList(servicesList);
+
+
                         } catch (JsonSyntaxException e) {
                             e.printStackTrace();
                         } catch (JsonParseException e) {
@@ -211,7 +208,7 @@ public class ServicesFragment extends Fragment {
 
             }
         });
-        requestQueue.add(req);
+        MyApplication.getInstance().addToRequestQueue(req, TAG);
 
     }
 }

@@ -39,9 +39,8 @@ public class FAQFragment extends Fragment {
 
 
     Faqs[] faqsData;
-    private RequestQueue requestQueue;
-    private VolleySingleton volleySingleton;
-    private static String TAG = MainActivity.class.getSimpleName();
+
+    private static String TAG = "json_faq_request";
     ProgressDialog pDialog;
     public static final int COLLAPSE_MODE_PARALLAX=2;
 
@@ -52,8 +51,6 @@ public class FAQFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        volleySingleton = VolleySingleton.getInstance();
-        requestQueue = volleySingleton.getRequestQueue();
 
     }
 
@@ -140,7 +137,7 @@ public class FAQFragment extends Fragment {
                 pDialog.hide();
             }
         });
-        requestQueue.add(req);
+        MyApplication.getInstance().addToRequestQueue(req, TAG);
 
     }
 

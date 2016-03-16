@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.andexert.library.RippleView;
 import com.example.faigy.hala.R;
 import com.example.faigy.hala.Services;
-import com.example.faigy.hala.VolleySingleton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +23,6 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyNews
     private List<Services> servicesList;
 
     // Declare class
-    private VolleySingleton volleySingleton;
     public Services services;
 
     // Declare context
@@ -33,7 +31,6 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyNews
     // Constructor
     public ServicesAdapter(Context context) {
         this.context = context;
-        volleySingleton = VolleySingleton.getInstance();
     }
 
     /**

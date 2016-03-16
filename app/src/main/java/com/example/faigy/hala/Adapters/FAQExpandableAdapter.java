@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.example.faigy.hala.Faqs;
 import com.example.faigy.hala.R;
-import com.example.faigy.hala.VolleySingleton;
 
 import java.util.ArrayList;
 
@@ -24,8 +23,7 @@ public class FAQExpandableAdapter extends RecyclerView.Adapter<FAQExpandableAdap
     public static int expandedPosition = -1;
     int prev = -1;
 
-    // Declare class
-    private VolleySingleton volleySingleton;
+
 
     // Declare context
     Context context;
@@ -33,7 +31,6 @@ public class FAQExpandableAdapter extends RecyclerView.Adapter<FAQExpandableAdap
     // Constructor
     public FAQExpandableAdapter(Context context) {
         this.context = context;
-        volleySingleton = VolleySingleton.getInstance();
     }
 
     /**

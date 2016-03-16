@@ -41,11 +41,9 @@ public class TeamListFragment extends Fragment {
     // Declare variables
     TeamMember[] teamMembersData;
     ArrayList<TeamMember> teamMembersList;
-    private RequestQueue requestQueue;
-    private static String TAG = MainActivity.class.getSimpleName();
+
+    private static String TAG = "json_team_request";
     int prev = -1;
-    // Declare class
-    private VolleySingleton volleySingleton;
 
 
     public TeamListFragment() {
@@ -56,9 +54,6 @@ public class TeamListFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // initialize variables
-        volleySingleton = VolleySingleton.getInstance();
-        requestQueue = volleySingleton.getRequestQueue();
     }
 
     @Override
@@ -176,7 +171,7 @@ public class TeamListFragment extends Fragment {
                 pDialog.hide();
             }
         });
-        requestQueue.add(req);
+        MyApplication.getInstance().addToRequestQueue(req, TAG);
     }
 
     // set current fragment to this main activity
