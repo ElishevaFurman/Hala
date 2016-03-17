@@ -115,6 +115,7 @@ public class ServicesFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
+            errorTextView.setText("");
             // download data from url
             downloadData();
         }

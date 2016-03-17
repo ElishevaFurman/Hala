@@ -133,6 +133,7 @@ public class InTheNewsFragment extends Fragment {
     View.OnClickListener errorTextViewListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            errorTextView.setText("");
             // download data from url
             downloadData();
         }
