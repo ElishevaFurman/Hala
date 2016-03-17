@@ -163,6 +163,7 @@ public class FAQFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
+            errorTextView.setText("");
             // download data from url
             downloadData();
         }

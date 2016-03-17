@@ -41,7 +41,7 @@ public class ServiceDetailFragment extends Fragment {
     public void onResume() {
         super.onResume();
         // hide mainActivity's toolbar
-        mainActivity.getSupportActionBar().hide();
+       // mainActivity.getSupportActionBar().hide();
         // get title of servicesListArray in that position
         String title = mainActivity.servicesFragment.servicesList.get(position).getTitle();
         // set toolbar title with the title of the service that was selected
@@ -73,7 +73,7 @@ public class ServiceDetailFragment extends Fragment {
         // initialize and reference controls
         image = (ImageView) rootView.findViewById(R.id.imageView1);
         imageProgressBar = (ProgressBar)rootView.findViewById(R.id.imageProgressBar);
-        mainActivity.setSupportActionBar((Toolbar) rootView.findViewById(R.id.toolbar));
+        //mainActivity.setSupportActionBar((Toolbar) rootView.findViewById(R.id.toolbar));
         collapsingToolbarLayout = (CollapsingToolbarLayout) rootView.findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle("Collapsing");
         collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
@@ -106,7 +106,8 @@ public class ServiceDetailFragment extends Fragment {
 
         super.onPause();
 
-        mainActivity.getSupportActionBar().show();
+        //mainActivity.getSupportActionBar().show();
+
         //mainActivity.openNavigationDrawer();
         //toolbar.hideOverflowMenu();
 
