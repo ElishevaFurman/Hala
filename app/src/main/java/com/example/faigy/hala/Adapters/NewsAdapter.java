@@ -13,7 +13,6 @@ import com.andexert.library.RippleView;
 import com.example.faigy.hala.News;
 import com.example.faigy.hala.R;
 import com.example.faigy.hala.Util;
-import com.example.faigy.hala.VolleySingleton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,14 +29,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
 
     // Declare class
     public News news;
-    private VolleySingleton volleySingleton;
 
     // Constructor
     public NewsAdapter(Context context) {
         this.context = context;
-       // this.newsList = newsList;
-        volleySingleton = VolleySingleton.getInstance();
-//        notifyItemRangeChanged(0, newsList.size());
     }
 
     /**
@@ -129,7 +124,5 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
         }
 
     }
-
-
 
 }

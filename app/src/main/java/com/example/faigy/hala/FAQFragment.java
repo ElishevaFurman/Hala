@@ -1,5 +1,6 @@
 package com.example.faigy.hala;
 
+import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -14,7 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
-
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -36,11 +36,13 @@ public class FAQFragment extends Fragment {
     FloatingActionButton fab;
     ArrayList<Faqs> faqArrayList;
     MainActivity mainActivity;
-
+    DatabaseOperations databaseOperations;
 
     Faqs[] faqsData;
 
     private static String TAG = "json_faq_request";
+
+    String url = "http://162.243.100.186/faqs_array.php";
     ProgressDialog pDialog;
     public static final int COLLAPSE_MODE_PARALLAX=2;
 
@@ -51,6 +53,7 @@ public class FAQFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        databaseOperations = new DatabaseOperations();
 
     }
 
@@ -94,53 +97,43 @@ public class FAQFragment extends Fragment {
         mAdapter = new FAQExpandableAdapter(getActivity());
         recyclerView.setAdapter(mAdapter);
         errorTextView = (TextView) rootView.findViewById(R.id.errorTextView);
-        errorTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                makeJsonArrayRequest("http://162.243.100.186/news_array.php");
-            }
-        });
-        makeJsonArrayRequest("http://162.243.100.186/faqs_array.php");
-    }
-
-    /**
-     * Method to make json array request where response starts with
-     * */
-    public void makeJsonArrayRequest(String urlJsonArry) {
-        if (pDialog == null) {
-            pDialog = Util.createProgressDialog(Util.getActivity());
-        }
-        pDialog.show();
-
-        JsonArrayRequest req = new JsonArrayRequest(urlJsonArry,
-                new Response.Listener<JSONArray>() {
+        databaseOperations.makeJsonArrayRequest(url, TAG, errorTextView,
+                new DatabaseOperations.VolleyCallback() {
                     @Override
-                    public void onResponse(JSONArray response) {
-                        Log.d(TAG, response.toString());
-                        pDialog.hide();
+                    public void onSuccessResponse(String result) {
+                        // initialize gson object
                         Gson gson = new Gson();
-                        String jsonOutput = response.toString();
                         try {
-                            faqsData = gson.fromJson(jsonOutput, Faqs[].class);
+                            // convert json array into array of class type
+                            faqsData = gson.fromJson(result, Faqs[].class);
+                            // convert array to arrayList
                             faqArrayList = new ArrayList<>(Arrays.asList(faqsData));
+                            // set list to adapter
                             mAdapter.setFaqList(faqArrayList);
                         } catch (JsonSyntaxException e) {
                             e.printStackTrace();
-                        }catch (JsonParseException e) {
-                            e.printStackTrace();
                         }
                     }
-                }, new Response.ErrorListener() {
+                });
+
+
+        errorTextView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onErrorResponse(VolleyError error) {
-                Util.handleVolleyError(error, errorTextView);
-                pDialog.hide();
+            public void onClick(View v) {
+                refreshFragment();
             }
         });
-        MyApplication.getInstance().addToRequestQueue(req, TAG);
-
+    }
+    public void refreshFragment(){
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.detach(this).attach(this).commit();
     }
 
+    /**
+     * Function to set fragment to this main activity
+     *
+     * @param mainActivity - set main activity
+     */
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }
@@ -149,7 +142,6 @@ public class FAQFragment extends Fragment {
     public void onPause() {
 
         super.onPause();
-
         mainActivity.getSupportActionBar().show();
         mainActivity.openNavigationDrawer();
         toolbar.hideOverflowMenu();

@@ -42,9 +42,11 @@ public class ServicesFragment extends Fragment {
     Services[] servicesData;
     ArrayList<Services> servicesList;
     private static String TAG = "json_services_request";
+    private String url = "http://162.243.100.186/services_array.php";
     FragmentManager.BackStackEntry backStackEntry;
 
     // Declare class
+    DatabaseOperations databaseOperations;
 
     // Declare activities
     MainActivity mainActivity;
@@ -60,7 +62,7 @@ public class ServicesFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        databaseOperations = new DatabaseOperations();
 
     }
 
@@ -103,12 +105,28 @@ public class ServicesFragment extends Fragment {
         // set adapter
         recyclerView.setAdapter(mAdapter);
         errorTextView = (TextView) rootView.findViewById(R.id.errorTextView);
+        makeJsonRequest();
+        databaseOperations.makeJsonArrayRequest(url, TAG, errorTextView,
+                new DatabaseOperations.VolleyCallback() {
+                    @Override
+                    public void onSuccessResponse(String result) {
+                        Gson gson = new Gson();
+                        try {
+                            servicesData = gson.fromJson(result, Services[].class);
+                            servicesList = new ArrayList<>(Arrays.asList(servicesData));
+                            mAdapter.setServicesList(servicesList);
+
+                        } catch (JsonSyntaxException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
         // set on click listener to refresh the data in the recycler view
         errorTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // send json request to retrieve data
-                makeJsonArrayRequest("http://162.243.100.186/news_array.php");
+                refreshFragment();
             }
         });
 
@@ -118,17 +136,21 @@ public class ServicesFragment extends Fragment {
         // check if the latest fragment in back stack is not service fragment
         if (!backStackEntry.getName().equals(R.string.fragment_services + "") ) {
             // download data into service array
-            makeJsonArrayRequest("http://162.243.100.186/services_array.php");
+            // makeJsonArrayRequest("http://162.243.100.186/services_array.php");
+            refreshFragment();
         } else {
             if (servicesList != null && servicesList.size() != 0) {
                 // set adapter to service list that was previously downloaded
                 mAdapter.setServicesList(servicesList);
             } else {
-                makeJsonArrayRequest("http://162.243.100.186/services_array.php");
+                //makeJsonArrayRequest("http://162.243.100.186/services_array.php");
+                refreshFragment();
             }
 
 
         }
+
+
 
         // set item click listener for the recycler view
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListenerInterface() {
@@ -142,6 +164,14 @@ public class ServicesFragment extends Fragment {
         }));
     }
 
+    public void makeJsonRequest(){
+
+    }
+
+    public void refreshFragment(){
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.detach(this).attach(this).commit();
+    }
     /**
      * Function to set fragment to this main activity
      *

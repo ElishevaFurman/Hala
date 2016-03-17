@@ -39,20 +39,18 @@ public class InTheNewsFragment extends Fragment {
     // Declare controls
     private RecyclerView recyclerView;
     public NewsAdapter mAdapter;
+    TextView errorTextView;
 
     // Declare variables
     News[] newsData;
     ArrayList<News> newsList;
-
-    //private static String TAG = MainActivity.class.getSimpleName();
+    String p;
     public static String TAG ="json_news_request";
     String url = "http://162.243.100.186/news_array.php";
 
     // Declare activities
     MainActivity mainActivity;
     protected MyApplication app;
-    String p;
-    TextView errorTextView;
     DatabaseOperations databaseOperations;
 
     @Override
@@ -92,16 +90,19 @@ public class InTheNewsFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
         errorTextView = (TextView) rootView.findViewById(R.id.errorTextView);
-        databaseOperations.makeJsonArrayRequest(url, TAG,errorTextView,
+        databaseOperations.makeJsonArrayRequest(url, TAG, errorTextView,
                 new DatabaseOperations.VolleyCallback() {
                     @Override
                     public void onSuccessResponse(String result) {
+                        // initialize gson object
                         Gson gson = new Gson();
                         try {
+                            // convert json array into array of class type
                             newsData = gson.fromJson(result, News[].class);
+                            // convert array to arrayList
                             newsList = new ArrayList<>(Arrays.asList(newsData));
+                            // set list to adapter
                             mAdapter.setNewsList(sortList(newsList, p));
-
                         } catch (JsonSyntaxException e) {
                             e.printStackTrace();
                         }
@@ -112,7 +113,6 @@ public class InTheNewsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                     refreshFragment();
-
             }
         });
 
@@ -129,7 +129,6 @@ public class InTheNewsFragment extends Fragment {
         }
     }
 
-
     public ArrayList<News> sortList(ArrayList<News> newsList, String p) {
         ArrayList<News> list = new ArrayList<>();
         for (News n : newsList) {
@@ -139,6 +138,11 @@ public class InTheNewsFragment extends Fragment {
         return list;
     }
 
+    /**
+     * Function to set fragment to this main activity
+     *
+     * @param mainActivity - set main activity
+     */
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }

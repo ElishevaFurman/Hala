@@ -23,15 +23,13 @@ import java.util.Arrays;
  */
 public class DatabaseOperations{
     ProgressDialog pDialog;
-    public News[] newsData;
-    public ArrayList<News> newsList;
     MainActivity mainActivity;
-
 
     /**
      * Method to make json array request where response starts with
      * */
-    public void makeJsonArrayRequest(String urlJsonArry, final String TAG, final TextView errorTextView, final VolleyCallback callback) {
+    public void makeJsonArrayRequest(String urlJsonArry, final String TAG,
+                                     final TextView errorTextView, final VolleyCallback callback) {
         if (pDialog == null) {
             pDialog = Util.createProgressDialog(Util.getActivity());
         }
@@ -42,10 +40,12 @@ public class DatabaseOperations{
                     @Override
                     public void onResponse(JSONArray response) {
                         Log.d(TAG, response.toString());
+                        // hide progress dialog
                         pDialog.hide();
-
+                        // initialize string to store json result
                         String jsonOutput = response.toString();
                         try {
+                          // pass jsonOutput to callback interface
                           callback.onSuccessResponse(jsonOutput);
                         } catch (JsonSyntaxException e) {
                             e.printStackTrace();
@@ -56,6 +56,7 @@ public class DatabaseOperations{
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                // handle error exceptions
                 Util.handleVolleyError(error, errorTextView);
                 pDialog.hide();
             }
