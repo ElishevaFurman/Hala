@@ -1,34 +1,22 @@
 package com.example.faigy.hala;
 
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.example.faigy.hala.Adapters.ServicesAdapter;
 import com.google.gson.Gson;
-import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
-
-import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -37,6 +25,7 @@ public class ServicesFragment extends Fragment {
     // Declare controls
     private RecyclerView recyclerView;
     private ServicesAdapter mAdapter;
+    TextView errorTextView;
 
     // Declare variables
     Services[] servicesData;
@@ -51,9 +40,6 @@ public class ServicesFragment extends Fragment {
     // Declare activities
     MainActivity mainActivity;
     protected MyApplication app;
-    ProgressDialog pDialog;
-    TextView errorTextView;
-
 
     public ServicesFragment() {
         // Required empty public constructor
@@ -62,6 +48,7 @@ public class ServicesFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //instantiate databaseOperations
         databaseOperations = new DatabaseOperations();
 
     }
@@ -75,6 +62,15 @@ public class ServicesFragment extends Fragment {
 
         // Initialize the views for tis fragment
         initializeViews(rootView);
+
+        // set up recyclerView
+        setupRecyclerView();
+
+        // register listeners for controls
+        registerListeners();
+
+        // check for last fragment in backStack
+        checkBackStackEntry();
 
         // set toolbar title
         Util.setToolbarTitle(R.string.fragment_services, mainActivity.toolbar);
@@ -95,25 +91,106 @@ public class ServicesFragment extends Fragment {
      * Function to initialize controls
      */
     public void initializeViews(View rootView) {
-        // initialize and reference controls
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
-        mAdapter = new ServicesAdapter(getActivity());
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        // set adapter
-        recyclerView.setAdapter(mAdapter);
+        // initialize and reference TextView
         errorTextView = (TextView) rootView.findViewById(R.id.errorTextView);
-        makeJsonRequest();
+
+        // initialize and reference RecyclerView
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+
+    }
+
+    /**
+     * Function to register listeners
+     */
+    public void registerListeners() {
+        // set onClickListeners
+        errorTextView.setOnClickListener(errorTextViewListener);
+        recyclerView.addOnItemTouchListener(recyclerViewOnItemTouchListener);
+    }
+
+    /**
+     * OnClickListener for errorTextView
+     */
+    View.OnClickListener errorTextViewListener = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            // download data from url
+            downloadData();
+        }
+    };
+
+    /**
+     * OnItemTouchListener for recyclerView
+     */
+    RecyclerTouchListener recyclerViewOnItemTouchListener = new RecyclerTouchListener
+            (getActivity(), recyclerView, new ClickListenerInterface() {
+        @Override
+        public void onClick(View view, int position) {
+            // set and store the clicked position in the recycler view
+            MySingleton.getInstance().setPosition(position);
+            // switch to service detail fragment
+            Util.replaceFragment(mainActivity.serviceDetailFragment, R.string.fragment_service_Detail);
+        }
+    });
+
+    /**
+     * Function to set up RecyclerView
+     */
+    public void setupRecyclerView() {
+        // instantiate mAdapter
+        mAdapter = new ServicesAdapter(getActivity());
+        // initialize linearLayoutManager
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
+        // Set layout manager to position the items
+        recyclerView.setLayoutManager(mLayoutManager);
+        // add item decorator to recyclerView
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
+        // set item animator to DefaultAnimator
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        // attach the adapter to the recyclerView to populate items
+        recyclerView.setAdapter(mAdapter);
+
+    }
+
+    /**
+     * Function to check backStackEntry
+     */
+    public void checkBackStackEntry() {
+        // assign last fragment in backStack to backStackEntry
+        backStackEntry = getFragmentManager().getBackStackEntryAt(getActivity()
+                .getFragmentManager().getBackStackEntryCount() - 1);
+        // check if the latest fragment in backStack is not service fragment
+        // or if servicesList is null or empty then reload data
+        if (!backStackEntry.getName().equals(R.string.fragment_services + "")
+                || servicesList == null || servicesList.size() == 0) {
+            // make jsonRequest
+            downloadData();
+        }
+        // if backStackEntry is equal to servicesFragment
+        else {
+            // set adapter to service list that was previously downloaded
+            mAdapter.setServicesList(servicesList);
+        }
+    }
+
+    /**
+     * Function to download data from url
+     */
+    public void downloadData() {
+        // call makeJsonArrayRequest and send url, tag, errorTextView and instantiate a callBack
         databaseOperations.makeJsonArrayRequest(url, TAG, errorTextView,
                 new DatabaseOperations.VolleyCallback() {
                     @Override
                     public void onSuccessResponse(String result) {
+                        // initialize gson object
                         Gson gson = new Gson();
                         try {
+                            // convert json array into array of class type
                             servicesData = gson.fromJson(result, Services[].class);
+                            // convert array to arrayList
                             servicesList = new ArrayList<>(Arrays.asList(servicesData));
+                            // set list to adapter
                             mAdapter.setServicesList(servicesList);
 
                         } catch (JsonSyntaxException e) {
@@ -121,57 +198,8 @@ public class ServicesFragment extends Fragment {
                         }
                     }
                 });
-
-        // set on click listener to refresh the data in the recycler view
-        errorTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                refreshFragment();
-            }
-        });
-
-
-        backStackEntry = getFragmentManager().getBackStackEntryAt(getActivity().getFragmentManager().getBackStackEntryCount()-1);
-
-        // check if the latest fragment in back stack is not service fragment
-        if (!backStackEntry.getName().equals(R.string.fragment_services + "") ) {
-            // download data into service array
-            // makeJsonArrayRequest("http://162.243.100.186/services_array.php");
-            refreshFragment();
-        } else {
-            if (servicesList != null && servicesList.size() != 0) {
-                // set adapter to service list that was previously downloaded
-                mAdapter.setServicesList(servicesList);
-            } else {
-                //makeJsonArrayRequest("http://162.243.100.186/services_array.php");
-                refreshFragment();
-            }
-
-
-        }
-
-
-
-        // set item click listener for the recycler view
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListenerInterface() {
-            @Override
-            public void onClick(View view, int position) {
-                // set and store the clicked position in the recycler view
-                MySingleton.getInstance().setPostion(position);
-                // switch to service detail fragment
-                Util.replaceFragment(mainActivity.serviceDetailFragment, R.string.fragment_service_Detail);
-            }
-        }));
     }
 
-    public void makeJsonRequest(){
-
-    }
-
-    public void refreshFragment(){
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.detach(this).attach(this).commit();
-    }
     /**
      * Function to set fragment to this main activity
      *
@@ -188,57 +216,4 @@ public class ServicesFragment extends Fragment {
         mainActivity.getSupportActionBar().show();
     }
 
-    /**
-     * Method to make json array request where response starts with
-     */
-    public void makeJsonArrayRequest(String urlJsonArray) {
-
-        // initialize progress dialog
-        if (pDialog == null) {
-            pDialog = Util.createProgressDialog(Util.getActivity());
-        }
-        pDialog.show();
-
-        JsonArrayRequest req = new JsonArrayRequest(urlJsonArray,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        // hide the text view from displaying error message
-                        errorTextView.setVisibility(View.GONE);
-                        Log.d(TAG, response.toString());
-                        // hide progress dialog
-                        pDialog.hide();
-                        // initialize Gson object
-                        Gson gson = new Gson();
-                        // initialize string to store json result
-                        String jsonOutput = response.toString();
-
-                        try {
-                            // convert json array into array of class type
-                            servicesData = gson.fromJson(jsonOutput, Services[].class);
-                            // convert array to arrayList
-                            servicesList = new ArrayList<>(Arrays.asList(servicesData));
-                            // set list to adapter
-                            mAdapter.setServicesList(servicesList);
-
-
-                        } catch (JsonSyntaxException e) {
-                            e.printStackTrace();
-                        } catch (JsonParseException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                // handle error exceptions
-                Util.handleVolleyError(error, errorTextView);
-                // hide dialog after successfully retrieving data
-                pDialog.hide();
-
-            }
-        });
-        MyApplication.getInstance().addToRequestQueue(req, TAG);
-
-    }
 }

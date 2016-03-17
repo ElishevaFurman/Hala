@@ -1,5 +1,6 @@
 package com.example.faigy.hala;
 
+import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -30,6 +31,8 @@ public class ContactFormFragment extends Fragment {
     private TextInputLayout inputLayoutName, inputLayoutEmail, inputLayoutQuestion, inputLayoutPhone;
     private TextView submitButton;
     CoordinatorLayout coordinatorLayout;
+    FragmentManager.BackStackEntry backStackEntry;
+    String lastFragment;
 
     // Declare Variables
     String getMessage;
@@ -53,8 +56,16 @@ public class ContactFormFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_contact_form, container, false);
+        lastFragment =  MySingleton.getInstance().getLastFragment();
         // Initialize the views for this fragment
         initializeViews(rootView);
+        // removed textWatchers from views
+        removeTextWatcherFromViews();
+        // clear all views
+        clearTextViews();
+        // set focus on inputName
+        inputName.requestFocus();
+
         // set toolbar title
         //Util.setToolbarTitle(R.string.fragment_contact, mainActivity.toolbar);
 
@@ -90,8 +101,25 @@ public class ContactFormFragment extends Fragment {
         });
 
         getMessage = inputQuestion.getText().toString();
+    }
+
+    public void onResume(){
+        super.onResume();
+
+        if (lastFragment.equals("faqFragment")){
+            Util.setToolbarTitle(R.string.fragment_ask, mainActivity.toolbar);
+            Util.enableBackButton(R.drawable.ic_arrow_back_24dp, mainActivity.toolbar, mainActivity.drawer);
+        }else {
+        }
+        // removed textWatchers from views
+        removeTextWatcherFromViews();
+        // clear all views
+        clearTextViews();
+        // set focus on inputName
+        inputName.requestFocus();
 
     }
+
 
     /**
      * Validating form
@@ -353,6 +381,13 @@ public class ContactFormFragment extends Fragment {
         super.onPause();
         // remove keyboard from screen
         Util.hideSoftKeyboard();
+        // removed textWatchers from views
+        removeTextWatcherFromViews();
+        // clear all views
+        clearTextViews();
+        // set focus on inputName
+        inputName.requestFocus();
+
     }
 
     /**

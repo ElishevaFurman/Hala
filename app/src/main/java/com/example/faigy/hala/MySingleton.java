@@ -6,11 +6,22 @@ import java.util.ArrayList;
  * Created by Home on 2/25/2016.
  */
 public class MySingleton {
+    // Declare classes
     private static MySingleton instance;
 
-    private ArrayList<News> newsArrayList;
-    private ArrayList<TeamMember> teamMembersArrayList;
+    // Declare variables
+    public int position;
+    public Boolean success;
     private ArrayList<Services> servicesArrayList;
+    public String lastFragment;
+
+    public String getLastFragment() {
+        return lastFragment;
+    }
+
+    public void setLastFragment(String lastFragment) {
+        this.lastFragment = lastFragment;
+    }
 
     public Boolean getSuccess() {
         return success;
@@ -20,36 +31,12 @@ public class MySingleton {
         this.success = success;
     }
 
-    public int postion;
-    public Boolean success;
-    public Boolean servicesDetails;
-
-    public int getPostion() {
-        return postion;
+    public int getPosition() {
+        return position;
     }
 
-    public Boolean getServicesDetails() {
-        return servicesDetails;
-    }
-
-    public void setServicesDetails(Boolean servicesDetails) {
-        this.servicesDetails = servicesDetails;
-    }
-
-    public void setPostion(int postion) {
-        this.postion = postion;
-    }
-
-    public ArrayList<News> getNewsArrayList() {
-        return newsArrayList;
-    }
-
-    public ArrayList<TeamMember> getTeamMembersArrayList() {
-        return teamMembersArrayList;
-    }
-
-    public void setTeamMembersArrayList(ArrayList<TeamMember> teamMembersArrayList) {
-        this.teamMembersArrayList = teamMembersArrayList;
+    public void setPosition(int position) {
+        this.position = position;
     }
 
     public ArrayList<Services> getServicesArrayList() {
@@ -58,12 +45,6 @@ public class MySingleton {
 
     public void setServicesArrayList(ArrayList<Services> servicesArrayList) {
         this.servicesArrayList = servicesArrayList;
-    }
-
-
-
-    public void setNewsArrayList(ArrayList<News> newsArrayList) {
-        this.newsArrayList = newsArrayList;
     }
 
     public static void initInstance()

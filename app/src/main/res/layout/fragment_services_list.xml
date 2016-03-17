@@ -14,14 +14,14 @@
                 android:layout_height="match_parent"
                 android:scrollbars="none" />
 
-    <!--<ImageView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/serviceDetailImageView"-->
-        <!--android:src="@drawable/services_image2"-->
-        <!--android:layout_gravity="bottom"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:adjustViewBounds="true"/>-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/serviceDetailImageView"
+        android:src="@drawable/services_image2"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:adjustViewBounds="true"/>
 
 
     <TextView

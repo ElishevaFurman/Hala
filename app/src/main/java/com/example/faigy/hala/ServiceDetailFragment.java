@@ -69,7 +69,7 @@ public class ServiceDetailFragment extends Fragment {
      */
     public void initializeViews(View rootView) {
         // get position of clicked item of servicesArrayList from MySingleton class
-        position = MySingleton.getInstance().getPostion();
+        position = MySingleton.getInstance().getPosition();
         // initialize and reference controls
         image = (ImageView) rootView.findViewById(R.id.imageView1);
         imageProgressBar = (ProgressBar)rootView.findViewById(R.id.imageProgressBar);
@@ -111,7 +111,7 @@ public class ServiceDetailFragment extends Fragment {
         //toolbar.hideOverflowMenu();
 
         //Util.setToolbarTitle(R.string.fragment_faq, mainActivity.toolbar);
-        MySingleton.getInstance().setServicesDetails(true);
+        //MySingleton.getInstance().setServicesDetails(true);
     }
 
     /**

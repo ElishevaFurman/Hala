@@ -68,6 +68,7 @@ public class ContactUsFragment extends Fragment {
      * Function to initialize controls
      */
     public void initializeViews(View rootView) {
+        MySingleton.getInstance().setLastFragment("contactFragment");
         // initialize and reference controls
         tabLayout = (TabLayout) rootView.findViewById(R.id.tabLayout);
         tabLayout.addTab(tabLayout.newTab().setText("Our Location"));
