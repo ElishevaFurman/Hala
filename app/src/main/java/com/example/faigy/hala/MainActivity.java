@@ -1,17 +1,6 @@
 package com.example.faigy.hala;
 
-import android.app.AlarmManager;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.PendingIntent;
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.design.internal.NavigationMenuView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -21,26 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Toast;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-
-import org.apache.http.NameValuePair;
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import de.greenrobot.event.EventBus;
 
@@ -56,11 +25,10 @@ public class MainActivity extends AppCompatActivity
     // Declare Fragments
     HomeFragment homeFragment;
     ContactFragment contactFragment;
-    ContactFormFragment contactFormFragment;
+    FormFragment contactFormFragment;
     ContactUsFragment contactUsFragment;
     TestimonialFragment testimonialFragment;
     TeamListFragment teamListFragment;
-    AskFragment askFragment;
     FAQFragment faqFragment;
     InTheNewsFragment inTheNewsFragment;
     ServicesFragment servicesFragment;
@@ -189,7 +157,7 @@ public class MainActivity extends AppCompatActivity
         homeFragment.setMainActivity(this);
         contactFragment = new ContactFragment();
         contactFragment.setMainActivity(this);
-        contactFormFragment = new ContactFormFragment();
+        contactFormFragment = new FormFragment();
         contactFormFragment.setMainActivity(this);
         contactUsFragment = new ContactUsFragment();
         contactUsFragment.setMainActivity(this);
@@ -197,8 +165,6 @@ public class MainActivity extends AppCompatActivity
         testimonialFragment.setMainActivity(this);
         teamListFragment = new TeamListFragment();
         teamListFragment.setMainActivity(this);
-        askFragment = new AskFragment();
-        askFragment.setMainActivity(this);
         faqFragment = new FAQFragment();
         faqFragment.setMainActivity(this);
         inTheNewsFragment = new InTheNewsFragment();

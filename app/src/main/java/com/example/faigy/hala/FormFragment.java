@@ -1,11 +1,9 @@
 package com.example.faigy.hala;
 
-import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
@@ -22,7 +20,7 @@ import android.widget.TextView;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ContactFormFragment extends Fragment {
+public class FormFragment extends Fragment {
 
     // Declare Activities
     MainActivity mainActivity;
@@ -41,7 +39,7 @@ public class ContactFormFragment extends Fragment {
     boolean ignoreNextTextChangePhone = false;
     boolean ignoreNextTextChangeMessage = false;
 
-    public ContactFormFragment() {
+    public FormFragment() {
         // Required empty public constructor
     }
 
@@ -55,19 +53,10 @@ public class ContactFormFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_contact_form, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_form, container, false);
         lastFragment =  MySingleton.getInstance().getLastFragment();
         // Initialize the views for this fragment
         initializeViews(rootView);
-        // removed textWatchers from views
-        removeTextWatcherFromViews();
-        // clear all views
-        clearTextViews();
-        // set focus on inputName
-        inputName.requestFocus();
-
-        // set toolbar title
-        //Util.setToolbarTitle(R.string.fragment_contact, mainActivity.toolbar);
 
         return rootView;
 
@@ -89,10 +78,6 @@ public class ContactFormFragment extends Fragment {
         inputPhone = (EditText) rootView.findViewById(R.id.input_phone);
         inputQuestion = (EditText) rootView.findViewById(R.id.input_question);
         submitButton = (TextView) rootView.findViewById(R.id.submit_text);
-        inputName.addTextChangedListener(new MyTextWatcher(inputName));
-        inputEmail.addTextChangedListener(new MyTextWatcher(inputEmail));
-        inputPhone.addTextChangedListener(new MyTextWatcher(inputPhone));
-        inputQuestion.addTextChangedListener(new MyTextWatcher(inputQuestion));
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,6 +90,12 @@ public class ContactFormFragment extends Fragment {
 
     public void onResume(){
         super.onResume();
+
+        if (lastFragment.equals("faqFragment")){
+            Util.setToolbarTitle(R.string.fragment_ask, mainActivity.toolbar);
+            Util.enableBackButton(R.drawable.ic_arrow_back_24dp, mainActivity.toolbar, mainActivity.drawer);
+        }
+
         // removed textWatchers from views
         removeTextWatcherFromViews();
         // clear all views
@@ -112,12 +103,10 @@ public class ContactFormFragment extends Fragment {
         // set focus on inputName
         inputName.requestFocus();
 
-        if (lastFragment.equals("faqFragment")){
-            Util.setToolbarTitle(R.string.fragment_ask, mainActivity.toolbar);
-            Util.enableBackButton(R.drawable.ic_arrow_back_24dp, mainActivity.toolbar, mainActivity.drawer);
-
-        }else {
-        }
+        inputName.addTextChangedListener(new MyTextWatcher(inputName));
+        inputEmail.addTextChangedListener(new MyTextWatcher(inputEmail));
+        inputPhone.addTextChangedListener(new MyTextWatcher(inputPhone));
+        inputQuestion.addTextChangedListener(new MyTextWatcher(inputQuestion));
 
 
     }

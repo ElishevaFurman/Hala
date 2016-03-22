@@ -115,7 +115,7 @@ public class ContactUsFragment extends Fragment {
                     ContactFragment tab1 = new ContactFragment();
                     return tab1;
                 case 1:
-                    ContactFormFragment tab2 = new ContactFormFragment();
+                    FormFragment tab2 = new FormFragment();
                     return tab2;
                 default:
                     return null;
