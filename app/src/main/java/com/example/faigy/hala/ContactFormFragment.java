@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -30,8 +31,7 @@ public class ContactFormFragment extends Fragment {
     private EditText inputName, inputEmail, inputPhone, inputQuestion;
     private TextInputLayout inputLayoutName, inputLayoutEmail, inputLayoutQuestion, inputLayoutPhone;
     private TextView submitButton;
-    CoordinatorLayout coordinatorLayout;
-    FragmentManager.BackStackEntry backStackEntry;
+    RelativeLayout relativeLayout;
     String lastFragment;
 
     // Declare Variables
@@ -78,7 +78,7 @@ public class ContactFormFragment extends Fragment {
      */
     public void initializeViews(View rootView) {
         // initialize and reference controls
-        coordinatorLayout = (CoordinatorLayout) rootView.findViewById(R.id
+        relativeLayout = (RelativeLayout) rootView.findViewById(R.id
                 .coordinatorLayout);
         inputLayoutName = (TextInputLayout) rootView.findViewById(R.id.input_layout_name);
         inputLayoutEmail = (TextInputLayout) rootView.findViewById(R.id.input_layout_email);
@@ -105,18 +105,20 @@ public class ContactFormFragment extends Fragment {
 
     public void onResume(){
         super.onResume();
-
-        if (lastFragment.equals("faqFragment")){
-            Util.setToolbarTitle(R.string.fragment_ask, mainActivity.toolbar);
-            Util.enableBackButton(R.drawable.ic_arrow_back_24dp, mainActivity.toolbar, mainActivity.drawer);
-        }else {
-        }
         // removed textWatchers from views
         removeTextWatcherFromViews();
         // clear all views
         clearTextViews();
         // set focus on inputName
         inputName.requestFocus();
+
+        if (lastFragment.equals("faqFragment")){
+            Util.setToolbarTitle(R.string.fragment_ask, mainActivity.toolbar);
+            Util.enableBackButton(R.drawable.ic_arrow_back_24dp, mainActivity.toolbar, mainActivity.drawer);
+
+        }else {
+        }
+
 
     }
 
@@ -471,7 +473,7 @@ public class ContactFormFragment extends Fragment {
             // if email was sent successfully
             if (success && successSent) {
                 // show message in Snackbar - "Email was sent to Hala"
-                Snackbar.make(coordinatorLayout, "Email sent to Hala", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(relativeLayout, "Email sent to Hala", Snackbar.LENGTH_LONG).show();
                 // removed textWatchers from views
                 removeTextWatcherFromViews();
                 // clear all views
@@ -480,7 +482,7 @@ public class ContactFormFragment extends Fragment {
                 inputName.requestFocus();
             } else {
                 // show message in Snackbar - "Email failed to send to Hala"
-                Snackbar.make(coordinatorLayout, "Email failed to send to Hala", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(relativeLayout, "Email failed to send to Hala", Snackbar.LENGTH_LONG).show();
             }
 
         }
