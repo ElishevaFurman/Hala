@@ -25,6 +25,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
+            app:tabTextAppearance="@style/MineCustomTabText"
+            app:tabIndicatorColor="@color/colorAccent"
+            app:tabIndicatorHeight="4dp"
             android:layout_alignParentBottom="true"/>
     </android.support.design.widget.AppBarLayout>
 

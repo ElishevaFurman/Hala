@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -39,31 +40,12 @@ import de.greenrobot.event.EventBus;
  * Created by Home on 1/21/2016.
  */
 public class HomeFragment extends Fragment {
+    // Declare Activities
     MainActivity mainActivity;
+
     // Declare Controls
     LinearLayout aboutLinearLayout, servicesLinearLayout, contactLinearLayout;
     ImageView homeImageView;
-    // json array response url
-    private String urlJsonArry = "http://162.243.100.186/news_array.php";
-
-    //private String urlJsonArry = "http://api.androidhive.info/volley/person_array.json";
-
-
-    JSONArray response;
-    News[] data;
-    ArrayList<News> newsList;
-
-    private static String TAG = MainActivity.class.getSimpleName();
-    private Button btnMakeArrayRequest;
-
-
-    // Progress dialog
-    private ProgressDialog pDialog;
-
-    private TextView txtResponse;
-
-    // temporary string to show the parsed response
-    private String jsonResponse;
 
     public HomeFragment() {
 
@@ -85,18 +67,24 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        mainActivity.getSupportActionBar().show();
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
         // Initialize the views for this fragment
         initializeViews(rootView);
+
         registerListeners();
+
         // set toolbar title
         Util.setToolbarTitle(R.string.fragment_home, mainActivity.toolbar);
+
         // remove keyboard from screen
         Util.hideSoftKeyboard();
+
         //set navigation selected to current fragment
         mainActivity.setSelectedNavigationItem(R.id.nav_home);
+
         return rootView;
     }
 
@@ -104,24 +92,23 @@ public class HomeFragment extends Fragment {
      * Function to initialize controls
      */
     public void initializeViews(View rootView) {
-        EventBus.getDefault().post(new DownloadDataEvent("hi"));
+        // initialize and reference LinearLayouts
         aboutLinearLayout = (LinearLayout) rootView.findViewById(R.id.aboutLinearLayout);
         servicesLinearLayout = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout);
         contactLinearLayout = (LinearLayout) rootView.findViewById(R.id.contactLinearLayout);
+        // initialize and reference ImageView
         homeImageView = (ImageView) rootView.findViewById(R.id.homeImageView);
         homeImageView.setImageBitmap(
                 Util.decodeSampledBitmapFromResource(getResources(), R.drawable.pink_ribbon_background, 180, 180));
+        EventBus.getDefault().post(new DownloadDataEvent("hi"));
 
     }
 
-
-
-
-
-
-
-
+    /**
+     * Function to register listeners
+     */
     public void registerListeners() {
+        // set onClickListeners
         aboutLinearLayout.setOnClickListener(aboutLinearLayoutListener);
         servicesLinearLayout.setOnClickListener(servicesLinearLayoutListener);
         contactLinearLayout.setOnClickListener(contactLinearLayoutListener);
@@ -186,7 +173,10 @@ public class HomeFragment extends Fragment {
         }
     }
 
-
+    /**
+     * Function to set fragment to this main activity
+     * @param mainActivity - set main activity
+     */
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }

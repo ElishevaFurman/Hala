@@ -48,7 +48,7 @@
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 //                             Bundle savedInstanceState) {
 //        // Inflate the layout for this fragment
-//        View rootView = inflater.inflate(R.layout.fragment_our_team, container, false);
+//        View rootView = inflater.inflate(R.layout.fragment_in_the_news_tabs, container, false);
 //        initializeViews(rootView);
 //        // set toolbar title
 //        Util.setToolbarTitle(R.string.fragment_team, mainActivity.toolbar);

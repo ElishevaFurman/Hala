@@ -6,7 +6,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -51,7 +50,7 @@ public class NewsTabFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_our_team, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_in_the_news_tabs, container, false);
         initializeViews(rootView);
         // set toolbar title
         Util.setToolbarTitle(R.string.fragment_news, mainActivity.toolbar);
