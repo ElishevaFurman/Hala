@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
 
 import de.greenrobot.event.EventBus;
 
@@ -21,6 +22,9 @@ public class MainActivity extends AppCompatActivity
     Toolbar toolbar;
     DrawerLayout drawer;
     NavigationView navigationView;
+    RelativeLayout container;
+
+
 
     // Declare Fragments
     HomeFragment homeFragment;
@@ -67,9 +71,6 @@ public class MainActivity extends AppCompatActivity
         app = (MyApplication) getApplication();
 
         //EventBus myEventBus = EventBus.getDefault();
-
-
-
 
     }
 

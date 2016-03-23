@@ -61,6 +61,11 @@ public class FAQFragment extends Fragment {
         // set up recyclerView
         setupRecyclerView();
 
+        // set title for toolbar
+        Util.setToolbarTitle(R.string.fragment_faq, mainActivity.toolbar);
+
+        mainActivity.openNavigationDrawer();
+
         // download data from url
         downloadData();
 
@@ -78,7 +83,7 @@ public class FAQFragment extends Fragment {
 
     public void initializeViews(final View rootView) {
         // initialize and reference Toolbar
-        toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+        //toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
 
         // initialize and reference CollapsingToolbar
         collapsingToolbar = (CollapsingToolbarLayout) rootView.findViewById(R.id.collapsing_toolbar);
@@ -94,7 +99,7 @@ public class FAQFragment extends Fragment {
     }
 
     public void setUpCollapsingToolbar() {
-        mainActivity.openNavigationDrawer2(toolbar, R.drawable.ic_menu_24dp);
+      //mainActivity.openNavigationDrawer2(toolbar, R.drawable.ic_menu_24dp);
         mainActivity.getSupportActionBar().setDisplayShowHomeEnabled(true);
         collapsingToolbar.setTitle("Faq's");
         collapsingToolbar.setExpandedTitleColor(getResources().getColor(R.color.colorAccent));
@@ -193,16 +198,16 @@ public class FAQFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        mainActivity.getSupportActionBar().show();
-        mainActivity.openNavigationDrawer();
-        toolbar.hideOverflowMenu();
+        //mainActivity.getSupportActionBar().show();
+        //mainActivity.openNavigationDrawer();
+       // toolbar.hideOverflowMenu();
         MySingleton.getInstance().setLastFragment("faqFragment");
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        mainActivity.getSupportActionBar().hide();
+        //mainActivity.getSupportActionBar().hide();
     }
 
 }

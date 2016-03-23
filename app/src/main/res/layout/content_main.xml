@@ -9,10 +9,10 @@
     tools:context="com.example.faigy.hala.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <FrameLayout
+    <RelativeLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"/>
 
 
 </RelativeLayout>

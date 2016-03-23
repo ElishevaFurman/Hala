@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HalaApplication.iml" filepath="$PROJECT_DIR$/HalaApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Hala.iml" filepath="$PROJECT_DIR$/Hala.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
