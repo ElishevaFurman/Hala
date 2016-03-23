@@ -34,6 +34,7 @@ public class FAQFragment extends Fragment {
     String url = "http://162.243.100.186/faqs_array.php";
     public static final int COLLAPSE_MODE_PARALLAX = 2;
 
+
     // Declare classes
     MainActivity mainActivity;
     DatabaseOperations databaseOperations;
