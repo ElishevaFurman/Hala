@@ -40,7 +40,7 @@
 
     <!-- fragment_home -->
     <string name="fragment_home">הלאה</string>
-     <string name="home_banner_large_text2">CANCER IS A WORD. NOT A SENTENCE!</string>
+    <string name="home_banner_large_text2">CANCER IS A WORD. NOT A SENTENCE!</string>
     <string name="home_banner_large_text">Hala clinic has gained it\'s reputation as Israel\'s
         leading and most advanced breast cancer detection center, and probably one of the best in  the world</string>
         <string name="home_banner_large_text1">HALA CLINIC HAS GAINED IT\'S REPUTATION AS ISRAEL\'S
@@ -83,45 +83,29 @@
 
     <!-- fragment_our_mission -->
     <string name="image_description">image description</string>
-    <string name="our_mission_title">HALA\'S MISSION IS TO SAVE LIVES. HOW?</string>
-    <string name="our_mission_fact1">By providing the most advanced, comprehensive breast cancer
-        screening and diagnostic center in Israel.</string>
-   <string name="our_mission_fact2">By giving women the necessary exams in one place, at one time,
-       with on-the- spot results. If non-surgical needle biopsies are performed, results are
-       generally back within days, not weeks.</string>
-     <string name="our_mission_fact3">By detecting breast cancer at its earliest stages, before it\'s
-         too late to treat effectively.</string>
-   <string name="our_mission_fact4">By expanding the Center to include a wider range of services and
-       significantly increase capacity.</string>
+    <string name="our_mission_title">השליחות של הלאה - הינה  שליחות של הצלת  חיים.
+כיצד?</string>
+    <string name="our_mission_fact1">בכך שהלאה הקימה את המכון הישראלי לאבחון וגילוי של סרטן השד- מהמתקדמים ביותר.</string>
+    <string name="our_mission_fact2">בכך שהלאה מציעה  לכל אשה את כל הבדיקות המתאימות במקום אחד, באותו זמן, עם תוצאות מידיות. אם מבוצעת פעולה  של ביופסיה מחטית ללא ניתוח ,התוצאות  ניתנות בדרך כלל תוך מספר ימים ולא שבועות.</string>
+    <string name="our_mission_fact3">בכך שבהלאה  מאבחנים את סרטן השד בשלב ההתחלתי שלו, לפני שמאוחר מדי לתת טיפול יעיל.</string>
+    <string name="our_mission_fact4">בכך שבהלאה מרחיבים את המכון שיכלול טווח רחב יותר של שירותים והגדלה משמעותית של  היקף הנבדקות.</string>
 
     <!-- fragment_about_us -->
-     <string name="the_hala_advantage_title">THE HALA ADVANTAGE</string>
- <string name="the_hala_advantage_fact1">Hala is Israel\'s only non-profit comprehensive breast
-     screening diagnostic clinic.</string>
- <string name="the_hala_advantage_fact2">Hala is committed to providing a new level of diagnostic
-     expertise in the field of breast cancer detection</string>
-    <string name="the_hala_advantage_fact3">At Hala, all exams and procedures are conducted in one visit.</string>
- <string name="the_hala_advantage_fact4">At Hala, exam results, other than biopsy, are given to
-     the patient on the spot.</string>
-    <string name="the_hala_advantage_fact5">Hala has an unsurpassed detection rate of 98.7%.</string>
- <string name="the_hala_advantage_fact6">Hala\'s detection rate is a 31% increase from
-     non-comprehensive models.</string>
- <string name="the_hala_advantage_fact7">Hala has reduced false positives (incorrect diagnoses
-     resulting in unnecessary surgery) by 48%.</string>
- <string name="the_hala_advantage_fact8">Hala uses the world\'s most advanced technology to detect
-     irregularities.</string>
- <string name="the_hala_advantage_fact9">Hala is the only breast screening center in Israel with
-     a 3D Tomosynthesis and C-View system.</string>
- <string name="the_hala_advantage_fact10">Hala\'s specialists consistently catch the 20% of
-     early-stage tumors that are impossible to detect with conventional film techniques. </string>
- <string name="the_hala_advantage_fact11">Hala\'s doors are open to every woman, regardless of social
-     status, race, religion or financial status.</string>
- <string name="the_hala_advantage_fact12">Hala is internationally recognized as an innovator in
-     breast cancer detection.</string>
- <string name="the_hala_advantage_fact13">Hala performs beta testing for companies from Israel and
-     abroad who are creating state-of-the-art breast imaging and cancer identification technologies.</string>
-     <string name="the_hala_advantage_fact14">Hala has screened over 150,000 women in the Middle
-         East over the past 15 years.</string>
+    <string name="the_hala_advantage_title">היתרון של הלאה</string>
+    <string name="the_hala_advantage_fact1">הלאה - הכל במקום אחד, המכון לאבחון סרטן השד בגבעת שאול בירושלים, נחשב למכון הטוב ביותר בישראל.</string>
+    <string name="the_hala_advantage_fact2">הלאה מחויבת לספק רמה חדשנית של מומחיות אבחון בתחום בדיקת סרטן השד.</string>
+    <string name="the_hala_advantage_fact3">בהלאה, כל הבדיקות והפרוצדורות נעשות בביקור אחד.</string>
+    <string name="the_hala_advantage_fact4">בהלאה, תוצאות של בדיקות ,למעט  ביופסיה, ניתנות למטופל על המקום.</string>
+    <string name="the_hala_advantage_fact5">בהלאה יש שיעור אבחון שאין דומה לו, של 98.7%.</string>
+    <string name="the_hala_advantage_fact6">בהלאה שיעור האבחון הוא ב-31%  dגבוה יותר ממודלים לא מקיפים.</string>
+    <string name="the_hala_advantage_fact7">הלאה הפחיתה את שיעור התוצאות החיוביות השגויות (false positive - שתוצאתם היא ניתוח מיותר) ב-48%.</string>
+    <string name="the_hala_advantage_fact8">הלאה משתמשת בטכנולוגיות המתקדמות  בתבל  לאבחן אי סדירות בשד.</string>
+    <string name="the_hala_advantage_fact9">הלאה הינו המכון היחיד בישראל לאבחון סרטן השד עם מערכת טומוסינטזיס תלת ממד ומערכת- C- VIEW.</string>
+    <string name="the_hala_advantage_fact10">המומחים של הלאה מאבחנים בעקביות 20% של הגידולים בשלב התחלתי שלהם, דבר שאינו אפשרי בשימוש  בטכניקות צילום קונבנציונאליות. </string>
+    <string name="the_hala_advantage_fact11">הדלת של הלאה פתוחה בפני כל אישה, בלי להתחשב במעמד החברתי, גזע, דת או המצב הכלכלי שלה.</string>
+    <string name="the_hala_advantage_fact12">הלאה ידועה בעולם כפורצת דרך באבחון סרטן השד. </string>
+    <string name="the_hala_advantage_fact13">הלאה עורכת מבחני ביתא לחברות מישראל וחו"ל, חברות שמפתחות טכנולוגיות מדרגה ראשונה להדמיית שד ואבחון סרטן. </string>
+ <string name="the_hala_advantage_fact14">הלאה בדקה למעלה מ-150,000 נשים במזרח התיכון בחמש עשרה השנים האחרונות.</string>
 
     <!-- fragment_help_us_grow -->
     <string name="help_us_grow_fact1">An expanded diagnostic clinic</string>
@@ -147,6 +131,11 @@
     <string name="service6">NEEDLE BIOPSY</string>
     <string name="service4">BREAST ULTRASOUND</string>
     <string name="service7">STEREOTACTIC PRONE TABLE BIOPSY</string>
+
+    <!-- fragment_appointment -->
+    <string name="appointment_type1">בדיקה שגרתית</string>
+    <string name="appointment_type2">אבחון דחוף</string>
+    <string name="appointment_type3">ביטוח רפואי</string>
 
 
     <!-- fragment_service_detail -->

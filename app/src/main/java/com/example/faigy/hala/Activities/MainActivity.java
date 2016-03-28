@@ -74,8 +74,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onResume() {
         super.onResume();
-        if (!Locale.getDefault().getLanguage().equals(location))
-            Toast.makeText(Util.getActivity(),location, Toast.LENGTH_LONG).show();
+//        if (!Locale.getDefault().getLanguage().equals(location))
+//            Toast.makeText(Util.getActivity(),location, Toast.LENGTH_LONG).show();
             //finish();
     }
 
@@ -271,37 +271,37 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-
-    @Override
-    public void onPause() {
-
-        super.onPause();
-        location = Locale.getDefault().getLanguage();
-
-    }
-
-    @Override
-    public void onStop() {
-
-        super.onStop();
-        location = Locale.getDefault().getLanguage();
-
-    }
-
-    @Override
-    public void onStart() {
-
-        super.onStart();
-        if (Locale.getDefault().getLanguage().equals("ar")){
-            Toast.makeText(Util.getActivity(),"same language", Toast.LENGTH_LONG).show();
-            finish();
-        }else{
-            Toast.makeText(Util.getActivity(),"diff language", Toast.LENGTH_LONG).show();
-
-        }
-
-
-    }
+//
+//    @Override
+//    public void onPause() {
+//
+//        super.onPause();
+//        location = Locale.getDefault().getLanguage();
+//
+//    }
+//
+//    @Override
+//    public void onStop() {
+//
+//        super.onStop();
+//        location = Locale.getDefault().getLanguage();
+//
+//    }
+//
+//    @Override
+//    public void onStart() {
+//
+//        super.onStart();
+//        if (Locale.getDefault().getLanguage().equals("ar")){
+//            Toast.makeText(Util.getActivity(),"same language", Toast.LENGTH_LONG).show();
+//            finish();
+//        }else{
+//            Toast.makeText(Util.getActivity(),"diff language", Toast.LENGTH_LONG).show();
+//
+//        }
+//
+//
+//    }
 
 }
 
