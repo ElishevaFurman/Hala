@@ -14,8 +14,6 @@ import com.example.faigy.hala.Utilities.Util;
 
 import java.lang.reflect.Field;
 
-import de.greenrobot.event.EventBus;
-
 /**
  * Created by Home on 1/21/2016.
  */
@@ -34,8 +32,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        EventBus.getDefault().register(this);
-
         // remove keyboard from screen
         Util.hideSoftKeyboard();
     }
@@ -158,14 +154,6 @@ public class HomeFragment extends Fragment {
      */
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
-    }
-
-
-    @Override
-    public void onPause() {
-
-        EventBus.getDefault().unregister(this);
-        super.onPause();
     }
 
 }

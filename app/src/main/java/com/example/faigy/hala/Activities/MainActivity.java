@@ -32,7 +32,6 @@ import com.example.faigy.hala.Classes.MyApplication;
 import com.example.faigy.hala.R;
 import com.example.faigy.hala.Utilities.Util;
 
-import de.greenrobot.event.EventBus;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -68,7 +67,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onResume() {
         super.onResume();
-        EventBus.getDefault().register(this);
 
     }
 
@@ -268,7 +266,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onPause() {
 
-        EventBus.getDefault().unregister(this);
         super.onPause();
     }
 
