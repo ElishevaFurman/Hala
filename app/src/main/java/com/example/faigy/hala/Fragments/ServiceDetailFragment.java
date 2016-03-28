@@ -51,7 +51,7 @@ public class ServiceDetailFragment extends Fragment {
         // set toolbar title with the title of the service that was selected
         Util.setToolbarTitle(title, mainActivity.toolbar);
         // set back button on toolbar
-        Util.enableBackButton(R.drawable.ic_arrow_back_24dp, mainActivity.toolbar, mainActivity.drawer);
+        Util.enableBackButton(mainActivity.toolbar, mainActivity.drawer);
         // remove keyboard from screen
         Util.hideSoftKeyboard();
     }

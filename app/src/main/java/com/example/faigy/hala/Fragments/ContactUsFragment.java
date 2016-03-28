@@ -82,8 +82,8 @@ public class ContactUsFragment extends Fragment {
         MySingleton.getInstance().setLastFragment("contactFragment");
         // initialize and reference controls
         tabLayout = (TabLayout) rootView.findViewById(R.id.tabLayout);
-        tabLayout.addTab(tabLayout.newTab().setText("Our Location"));
-        tabLayout.addTab(tabLayout.newTab().setText("Contact Form"));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.our_location));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.contact_form));
         viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
         viewPager.setAdapter(new PagerAdapter
                 (getChildFragmentManager(), tabLayout.getTabCount()));

@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.example.faigy.hala.Utilities.DatabaseOperations;
 import com.example.faigy.hala.Fragments.AboutUsFragment;
@@ -31,6 +32,8 @@ import com.example.faigy.hala.Fragments.TestimonialFragment;
 import com.example.faigy.hala.Classes.MyApplication;
 import com.example.faigy.hala.R;
 import com.example.faigy.hala.Utilities.Util;
+
+import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity
@@ -64,10 +67,16 @@ public class MainActivity extends AppCompatActivity
     NewsTabFragment newsTabFragment;
     DatabaseOperations databaseOperations;
 
+
+    // Declare variables
+    String location;
+
     @Override
     public void onResume() {
         super.onResume();
-
+        if (!Locale.getDefault().getLanguage().equals(location))
+            Toast.makeText(Util.getActivity(),location, Toast.LENGTH_LONG).show();
+            //finish();
     }
 
     @Override
@@ -267,8 +276,32 @@ public class MainActivity extends AppCompatActivity
     public void onPause() {
 
         super.onPause();
+        location = Locale.getDefault().getLanguage();
+
     }
 
+    @Override
+    public void onStop() {
+
+        super.onStop();
+        location = Locale.getDefault().getLanguage();
+
+    }
+
+    @Override
+    public void onStart() {
+
+        super.onStart();
+        if (Locale.getDefault().getLanguage().equals("ar")){
+            Toast.makeText(Util.getActivity(),"same language", Toast.LENGTH_LONG).show();
+            finish();
+        }else{
+            Toast.makeText(Util.getActivity(),"diff language", Toast.LENGTH_LONG).show();
+
+        }
+
+
+    }
 
 }
 

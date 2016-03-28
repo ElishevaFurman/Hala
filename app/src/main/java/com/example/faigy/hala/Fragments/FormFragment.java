@@ -25,6 +25,7 @@ import com.example.faigy.hala.R;
 import com.example.faigy.hala.Utilities.Util;
 import com.example.faigy.hala.Utilities.GMailSender;
 
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -101,7 +102,13 @@ public class FormFragment extends Fragment {
 
         if (lastFragment.equals("faqFragment")){
             Util.setToolbarTitle(R.string.fragment_ask, mainActivity.toolbar);
-            Util.enableBackButton(R.drawable.ic_arrow_back_24dp, mainActivity.toolbar, mainActivity.drawer);
+            Util.enableBackButton(mainActivity.toolbar, mainActivity.drawer);
+//            if (Locale.getDefault().getLanguage().equals("he") || (Locale.getDefault().getLanguage().equals("ar"))){
+//                Util.enableBackButton(R.drawable.ic_arrow_forward_24dp, mainActivity.toolbar, mainActivity.drawer);
+//            }else{
+//                Util.enableBackButton(R.drawable.ic_arrow_back_24dp, mainActivity.toolbar, mainActivity.drawer);
+//            }
+
         }
 
         // removed textWatchers from views

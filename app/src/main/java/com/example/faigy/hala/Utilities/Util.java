@@ -38,6 +38,7 @@ import com.example.faigy.hala.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by Home on 1/28/2016.
@@ -135,11 +136,20 @@ public class Util extends Activity {
     }
 
     /**
-     * @param icon    - drawable for the toolbar icon
      * @param toolbar - set the icon to this toolbar
+     * @param drawer - navigation drawer
      */
-    public static void enableBackButton(int icon, Toolbar toolbar, DrawerLayout drawer) {
-        toolbar.setNavigationIcon(icon);
+    public static void enableBackButton(Toolbar toolbar, DrawerLayout drawer) {
+        // if the language of the phone is hebrew
+        if (Locale.getDefault().getLanguage().equals("he") || (Locale.getDefault().getLanguage().equals("ar"))){
+            // set arrow to forward arrow
+            toolbar.setNavigationIcon(R.drawable.ic_arrow_forward_24dp);
+            }
+        // if language of of the phone is english
+        else{
+            // set arrow to back arrow
+            toolbar.setNavigationIcon(R.drawable.ic_arrow_back_24dp);
+            }
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -26,8 +26,8 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:paddingBottom="16dp"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
                     android:paddingTop="16dp"
                     android:text="@string/contact_title"
                     android:textSize="16sp"
@@ -48,8 +48,8 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingBottom="16dp"
-                        android:paddingLeft="16dp"
-                        android:paddingRight="16dp">
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp">
 
                         <ImageView
                             android:id="@+id/locationImageView"
@@ -65,8 +65,6 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:paddingEnd="16dp"
-                            android:paddingLeft="32dp"
-                            android:paddingRight="16dp"
                             android:paddingStart="32dp"
                             android:paddingTop="16dp"
                             android:text="@string/contact_location"
@@ -80,8 +78,6 @@
                         android:orientation="horizontal"
                         android:paddingBottom="16dp"
                         android:paddingEnd="16dp"
-                        android:paddingLeft="16dp"
-                        android:paddingRight="16dp"
                         android:paddingStart="16dp">
 
                         <ImageView
@@ -98,8 +94,6 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:paddingEnd="16dp"
-                            android:paddingLeft="32dp"
-                            android:paddingRight="16dp"
                             android:paddingStart="32dp"
                             android:text="@string/contact_phone"
                             android:textSize="16sp" />
@@ -111,8 +105,8 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingBottom="16dp"
-                        android:paddingLeft="16dp"
-                        android:paddingRight="16dp">
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp">
 
                         <ImageView
                             android:id="@+id/faxImageView"
@@ -128,8 +122,6 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:paddingEnd="16dp"
-                            android:paddingLeft="32dp"
-                            android:paddingRight="16dp"
                             android:paddingStart="32dp"
                             android:text="@string/contact_fax"
                             android:textSize="16sp" />
@@ -142,8 +134,6 @@
                         android:orientation="horizontal"
                         android:paddingBottom="16dp"
                         android:paddingEnd="16dp"
-                        android:paddingLeft="16dp"
-                        android:paddingRight="16dp"
                         android:paddingStart="16dp">
 
                         <ImageView
@@ -160,8 +150,6 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:paddingEnd="16dp"
-                            android:paddingLeft="32dp"
-                            android:paddingRight="16dp"
                             android:paddingStart="32dp"
                             android:text="@string/contact_email"
                             android:textSize="16sp" />
@@ -173,8 +161,8 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingBottom="16dp"
-                        android:paddingLeft="16dp"
-                        android:paddingRight="16dp">
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp">
 
                         <ImageView
                             android:id="@+id/busImageView"
@@ -190,8 +178,6 @@
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:paddingEnd="16dp"
-                            android:paddingLeft="32dp"
-                            android:paddingRight="16dp"
                             android:paddingStart="32dp"
                             android:text="@string/contact_bus"
                             android:textSize="16sp" />
@@ -220,7 +206,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/ic_phone_white_24dp" />
 
