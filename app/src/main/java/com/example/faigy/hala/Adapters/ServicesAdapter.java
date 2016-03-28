@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.andexert.library.RippleView;
 import com.example.faigy.hala.R;
-import com.example.faigy.hala.Services;
+import com.example.faigy.hala.Classes.Services;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -7,7 +7,7 @@
     android:id="@+id/relativeLayout"
 
     android:orientation="vertical"
-    tools:context="com.example.faigy.hala.TestimonialFragment">
+    tools:context=".Fragments.TestimonialFragment">
 
 
 

@@ -10,9 +10,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.andexert.library.RippleView;
-import com.example.faigy.hala.News;
+import com.example.faigy.hala.Classes.News;
 import com.example.faigy.hala.R;
-import com.example.faigy.hala.Util;
+import com.example.faigy.hala.Utilities.Util;
 
 import java.util.ArrayList;
 import java.util.List;

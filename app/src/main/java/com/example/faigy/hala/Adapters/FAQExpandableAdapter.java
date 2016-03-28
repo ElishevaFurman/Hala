@@ -9,7 +9,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.faigy.hala.Faqs;
+import com.example.faigy.hala.Classes.Faqs;
 import com.example.faigy.hala.R;
 
 import java.util.ArrayList;

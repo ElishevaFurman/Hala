@@ -14,9 +14,9 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.faigy.hala.CircleTransform;
+import com.example.faigy.hala.Utilities.CircleTransform;
 import com.example.faigy.hala.R;
-import com.example.faigy.hala.TeamMember;
+import com.example.faigy.hala.Classes.TeamMember;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 

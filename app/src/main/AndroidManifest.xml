@@ -12,9 +12,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name="com.example.faigy.hala.MyApplication">
+        android:name=".Classes.MyApplication">
 
-        <activity android:name=".SplashActivity"
+        <activity android:name=".Activities.SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
@@ -26,7 +26,7 @@
         </activity>
 
         <activity
-            android:name=".AppIntroActivity"
+            android:name=".Activities.AppIntroActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
@@ -36,7 +36,7 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
@@ -45,7 +45,7 @@
 
         </activity>
 
-        <receiver android:name=".NetworkStateReceiver">
+        <receiver android:name=".Utilities.NetworkStateReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
