@@ -69,6 +69,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
                     android:text="@string/our_mission_title"
                     style="@style/tile_style"/>
 
@@ -93,7 +95,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:paddingLeft="16dp"
+                        android:paddingStart="16dp"
                         android:text="@string/our_mission_fact1"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -120,7 +122,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:paddingLeft="16dp"
+                        android:paddingStart="16dp"
                         android:text="@string/our_mission_fact2"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -147,7 +149,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:paddingLeft="16dp"
+                        android:paddingStart="16dp"
                         android:text="@string/our_mission_fact2"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -174,7 +176,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:paddingLeft="16dp"
+                        android:paddingStart="16dp"
                         android:text="@string/our_mission_fact4"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -185,8 +187,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
                 android:text="@string/the_hala_advantage_title"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/colorAccent"
@@ -198,8 +200,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingBottom="16dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
 
                 <ImageView
                     android:id="@+id/imageView1"
@@ -214,7 +216,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:paddingLeft="16dp"
+                    android:paddingStart="16dp"
                     android:text="@string/the_hala_advantage_fact1"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -226,8 +228,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingBottom="16dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
 
                 <ImageView
                     android:id="@+id/imageView2"
@@ -242,7 +244,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:paddingLeft="16dp"
+                    android:paddingStart="16dp"
                     android:text="@string/the_hala_advantage_fact2"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
@@ -269,7 +271,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:paddingLeft="16dp"
+                    android:paddingStart="16dp"
                     android:text="@string/the_hala_advantage_fact3"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -281,8 +283,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingBottom="16dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
 
                 <ImageView
                     android:id="@+id/imageView4"
@@ -297,7 +299,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:paddingLeft="16dp"
+                    android:paddingStart="16dp"
                     android:text="@string/the_hala_advantage_fact4"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -309,8 +311,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingBottom="16dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
 
                 <ImageView
                     android:id="@+id/imageView5"
@@ -325,7 +327,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:paddingLeft="16dp"
+                    android:paddingStart="16dp"
                     android:text="@string/the_hala_advantage_fact5"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -353,7 +355,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:paddingLeft="16dp"
+                    android:paddingStart="16dp"
                     android:text="@string/the_hala_advantage_fact6"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
@@ -364,8 +366,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingBottom="16dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
 
                 <ImageView
                     android:id="@+id/imageView7"
@@ -380,7 +382,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:paddingLeft="16dp"
+                    android:paddingStart="16dp"
                     android:text="@string/the_hala_advantage_fact7"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -391,8 +393,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingBottom="16dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
 
                 <ImageView
                     android:id="@+id/imageView8"
@@ -407,7 +409,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:paddingLeft="16dp"
+                    android:paddingStart="16dp"
                     android:text="@string/the_hala_advantage_fact8"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -419,8 +421,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingBottom="16dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
 
                 <ImageView
                     android:id="@+id/imageView9"
@@ -435,7 +437,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:paddingLeft="16dp"
+                    android:paddingStart="16dp"
                     android:text="@string/the_hala_advantage_fact9"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -447,8 +449,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingBottom="16dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
 
                 <ImageView
                     android:id="@+id/imageView10"
@@ -463,7 +465,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:paddingLeft="16dp"
+                    android:paddingStart="16dp"
                     android:text="@string/the_hala_advantage_fact10"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -475,8 +477,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingBottom="16dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
 
                 <ImageView
                     android:id="@+id/imageView11"
@@ -491,7 +493,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:paddingLeft="16dp"
+                    android:paddingStart="16dp"
                     android:text="@string/the_hala_advantage_fact11"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -502,8 +504,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingBottom="16dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
 
                 <ImageView
                     android:id="@+id/imageView12"
@@ -518,7 +520,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:paddingLeft="16dp"
+                    android:paddingStart="16dp"
                     android:text="@string/the_hala_advantage_fact12"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -530,8 +532,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingBottom="16dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
 
                 <ImageView
                     android:id="@+id/imageView13"
@@ -546,7 +548,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:paddingLeft="16dp"
+                    android:paddingStart="16dp"
                     android:text="@string/the_hala_advantage_fact13"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -557,8 +559,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingBottom="16dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
 
                 <ImageView
                     android:id="@+id/imageView14"
@@ -573,7 +575,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:paddingLeft="16dp"
+                    android:paddingStart="16dp"
                     android:text="@string/the_hala_advantage_fact14"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 

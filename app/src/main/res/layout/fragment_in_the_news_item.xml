@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:text="date"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
                     android:textColor="@color/colorPrimaryLight" />
             </LinearLayout>
 
@@ -69,7 +69,7 @@
                 android:id="@+id/rippleView"
                 android:layout_width="?android:actionBarSize"
                 android:layout_height="?android:actionBarSize"
-                android:layout_toLeftOf="@+id/more2"
+                android:layout_toStartOf="@+id/more2"
                 android:layout_margin="5dp"
                 rv_centered="true">
 
@@ -77,9 +77,9 @@
                 android:id="@+id/emailImageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
+                android:layout_gravity="end"
                 android:adjustViewBounds="true"
-                android:gravity="right"
+                android:gravity="end"
                 android:src="@drawable/ic_share_24dp" />
             </com.andexert.library.RippleView>
         </LinearLayout>

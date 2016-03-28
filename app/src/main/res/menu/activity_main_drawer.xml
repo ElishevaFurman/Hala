@@ -27,10 +27,7 @@
             android:id="@+id/nav_testimonials"
             android:icon="@drawable/ic_menu_testimonials"
             android:title="@string/nav_testimonials" />
-        <!--item
-            android:id="@+id/nav_grow"
-        android:icon="@drawable/ic_menu_grow"
-        android:title="@string/nav_grow" /-->
+
         <item
             android:id="@+id/nav_appointments"
             android:icon="@drawable/ic_event_24dp"
