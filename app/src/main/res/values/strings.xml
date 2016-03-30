@@ -139,8 +139,9 @@
     <string name="appointment_type3">Health Insurance Coverage</string>
      <string name="appointment_type1_description">To schedule a routine screening, please contact our call center, and our representative will schedule an appointment. Please call: 02.659.5533</string>
      <string name="appointment_type2_description">Hala is a referral clinic, and therefore handles emergency cases , high risk patients as well as routine patients. Referrals are made by medical clinics throughout Israel. If an urgent appointment is required please fax the referral with your contact details to fax number: 02.659.5535. One of our staff members will contact you.</string>
-     <string name="appointment_type3_description">Hala accepts private patients as well as referrals from the following health carriers: Maccabi (national) Leumit (national) and Clalit (Jerusalem and Central-Mercaz districts only). All UN and Consulate workers are given reduced rates.
-    Please bring past mammograms or any other results or tests that were performed for breast screening outside of Hala.</string>
+     <string name="appointment_type3_description">Hala accepts private patients as well as referrals from the following health carriers: Maccabi (national) Leumit (national) and Clalit (Jerusalem and Central-Mercaz districts only). All UN and Consulate workers are given reduced rates.</string>
+     <string name="appointment_type3_description2">Please bring past mammograms or any other results or tests that were performed for breast screening outside of Hala.</string>
+
 
     <!-- fragment_services -->
     <string name="fragment_services">Services</string>

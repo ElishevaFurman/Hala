@@ -24,6 +24,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Locale;
 
 public class FAQFragment extends Fragment {
     // Declare Controls
@@ -38,7 +39,7 @@ public class FAQFragment extends Fragment {
     ArrayList<Faqs> faqArrayList;
     Faqs[] faqsData;
     private static String TAG = "json_faq_request";
-    String url = "http://162.243.100.186/faqs_array.php";
+    String url;
     public static final int COLLAPSE_MODE_PARALLAX = 2;
 
 
@@ -144,6 +145,16 @@ public class FAQFragment extends Fragment {
      * Function to download data from url
      */
     public void downloadData() {
+
+// set url data to corresponding language of phone settings
+        if (!Locale.getDefault().getLanguage().equals("en")) {
+
+            url = "http://162.243.100.186/faqs_array_he.php";
+
+        } else {
+
+            url = "http://162.243.100.186/faqs_array.php";
+        }
         // call makeJsonArrayRequest and send url, tag, errorTextView and instantiate a callBack
         databaseOperations.makeJsonArrayRequest(url, TAG, errorTextView,
                 new DatabaseOperations.VolleyCallback() {

@@ -136,6 +136,11 @@
     <string name="appointment_type1">בדיקה שגרתית</string>
     <string name="appointment_type2">אבחון דחוף</string>
     <string name="appointment_type3">ביטוח רפואי</string>
+    <string name="appointment_type1_description">לקביעת תור לבדיקה שגרתית, צרי אתנו קשר התקשרי למכון, והנציגות  שלנו יקבעו לך תור. טל: 02-659-5533</string>
+    <string name="appointment_type2_description">הלאה הוא מכון שמקבל הפניות , ולכן הוא מטפל במקרים דחופים, מטופלים עם רמת  סיכון גבוהה כמו גם מטופלות  רגילות . הפניות נעשות על מכונים רפואיים ברחבי ישראל. אם נדרש תור דחוף שלחי בבקשה את ההפניה עם הפרטים ליצירת קשר אתך לפקס:02-659-5535. אחד מחברות  הצוות שלנו יצרו אתך קשר.</string>
+    <string name="appointment_type3_description">הלאה מקבלת מטופלים באופן פרטי כמו גם מטופלים מקופות החולים הבאות: מכבי (כל הארץ) לאומית (כל הארץ) כללית (ירושלים וממחוז ת"א ומרכז בלבד). כל עובדי האו"ם ועובדי קונסוליות מקבלים הנחה.</string>
+    <string name="appointment_type3_description2">
+נא להביא צילומי ממוגרפיה קודמים וכל התוצאות והבדיקות הרלבנטיות שנעשו מחוץ להלאה.</string>
 
 
     <!-- fragment_service_detail -->
@@ -161,6 +166,8 @@
     <!-- fragment_team-->
     <string name="fragment_team">הצוות הרפואי</string>
 
+    <!-- fragment_appointment-->
+    <string name="fragment_appointment">זימון תורים</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

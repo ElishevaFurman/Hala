@@ -24,6 +24,7 @@ import com.google.gson.JsonSyntaxException;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Locale;
 
 
 public class TeamListFragment extends Fragment {
@@ -45,7 +46,7 @@ public class TeamListFragment extends Fragment {
     DatabaseOperations databaseOperations;
     TeamMemberAdapter mAdapter;
     private static String TAG = "json_team_request";
-    private String url = "http://162.243.100.186/members_array.php";
+    private String url;
     private int prev = -1;
 
 
@@ -173,6 +174,16 @@ public class TeamListFragment extends Fragment {
      * Method to make json array request where response starts with
      */
     public void downloadData(){
+        // set url data to corresponding language of phone settings
+        if (!Locale.getDefault().getLanguage().equals("en")) {
+
+            url = "http://162.243.100.186/members_array_he.php";
+
+        } else {
+
+            url = "http://162.243.100.186/members_array.php";
+        }
+
         databaseOperations.makeJsonArrayRequest(url, TAG, errorTextView,
                 new DatabaseOperations.VolleyCallback() {
                     @Override

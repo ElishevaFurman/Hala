@@ -83,6 +83,9 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         // call the parent activities onCreate
         super.onCreate(savedInstanceState);
+        if (Locale.getDefault().getLanguage().equals("ar")){
+            getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+        }
         // attach xml to activity
         setContentView(R.layout.activity_main);
         // send activity reference to Util class

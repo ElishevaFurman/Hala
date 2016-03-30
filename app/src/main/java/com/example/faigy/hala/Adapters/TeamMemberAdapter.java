@@ -88,9 +88,12 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
                 .fromHtml("<![CDATA[<body style=\"text-align:justify;\">"
                         + tm.bio.replace("\n", "<br /> <br />") + "</body>]]>"));
         // Load content into bio webView as text
-        teamMemberViewHolder.bio.loadData(content, "text/html", "utf-8");
+        teamMemberViewHolder.bio.loadData(content, "text/html; charset=utf-8", "utf-8");
         // Instantiate webViewSettings
         WebSettings webSettings = teamMemberViewHolder.bio.getSettings();
+
+        webSettings.setDefaultTextEncodingName("utf-8");
+
         // Set font size to text in webView
         webSettings.setDefaultFontSize(12);
         // Load member image from url into imageView
