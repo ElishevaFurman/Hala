@@ -226,6 +226,7 @@ public class FAQFragment extends Fragment {
         //mainActivity.openNavigationDrawer();
        // toolbar.hideOverflowMenu();
         MySingleton.getInstance().setLastFragment("faqFragment");
+
     }
 
 

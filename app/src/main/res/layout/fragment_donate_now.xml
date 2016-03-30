@@ -33,7 +33,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="@dimen/activity_horizontal_margin"
                 android:gravity="center"
-                android:text="HELP US MAKE A DIFFERENCE!"
+                android:text="@string/donate_now_title"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/colorPrimaryLight"
                 android:textStyle="bold" />
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:text="Donations to Hala are tax deductible in the United States, England and Israel."
+                android:text="@string/donate_now_subtitle"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/colorSecondaryText" />
 
@@ -67,7 +67,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="USA:"
+                    android:text="@string/donate_now_usa"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:paddingTop="@dimen/activity_horizontal_margin"
                     android:textColor="@color/colorPrimaryLight" />
@@ -77,7 +77,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="American Friends of Hala"
+                    android:text="@string/donate_now_usa_info1"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorSecondaryText" />
 
@@ -86,7 +86,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="c/o Fred P. Schwartz, Esq."
+                    android:text="@string/donate_now_usa_info2"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorSecondaryText" />
 
@@ -96,7 +96,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="PO Box 181487"
+                    android:text="@string/donate_now_usa_info3"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorSecondaryText" />
 
@@ -105,7 +105,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="Cleveland Hts., OH 44118-1487"
+                    android:text="@string/donate_now_usa_info4"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:paddingBottom="@dimen/activity_horizontal_margin"
                     android:textColor="@color/colorSecondaryText" />
@@ -133,7 +133,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="ENGLAND:"
+                    android:text="@string/donate_now_england"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorPrimaryLight" />
 
@@ -142,7 +142,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="British Friends of Hala"
+                    android:text="@string/donate_now_england_info1"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorSecondaryText" />
 
@@ -151,7 +151,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="3 Stanley Crescent"
+                    android:text="@string/donate_now_england_info2"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorSecondaryText" />
 
@@ -160,7 +160,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="London, W11 2NB"
+                    android:text="@string/donate_now_england_info3"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:paddingBottom="@dimen/activity_horizontal_margin"
                     android:textColor="@color/colorSecondaryText" />
@@ -186,7 +186,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="ISRAEL:"
+                    android:text="@string/donate_now_israel"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorPrimaryLight" />
 
@@ -195,7 +195,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="Hala"
+                    android:text="@string/donate_now_israel_info1"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorSecondaryText" />
 
@@ -204,7 +204,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="Bet Ofer"
+                    android:text="@string/donate_now_israel_info2"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorSecondaryText" />
 
@@ -213,7 +213,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="5 Nachum Heftzadi St."
+                    android:text="@string/donate_now_israel_info3"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorSecondaryText" />
 
@@ -222,7 +222,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:text="Jerusalem, 95484"
+                    android:text="@string/donate_now_israel_info4"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:paddingBottom="@dimen/activity_horizontal_margin"
                     android:textColor="@color/colorSecondaryText" />
@@ -261,7 +261,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:layout_gravity="center"
-                        android:text="DONATE NOW"
+                        android:text="@string/donate_now_button"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/colorPrimary" />
                 </RelativeLayout>
