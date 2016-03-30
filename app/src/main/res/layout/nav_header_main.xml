@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:text="@string/app_title"
         android:paddingTop="8dp"
+        android:layout_gravity="start"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/textView" />
 

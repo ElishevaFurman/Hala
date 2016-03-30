@@ -8,6 +8,7 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -75,20 +76,29 @@ public class ServiceDetailFragment extends Fragment {
     public void initializeViews(View rootView) {
         // get position of clicked item of servicesArrayList from MySingleton class
         position = MySingleton.getInstance().getPosition();
+
         // initialize and reference controls
         image = (ImageView) rootView.findViewById(R.id.imageView1);
         imageProgressBar = (ProgressBar)rootView.findViewById(R.id.imageProgressBar);
+
         //mainActivity.setSupportActionBar((Toolbar) rootView.findViewById(R.id.toolbar));
         collapsingToolbarLayout = (CollapsingToolbarLayout) rootView.findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle("Collapsing");
         collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
+
         WebView serviceDescriptionTextViews = (WebView)rootView.findViewById(R.id.serviceDescriptionTextViews);
+
+        WebSettings settings = serviceDescriptionTextViews.getSettings();
+
+        settings.setDefaultTextEncodingName("utf-8");
 
         String content = String.valueOf(Html
                 .fromHtml("<![CDATA[<body style=\"text-align:justify;\">"
                         + mainActivity.servicesFragment.servicesList.get(position).getDescription()
                         .replace("\n", "<br />") + "</body>]]>"));
-        serviceDescriptionTextViews.loadData(content, "text/html", "utf-8");
+
+        serviceDescriptionTextViews.loadData(content, "text/html; charset=utf-8", "utf-8");
+
         Picasso.with(Util.getActivity()).load("http://" + mainActivity.servicesFragment.servicesList.get(position).getImage())
                 .into(image, new Callback() {
                     @Override

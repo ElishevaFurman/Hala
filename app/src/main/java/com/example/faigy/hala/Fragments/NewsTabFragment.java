@@ -1,7 +1,9 @@
 package com.example.faigy.hala.Fragments;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -16,6 +18,7 @@ import com.example.faigy.hala.Utilities.Util;
 import com.example.faigy.hala.Utilities.CustomViewPager;
 
 import java.lang.reflect.Field;
+import java.util.Locale;
 
 /**
  * Created by Home on 2/1/2016.
@@ -84,6 +87,7 @@ public class NewsTabFragment extends Fragment {
 
         // initialize tabs
         tabLayout = (TabLayout) rootView.findViewById(R.id.tabanim_tabs);
+
         tabLayout.setupWithViewPager(this.customViewPager);
         this.customViewPager.beginFakeDrag();
 
@@ -111,19 +115,26 @@ public class NewsTabFragment extends Fragment {
 
     }
 
-    /**
+
+/**
      * Function to setup ViewPager
      * @param viewPager
      */
     private void setupViewPager(final ViewPager viewPager) {
         adapter = new ViewPagerAdapter(getChildFragmentManager());
-        final String NewsTag = "NEWS";
-        final String PublicationTag = "PUBLICATIONS";
-        final String PresentationTag = "PRESENTATIONS";
 
-        adapter.addFrag((new InTheNewsFragment()), NewsTag);
-        adapter.addFrag((new InTheNewsFragment()), PublicationTag);
-        adapter.addFrag((new InTheNewsFragment()), PresentationTag);
+
+        if (!Locale.getDefault().getLanguage().equals("en")) {
+            adapter.addFrag((new InTheNewsFragment()), "חדשות");
+            adapter.addFrag((new InTheNewsFragment()), "פרסומים");
+            adapter.addFrag((new InTheNewsFragment()), "מצגות");
+        } else {
+            adapter.addFrag((new InTheNewsFragment()), "NEWS");
+            adapter.addFrag((new InTheNewsFragment()), "PUBLICATIONS");
+            adapter.addFrag((new InTheNewsFragment()), "PRESENTATIONS");
+        }
+
+
 
         viewPager.setTag("0");
         viewPager.setAdapter(adapter);

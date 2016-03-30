@@ -27,6 +27,7 @@ import com.google.gson.JsonSyntaxException;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,7 +42,7 @@ public class ServicesFragment extends Fragment {
     Services[] servicesData;
     ArrayList<Services> servicesList;
     private static String TAG = "json_services_request";
-    private String url = "http://162.243.100.186/services_array.php";
+    private String url;
     FragmentManager.BackStackEntry backStackEntry;
 
     // Declare class
@@ -196,6 +197,15 @@ public class ServicesFragment extends Fragment {
      * Function to download data from url
      */
     public void downloadData() {
+        // set url data to corresponding language of phone settings
+        if (!Locale.getDefault().getLanguage().equals("en")) {
+
+            url = "http://162.243.100.186/services_array_he.php";
+
+        } else {
+
+            url = "http://162.243.100.186/services_array.php";
+        }
         // call makeJsonArrayRequest and send url, tag, errorTextView and instantiate a callBack
         databaseOperations.makeJsonArrayRequest(url, TAG, errorTextView,
                 new DatabaseOperations.VolleyCallback() {
