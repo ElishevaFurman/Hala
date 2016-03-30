@@ -327,8 +327,8 @@ public class Util extends Activity {
      * @param tag                - set tag for listener in dialog
      * @param param              - set param for listener in dialog
      */
-    public static void createDialog(String title, String message, String positiveButtonText,
-                                    String negativeButtonText, final String tag, final String param) {
+    public static void createDialog(int title, int message, int positiveButtonText,
+                                    int negativeButtonText, final String tag, final String param) {
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(Util.getActivity(), R.style.AppCompatAlertDialogStyle);
         builder.setTitle(title);

@@ -14,6 +14,7 @@ import com.example.faigy.hala.Classes.Services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by Home on 2/3/2016.
@@ -68,6 +69,11 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyNews
         // replace the contents of the view with that newsList data
         services = servicesList.get(position);
         holder.title.setText(services.getTitle().toUpperCase());
+        if (!Locale.getDefault().getLanguage().equals("en")) {
+            holder.viewDetailsImageView.setImageResource(R.drawable.ic_service_arrow_left_24dp);
+        } else {
+            holder.viewDetailsImageView.setImageResource(R.drawable.ic_service_arrow_right);
+        }
     }
 
     /**

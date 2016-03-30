@@ -38,6 +38,17 @@
     <string name="image_fax">image fax</string>
     <string name="image_bus">image bus</string>
     <string name="submit_button">SUBMIT</string>
+    <string name="call_hala">Call Hala</string>
+    <string name="call">CALL</string>
+    <string name="cancel">CANCEL</string>
+    <string name="internet_connection">Internet Connection</string>
+    <string name="internet_message">No connection found. Please connect to internet.</string>
+    <string name="connect">CONNECT</string>
+    <string name="testimonial">Open Testimonial</string>
+    <string name="testimonial_message">View testimonial in browser</string>
+    <string name="open">OPEN</string>
+    <string name="news_message">View article in browser</string>
+    <string name="news">Open Article</string>
 
 
     <!-- fragment_home -->
@@ -214,5 +225,27 @@
     <string name="error_server_error">"A server error occurred. Click here to to download again."</string>
     <string name="error_network_error">"A network error occurred. Click here to to download again."</string>
     <string name="error_parsing_error">"Unable to parse data. Click here to to download again."</string>
+
+
+    <!-- fragment_donate_now -->
+    <string name="donate_now_title">HELP US MAKE A DIFFERENCE!</string>
+    <string name="donate_now_subtitle">Donations to Hala are tax deductible in the United States, England and Israel.</string>
+    <string name="donate_now_button">DONATE NOW.</string>
+    <string name="donate_now_usa">USA:</string>
+    <string name="donate_now_usa_info1">American Friends of Hala</string>
+    <string name="donate_now_usa_info2">c/o Fred P. Schwartz, Esq.</string>
+    <string name="donate_now_usa_info3">PO Box 181487</string>
+    <string name="donate_now_usa_info4">Cleveland Hts., OH 44118-1487</string>
+
+    <string name="donate_now_england">ENGLAND:</string>
+    <string name="donate_now_england_info1">British Friends of Hala</string>
+    <string name="donate_now_england_info2">3 Stanley Crescent</string>
+    <string name="donate_now_england_info3">London, W11 2NB</string>
+
+    <string name="donate_now_israel">ISRAEL:</string>
+    <string name="donate_now_israel_info1">Hala</string>
+    <string name="donate_now_israel_info2">Bet Ofer</string>
+    <string name="donate_now_israel_info3">5 Nachum Heftzadi St.</string>
+    <string name="donate_now_israel_info4">Jerusalem, 95484</string>
 
 </resources>

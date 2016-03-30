@@ -36,6 +36,17 @@
     <string name="image_email">image email</string>
     <string name="image_fax">image fax</string>
     <string name="image_bus">image bus</string>
+    <string name="call_hala">תתקשר למכון הלאה</string>
+    <string name="call">בצע/י שיחה</string>
+    <string name="cancel">ביטול</string>
+    <string name="internet_connection">חיבור לאינטרנט</string>
+    <string name="internet_message">לא נמצא חיבור לאינטרנט. נא התחבר/י.</string>
+    <string name="connect">התחבר/י</string>
+    <string name="testimonial">פתח/י את העדויות בדפדפן</string>
+    <string name="testimonial_message">פתח/י את העדויות</string>
+    <string name="open">פתח/י</string>
+    <string name="news_message">פתח/י את המאמר</string>
+    <string name="news">פתח/י את המאמר בדפדפן</string>
 
 
     <!-- fragment_home -->
@@ -43,8 +54,6 @@
     <string name="home_banner_large_text2">CANCER IS A WORD. NOT A SENTENCE!</string>
     <string name="home_banner_large_text">Hala clinic has gained it\'s reputation as Israel\'s
         leading and most advanced breast cancer detection center, and probably one of the best in  the world</string>
-        <string name="home_banner_large_text1">HALA CLINIC HAS GAINED IT\'S REPUTATION AS ISRAEL\'S
-            LEADING AND MOST ADVANCED BREAST CANCER DETECTION CENTER, AND PROBABT ONE OF THE BEST IN THE WORLD</string>
     <string name="home_banner_small_text">-- יעקב ליצמן</string>
     <string name="home_banner_small_text2">שר הבריאות, מדינת ישראל</string>
     <string name="about_icon">about icon</string>
@@ -122,15 +131,6 @@
     <string name="help_us_grow_fact9">Pre- and post-operation care unit for ongoing and follow-up
         consultation</string>
 
-    <!-- fragment_services -->
-    <string name="fragment_services">שירותים</string>
-    <string name="service1">TOMOSYNTHESIS SYSTEM</string>
-    <string name="service3">PHYSICAL EXAM</string>
-    <string name="service2">DIGITAL MAMMOGRAPHY</string>
-    <string name="service5">RESULTS</string>
-    <string name="service6">NEEDLE BIOPSY</string>
-    <string name="service4">BREAST ULTRASOUND</string>
-    <string name="service7">STEREOTACTIC PRONE TABLE BIOPSY</string>
 
     <!-- fragment_appointment -->
     <string name="appointment_type1">בדיקה שגרתית</string>
@@ -169,8 +169,29 @@
     <!-- fragment_appointment-->
     <string name="fragment_appointment">זימון תורים</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- fragment_donate_now -->
+    <string name="donate_now_title">עזרו לנו לעשות שינוי!</string>
+    <string name="donate_now_subtitle">תרומות להלאה מוכרות כהוצאה במס הכנסה בארה"ב , בריטניה וישראל.</string>
+    <string name="donate_now_button">תרמו עכשיו</string>
+    <string name="donate_now_usa">ארצות הברית</string>
+    <string name="donate_now_usa_info1">American Friends of Hala</string>
+    <string name="donate_now_usa_info2">c/o Fred P. Schwartz, Esq.</string>
+    <string name="donate_now_usa_info3">PO Box 181487</string>
+    <string name="donate_now_usa_info4">Cleveland Hts., OH 44118-1487</string>
+
+    <string name="donate_now_england">בריטניה</string>
+    <string name="donate_now_england_info1">British Friends of Hala</string>
+    <string name="donate_now_england_info2">3 Stanley Crescent</string>
+    <string name="donate_now_england_info3">London, W11 2NB</string>
+
+    <string name="donate_now_israel">ישראל</string>
+    <string name="donate_now_israel_info1">הלאה</string>
+    <string name="donate_now_israel_info2">בית עופר</string>
+    <string name="donate_now_israel_info3">רחוב נחום חפצדי 5</string>
+    <string name="donate_now_israel_info4">ירושלים 95484</string>
+
+<string name="home_banner_large_text1">
+מכון הלאה צברה את המוניטין שלה בתור המכון המוביל והמתקדם בישראל בתחום אבחון סרטן השד, וכנראה מדורג בתור אחד הטובים ברחבי העולם</string>
 
 
 </resources>

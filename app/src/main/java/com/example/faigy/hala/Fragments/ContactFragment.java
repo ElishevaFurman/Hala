@@ -114,7 +114,7 @@ public class ContactFragment extends Fragment {
         @Override
         public void onClick(View v) {
 
-           Util.createDialog("Call Hala", "Call", "CALL", "CANCEL", "call", "02-659-5533");
+           Util.createDialog(R.string.call_hala, R.string.call, R.string.call, R.string.cancel, "call", "02-659-5533");
         }
     };
 

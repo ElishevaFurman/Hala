@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity
         Util.setReference(this);
 
         if (!Util.isConnected()) {
-            Util.createDialog("Internet Connection", "No connection found. Please connect to internet.", "CONNECT", "CANCEL", "internet", null);
+            Util.createDialog(R.string.internet_connection, R.string.internet_message, R.string.connect, R.string.cancel, "internet", null);
         }
         initializeViews();
         initializeFragments();

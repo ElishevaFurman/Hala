@@ -14,8 +14,10 @@ import com.example.faigy.hala.Classes.News;
 import com.example.faigy.hala.R;
 import com.example.faigy.hala.Utilities.Util;
 
+import java.text.Bidi;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by Home on 2/3/2016.
@@ -71,12 +73,19 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
         // replace the contents of the view with that newsList data
         news = newsList.get(position);
         holder.title.setText(news.getTitle());
-        holder.publication.setText(news.getPublication()+", ");
+        holder.publication.setText(news.getPublication()+ ", ");
         holder.date.setText(news.getDate().toString());
+        Bidi bidi = new Bidi(news.getPublication(), Bidi.DIRECTION_DEFAULT_LEFT_TO_RIGHT);
+        if (!Locale.getDefault().getLanguage().equals("en")) {
+            if (bidi.isLeftToRight()) {
+                holder.publication.setText(news.getDate().toString());
+                holder.date.setText(news.getPublication() + ", ");
+            }
+        }
         holder.textLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Util.createDialog("Open Article", "View article in browser", "OPEN", "CANCEL", "url", news.getUrl());
+                Util.createDialog(R.string.news, R.string.news_message, R.string.open, R.string.cancel, "url", news.getUrl());
 
             }
         });
