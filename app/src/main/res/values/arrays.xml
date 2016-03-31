@@ -6,8 +6,8 @@
 
     <array name="landing_bg">
         <item>@color/colorPrimary</item>
-        <item>@color/colorAccent</item>
         <item>@color/colorAccentLight</item>
+        <item>@color/colorPrimaryExtraLight</item>
     </array>
 
     <array name="icons">

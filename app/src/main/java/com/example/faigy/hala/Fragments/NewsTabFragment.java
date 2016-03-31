@@ -123,19 +123,9 @@ public class NewsTabFragment extends Fragment {
     private void setupViewPager(final ViewPager viewPager) {
         adapter = new ViewPagerAdapter(getChildFragmentManager());
 
-
-        if (!Locale.getDefault().getLanguage().equals("en")) {
-            adapter.addFrag((new InTheNewsFragment()), "חדשות");
-            adapter.addFrag((new InTheNewsFragment()), "פרסומים");
-            adapter.addFrag((new InTheNewsFragment()), "מצגות");
-        } else {
-            adapter.addFrag((new InTheNewsFragment()), "NEWS");
-            adapter.addFrag((new InTheNewsFragment()), "PUBLICATIONS");
-            adapter.addFrag((new InTheNewsFragment()), "PRESENTATIONS");
-        }
-
-
-
+        adapter.addFrag((new InTheNewsFragment()), Util.getContext().getString(R.string.news_tab1));
+        adapter.addFrag((new InTheNewsFragment()), Util.getContext().getString(R.string.news_tab2));
+        adapter.addFrag((new InTheNewsFragment()), Util.getContext().getString(R.string.news_tab3));
         viewPager.setTag("0");
         viewPager.setAdapter(adapter);
     }

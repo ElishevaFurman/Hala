@@ -1,6 +1,8 @@
 package com.example.faigy.hala.Fragments;
 
 import android.app.Fragment;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -75,7 +77,7 @@ public class HomeFragment extends Fragment {
         // initialize and reference ImageView
         homeImageView = (ImageView) rootView.findViewById(R.id.homeImageView);
         homeImageView.setImageBitmap(
-                Util.decodeSampledBitmapFromResource(getResources(), R.drawable.pink_ribbon_background, 180, 180));
+                Util.decodeSampledBitmapFromResource(getResources(), R.drawable.flower, 180, 180));
 
     }
 

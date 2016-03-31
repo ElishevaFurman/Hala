@@ -11,7 +11,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:alpha="0.8"
             android:adjustViewBounds="true"
             android:layout_gravity="center_horizontal" />
 
@@ -23,21 +22,22 @@
         android:orientation="vertical"
         android:layout_gravity="bottom"
         android:paddingBottom="@dimen/default_margin"
-        android:paddingLeft="@dimen/default_margin"
-        android:paddingRight="@dimen/default_margin"
+        android:paddingStart="@dimen/default_margin"
+        android:paddingEnd="@dimen/default_margin"
         android:paddingTop="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="100dp"
-        android:textStyle="bold"
+        android:layout_marginTop="50dp"
         android:layout_alignParentBottom="false"
         android:layout_alignParentTop="true">
+
         <TextView
             android:id="@+id/bannerTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="8dp"
             android:text="@string/home_banner_large_text1"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#fff"/>
+            android:textSize="16dp"
+            android:textColor="#fff"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/bannerTextView1"
