@@ -124,14 +124,9 @@ public class ContactFragment extends Fragment {
     View.OnClickListener emailListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            // get list of email addresses from xml array
-            String[] addresses =
-                    Util.getActivity().getResources().getStringArray(R.array.addresses);
 
-            // subject line
-            String subject = "Contact Hala";
-            // compose email using email address and subject line
-            Util.composeEmail(addresses, subject, null);
+            Util.createDialog(R.string.email_hala, R.string.send_email, R.string.send_email, R.string.cancel, "email", null);
+
         }
     };
 
