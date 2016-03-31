@@ -54,6 +54,7 @@ public class FAQFragment extends Fragment {
         // remove keyboard from screen
         Util.hideSoftKeyboard();
 
+
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {

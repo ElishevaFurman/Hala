@@ -207,5 +207,26 @@
     <string name="faqDescription">שלח/י שאלה וקבל/י מענה מאחד הרופאים של מכון הלאה</string>
 
     <string name="skip">SKIP</string>
+    <string name="app_intro_done_button">דלג</string>
+
+
+    <string name="send_form_success">אימייל נשלח למכון הלאה</string>
+    <string name="send_form_not_success">אימייל לא נשלח</string>
+
+
+    <!-- Volley error messages -->
+    <string name="error_no_connection_found">לא נמצא חיבור לאינטרנט. לחצ/י כאן כדי להוריד שוב.</string>
+    <string name="error_authentication_failed">אימות נכשל. לחצ/י כאן כדי להוריד שוב.</string>
+    <string name="error_server_error">אירעה שגיאת שרת. לחצ/י כאן כדי להוריד שוב.</string>
+    <string name="error_network_error">אירעה שגיאת שרת. לחצ/י כאן כדי להוריד שוב.</string>
+    <string name="error_parsing_error">לא ניתן לנתח את הנתונים. לחצ/י כאן כדי להוריד שוב.</string>
+
+    <string name="dialog_title_please_wait">נא המתנ/י</string>
+    <string name="dialog_sending_email">שולח אימייל</string>
+
+    <string name="news_tab1">"NEWS"</string>
+    <string name="news_tab2">"PUBLICATIONS"</string>
+    <string name="news_tab3">"PRESENTATIONS"</string>
+
 
 </resources>

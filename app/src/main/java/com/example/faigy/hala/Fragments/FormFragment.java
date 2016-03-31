@@ -431,7 +431,7 @@ public class FormFragment extends Fragment {
         protected void onPreExecute() {
             super.onPreExecute();
             // show progress dialog
-            progressDialog = ProgressDialog.show(Util.getActivity(), "Please wait", "Sending mail", true, false);
+            progressDialog = ProgressDialog.show(Util.getActivity(), Util.getContext().getString(R.string.dialog_title_please_wait), Util.getContext().getString(R.string.dialog_sending_email), true, false);
 
         }
 
@@ -477,7 +477,7 @@ public class FormFragment extends Fragment {
             // if email was sent successfully
             if (success && successSent) {
                 // show message in Snackbar - "Email was sent to Hala"
-                Snackbar.make(relativeLayout, "Email sent to Hala", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(relativeLayout, R.string.send_form_success, Snackbar.LENGTH_LONG).show();
                 // removed textWatchers from views
                 removeTextWatcherFromViews();
                 // clear all views
@@ -486,7 +486,7 @@ public class FormFragment extends Fragment {
                 inputName.requestFocus();
             } else {
                 // show message in Snackbar - "Email failed to send to Hala"
-                Snackbar.make(relativeLayout, "Email failed to send to Hala", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(relativeLayout, R.string.send_form_not_success, Snackbar.LENGTH_LONG).show();
             }
 
         }

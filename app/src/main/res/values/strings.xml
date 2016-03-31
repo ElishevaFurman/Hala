@@ -218,6 +218,7 @@
     <string name="faqDescription">Submit a question and get an answer from one of our doctors</string>
 
     <string name="skip">SKIP</string>
+    <string name="app_intro_done_button">DONE</string>
 
     <!-- Volley error messages -->
     <string name="error_no_connection_found">"No connection found. Click here to download again."</string>
@@ -247,5 +248,16 @@
     <string name="donate_now_israel_info2">Bet Ofer</string>
     <string name="donate_now_israel_info3">5 Nachum Heftzadi St.</string>
     <string name="donate_now_israel_info4">Jerusalem, 95484</string>
+
+
+    <string name="send_form_success">Email sent to Hala</string>
+    <string name="send_form_not_success">Email failed to send to Hala</string>
+
+    <string name="dialog_title_please_wait">Please wait</string>
+    <string name="dialog_sending_email">Sending mail</string>
+
+    <string name="news_tab1">"NEWS"</string>
+    <string name="news_tab2">"PUBLICATIONS"</string>
+    <string name="news_tab3">"PRESENTATIONS"</string>
 
 </resources>
