@@ -260,4 +260,7 @@
     <string name="news_tab2">"PUBLICATIONS"</string>
     <string name="news_tab3">"PRESENTATIONS"</string>
 
+    <string name="email_hala">Email Hala</string>
+    <string name="send_email">SEND EMAIL</string>
+
 </resources>

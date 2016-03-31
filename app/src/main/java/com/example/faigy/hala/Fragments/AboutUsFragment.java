@@ -1,10 +1,12 @@
 package com.example.faigy.hala.Fragments;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.faigy.hala.Activities.MainActivity;
 import com.example.faigy.hala.R;
@@ -18,6 +20,7 @@ public class AboutUsFragment extends Fragment {
 
     // Declare Activities
     MainActivity mainActivity;
+    ImageView aboutUsImageView;
 
     public AboutUsFragment() {
         // Required empty public constructor
@@ -56,8 +59,9 @@ public class AboutUsFragment extends Fragment {
      * Function to initialize controls
      */
     public void initializeViews(View rootView) {
-        //int size = MySingleton.getInstance().getNewsArrayList().size();
-        //Toast.makeText(Util.getContext(),size+"",Toast.LENGTH_LONG).show();
+        aboutUsImageView = (ImageView) rootView.findViewById(R.id.aboutUsImageView);
+        aboutUsImageView.setImageBitmap(
+                Util.decodeSampledBitmapFromResource(getResources(), R.drawable.hala_image7, 180, 180));
     }
 
     public void setMainActivity(MainActivity mainActivity) {

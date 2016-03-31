@@ -224,9 +224,13 @@
     <string name="dialog_title_please_wait">נא המתנ/י</string>
     <string name="dialog_sending_email">שולח אימייל</string>
 
-    <string name="news_tab1">"NEWS"</string>
-    <string name="news_tab2">"PUBLICATIONS"</string>
-    <string name="news_tab3">"PRESENTATIONS"</string>
 
+    <string name="news_tab1">"חדשות"</string>
+    <string name="news_tab2">"פרסומים"</string>
+    <string name="news_tab3">"מצגות"</string>
+
+
+    <string name="email_hala">שלח אימייל למכון הלאה</string>
+    <string name="send_email">שלח אימייל</string>
 
 </resources>

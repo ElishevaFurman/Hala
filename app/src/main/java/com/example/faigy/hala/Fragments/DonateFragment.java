@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -43,6 +44,7 @@ import java.util.Map;
 public class DonateFragment extends Fragment {
     MainActivity mainActivity;
     RelativeLayout donateRelativeLayout;
+    ImageView donateImageView;
     DatabaseOperations3 databaseOperations3;
 
 
@@ -100,6 +102,11 @@ public class DonateFragment extends Fragment {
 
             }
         });
+
+        donateImageView = (ImageView) rootView.findViewById(R.id.donateImageView);
+        donateImageView.setImageBitmap(
+                Util.decodeSampledBitmapFromResource(getResources(), R.drawable.donate_image, 180, 180));
+
     }
 
 public void getData(){

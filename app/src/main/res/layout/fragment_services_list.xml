@@ -13,13 +13,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scrollbars="none"
-                android:layout_above="@+id/serviceDetailImageView" />
+                android:layout_above="@+id/serviceImageView" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/serviceDetailImageView"
-        android:src="@drawable/services_image2"
+        android:id="@+id/serviceImageView"
         android:layout_gravity="bottom"
         android:layout_alignParentBottom="true"
         android:adjustViewBounds="true"/>

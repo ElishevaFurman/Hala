@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.faigy.hala.Adapters.ServicesAdapter;
@@ -37,6 +38,7 @@ public class ServicesFragment extends Fragment {
     private RecyclerView recyclerView;
     private ServicesAdapter mAdapter;
     TextView errorTextView;
+    ImageView serviceImageView;
 
     // Declare variables
     Services[] servicesData;
@@ -114,6 +116,10 @@ public class ServicesFragment extends Fragment {
 
         // initialize and reference RecyclerView
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
+
+        serviceImageView  = (ImageView) rootView.findViewById(R.id.serviceImageView);
+        serviceImageView.setImageBitmap(
+                Util.decodeSampledBitmapFromResource(getResources(), R.drawable.services_image2, 180, 180));
 
     }
 

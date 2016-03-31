@@ -22,6 +22,8 @@ import com.example.faigy.hala.R;
 import com.example.faigy.hala.Utilities.CirclePageIndicator;
 import com.example.faigy.hala.Utilities.ColorShades;
 
+import java.util.Locale;
+
 
 public class AppIntroActivity extends Activity{
 
@@ -49,7 +51,12 @@ public class AppIntroActivity extends Activity{
                 Intent i = new Intent(AppIntroActivity.this, MainActivity.class);
                 startActivity(i);
                 //overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
+
+                if(Locale.getDefault().getLanguage().equals("he") || Locale.getDefault().getLanguage().equals("ar")) {
+                    overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+                } else {
+                    overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
+                }
                 // close this activity
                 finish();
             }
