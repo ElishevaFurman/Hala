@@ -169,6 +169,9 @@
     <!-- fragment_appointment-->
     <string name="fragment_appointment">זימון תורים</string>
 
+    <!-- fragment_services -->
+    <string name="fragment_services">שירותים</string>
+
     <!-- fragment_donate_now -->
     <string name="donate_now_title">עזרו לנו לעשות שינוי!</string>
     <string name="donate_now_subtitle">תרומות להלאה מוכרות כהוצאה במס הכנסה בארה"ב , בריטניה וישראל.</string>
@@ -193,5 +196,16 @@
 <string name="home_banner_large_text1">
 מכון הלאה צברה את המוניטין שלה בתור המכון המוביל והמתקדם בישראל בתחום אבחון סרטן השד, וכנראה מדורג בתור אחד הטובים ברחבי העולם</string>
 
+    <!-- app intro -->
+
+    <string name="servicesTitle">שירותים</string>
+    <string name="newsTitle">חדשות</string>
+    <string name="faqTitle">שאלות ותשובות</string>
+
+    <string name="servicesDescription">קבל/י רשימה של שירותי מכון הלאה</string>
+    <string name="newsDescription">קרא/י ושתפ/י כתבות על מכון הלאה בחדשות</string>
+    <string name="faqDescription">שלח/י שאלה וקבל/י מענה מאחד הרופאים של מכון הלאה</string>
+
+    <string name="skip">SKIP</string>
 
 </resources>
