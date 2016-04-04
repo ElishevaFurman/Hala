@@ -5,8 +5,8 @@
     android:background="@drawable/side_nav_bar"
     android:orientation="vertical"
     android:paddingBottom="16dp"
-    android:paddingStart="@dimen/activity_horizontal_margin"
     android:paddingEnd="@dimen/activity_horizontal_margin"
+    android:paddingStart="@dimen/activity_horizontal_margin"
     android:paddingTop="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
@@ -14,24 +14,15 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:contentDescription="@string/image_description"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:src="@drawable/navicon" />
+
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/image_description"
         android:src="@drawable/navtitle" />
-
-
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@string/app_title"-->
-        <!--android:paddingTop="8dp"-->
-        <!--android:layout_gravity="start"-->
-        <!--android:textAppearance="?android:attr/textAppearanceSmall"-->
-        <!--android:id="@+id/textView" />-->
 
 </LinearLayout>

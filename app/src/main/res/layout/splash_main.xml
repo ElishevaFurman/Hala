@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/landing_backgrond"
+    android:id="@+id/landing_background"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
@@ -11,55 +11,41 @@
         android:layout_height="fill_parent"
         android:background="@null" />
 
-
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:gravity="bottom"
-    android:layout_weight="1"
-    android:background="#80000000"
-    android:alpha="0.5"
-    android:layout_alignParentBottom="true"
- >
-
-    <!--TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SKIP"
-        android:textColor="#fff"
-        android:textSize="16dp"
-        android:padding="@dimen/activity_horizontal_margin"
-        android:layout_gravity="center_vertical|right"
-        android:id="@+id/skipTextView" /-->
-
-    <com.example.faigy.hala.Utilities.CirclePageIndicator
-        android:id="@+id/indicator"
-        android:layout_width="fill_parent"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:padding="22dp"
-        android:layout_weight="1"
-        android:background="#80000000"
         android:alpha="0.5"
-        android:layout_gravity="center_vertical"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:gravity="center_vertical"
-        android:layout_centerHorizontal="true" />
+        android:background="#80000000"
+        android:gravity="bottom"
+        android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_intro_done_button"
-        android:textColor="#fff"
-        android:textSize="16dp"
-        android:padding="@dimen/activity_horizontal_margin"
-        android:layout_gravity="center_vertical|end"
-        android:id="@+id/doneTextView"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        <com.example.faigy.hala.Utilities.CirclePageIndicator
+            android:id="@+id/indicator"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_vertical"
+            android:alpha="0.5"
+            android:background="#80000000"
+            android:gravity="center_vertical"
+            android:padding="22dp"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:paddingStart="@dimen/activity_horizontal_margin" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/doneTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center_vertical|end"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:text="@string/app_intro_done_button"
+            android:textColor="#fff"
+            android:textSize="16sp" />
 
+    </RelativeLayout>
 
 </RelativeLayout>

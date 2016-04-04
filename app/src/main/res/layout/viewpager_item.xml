@@ -6,38 +6,38 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
         android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:gravity="center">
-
+        android:paddingRight="15dp">
 
         <ImageView
             android:id="@+id/landing_img_slide"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:layout_centerHorizontal="true"
-            android:scaleType="centerCrop" />
+            android:layout_gravity="center_horizontal"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/image_description"/>
 
         <TextView
             android:id="@+id/landing_txt_title"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_marginTop="30dp"
+            android:gravity="center"
             android:textColor="@android:color/white"
             android:textSize="22sp" />
-
 
         <TextView
             android:id="@+id/landing_txt_hint"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:gravity="center"
             android:lineSpacingExtra="3dp"
-            android:layout_marginTop="30dp"
-            android:textSize="18sp"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
     </LinearLayout>
+
 </RelativeLayout>

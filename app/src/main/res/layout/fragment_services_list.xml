@@ -1,28 +1,24 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:scrollIndicators="none">
+    android:orientation="vertical">
 
-
-
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbars="none"
-                android:layout_above="@+id/serviceImageView" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/serviceImageView"
+        android:scrollbars="none" />
 
     <ImageView
+        android:id="@+id/serviceImageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/serviceImageView"
-        android:layout_gravity="bottom"
         android:layout_alignParentBottom="true"
-        android:adjustViewBounds="true"/>
-
+        android:layout_gravity="bottom"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/image_description" />
 
     <TextView
         android:id="@+id/errorTextView"
@@ -33,7 +29,5 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/colorPrimaryText"
         android:visibility="gone" />
-
-
 
 </RelativeLayout>

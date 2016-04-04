@@ -77,7 +77,7 @@ public class AppIntroActivity extends Activity{
             @Override
             public void onPageScrolled(final int position, float positionOffset, int positionOffsetPixels) {
 
-                View landingBGView = findViewById(R.id.landing_backgrond);
+                View landingBGView = findViewById(R.id.landing_background);
                 int colorBg[] = getResources().getIntArray(R.array.landing_bg);
 
 
