@@ -39,14 +39,10 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-
     // Declare controls
     public Toolbar toolbar;
     public DrawerLayout drawer;
     NavigationView navigationView;
-    RelativeLayout container;
-
-
 
     // Declare Fragments
     HomeFragment homeFragment;
@@ -67,7 +63,6 @@ public class MainActivity extends AppCompatActivity
     NewsTabFragment newsTabFragment;
     DatabaseOperations databaseOperations;
 
-
     // Declare variables
     String location;
 
@@ -83,25 +78,25 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         // call the parent activities onCreate
         super.onCreate(savedInstanceState);
-        if (Locale.getDefault().getLanguage().equals("ar")){
+        if (!Locale.getDefault().getLanguage().equals("en")){
             getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         }
         // attach xml to activity
         setContentView(R.layout.activity_main);
-        // send activity reference to Util class
 
+        // send activity reference to Util class
         Util.setReference(this);
 
+        // check if phone is connected to internet or not
         if (!Util.isConnected()) {
+            // if its not connected, show dialog:"No connection found. Please connect to internet"
             Util.createDialog(R.string.internet_connection, R.string.internet_message, R.string.connect, R.string.cancel, "internet", null);
         }
+
         initializeViews();
         initializeFragments();
         inflateScrollViewWithFragment();
         app = (MyApplication) getApplication();
-
-        //EventBus myEventBus = EventBus.getDefault();
-
     }
 
 
@@ -170,7 +165,6 @@ public class MainActivity extends AppCompatActivity
             }
         }
     }
-
 
     /**
      * @param item - position of item to be selected to

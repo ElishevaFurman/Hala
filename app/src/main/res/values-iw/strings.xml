@@ -1,0 +1,236 @@
+<resources>
+    <!-- activity_main -->
+    <string name="app_name">הלאה</string>
+    <string name="app_title">The Rachel Nash Jerusalem Comprehensive Breast Clinic</string>
+    <string name="nav_home">דף הבית</string>
+    <string name="nav_about">אודותינו</string>
+    <string name="nav_team">הצוות הרפואי</string>
+    <string name="nav_services">שירותים</string>
+    <string name="nav_news">מהחדשות</string>
+    <string name="nav_testimonials">עדויות</string>
+    <string name="nav_appointments">זימון תורים</string>
+    <string name="nav_grow">עזרו לנו לגדול</string>
+    <string name="nav_donate">תרמו עכשיו</string>
+    <string name="nav_contact">צור קשר</string>
+    <string name="nav_faqs">שאלות ותשובות</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- fragment_contact -->
+    <string name="our_location">המיקום שלנו</string>
+    <string name="contact_form">טופס יצירת קשר</string>
+    <string name="fragment_contact">צור קשר</string>
+    <string name="contact_title"><![CDATA[הלאה - המכון לאבחון ובריאות השד<br />
+על שם רחל נש]]></string>
+    <string name="contact_location"><![CDATA[בית עופר <br /> רחוב נחום חפצדי 5<br />
+     95484 ירושלים]]></string>
+    <string name="contact_phone"><![CDATA[ טל: <a href="">"+972.2.659.5533"</a> ]]></string>
+    <string name="contact_email"><![CDATA[דואר אלקטרוני: <a href="">"tor@hala.org.il"</a>]]></string>
+    <string name="contact_fax">פקס: +972.2.659.5535</string>
+    <string name="contact_bus">אוטובוסים: 6, 52, 54, 55, 65, 74, 75 , 78 א</string>
+    <string name="image_location">image location</string>
+    <string name="image_phone">image phone</string>
+    <string name="image_email">image email</string>
+    <string name="image_fax">image fax</string>
+    <string name="image_bus">image bus</string>
+    <string name="call_hala">תתקשר למכון הלאה</string>
+    <string name="call">בצע/י שיחה</string>
+    <string name="cancel">ביטול</string>
+    <string name="internet_connection">חיבור לאינטרנט</string>
+    <string name="internet_message">לא נמצא חיבור לאינטרנט. נא התחבר/י.</string>
+    <string name="connect">התחבר/י</string>
+    <string name="testimonial">פתח/י את העדויות בדפדפן</string>
+    <string name="testimonial_message">פתח/י את העדויות</string>
+    <string name="open">פתח/י</string>
+    <string name="news_message">פתח/י את המאמר</string>
+    <string name="news">פתח/י את המאמר בדפדפן</string>
+
+
+    <!-- fragment_home -->
+    <string name="fragment_home">הלאה</string>
+    <string name="home_banner_large_text2">CANCER IS A WORD. NOT A SENTENCE!</string>
+    <string name="home_banner_large_text">Hala clinic has gained it\'s reputation as Israel\'s
+        leading and most advanced breast cancer detection center, and probably one of the best in  the world</string>
+    <string name="home_banner_small_text">-- יעקב ליצמן</string>
+    <string name="home_banner_small_text2">שר הבריאות, מדינת ישראל</string>
+    <string name="about_icon">about icon</string>
+    <string name="services_icon">services icon</string>
+    <string name="contact_icon">contact icon</string>
+    <string name="about">אודות</string>
+    <string name="services">שירותים</string>
+    <string name="contact">צור קשר</string>
+
+    <!-- fragment_testimonials -->
+    <string name="fragment_testimonials">עדויות</string>
+    <string name="testimonial1">שרה בראון</string>
+    <string name="testimonial2">ליידי שרון הראל - כהן</string>
+    <string name="testimonial3">סוזן ג. קומן</string>
+    <string name="testimonial4">שר הבריאות</string>
+    <string name="image_testimonial">image testimonial</string>
+    <string name="testimonial_title">דברים שאנשים אומרים על הלאה!</string>
+
+    <!-- fragment_testimonial_view -->
+    <string name="pdf_view">pdf view</string>
+
+    <!-- fragment_ask -->
+    <string name="fragment_ask">שאל</string>
+    <string name="hint_name">שם</string>
+    <string name="hint_email">אימייל</string>
+    <string name="phone_hint">מפר טלפון</string>
+    <string name="question_hint">שאלה</string>
+    <string name="ask_button">שאל</string>
+    <string name="submit_button">שלח</string>
+
+    <string name="hint_password">סיסמה</string>
+    <string name="err_msg_name">מלא את שמך</string>
+    <string name="err_msg_phone">מלא את מספר הטלפון שלך</string>
+    <string name="err_msg_email">מלא את אימייל שלך</string>
+    <string name="err_msg_question">מלא את הודעתך</string>
+
+    <!-- fragment_our_mission -->
+    <string name="image_description">image description</string>
+    <string name="our_mission_title">השליחות של הלאה - הינה  שליחות של הצלת  חיים.
+כיצד?</string>
+    <string name="our_mission_fact1">בכך שהלאה הקימה את המכון הישראלי לאבחון וגילוי של סרטן השד- מהמתקדמים ביותר.</string>
+    <string name="our_mission_fact2">בכך שהלאה מציעה  לכל אשה את כל הבדיקות המתאימות במקום אחד, באותו זמן, עם תוצאות מידיות. אם מבוצעת פעולה  של ביופסיה מחטית ללא ניתוח ,התוצאות  ניתנות בדרך כלל תוך מספר ימים ולא שבועות.</string>
+    <string name="our_mission_fact3">בכך שבהלאה  מאבחנים את סרטן השד בשלב ההתחלתי שלו, לפני שמאוחר מדי לתת טיפול יעיל.</string>
+    <string name="our_mission_fact4">בכך שבהלאה מרחיבים את המכון שיכלול טווח רחב יותר של שירותים והגדלה משמעותית של  היקף הנבדקות.</string>
+
+    <!-- fragment_about_us -->
+    <string name="the_hala_advantage_title">היתרון של הלאה</string>
+    <string name="the_hala_advantage_fact1">הלאה - הכל במקום אחד, המכון לאבחון סרטן השד בגבעת שאול בירושלים, נחשב למכון הטוב ביותר בישראל.</string>
+    <string name="the_hala_advantage_fact2">הלאה מחויבת לספק רמה חדשנית של מומחיות אבחון בתחום בדיקת סרטן השד.</string>
+    <string name="the_hala_advantage_fact3">בהלאה, כל הבדיקות והפרוצדורות נעשות בביקור אחד.</string>
+    <string name="the_hala_advantage_fact4">בהלאה, תוצאות של בדיקות ,למעט  ביופסיה, ניתנות למטופל על המקום.</string>
+    <string name="the_hala_advantage_fact5">בהלאה יש שיעור אבחון שאין דומה לו, של 98.7%.</string>
+    <string name="the_hala_advantage_fact6">בהלאה שיעור האבחון הוא ב-31%  dגבוה יותר ממודלים לא מקיפים.</string>
+    <string name="the_hala_advantage_fact7">הלאה הפחיתה את שיעור התוצאות החיוביות השגויות (false positive - שתוצאתם היא ניתוח מיותר) ב-48%.</string>
+    <string name="the_hala_advantage_fact8">הלאה משתמשת בטכנולוגיות המתקדמות  בתבל  לאבחן אי סדירות בשד.</string>
+    <string name="the_hala_advantage_fact9">הלאה הינו המכון היחיד בישראל לאבחון סרטן השד עם מערכת טומוסינטזיס תלת ממד ומערכת- C- VIEW.</string>
+    <string name="the_hala_advantage_fact10">המומחים של הלאה מאבחנים בעקביות 20% של הגידולים בשלב התחלתי שלהם, דבר שאינו אפשרי בשימוש  בטכניקות צילום קונבנציונאליות. </string>
+    <string name="the_hala_advantage_fact11">הדלת של הלאה פתוחה בפני כל אישה, בלי להתחשב במעמד החברתי, גזע, דת או המצב הכלכלי שלה.</string>
+    <string name="the_hala_advantage_fact12">הלאה ידועה בעולם כפורצת דרך באבחון סרטן השד. </string>
+    <string name="the_hala_advantage_fact13">הלאה עורכת מבחני ביתא לחברות מישראל וחו"ל, חברות שמפתחות טכנולוגיות מדרגה ראשונה להדמיית שד ואבחון סרטן. </string>
+    <string name="the_hala_advantage_fact14">הלאה בדקה למעלה מ-150,000 נשים במזרח התיכון בחמש עשרה השנים האחרונות.</string>
+
+    <!-- fragment_help_us_grow -->
+    <string name="help_us_grow_fact1">An expanded diagnostic clinic</string>
+    <string name="help_us_grow_fact2">One of the world\'s most advanced, and Israel’s first,
+        breast-dedicated MRI Unit</string>
+    <string name="help_us_grow_fact3">A LumaGem Molecular Breast Imaging System (press here to get
+        Lavi\'s letter)</string>
+    <string name="help_us_grow_fact4">Tomosynthesis digital mammography units</string>
+    <string name="help_us_grow_fact5">An international research center for breast cancer experts in
+        Israel and around the world</string>
+    <string name="help_us_grow_fact6">Expanded laboratory facilities</string>
+    <string name="help_us_grow_fact7">A new live-tissue bank (press here to get Advantests’s letter)</string>
+    <string name="help_us_grow_fact8">A call center</string>
+    <string name="help_us_grow_fact9">Pre- and post-operation care unit for ongoing and follow-up
+        consultation</string>
+
+
+    <!-- fragment_appointment -->
+    <string name="appointment_type1">בדיקה שגרתית</string>
+    <string name="appointment_type2">אבחון דחוף</string>
+    <string name="appointment_type3">ביטוח רפואי</string>
+    <string name="appointment_type1_description">לקביעת תור לבדיקה שגרתית, צרי אתנו קשר התקשרי למכון, והנציגות  שלנו יקבעו לך תור. טל: 02-659-5533</string>
+    <string name="appointment_type2_description">הלאה הוא מכון שמקבל הפניות , ולכן הוא מטפל במקרים דחופים, מטופלים עם רמת  סיכון גבוהה כמו גם מטופלות  רגילות . הפניות נעשות על מכונים רפואיים ברחבי ישראל. אם נדרש תור דחוף שלחי בבקשה את ההפניה עם הפרטים ליצירת קשר אתך לפקס:02-659-5535. אחד מחברות  הצוות שלנו יצרו אתך קשר.</string>
+    <string name="appointment_type3_description">הלאה מקבלת מטופלים באופן פרטי כמו גם מטופלים מקופות החולים הבאות: מכבי (כל הארץ) לאומית (כל הארץ) כללית (ירושלים וממחוז ת"א ומרכז בלבד). כל עובדי האו"ם ועובדי קונסוליות מקבלים הנחה.</string>
+    <string name="appointment_type3_description2">
+נא להביא צילומי ממוגרפיה קודמים וכל התוצאות והבדיקות הרלבנטיות שנעשו מחוץ להלאה.</string>
+
+
+    <!-- fragment_service_detail -->
+    <string name="fragment_service_Detail">שירותים</string>
+    <string name="impact_button">BE PART OF THE IMPACT!</string>
+
+    <!-- fragment_faq-->
+    <string name="fragment_faq">שאלות ותשובות</string>
+    <string name="faq_title">ASK THE DOCTOR</string>
+
+    <!-- fragment_about-->
+    <string name="fragment_about">אודותינו</string>
+
+    <!-- fragment_grow-->
+    <string name="fragment_grow">עזרו לנו לגדול</string>
+
+    <!-- fragment_news-->
+    <string name="fragment_news">מהחדשות</string>
+
+    <!-- fragment_donate-->
+    <string name="fragment_donate">תרמו עכשיו</string>
+
+    <!-- fragment_team-->
+    <string name="fragment_team">הצוות הרפואי</string>
+
+    <!-- fragment_appointment-->
+    <string name="fragment_appointment">זימון תורים</string>
+
+    <!-- fragment_services -->
+    <string name="fragment_services">שירותים</string>
+
+    <!-- fragment_donate_now -->
+    <string name="donate_now_title">עזרו לנו לעשות שינוי!</string>
+    <string name="donate_now_subtitle">תרומות להלאה מוכרות כהוצאה במס הכנסה בארה"ב , בריטניה וישראל.</string>
+    <string name="donate_now_button">תרמו עכשיו</string>
+    <string name="donate_now_usa">ארצות הברית</string>
+    <string name="donate_now_usa_info1">American Friends of Hala</string>
+    <string name="donate_now_usa_info2">c/o Fred P. Schwartz, Esq.</string>
+    <string name="donate_now_usa_info3">PO Box 181487</string>
+    <string name="donate_now_usa_info4">Cleveland Hts., OH 44118-1487</string>
+
+    <string name="donate_now_england">בריטניה</string>
+    <string name="donate_now_england_info1">British Friends of Hala</string>
+    <string name="donate_now_england_info2">3 Stanley Crescent</string>
+    <string name="donate_now_england_info3">London, W11 2NB</string>
+
+    <string name="donate_now_israel">ישראל</string>
+    <string name="donate_now_israel_info1">הלאה</string>
+    <string name="donate_now_israel_info2">בית עופר</string>
+    <string name="donate_now_israel_info3">רחוב נחום חפצדי 5</string>
+    <string name="donate_now_israel_info4">ירושלים 95484</string>
+
+<string name="home_banner_large_text1">
+מכון הלאה צברה את המוניטין שלה בתור המכון המוביל והמתקדם בישראל בתחום אבחון סרטן השד, וכנראה מדורג בתור אחד הטובים ברחבי העולם</string>
+
+    <!-- app intro -->
+
+    <string name="servicesTitle">שירותים</string>
+    <string name="newsTitle">חדשות</string>
+    <string name="faqTitle">שאלות ותשובות</string>
+
+    <string name="servicesDescription">קבל/י רשימה של שירותי מכון הלאה</string>
+    <string name="newsDescription">קרא/י ושתפ/י כתבות על מכון הלאה בחדשות</string>
+    <string name="faqDescription">שלח/י שאלה וקבל/י מענה מאחד הרופאים של מכון הלאה</string>
+
+    <string name="skip">SKIP</string>
+    <string name="app_intro_done_button">דלג</string>
+
+
+    <string name="send_form_success">אימייל נשלח למכון הלאה</string>
+    <string name="send_form_not_success">אימייל לא נשלח</string>
+
+
+    <!-- Volley error messages -->
+    <string name="error_no_connection_found">לא נמצא חיבור לאינטרנט. לחצ/י כאן כדי להוריד שוב.</string>
+    <string name="error_authentication_failed">אימות נכשל. לחצ/י כאן כדי להוריד שוב.</string>
+    <string name="error_server_error">אירעה שגיאת שרת. לחצ/י כאן כדי להוריד שוב.</string>
+    <string name="error_network_error">אירעה שגיאת שרת. לחצ/י כאן כדי להוריד שוב.</string>
+    <string name="error_parsing_error">לא ניתן לנתח את הנתונים. לחצ/י כאן כדי להוריד שוב.</string>
+
+    <string name="dialog_title_please_wait">נא המתנ/י</string>
+    <string name="dialog_sending_email">שולח אימייל</string>
+
+
+    <string name="news_tab1">"חדשות"</string>
+    <string name="news_tab2">"פרסומים"</string>
+    <string name="news_tab3">"מצגות"</string>
+
+
+    <string name="email_hala">שלח אימייל למכון הלאה</string>
+    <string name="send_email">שלח אימייל</string>
+
+</resources>

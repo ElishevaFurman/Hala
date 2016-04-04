@@ -239,6 +239,18 @@ public class Util extends Activity {
         }
     }
 
+    public static void emailHala(){
+
+        // get list of email addresses from xml array
+        String[] addresses =
+                Util.getActivity().getResources().getStringArray(R.array.addresses);
+
+        // subject line
+        String subject = "Contact Hala";
+        // compose email using email address and subject line
+        Util.composeEmail(addresses, subject, null);
+    }
+
     /**
      * Function to send email with an intent
      *
@@ -337,7 +349,6 @@ public class Util extends Activity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 switch (tag) {
-
                     case "call":
                         callIntent(param);
                         break;
@@ -346,6 +357,9 @@ public class Util extends Activity {
                         break;
                     case "internet":
                         openWifiSettings();
+                        break;
+                    case "email":
+                        emailHala();
                         break;
                     default:
                         break;

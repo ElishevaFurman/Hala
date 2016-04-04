@@ -15,13 +15,22 @@ import java.util.ArrayList;
  */
 public class MyApplication extends Application {
 
+    // Declare variables
     private static Context context;
-
     private ArrayList<News> newsArrayList;
+    String location;
 
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
     public ArrayList<News> getNewsArrayList() {
         return newsArrayList;
+
     }
 
     public void setNewsArrayList(ArrayList<News> newsArrayList) {
@@ -30,12 +39,6 @@ public class MyApplication extends Application {
 
     public static Context getContext() {
         return context; }
-
-
-
-
-
-
 
     public static final String TAG = MyApplication.class.getSimpleName();
 
