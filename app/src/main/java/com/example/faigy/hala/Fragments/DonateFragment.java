@@ -105,7 +105,7 @@ public class DonateFragment extends Fragment {
 
         donateImageView = (ImageView) rootView.findViewById(R.id.donateImageView);
         donateImageView.setImageBitmap(
-                Util.decodeSampledBitmapFromResource(getResources(), R.drawable.donate_image, 180, 180));
+                Util.decodeSampledBitmapFromResource(getResources(), R.drawable.hala_capture_building, 180, 180));
 
     }
 

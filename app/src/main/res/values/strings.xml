@@ -8,14 +8,10 @@
     <string name="nav_services">Services</string>
     <string name="nav_news">In The News</string>
     <string name="nav_testimonials">Testimonials</string>
-    <string name="nav_grow">Help Us Grow</string>
     <string name="nav_appointments">Appointments</string>
     <string name="nav_donate">Donate Now</string>
     <string name="nav_contact">Contact Us</string>
     <string name="nav_faqs">FAQs</string>
-
-
-
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -41,15 +37,18 @@
     <string name="call_hala">Call Hala</string>
     <string name="call">CALL</string>
     <string name="cancel">CANCEL</string>
+
+    <!-- internet_connection -->
     <string name="internet_connection">Internet Connection</string>
     <string name="internet_message">No connection found. Please connect to internet.</string>
     <string name="connect">CONNECT</string>
+
+    <!-- fragment_testimonials -->
     <string name="testimonial">Open Testimonial</string>
     <string name="testimonial_message">View testimonial in browser</string>
     <string name="open">OPEN</string>
     <string name="news_message">View article in browser</string>
     <string name="news">Open Article</string>
-
 
     <!-- fragment_home -->
     <string name="fragment_home">Hala</string>
@@ -230,8 +229,9 @@
 
     <!-- fragment_donate_now -->
     <string name="donate_now_title">HELP US MAKE A DIFFERENCE!</string>
-    <string name="donate_now_subtitle">Donations to Hala are tax deductible in the United States, England and Israel.</string>
-    <string name="donate_now_button">DONATE NOW.</string>
+    <string name="donate_now_title2">JOIN US TO BUILD A LANDMARK WOMEN\'S HEALTH CENTER... AND SAVE LIVES</string>
+    <string name="donate_now_title3">Donations to Hala are tax deductible in the United States, England and Israel.</string>
+    <string name="donate_now_button">DONATE NOW</string>
     <string name="donate_now_usa">USA:</string>
     <string name="donate_now_usa_info1">American Friends of Hala</string>
     <string name="donate_now_usa_info2">c/o Fred P. Schwartz, Esq.</string>

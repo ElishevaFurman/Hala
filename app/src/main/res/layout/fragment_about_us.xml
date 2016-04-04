@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:ripple="http://schemas.android.com/tools"
     android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fillViewport="true"
-        android:scrollIndicators="none"
         android:scrollbars="none">
 
         <LinearLayout
@@ -26,36 +23,13 @@
                 android:id="@+id/aboutUsImageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/image_description"
-                android:gravity="center"
-                android:layout_gravity="center"/>
+                android:gravity="center" />
 
-
-            <!--com.andexert.library.RippleView
-                android:id="@+id/rect"
-                android:layout_width="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="30dp"
-                android:layout_height="wrap_content"
-                ripple:rv_type="rectangle"
-                android:padding="20dp"
-                ripple:rv_zoom="true">
-
-                <TextView
-                    android:id="@+id/rect_child"
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:layout_centerInParent="true"
-                    android:textColor="@android:color/white"
-                    android:textSize="18sp"
-                    android:gravity="center"
-                    android:text="Hello World!"
-                    android:background="@android:color/holo_green_light"/>
-
-            </com.andexert.library.RippleView-->
             <LinearLayout
                 android:id="@+id/bottomLinearLayout"
                 android:layout_width="match_parent"
@@ -63,522 +37,261 @@
                 android:orientation="vertical">
 
                 <TextView
+                    style="@style/tile_style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginStart="@dimen/activity_horizontal_margin"
                     android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                    android:text="@string/our_mission_title"
-                    style="@style/tile_style"/>
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/our_mission_title" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/aboutUsTextView1"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:drawablePadding="16dp"
+                    android:drawableStart="@drawable/ic_done_24dp"
+                    android:gravity="center_vertical"
                     android:paddingBottom="16dp"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp">
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:text="@string/our_mission_fact1"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                    <ImageView
-                        android:id="@+id/imageView15"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="top"
-                        android:background="@drawable/ic_done_24dp"
-                        android:contentDescription="@string/image_description" />
-
-                    <TextView
-                        android:id="@+id/factTextView15"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:paddingStart="16dp"
-                        android:text="@string/our_mission_fact1"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/aboutUsTextView2"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:drawablePadding="16dp"
+                    android:drawableStart="@drawable/ic_done_24dp"
+                    android:gravity="center_vertical"
                     android:paddingBottom="16dp"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp">
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:text="@string/our_mission_fact2"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                    <ImageView
-                        android:id="@+id/imageView16"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="top"
-                        android:background="@drawable/ic_done_24dp"
-                        android:contentDescription="@string/image_description" />
-
-                    <TextView
-                        android:id="@+id/factTextView17"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:paddingStart="16dp"
-                        android:text="@string/our_mission_fact2"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/aboutUsTextView3"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:drawablePadding="16dp"
+                    android:drawableStart="@drawable/ic_done_24dp"
+                    android:gravity="center_vertical"
                     android:paddingBottom="16dp"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp">
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:text="@string/our_mission_fact3"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                    <ImageView
-                        android:id="@+id/imageView17"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="top"
-                        android:background="@drawable/ic_done_24dp"
-                        android:contentDescription="@string/image_description" />
-
-                    <TextView
-                        android:id="@+id/factTextView3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:paddingStart="16dp"
-                        android:text="@string/our_mission_fact2"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/aboutUsTextView4"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:drawablePadding="16dp"
+                    android:drawableStart="@drawable/ic_done_24dp"
+                    android:gravity="center_vertical"
                     android:paddingBottom="16dp"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp">
-
-                    <ImageView
-                        android:id="@+id/imageView18"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="top"
-                        android:background="@drawable/ic_done_24dp"
-                        android:contentDescription="@string/image_description" />
-
-                    <TextView
-                        android:id="@+id/factTextView19"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:paddingStart="16dp"
-                        android:text="@string/our_mission_fact4"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                </LinearLayout>
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:text="@string/our_mission_fact4"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
             </LinearLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:text="@string/the_hala_advantage_title"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold" />
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/factTextView1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_done_24dp"
+                android:gravity="center_vertical"
                 android:paddingBottom="16dp"
+                android:paddingEnd="16dp"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:text="@string/the_hala_advantage_fact1"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                <ImageView
-                    android:id="@+id/imageView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="top"
-                    android:background="@drawable/ic_done_24dp"
-                    android:contentDescription="@string/image_description" />
-
-                <TextView
-                    android:id="@+id/factTextView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:text="@string/the_hala_advantage_fact1"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/factTextView2"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_done_24dp"
+                android:gravity="center_vertical"
                 android:paddingBottom="16dp"
+                android:paddingEnd="16dp"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:text="@string/the_hala_advantage_fact2"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="top"
-                    android:background="@drawable/ic_done_24dp"
-                    android:contentDescription="@string/image_description" />
-
-                <TextView
-                    android:id="@+id/factTextView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:text="@string/the_hala_advantage_fact2"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/factTextView3"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_done_24dp"
+                android:gravity="center_vertical"
                 android:paddingBottom="16dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
-
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="top"
-                    android:background="@drawable/ic_done_24dp"
-                    android:contentDescription="@string/image_description" />
-
-                <TextView
-                    android:id="@+id/phoneTextView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:text="@string/the_hala_advantage_fact3"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="16dp"
+                android:paddingEnd="16dp"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:text="@string/the_hala_advantage_fact3"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="top"
-                    android:background="@drawable/ic_done_24dp"
-                    android:contentDescription="@string/image_description" />
-
-                <TextView
-                    android:id="@+id/factTextView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:text="@string/the_hala_advantage_fact4"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/factTextView4"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_done_24dp"
+                android:gravity="center_vertical"
                 android:paddingBottom="16dp"
+                android:paddingEnd="16dp"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:text="@string/the_hala_advantage_fact4"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                <ImageView
-                    android:id="@+id/imageView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="top"
-                    android:background="@drawable/ic_done_24dp"
-                    android:contentDescription="@string/image_description" />
-
-                <TextView
-                    android:id="@+id/factTextView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:text="@string/the_hala_advantage_fact5"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/factTextView5"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_done_24dp"
+                android:gravity="center_vertical"
                 android:paddingBottom="16dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
-
-                <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="top"
-                    android:background="@drawable/ic_done_24dp"
-                    android:contentDescription="@string/image_description" />
-
-                <TextView
-                    android:id="@+id/factTextView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:text="@string/the_hala_advantage_fact6"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="16dp"
+                android:paddingEnd="16dp"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:text="@string/the_hala_advantage_fact5"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                <ImageView
-                    android:id="@+id/imageView7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="top"
-                    android:background="@drawable/ic_done_24dp"
-                    android:contentDescription="@string/image_description" />
-
-                <TextView
-                    android:id="@+id/factTextView7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:text="@string/the_hala_advantage_fact7"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/factTextView6"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_done_24dp"
+                android:gravity="center_vertical"
                 android:paddingBottom="16dp"
+                android:paddingEnd="16dp"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:text="@string/the_hala_advantage_fact6"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                <ImageView
-                    android:id="@+id/imageView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="top"
-                    android:background="@drawable/ic_done_24dp"
-                    android:contentDescription="@string/image_description" />
-
-                <TextView
-                    android:id="@+id/factTextView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:text="@string/the_hala_advantage_fact8"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/factTextView7"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_done_24dp"
+                android:gravity="center_vertical"
                 android:paddingBottom="16dp"
+                android:paddingEnd="16dp"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:text="@string/the_hala_advantage_fact7"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                <ImageView
-                    android:id="@+id/imageView9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="top"
-                    android:background="@drawable/ic_done_24dp"
-                    android:contentDescription="@string/image_description" />
-
-                <TextView
-                    android:id="@+id/factTextView9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:text="@string/the_hala_advantage_fact9"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/factTextView8"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_done_24dp"
+                android:gravity="center_vertical"
                 android:paddingBottom="16dp"
+                android:paddingEnd="16dp"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:text="@string/the_hala_advantage_fact8"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                <ImageView
-                    android:id="@+id/imageView10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="top"
-                    android:background="@drawable/ic_done_24dp"
-                    android:contentDescription="@string/image_description" />
-
-                <TextView
-                    android:id="@+id/factTextView10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:text="@string/the_hala_advantage_fact10"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/factTextView9"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_done_24dp"
+                android:gravity="center_vertical"
                 android:paddingBottom="16dp"
+                android:paddingEnd="16dp"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:text="@string/the_hala_advantage_fact9"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                <ImageView
-                    android:id="@+id/imageView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="top"
-                    android:background="@drawable/ic_done_24dp"
-                    android:contentDescription="@string/image_description" />
-
-                <TextView
-                    android:id="@+id/factTextView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:text="@string/the_hala_advantage_fact11"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/factTextView10"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_done_24dp"
+                android:gravity="center_vertical"
                 android:paddingBottom="16dp"
+                android:paddingEnd="16dp"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:text="@string/the_hala_advantage_fact10"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                <ImageView
-                    android:id="@+id/imageView12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="top"
-                    android:background="@drawable/ic_done_24dp"
-                    android:contentDescription="@string/image_description" />
-
-                <TextView
-                    android:id="@+id/factTextView12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:text="@string/the_hala_advantage_fact12"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/factTextView11"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_done_24dp"
+                android:gravity="center_vertical"
                 android:paddingBottom="16dp"
+                android:paddingEnd="16dp"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:text="@string/the_hala_advantage_fact11"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                <ImageView
-                    android:id="@+id/imageView13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="top"
-                    android:background="@drawable/ic_done_24dp"
-                    android:contentDescription="@string/image_description" />
-
-                <TextView
-                    android:id="@+id/factTextView13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:text="@string/the_hala_advantage_fact13"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/factTextView12"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_done_24dp"
+                android:gravity="center_vertical"
                 android:paddingBottom="16dp"
+                android:paddingEnd="16dp"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:text="@string/the_hala_advantage_fact12"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                <ImageView
-                    android:id="@+id/imageView14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="top"
-                    android:background="@drawable/ic_done_24dp"
-                    android:contentDescription="@string/image_description" />
+            <TextView
+                android:id="@+id/factTextView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_done_24dp"
+                android:gravity="center_vertical"
+                android:paddingBottom="16dp"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp"
+                android:text="@string/the_hala_advantage_fact13"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                <TextView
-                    android:id="@+id/factTextView14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingStart="16dp"
-                    android:text="@string/the_hala_advantage_fact14"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-            </LinearLayout>
-
+            <TextView
+                android:id="@+id/factTextView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_done_24dp"
+                android:gravity="center_vertical"
+                android:paddingBottom="16dp"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp"
+                android:text="@string/the_hala_advantage_fact14"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
         </LinearLayout>
     </ScrollView>

@@ -114,7 +114,7 @@
     <string name="the_hala_advantage_fact11">הדלת של הלאה פתוחה בפני כל אישה, בלי להתחשב במעמד החברתי, גזע, דת או המצב הכלכלי שלה.</string>
     <string name="the_hala_advantage_fact12">הלאה ידועה בעולם כפורצת דרך באבחון סרטן השד. </string>
     <string name="the_hala_advantage_fact13">הלאה עורכת מבחני ביתא לחברות מישראל וחו"ל, חברות שמפתחות טכנולוגיות מדרגה ראשונה להדמיית שד ואבחון סרטן. </string>
-    <string name="the_hala_advantage_fact14">הלאה בדקה למעלה מ-150,000 נשים במזרח התיכון בחמש עשרה השנים האחרונות.</string>
+    <string name="the_hala_advantage_fact14">הלאה בדקה למעלה מ-180,000 נשים במזרח התיכון בשבע עשרה השנים האחרונות.</string>
 
     <!-- fragment_help_us_grow -->
     <string name="help_us_grow_fact1">An expanded diagnostic clinic</string>
@@ -174,7 +174,8 @@
 
     <!-- fragment_donate_now -->
     <string name="donate_now_title">עזרו לנו לעשות שינוי!</string>
-    <string name="donate_now_subtitle">תרומות להלאה מוכרות כהוצאה במס הכנסה בארה"ב , בריטניה וישראל.</string>
+    <string name="donate_now_title2">מודל האבחון המקיף של הלאה אכן מציל חיים. אבל אנחנו זקוקים בדחיפות לעזרה שלך בכדי שנוכל לעשות יותר…</string>
+    <string name="donate_now_title3">תרומות להלאה מוכרות כהוצאה במס הכנסה בארה"ב , בריטניה וישראל.</string>
     <string name="donate_now_button">תרמו עכשיו</string>
     <string name="donate_now_usa">ארצות הברית</string>
     <string name="donate_now_usa_info1">American Friends of Hala</string>

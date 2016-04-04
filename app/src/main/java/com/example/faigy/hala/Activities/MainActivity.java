@@ -10,8 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.example.faigy.hala.Utilities.DatabaseOperations;
 import com.example.faigy.hala.Fragments.AboutUsFragment;
@@ -21,7 +19,6 @@ import com.example.faigy.hala.Fragments.ContactUsFragment;
 import com.example.faigy.hala.Fragments.DonateFragment;
 import com.example.faigy.hala.Fragments.FAQFragment;
 import com.example.faigy.hala.Fragments.FormFragment;
-import com.example.faigy.hala.Fragments.HelpUsGrowFragment;
 import com.example.faigy.hala.Fragments.HomeFragment;
 import com.example.faigy.hala.Fragments.InTheNewsFragment;
 import com.example.faigy.hala.Fragments.NewsTabFragment;
@@ -54,7 +51,6 @@ public class MainActivity extends AppCompatActivity
     FAQFragment faqFragment;
     InTheNewsFragment inTheNewsFragment;
     public ServicesFragment servicesFragment;
-    HelpUsGrowFragment helpUsGrowFragment;
     public DonateFragment donateFragment;
     public ServiceDetailFragment serviceDetailFragment;
     public AboutUsFragment aboutUsFragment;
@@ -196,8 +192,6 @@ public class MainActivity extends AppCompatActivity
         inTheNewsFragment.setMainActivity(this);
         servicesFragment = new ServicesFragment();
         servicesFragment.setMainActivity(this);
-        helpUsGrowFragment = new HelpUsGrowFragment();
-        helpUsGrowFragment.setMainActivity(this);
         donateFragment = new DonateFragment();
         donateFragment.setMainActivity(this);
         serviceDetailFragment = new ServiceDetailFragment();

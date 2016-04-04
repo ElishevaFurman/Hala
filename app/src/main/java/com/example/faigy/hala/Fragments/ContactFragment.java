@@ -23,10 +23,8 @@ public class ContactFragment extends Fragment {
     MainActivity mainActivity;
 
     // Declare controls
-    TextView titleTextView, locationTextView, phoneTextView, emailTextView;
+    TextView titleTextView, locationTextView, phoneTextView, emailTextView, busesTextView;
     FloatingActionButton mapFab;
-    LinearLayout addressLinearLayout, phoneLinearLayout, faxLinearLayout, emailLinearLayout,
-    busesLinearLayout, formLinearLayout;
     ImageView mapView;
 
     public ContactFragment() {
@@ -72,14 +70,9 @@ public class ContactFragment extends Fragment {
         phoneTextView.setText(Html.fromHtml(getString(R.string.contact_phone)));
         emailTextView = (TextView) rootView.findViewById(R.id.emailTextView);
         emailTextView.setText(Html.fromHtml(getString(R.string.contact_email)));
+        busesTextView = (TextView) rootView.findViewById(R.id.busesTextView);
         mapFab = (FloatingActionButton) rootView.findViewById(R.id.contactFab);
         mapView = (ImageView) rootView.findViewById(R.id.mapView);
-        addressLinearLayout = (LinearLayout) rootView.findViewById(R.id.addressLinearLayout);
-        phoneLinearLayout = (LinearLayout )rootView.findViewById(R.id.phoneLinearLayout);
-        faxLinearLayout = (LinearLayout) rootView.findViewById(R.id.faxLinearLayout);
-        emailLinearLayout = (LinearLayout) rootView.findViewById(R.id.emailLinearLayout);
-        busesLinearLayout = (LinearLayout) rootView.findViewById(R.id.busesLinearLayout);
-
     }
 
 
@@ -90,10 +83,10 @@ public class ContactFragment extends Fragment {
         // set onClickListeners
         mapView.setOnClickListener(addressListener);
         mapFab.setOnClickListener(phoneListener);
-        addressLinearLayout.setOnClickListener(addressListener);
-        phoneLinearLayout.setOnClickListener(phoneListener);
-        emailLinearLayout.setOnClickListener(emailListener);
-        busesLinearLayout.setOnClickListener(busesListener);
+        locationTextView.setOnClickListener(addressListener);
+        phoneTextView.setOnClickListener(phoneListener);
+        emailTextView.setOnClickListener(emailListener);
+        busesTextView.setOnClickListener(busesListener);
     }
 
     /**

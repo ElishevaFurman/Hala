@@ -1,262 +1,268 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:scrollbars="none">
 
-    <ImageView
-        android:id="@+id/donateImageView"
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:adjustViewBounds="true"
-        android:layout_gravity="center_horizontal"
-        android:alpha="0.2"
-        android:contentDescription="@string/image_description"/>
+        android:layout_height="wrap_content">
 
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:scrollbars="none">
+        <ImageView
+            android:id="@+id/donateImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:alpha="0.4"
+            android:contentDescription="@string/image_description"
+            android:src="@drawable/hala_capture_building" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/titleTextView"
+            style="@style/tile_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:text="@string/donate_now_title"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/topLinearLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentBottom="true"
+            android:gravity="center">
 
+        <TextView
+            android:id="@+id/subtitleTextView"
+            style="@style/tile_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:text="@string/donate_now_title2"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
 
-            <TextView
-                android:id="@+id/titleTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="@dimen/activity_horizontal_margin"
-                android:gravity="center"
-                android:text="@string/donate_now_title"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/colorPrimaryLight"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/subtitleTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:text="@string/donate_now_title3"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/colorAccent"/>
+</LinearLayout>
 
-            <TextView
-                android:id="@+id/secondTitleTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:text="@string/donate_now_subtitle"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/colorSecondaryText" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingStart="@dimen/activity_horizontal_margin"
-                android:paddingEnd="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_horizontal_margin">
-
-                <View
-                    android:id="@+id/divider"
-                    style="@style/App_Divider"
-                    android:paddingBottom="@dimen/activity_horizontal_margin"/>
-
-
-                <TextView
-                    android:id="@+id/donateUsaTitleTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="@string/donate_now_usa"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:paddingTop="@dimen/activity_horizontal_margin"
-                    android:textColor="@color/colorPrimaryLight" />
-
-                <TextView
-                    android:id="@+id/donateUsaNameTextViewName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="@string/donate_now_usa_info1"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorSecondaryText" />
-
-                <TextView
-                    android:id="@+id/donateUsaStreetTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="@string/donate_now_usa_info2"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorSecondaryText" />
-
-
-                <TextView
-                    android:id="@+id/donateUsaAddressTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="@string/donate_now_usa_info3"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorSecondaryText" />
-
-                <TextView
-                    android:id="@+id/donateUsaStateTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="@string/donate_now_usa_info4"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:paddingBottom="@dimen/activity_horizontal_margin"
-                    android:textColor="@color/colorSecondaryText" />
-
-
-                <View
-                    android:id="@+id/divider1"
-                    style="@style/App_Divider" />
-            </LinearLayout>
-
-
-
+    </RelativeLayout>
 
             <LinearLayout
+                android:id="@+id/topLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingStart="@dimen/activity_horizontal_margin"
-                android:paddingEnd="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_horizontal_margin">
+                android:orientation="vertical">
 
-
-                <TextView
-                    android:id="@+id/donateEnglandTitleTextView"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="@string/donate_now_england"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorPrimaryLight" />
+                    android:orientation="vertical"
+                    android:paddingEnd="@dimen/activity_horizontal_margin"
+                    android:paddingStart="@dimen/activity_horizontal_margin">
 
-                <TextView
-                    android:id="@+id/donateEnglandNameTextViewName"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/donateUsaTitleTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingTop="@dimen/activity_horizontal_margin"
+                        android:text="@string/donate_now_usa"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorPrimaryLight"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/donateUsaNameTextViewName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="@string/donate_now_usa_info1"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorSecondaryText" />
+
+                    <TextView
+                        android:id="@+id/donateUsaStreetTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="@string/donate_now_usa_info2"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorSecondaryText" />
+
+
+                    <TextView
+                        android:id="@+id/donateUsaAddressTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="@string/donate_now_usa_info3"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorSecondaryText" />
+
+                    <TextView
+                        android:id="@+id/donateUsaStateTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="@dimen/activity_horizontal_margin"
+                        android:text="@string/donate_now_usa_info4"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorSecondaryText" />
+
+
+                    <View
+                        android:id="@+id/divider1"
+                        style="@style/App_Divider" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="@string/donate_now_england_info1"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorSecondaryText" />
+                    android:orientation="vertical"
+                    android:paddingEnd="@dimen/activity_horizontal_margin"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin">
 
-                <TextView
-                    android:id="@+id/donateEnglandStreetTextView"
-                    android:layout_width="wrap_content"
+
+                    <TextView
+                        android:id="@+id/donateEnglandTitleTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="@string/donate_now_england"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorPrimaryLight"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/donateEnglandNameTextViewName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="@string/donate_now_england_info1"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorSecondaryText" />
+
+                    <TextView
+                        android:id="@+id/donateEnglandStreetTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="@string/donate_now_england_info2"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorSecondaryText" />
+
+                    <TextView
+                        android:id="@+id/donateEnglandStateTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="@dimen/activity_horizontal_margin"
+                        android:text="@string/donate_now_england_info3"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorSecondaryText" />
+
+
+                    <View
+                        android:id="@+id/divider2"
+                        style="@style/App_Divider" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="@string/donate_now_england_info2"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorSecondaryText" />
-
-                <TextView
-                    android:id="@+id/donateEnglandStateTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="@string/donate_now_england_info3"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:paddingBottom="@dimen/activity_horizontal_margin"
-                    android:textColor="@color/colorSecondaryText" />
+                    android:orientation="vertical"
+                    android:paddingEnd="@dimen/activity_horizontal_margin"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingTop="@dimen/activity_horizontal_margin">
 
 
-                <View
-                    android:id="@+id/divider2"
-                    style="@style/App_Divider" />
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/donateIsraelTitleTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="@string/donate_now_israel"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorPrimaryLight"
+                        android:textStyle="bold"/>
 
+                    <TextView
+                        android:id="@+id/donateIsraelNameTextViewName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="@string/donate_now_israel_info1"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorSecondaryText" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingStart="@dimen/activity_horizontal_margin"
-                android:paddingEnd="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_horizontal_margin">
+                    <TextView
+                        android:id="@+id/donateIsraelStreetTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="@string/donate_now_israel_info2"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorSecondaryText" />
 
+                    <TextView
+                        android:id="@+id/donateIsraelAddressTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="@string/donate_now_israel_info3"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorSecondaryText" />
 
-                <TextView
-                    android:id="@+id/donateIsraelTitleTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="@string/donate_now_israel"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorPrimaryLight" />
+                    <TextView
+                        android:id="@+id/donateIsraelStateTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="@dimen/activity_horizontal_margin"
+                        android:text="@string/donate_now_israel_info4"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/colorSecondaryText" />
 
-                <TextView
-                    android:id="@+id/donateIsraelNameTextViewName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="@string/donate_now_israel_info1"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorSecondaryText" />
-
-                <TextView
-                    android:id="@+id/donateIsraelStreetTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="@string/donate_now_israel_info2"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorSecondaryText" />
-
-                <TextView
-                    android:id="@+id/donateIsraelAddressTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="@string/donate_now_israel_info3"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/colorSecondaryText" />
-
-                <TextView
-                    android:id="@+id/donateIsraelStateTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="@string/donate_now_israel_info4"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:paddingBottom="@dimen/activity_horizontal_margin"
-                    android:textColor="@color/colorSecondaryText" />
-                <View
-                    android:id="@+id/divider3"
-                    style="@style/App_Divider" />
-
-
-            </LinearLayout>
+                </LinearLayout>
 
 
                 <RelativeLayout
                     android:id="@+id/donateRelativeLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="@dimen/activity_horizontal_margin"
                     android:layout_marginTop="@dimen/activity_horizontal_margin"
-                    android:layout_gravity="center_horizontal"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="16dp">
-
-                    <ImageView
-                        android:id="@+id/serviceImageView1"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerInParent="true"
-                        android:layout_gravity="center"
-                        android:background="@drawable/rectangle_background"
-                        android:elevation="8dp"
-                        android:padding="16dp" />
+                    android:paddingEnd="@dimen/activity_horizontal_margin"
+                    android:paddingStart="@dimen/activity_horizontal_margin">
 
                     <TextView
                         android:id="@+id/servicesTextView1"
@@ -266,10 +272,11 @@
                         android:layout_gravity="center"
                         android:gravity="center_horizontal"
                         android:text="@string/donate_now_button"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@color/colorPrimary" />
+                        android:textStyle="bold"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/colorAccent" />
                 </RelativeLayout>
+            </LinearLayout>
 
-        </LinearLayout>
-    </ScrollView>
-</RelativeLayout>
+    </LinearLayout>
+</ScrollView>
