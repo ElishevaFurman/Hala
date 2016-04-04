@@ -29,19 +29,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:text="title"
+                android:layout_gravity="start"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/colorPrimaryText" />
 
             <LinearLayout
                 android:orientation="horizontal"
+                android:id="@+id/dateLinearLayout"
                 android:layout_width="match_parent"
+                android:layout_gravity="start"
                 android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/publicationTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="publication"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textColor="@color/colorPrimaryLight" />
 
@@ -49,9 +51,7 @@
                     android:id="@+id/dateTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="date"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:layout_alignParentEnd="true"
                     android:textColor="@color/colorPrimaryLight" />
             </LinearLayout>
 

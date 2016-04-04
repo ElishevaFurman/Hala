@@ -2,6 +2,7 @@ package com.example.faigy.hala.Adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +40,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
 
     /**
      * Function sets the newsList
-     * @return ArrayList
      */
     public void setNewsList(ArrayList<News> newsList){
         this.newsList = newsList;
@@ -73,13 +73,25 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
         // replace the contents of the view with that newsList data
         news = newsList.get(position);
         holder.title.setText(news.getTitle());
-        holder.publication.setText(news.getPublication()+ ", ");
-        holder.date.setText(news.getDate().toString());
+        holder.date.setText(news.getDate());
+
         Bidi bidi = new Bidi(news.getPublication(), Bidi.DIRECTION_DEFAULT_LEFT_TO_RIGHT);
+        Bidi bidi2 = new Bidi(news.getTitle(), Bidi.DIRECTION_DEFAULT_LEFT_TO_RIGHT);
+
+        if (!holder.date.getText().equals("")) {
+            holder.publication.setText(news.getPublication() + ", ");
+        }
+
+
         if (!Locale.getDefault().getLanguage().equals("en")) {
             if (bidi.isLeftToRight()) {
-                holder.publication.setText(news.getDate().toString());
-                holder.date.setText(news.getPublication() + ", ");
+                holder.publication.setText(news.getDate());
+                if (!holder.date.getText().equals("")) {
+                    holder.date.setText(news.getPublication() + ", ");
+                }
+            }
+            if (bidi2.isLeftToRight()) {
+                holder.dateLinearLayout.setGravity(Gravity.LEFT);
             }
         }
         holder.textLinearLayout.setOnClickListener(new View.OnClickListener() {
@@ -117,7 +129,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
         // declare the controls in the views
         public TextView title, publication, date;
         ImageView emailImageView;
-        LinearLayout shareLinearLayout, textLinearLayout;
+        LinearLayout shareLinearLayout, textLinearLayout, dateLinearLayout;
         final RippleView rippleView;
 
         public MyNewsHolder(View view) {
@@ -129,6 +141,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
             shareLinearLayout = (LinearLayout) view.findViewById(R.id.shareLinearLayout);
             textLinearLayout = (LinearLayout) view.findViewById(R.id.textLinearLayout);
             rippleView = (RippleView) view.findViewById(R.id.rippleView);
+            dateLinearLayout = (LinearLayout) view.findViewById(R.id.dateLinearLayout);
 
         }
 

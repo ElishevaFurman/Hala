@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.faigy.hala.Adapters.FAQExpandableAdapter;
 import com.example.faigy.hala.Classes.Faqs;
@@ -34,6 +35,7 @@ public class FAQFragment extends Fragment {
     Toolbar toolbar;
     CollapsingToolbarLayout collapsingToolbar;
     TextView errorTextView;
+    ImageView faqImageHeader;
 
     // Declare variables
     ArrayList<Faqs> faqArrayList;
@@ -111,6 +113,10 @@ public class FAQFragment extends Fragment {
 
         // initialize and reference TextView
         errorTextView = (TextView) rootView.findViewById(R.id.errorTextView);
+
+        faqImageHeader = (ImageView) rootView.findViewById(R.id.faqImageHeader);
+        faqImageHeader.setImageBitmap(Util.decodeSampledBitmapFromResource(getResources(),
+                R.drawable.ask, 180, 180));
     }
 
     public void setUpCollapsingToolbar() {
