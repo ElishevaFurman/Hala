@@ -221,22 +221,22 @@
 
     <!-- Volley error messages -->
     <string name="error_no_connection_found">"No connection found. Click here to download again."</string>
-    <string name="error_authentication_failed">"Authentication Failed. Click here to to download again."</string>
-    <string name="error_server_error">"A server error occurred. Click here to to download again."</string>
-    <string name="error_network_error">"A network error occurred. Click here to to download again."</string>
-    <string name="error_parsing_error">"Unable to parse data. Click here to to download again."</string>
+    <string name="error_authentication_failed">"Authentication Failed. Click here to download again."</string>
+    <string name="error_server_error">"A server error occurred. Click here to download again."</string>
+    <string name="error_network_error">"A network error occurred. Click here to download again."</string>
+    <string name="error_parsing_error">"Unable to parse data. Click here to download again."</string>
 
 
     <!-- fragment_donate_now -->
     <string name="donate_now_title">HELP US MAKE A DIFFERENCE!</string>
-    <string name="donate_now_title2">JOIN US TO BUILD A LANDMARK WOMEN\'S HEALTH CENTER... AND SAVE LIVES</string>
+    <string name="donate_now_title2">JOIN US TO BUILD A LANDMARK WOMEN\'S HEALTH CENTER&#8230; AND SAVE LIVES</string>
     <string name="donate_now_title3">Donations to Hala are tax deductible in the United States, England and Israel.</string>
     <string name="donate_now_button">DONATE NOW</string>
     <string name="donate_now_usa">USA:</string>
     <string name="donate_now_usa_info1">American Friends of Hala</string>
     <string name="donate_now_usa_info2">c/o Fred P. Schwartz, Esq.</string>
     <string name="donate_now_usa_info3">PO Box 181487</string>
-    <string name="donate_now_usa_info4">Cleveland Hts., OH 44118-1487</string>
+    <string name="donate_now_usa_info4">Cleveland Hts., OH 44118&#8211;1487</string>
 
     <string name="donate_now_england">ENGLAND:</string>
     <string name="donate_now_england_info1">British Friends of Hala</string>

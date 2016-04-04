@@ -20,6 +20,7 @@
         android:gravity="bottom"
         android:orientation="horizontal">
 
+
         <com.example.faigy.hala.Utilities.CirclePageIndicator
             android:id="@+id/indicator"
             android:layout_width="fill_parent"

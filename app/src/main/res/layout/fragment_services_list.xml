@@ -30,4 +30,5 @@
         android:textColor="@color/colorPrimaryText"
         android:visibility="gone" />
 
+
 </RelativeLayout>

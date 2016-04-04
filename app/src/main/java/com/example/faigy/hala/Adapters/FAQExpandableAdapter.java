@@ -35,7 +35,6 @@ public class FAQExpandableAdapter extends RecyclerView.Adapter<FAQExpandableAdap
 
     /**
      * Function sets the newsList
-     * @return ArrayList
      */
     public void setFaqList(ArrayList<Faqs> faqList){
         this.faqList = faqList;
@@ -81,8 +80,16 @@ public class FAQExpandableAdapter extends RecyclerView.Adapter<FAQExpandableAdap
      */
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
+        // instantiate a stringBuilder
+        StringBuilder question = new StringBuilder();
+        // append id of item in faqList to question
+        question.append(faqList.get(position).getId());
+        // append a period to question
+        question.append(". ");
+        // append the question of that position in faqList
+        question.append(faqList.get(position).getQuestion());
         // setting text of question/answer of current position
-        holder.question.setText(faqList.get(position).getId() + ". " + faqList.get(position).getQuestion());
+        holder.question.setText(question);
         holder.answer.setText(faqList.get(position).getAnswer());
         // if position is equal to expanded position
         if (position == expandedPosition) {

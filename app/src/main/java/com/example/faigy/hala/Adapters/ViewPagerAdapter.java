@@ -2,17 +2,11 @@ package com.example.faigy.hala.Adapters;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v13.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- * Created by Home on 2/2/2016.
- */
-
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 

@@ -3,6 +3,7 @@ package com.example.faigy.hala.Activities;
 /**
  * Created by Home on 3/6/2016.
  */
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -25,12 +26,10 @@ import com.example.faigy.hala.Utilities.ColorShades;
 import java.util.Locale;
 
 
-public class AppIntroActivity extends Activity{
+public class AppIntroActivity extends Activity {
 
     private static final String SAVING_STATE_SLIDER_ANIMATION = "SliderAnimationSavingState";
     private boolean isSliderAnimation = false;
-    //ImageView nextImageView;
-    TextView doneTextView, skipTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +39,7 @@ public class AppIntroActivity extends Activity{
         window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.splash_main);
 
-        TextView doneTextView = (TextView)findViewById(R.id.doneTextView);
+        TextView doneTextView = (TextView) findViewById(R.id.doneTextView);
         //TextView skipTextView = (TextView)findViewById(R.id.skipTextView);
         //skipTextView.setVisibility(View.INVISIBLE);
         //skipTextView.setBackgroundColor(80000000);
@@ -52,7 +51,7 @@ public class AppIntroActivity extends Activity{
                 startActivity(i);
                 //overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
-                if(Locale.getDefault().getLanguage().equals("he") || Locale.getDefault().getLanguage().equals("ar")) {
+                if (Locale.getDefault().getLanguage().equals("he") || Locale.getDefault().getLanguage().equals("ar")) {
                     overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
                 } else {
                     overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
@@ -66,9 +65,8 @@ public class AppIntroActivity extends Activity{
 
         viewPager.setAdapter(new ViewPagerAdapter(R.array.icons, R.array.titles, R.array.descriptions));
 
-        CirclePageIndicator mIndicator  = (CirclePageIndicator) findViewById(R.id.indicator);
+        CirclePageIndicator mIndicator = (CirclePageIndicator) findViewById(R.id.indicator);
         mIndicator.setViewPager(viewPager);
-
 
 
         viewPager.setPageTransformer(true, new CustomPageTransformer());
@@ -134,8 +132,8 @@ public class AppIntroActivity extends Activity{
 
 
             ImageView iconView = (ImageView) itemView.findViewById(R.id.landing_img_slide);
-            TextView titleView = (TextView)itemView.findViewById(R.id.landing_txt_title);
-            TextView hintView = (TextView)itemView.findViewById(R.id.landing_txt_hint);
+            TextView titleView = (TextView) itemView.findViewById(R.id.landing_txt_title);
+            TextView hintView = (TextView) itemView.findViewById(R.id.landing_txt_hint);
 
 
             iconView.setImageDrawable(icon);
@@ -170,19 +168,19 @@ public class AppIntroActivity extends Activity{
                 // This page is moving out to the left
 
                 // Counteract the default swipe
-                setTranslationX(view,pageWidth * -position);
+                setTranslationX(view, pageWidth * -position);
                 if (contentView != null) {
                     // But swipe the contentView
-                    setTranslationX(contentView,pageWidth * position);
-                    setTranslationX(txt_title,pageWidth * position);
+                    setTranslationX(contentView, pageWidth * position);
+                    setTranslationX(txt_title, pageWidth * position);
 
-                    setAlpha(contentView,1 + position);
-                    setAlpha(txt_title,1 + position);
+                    setAlpha(contentView, 1 + position);
+                    setAlpha(txt_title, 1 + position);
                 }
 
                 if (imageView != null) {
                     // Fade the image in
-                    setAlpha(imageView,1 + position);
+                    setAlpha(imageView, 1 + position);
                 }
 
             } else if (position <= 1) { // (0,1]
@@ -192,8 +190,8 @@ public class AppIntroActivity extends Activity{
                 setTranslationX(view, pageWidth * -position);
                 if (contentView != null) {
                     // But swipe the contentView
-                    setTranslationX(contentView,pageWidth * position);
-                    setTranslationX(txt_title,pageWidth * position);
+                    setTranslationX(contentView, pageWidth * position);
+                    setTranslationX(txt_title, pageWidth * position);
 
                     setAlpha(contentView, 1 - position);
                     setAlpha(txt_title, 1 - position);
@@ -201,7 +199,7 @@ public class AppIntroActivity extends Activity{
                 }
                 if (imageView != null) {
                     // Fade the image out
-                    setAlpha(imageView,1 - position);
+                    setAlpha(imageView, 1 - position);
                 }
 
             }
@@ -210,31 +208,33 @@ public class AppIntroActivity extends Activity{
 
     /**
      * Sets the alpha for the view. The alpha will be applied only if the running android device OS is greater than honeycomb.
-     * @param view - view to which alpha to be applied.
+     *
+     * @param view  - view to which alpha to be applied.
      * @param alpha - alpha value.
      */
     private void setAlpha(View view, float alpha) {
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB && ! isSliderAnimation) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB && !isSliderAnimation) {
             view.setAlpha(alpha);
         }
     }
 
     /**
      * Sets the translationX for the view. The translation value will be applied only if the running android device OS is greater than honeycomb.
-     * @param view - view to which alpha to be applied.
+     *
+     * @param view         - view to which alpha to be applied.
      * @param translationX - translationX value.
      */
     private void setTranslationX(View view, float translationX) {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB && ! isSliderAnimation) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB && !isSliderAnimation) {
             view.setTranslationX(translationX);
         }
     }
 
     public void onSaveInstanceState(Bundle outstate) {
 
-        if(outstate != null) {
-            outstate.putBoolean(SAVING_STATE_SLIDER_ANIMATION,isSliderAnimation);
+        if (outstate != null) {
+            outstate.putBoolean(SAVING_STATE_SLIDER_ANIMATION, isSliderAnimation);
         }
 
         super.onSaveInstanceState(outstate);
@@ -242,8 +242,8 @@ public class AppIntroActivity extends Activity{
 
     public void onRestoreInstanceState(Bundle inState) {
 
-        if(inState != null) {
-            isSliderAnimation = inState.getBoolean(SAVING_STATE_SLIDER_ANIMATION,false);
+        if (inState != null) {
+            isSliderAnimation = inState.getBoolean(SAVING_STATE_SLIDER_ANIMATION, false);
         }
         super.onRestoreInstanceState(inState);
 

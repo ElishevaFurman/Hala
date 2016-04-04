@@ -155,6 +155,7 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="#fff" />
         </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>

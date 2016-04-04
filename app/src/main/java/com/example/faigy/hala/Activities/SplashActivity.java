@@ -1,9 +1,5 @@
 package com.example.faigy.hala.Activities;
 
-/**
- * Created by faigy on 2/1/2016.
- */
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +13,7 @@ import io.fabric.sdk.android.Fabric;
 public class SplashActivity extends Activity {
 
     // Splash screen timer
-    private static int SPLASH_TIME_OUT = 3000;
+    int SPLASH_TIME_OUT = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +42,5 @@ public class SplashActivity extends Activity {
             }
         }, SPLASH_TIME_OUT);
     }
-
 
 }

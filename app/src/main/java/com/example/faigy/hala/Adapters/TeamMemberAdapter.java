@@ -23,9 +23,6 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Home on 1/31/2016.
- */
 public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.TeamMemberViewHolder> {
     // Declare ArrayList
     private List<TeamMember> teamMembersList;
@@ -46,7 +43,6 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
 
     /**
      * Function sets the newsList
-     * @return ArrayList
      */
     public void setTeamMembersList(ArrayList<TeamMember> teamMembersList){
         this.teamMembersList = teamMembersList;
@@ -79,8 +75,19 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
         // get data from your newsList at this position
         // replace the contents of the view with that newsList data
         tm = teamMembersList.get(position);
+        // instantiate a stringBuilder
+        StringBuilder name = new StringBuilder();
+        // append title of current tm to name
+        name.append(tm.getTitle());
+        // append empty space to name
+        name.append(" ");
+        // append name of tm to name
+        name.append(tm.getName());
+        // set text of vName to name
+        teamMemberViewHolder.vName.setText(name);
+
         // Set name for each textView
-        teamMemberViewHolder.vName.setText(tm.title + " " + tm.name);
+        //teamMemberViewHolder.vName.setText(tm.title + " " + tm.name);
         // Set description for each textView
         teamMemberViewHolder.vDescription.setText(tm.description);
         // set content to string for the bio text

@@ -32,7 +32,6 @@ import com.example.faigy.hala.Utilities.Util;
 
 import java.util.Locale;
 
-
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -59,22 +58,11 @@ public class MainActivity extends AppCompatActivity
     NewsTabFragment newsTabFragment;
     DatabaseOperations databaseOperations;
 
-    // Declare variables
-    String location;
-
-    @Override
-    public void onResume() {
-        super.onResume();
-//        if (!Locale.getDefault().getLanguage().equals(location))
-//            Toast.makeText(Util.getActivity(),location, Toast.LENGTH_LONG).show();
-            //finish();
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // call the parent activities onCreate
         super.onCreate(savedInstanceState);
-        if (!Locale.getDefault().getLanguage().equals("en")){
+        if (!Locale.getDefault().getLanguage().equals("en")) {
             getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         }
         // attach xml to activity
@@ -131,18 +119,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void openNavigationDrawer() {
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
-        drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
-        Util.hideSoftKeyboard();
-
-    }
-
-    public void openNavigationDrawer2(Toolbar toolbar, int icon) {
-        toolbar.setNavigationIcon(icon);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -260,39 +236,6 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
-//
-//    @Override
-//    public void onPause() {
-//
-//        super.onPause();
-//        location = Locale.getDefault().getLanguage();
-//
-//    }
-//
-//    @Override
-//    public void onStop() {
-//
-//        super.onStop();
-//        location = Locale.getDefault().getLanguage();
-//
-//    }
-//
-//    @Override
-//    public void onStart() {
-//
-//        super.onStart();
-//        if (Locale.getDefault().getLanguage().equals("ar")){
-//            Toast.makeText(Util.getActivity(),"same language", Toast.LENGTH_LONG).show();
-//            finish();
-//        }else{
-//            Toast.makeText(Util.getActivity(),"diff language", Toast.LENGTH_LONG).show();
-//
-//        }
-//
-//
-//    }
 
 }
 

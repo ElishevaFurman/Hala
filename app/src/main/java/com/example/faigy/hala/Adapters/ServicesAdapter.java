@@ -16,9 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * Created by Home on 2/3/2016.
- */
 public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyNewsHolder> {
     // Declare ArrayList
     private List<Services> servicesList;
@@ -36,7 +33,6 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.MyNews
 
     /**
      * Function sets the newsList
-     * @return ArrayList
      */
     public void setServicesList(ArrayList<Services> servicesList){
         this.servicesList = servicesList;

@@ -9,9 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.faigy.hala.Adapters.NewsAdapter;
+import com.example.faigy.hala.Classes.MySingleton;
 import com.example.faigy.hala.Classes.News;
+import com.example.faigy.hala.Interfaces.ClickListenerInterface;
+import com.example.faigy.hala.Listeners.RecyclerTouchListener;
 import com.example.faigy.hala.Utilities.DatabaseOperations;
 import com.example.faigy.hala.Activities.MainActivity;
 import com.example.faigy.hala.Classes.MyApplication;
@@ -98,6 +102,8 @@ public class InTheNewsFragment extends Fragment {
         // initialize and reference RecyclerView
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
 
+        recyclerView.addOnItemTouchListener(recyclerViewOnItemTouchListener);
+
     }
 
     /**
@@ -164,6 +170,7 @@ public class InTheNewsFragment extends Fragment {
                             // convert array to arrayList
                             newsList = new ArrayList<>(Arrays.asList(newsData));
                             // set list to adapter
+                            //mAdapter.setNewsList(newsList);
                             mAdapter.setNewsList(sortList(newsList, tabSelected));
                         } catch (JsonSyntaxException e) {
                             e.printStackTrace();
@@ -192,6 +199,24 @@ public class InTheNewsFragment extends Fragment {
         return list;
     }
 
+
+
+
+
+    /**
+     * OnItemTouchListener for recyclerView
+     */
+    RecyclerTouchListener recyclerViewOnItemTouchListener = new RecyclerTouchListener
+            (getActivity(), recyclerView, new ClickListenerInterface() {
+                @Override
+                public void onClick(View view, int position) {
+                    //Toast.makeText(Util.getContext(),newsList.get(position).getUrl().toString(),Toast.LENGTH_LONG).show();
+                    // set and store the clicked position in the recycler view
+                   // MySingleton.getInstance().setPosition(position);
+                    // switch to service detail fragment
+                   // Util.replaceFragment(mainActivity.serviceDetailFragment, R.string.fragment_service_Detail);
+                }
+            });
     /**
      * Function to set fragment to this main activity
      * @param mainActivity - set main activity

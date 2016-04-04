@@ -73,7 +73,7 @@
                     android:paddingBottom="16dp"
                     android:paddingEnd="16dp"
                     android:paddingStart="16dp"
-                    android:text="@string/contact_phone"
+                    android:text="@string/contact_fax"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <TextView
@@ -86,7 +86,7 @@
                     android:paddingBottom="16dp"
                     android:paddingEnd="16dp"
                     android:paddingStart="16dp"
-                    android:text="@string/contact_phone"
+                    android:text="@string/contact_email"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <TextView
@@ -99,7 +99,7 @@
                     android:paddingBottom="16dp"
                     android:paddingEnd="16dp"
                     android:paddingStart="16dp"
-                    android:text="@string/contact_phone"
+                    android:text="@string/contact_bus"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <ImageView

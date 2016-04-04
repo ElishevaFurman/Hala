@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.andexert.library.RippleView;
 import com.example.faigy.hala.Classes.News;
@@ -44,7 +45,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
     public void setNewsList(ArrayList<News> newsList){
         this.newsList = newsList;
         // notify the adapter of item range changed
-        notifyItemRangeChanged(0, newsList.size());
+        //notifyItemRangeChanged(0, newsList.size());
+        notifyDataSetChanged();
     }
 
     /**
@@ -68,18 +70,26 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
      *
      */
     @Override
-    public void onBindViewHolder(final MyNewsHolder holder, int position) {
+    public void onBindViewHolder(final MyNewsHolder holder, final int position) {
         // get data from your newsList at this position
         // replace the contents of the view with that newsList data
         news = newsList.get(position);
         holder.title.setText(news.getTitle());
         holder.date.setText(news.getDate());
 
+        final String url = news.getUrl();
         Bidi bidi = new Bidi(news.getPublication(), Bidi.DIRECTION_DEFAULT_LEFT_TO_RIGHT);
         Bidi bidi2 = new Bidi(news.getTitle(), Bidi.DIRECTION_DEFAULT_LEFT_TO_RIGHT);
 
         if (!holder.date.getText().equals("")) {
-            holder.publication.setText(news.getPublication() + ", ");
+            // instantiate a stringBuilder
+            StringBuilder publication = new StringBuilder();
+            // append the publication of that news item to publication
+            publication.append(news.getPublication());
+            // append a comma to publication
+            publication.append(", ");
+            // set text of publication of this current position
+            holder.publication.setText(publication);
         }
 
 
@@ -87,7 +97,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
             if (bidi.isLeftToRight()) {
                 holder.publication.setText(news.getDate());
                 if (!holder.date.getText().equals("")) {
-                    holder.date.setText(news.getPublication() + ", ");
+                    // instantiate a stringBuilder
+                    StringBuilder publication = new StringBuilder();
+                    // append the publication of that news item to publication
+                    publication.append(news.getPublication());
+                    // append a comma to publication
+                    publication.append(", ");
+                    // set text of publication of this current position
+                    holder.date.setText(publication);
                 }
             }
             if (bidi2.isLeftToRight()) {
@@ -97,7 +114,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
         holder.textLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Util.createDialog(R.string.news, R.string.news_message, R.string.open, R.string.cancel, "url", news.getUrl());
+                //Toast.makeText(Util.getContext(),news.getTitle(),Toast.LENGTH_LONG).show();
+                Util.createDialog(R.string.news, R.string.news_message, R.string.open, R.string.cancel, "url", url);
 
             }
         });
