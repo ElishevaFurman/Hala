@@ -129,7 +129,7 @@ public class ServicesFragment extends Fragment {
     public void registerListeners() {
         // set onClickListeners
         errorTextView.setOnClickListener(errorTextViewListener);
-        recyclerView.addOnItemTouchListener(recyclerViewOnItemTouchListener);
+        //recyclerView.addOnItemTouchListener(recyclerViewOnItemTouchListener);
     }
 
     /**
@@ -145,19 +145,19 @@ public class ServicesFragment extends Fragment {
         }
     };
 
-    /**
-     * OnItemTouchListener for recyclerView
-     */
-    RecyclerTouchListener recyclerViewOnItemTouchListener = new RecyclerTouchListener
-            (getActivity(), recyclerView, new ClickListenerInterface() {
-        @Override
-        public void onClick(View view, int position) {
-            // set and store the clicked position in the recycler view
-            MySingleton.getInstance().setPosition(position);
-            // switch to service detail fragment
-            Util.replaceFragment(mainActivity.serviceDetailFragment, R.string.fragment_service_Detail);
-        }
-    });
+//    /**
+//     * OnItemTouchListener for recyclerView
+//     */
+//    RecyclerTouchListener recyclerViewOnItemTouchListener = new RecyclerTouchListener
+//            (getActivity(), recyclerView, new ClickListenerInterface() {
+//        @Override
+//        public void onClick(View view, int position) {
+//            // set and store the clicked position in the recycler view
+//            MySingleton.getInstance().setPosition(position);
+//            // switch to service detail fragment
+//            Util.replaceFragment(mainActivity.serviceDetailFragment, R.string.fragment_service_Detail);
+//        }
+//    });
 
     /**
      * Function to set up RecyclerView

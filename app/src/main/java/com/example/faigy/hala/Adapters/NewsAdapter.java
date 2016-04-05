@@ -9,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.andexert.library.RippleView;
 import com.example.faigy.hala.Classes.News;
 import com.example.faigy.hala.R;
@@ -21,9 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * Created by Home on 2/3/2016.
- */
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> {
     // Declare ArrayList
     private List<News> newsList;
@@ -42,7 +37,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
     /**
      * Function sets the newsList
      */
-    public void setNewsList(ArrayList<News> newsList){
+    public void setNewsList(ArrayList<News> newsList) {
         this.newsList = newsList;
         // notify the adapter of item range changed
         //notifyItemRangeChanged(0, newsList.size());
@@ -51,13 +46,13 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
 
     /**
      * Function that create new views (invoked by the layout manager)
-     *
      */
     @Override
     public MyNewsHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // initialize itemView
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_in_the_news_item, parent, false);
+
         // return itemView
         return new MyNewsHolder(itemView);
     }
@@ -65,9 +60,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
 
     /**
      * Function that replace the contents of a view (invoked by the layout manager)
+     *
      * @param holder   - current viewHolder
      * @param position - current inflated position in viewHolder
-     *
      */
     @Override
     public void onBindViewHolder(final MyNewsHolder holder, final int position) {
@@ -114,21 +109,21 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
         holder.textLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(Util.getContext(),news.getTitle(),Toast.LENGTH_LONG).show();
                 Util.createDialog(R.string.news, R.string.news_message, R.string.open, R.string.cancel, "url", url);
 
             }
         });
-              holder.rippleView.setOnClickListener(new View.OnClickListener() {
+        holder.rippleView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Util.share(news.getUrl());
+                Util.share(url);
             }
         });
     }
 
     /**
      * Function that returns the number of items in newsList
+     *
      * @return int
      */
     @Override
@@ -143,7 +138,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
 
 
     // this will store the references to our view
-    public class MyNewsHolder extends RecyclerView.ViewHolder {
+    public static class MyNewsHolder extends RecyclerView.ViewHolder {
         // declare the controls in the views
         public TextView title, publication, date;
         ImageView emailImageView;
@@ -160,9 +155,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
             textLinearLayout = (LinearLayout) view.findViewById(R.id.textLinearLayout);
             rippleView = (RippleView) view.findViewById(R.id.rippleView);
             dateLinearLayout = (LinearLayout) view.findViewById(R.id.dateLinearLayout);
-
         }
 
     }
-
 }

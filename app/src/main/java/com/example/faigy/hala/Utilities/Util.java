@@ -141,7 +141,7 @@ public class Util extends Activity {
      */
     public static void enableBackButton(Toolbar toolbar, DrawerLayout drawer) {
         // if the language of the phone is hebrew
-        if (Locale.getDefault().getLanguage().equals("he") || (Locale.getDefault().getLanguage().equals("ar"))){
+        if (!Locale.getDefault().getLanguage().equals("en")){
             // set arrow to forward arrow
             toolbar.setNavigationIcon(R.drawable.ic_arrow_forward_24dp);
             }
