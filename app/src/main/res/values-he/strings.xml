@@ -47,6 +47,10 @@
     <string name="open">פתח/י</string>
     <string name="news_message">פתח/י את המאמר</string>
     <string name="news">פתח/י את המאמר בדפדפן</string>
+    <string name="egged">זמני אוטובוסים</string>
+    <string name="egged_message">ראה/י לוח זמנים של אוטובוסים באתר של אגד.</string>
+    <string name="google_map">מפה</string>
+    <string name="google_map_message">פתח/י מפה בגוגל</string>
 
 
     <!-- fragment_home -->
@@ -162,6 +166,9 @@
 
     <!-- fragment_donate-->
     <string name="fragment_donate">תרמו עכשיו</string>
+    <string name="donate_now">תרמו עכשיו</string>
+    <string name="donate_message">תרמו למכון הלאה דרך Pay Pall.</string>
+    <string name="donate">תרמו עכשיו</string>
 
     <!-- fragment_team-->
     <string name="fragment_team">הצוות הרפואי</string>

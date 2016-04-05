@@ -37,6 +37,10 @@
     <string name="call_hala">Call Hala</string>
     <string name="call">CALL</string>
     <string name="cancel">CANCEL</string>
+    <string name="egged">Egged Bus Schedule</string>
+    <string name="egged_message">View bus schedule on Egged\'s website.</string>
+    <string name="google_map">Open Google Maps</string>
+    <string name="google_map_message">Open google maps to view Hala\'s location.</string>
 
     <!-- internet_connection -->
     <string name="internet_connection">Internet Connection</string>
@@ -175,6 +179,10 @@
 
     <!-- fragment_donate-->
     <string name="fragment_donate">Donate Now</string>
+    <string name="donate_now">DONATE NOW</string>
+    <string name="donate">Donate Now</string>
+    <string name="donate_message">Donate to Hala using paypal.</string>
+
 
     <!-- fragment_team-->
     <string name="fragment_team">Our Team</string>
