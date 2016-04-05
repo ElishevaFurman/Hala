@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.example.faigy.hala.Adapters.FAQExpandableAdapter;
 import com.example.faigy.hala.Classes.Faqs;
 import com.example.faigy.hala.Utilities.DatabaseOperations;
@@ -23,11 +24,13 @@ import com.example.faigy.hala.Utilities.Util;
 import com.example.faigy.hala.Utilities.DividerItemDecoration;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
 
 public class FAQFragment extends Fragment {
+
     // Declare Controls
     RecyclerView recyclerView;
     FAQExpandableAdapter mAdapter;
@@ -40,15 +43,12 @@ public class FAQFragment extends Fragment {
     // Declare variables
     ArrayList<Faqs> faqArrayList;
     Faqs[] faqsData;
-    private static String TAG = "json_faq_request";
+    String TAG = "json_faq_request";
     String url;
-    public static final int COLLAPSE_MODE_PARALLAX = 2;
-
 
     // Declare classes
     MainActivity mainActivity;
     DatabaseOperations databaseOperations;
-
 
     @Override
     public void onResume() {
@@ -58,25 +58,23 @@ public class FAQFragment extends Fragment {
 
 
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //instantiate databaseOperations
         databaseOperations = new DatabaseOperations();
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_faq, container, false);
 
         // Initialize the views for this fragment
         initializeViews(rootView);
-
-        // set up collapsingToolbar
-        setUpCollapsingToolbar();
 
         // set up recyclerView
         setupRecyclerView();
@@ -99,9 +97,6 @@ public class FAQFragment extends Fragment {
     }
 
     public void initializeViews(final View rootView) {
-        // initialize and reference Toolbar
-        //toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
-
         // initialize and reference CollapsingToolbar
         collapsingToolbar = (CollapsingToolbarLayout) rootView.findViewById(R.id.collapsing_toolbar);
 
@@ -114,17 +109,12 @@ public class FAQFragment extends Fragment {
         // initialize and reference TextView
         errorTextView = (TextView) rootView.findViewById(R.id.errorTextView);
 
+        // initialize and reference ImageView
         faqImageHeader = (ImageView) rootView.findViewById(R.id.faqImageHeader);
+
+        // set imageBitmap of faqImageHeader
         faqImageHeader.setImageBitmap(Util.decodeSampledBitmapFromResource(getResources(),
                 R.drawable.ask, 180, 180));
-    }
-
-    public void setUpCollapsingToolbar() {
-      //mainActivity.openNavigationDrawer2(toolbar, R.drawable.ic_menu_24dp);
-        mainActivity.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        collapsingToolbar.setTitle("Faq's");
-        collapsingToolbar.setExpandedTitleColor(getResources().getColor(R.color.colorAccent));
-
     }
 
     /**
@@ -138,7 +128,8 @@ public class FAQFragment extends Fragment {
         // Set layout manager to position the items
         recyclerView.setLayoutManager(mLayoutManager);
         // add item decorator to recyclerView
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),
+                LinearLayoutManager.VERTICAL));
         // set item animator to DefaultAnimator
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         // setHasFixedSize to false
@@ -153,15 +144,13 @@ public class FAQFragment extends Fragment {
      */
     public void downloadData() {
 
-// set url data to corresponding language of phone settings
+        // set url data to corresponding language of phone settings
         if (!Locale.getDefault().getLanguage().equals("en")) {
-
             url = "http://162.243.100.186/faqs_array_he.php";
-
         } else {
-
             url = "http://162.243.100.186/faqs_array.php";
         }
+
         // call makeJsonArrayRequest and send url, tag, errorTextView and instantiate a callBack
         databaseOperations.makeJsonArrayRequest(url, TAG, errorTextView,
                 new DatabaseOperations.VolleyCallback() {
@@ -229,13 +218,10 @@ public class FAQFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        //mainActivity.getSupportActionBar().show();
-        //mainActivity.openNavigationDrawer();
-       // toolbar.hideOverflowMenu();
+        // set lastFragment to "faqFragment" in MySingleton class
         MySingleton.getInstance().setLastFragment("faqFragment");
 
     }
-
 
 }
 

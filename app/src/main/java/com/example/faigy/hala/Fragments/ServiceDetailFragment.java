@@ -22,6 +22,7 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 
 /**
@@ -90,12 +91,22 @@ public class ServiceDetailFragment extends Fragment {
 
         settings.setDefaultTextEncodingName("utf-8");
 
-        String content = String.valueOf(Html
-                .fromHtml("<![CDATA[<body style=\"text-align:justify;\">"
-                        + mainActivity.servicesFragment.servicesList.get(position).getDescription()
-                        .replace("\n", "<br />") + "</body>]]>"));
+        if(!Locale.getDefault().getLanguage().equals("en")){
+            String content = String.valueOf(Html
+                    .fromHtml("<![CDATA[<body dir=RTL style=\"text-align:justify;\">"
+                            + mainActivity.servicesFragment.servicesList.get(position).getDescription()
+                            .replace("\n", "<br />") + "</body>]]>"));
+            serviceDescriptionTextViews.loadData(content, "text/html; charset=utf-8", "utf-8");
+        }else{
+            String content = String.valueOf(Html
+                    .fromHtml("<![CDATA[<body style=\"text-align:justify;\">"
+                            + mainActivity.servicesFragment.servicesList.get(position).getDescription()
+                            .replace("\n", "<br />") + "</body>]]>"));
+            serviceDescriptionTextViews.loadData(content, "text/html; charset=utf-8", "utf-8");
+        }
 
-        serviceDescriptionTextViews.loadData(content, "text/html; charset=utf-8", "utf-8");
+
+
 
         Picasso.with(Util.getActivity()).load("http://" + mainActivity.servicesFragment.servicesList.get(position).getImage())
                 .into(image, new Callback() {

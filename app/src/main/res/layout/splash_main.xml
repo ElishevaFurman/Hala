@@ -41,7 +41,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:layout_gravity="center_vertical|end"
             android:padding="@dimen/activity_horizontal_margin"
             android:text="@string/app_intro_done_button"
             android:textColor="#fff"

@@ -18,14 +18,12 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-
 import com.example.faigy.hala.Activities.MainActivity;
 import com.example.faigy.hala.Classes.MySingleton;
 import com.example.faigy.hala.R;
 import com.example.faigy.hala.Utilities.Util;
 import com.example.faigy.hala.Utilities.GMailSender;
 
-import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -37,12 +35,13 @@ public class FormFragment extends Fragment {
     // Declare Controls
     private EditText inputName, inputEmail, inputPhone, inputQuestion;
     private TextInputLayout inputLayoutName, inputLayoutEmail, inputLayoutQuestion, inputLayoutPhone;
-    private TextView submitButton;
+    TextView submitButton;
     RelativeLayout relativeLayout;
-    String lastFragment;
+
 
     // Declare Variables
     String getMessage;
+    String lastFragment;
     boolean ignoreNextTextChangeName = false;
     boolean ignoreNextTextChangeEmail = false;
     boolean ignoreNextTextChangePhone = false;
@@ -61,11 +60,18 @@ public class FormFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_form, container, false);
-        lastFragment =  MySingleton.getInstance().getLastFragment();
+
+        // get lastFragment from MySingleton class and assign it to lastFragment variable
+        lastFragment = MySingleton.getInstance().getLastFragment();
+
         // Initialize the views for this fragment
         initializeViews(rootView);
+
+        // Register listeners for controls
+        registerListeners();
 
         return rootView;
 
@@ -75,6 +81,7 @@ public class FormFragment extends Fragment {
      * Function to initialize controls
      */
     public void initializeViews(View rootView) {
+
         // initialize and reference controls
         relativeLayout = (RelativeLayout) rootView.findViewById(R.id
                 .coordinatorLayout);
@@ -87,42 +94,55 @@ public class FormFragment extends Fragment {
         inputPhone = (EditText) rootView.findViewById(R.id.input_phone);
         inputQuestion = (EditText) rootView.findViewById(R.id.input_question);
         submitButton = (TextView) rootView.findViewById(R.id.submit_text);
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                submitForm();
-            }
-        });
 
+        // get text of inputQuestion and assign it to getMessage
         getMessage = inputQuestion.getText().toString();
     }
 
-    public void onResume(){
+    /**
+     * Function to register Listener
+     */
+    public void registerListeners() {
+        // set on click listener for submitButton
+        submitButton.setOnClickListener(submitButtonListener);
+
+    }
+
+    // Listener for donateRelativeLayout
+    View.OnClickListener submitButtonListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            submitForm();
+
+        }
+    };
+
+
+    public void onResume() {
         super.onResume();
 
-        if (lastFragment.equals("faqFragment")){
+        // if lastFragment is equal to "faqFragment"
+        if (lastFragment.equals("faqFragment")) {
+            // set toolbar title to "ask"
             Util.setToolbarTitle(R.string.fragment_ask, mainActivity.toolbar);
+            // set back button in action bar
             Util.enableBackButton(mainActivity.toolbar, mainActivity.drawer);
-//            if (Locale.getDefault().getLanguage().equals("he") || (Locale.getDefault().getLanguage().equals("ar"))){
-//                Util.enableBackButton(R.drawable.ic_arrow_forward_24dp, mainActivity.toolbar, mainActivity.drawer);
-//            }else{
-//                Util.enableBackButton(R.drawable.ic_arrow_back_24dp, mainActivity.toolbar, mainActivity.drawer);
-//            }
-
         }
 
         // removed textWatchers from views
         removeTextWatcherFromViews();
+
         // clear all views
         clearTextViews();
+
         // set focus on inputName
         inputName.requestFocus();
 
+        // add textWatchers to these editTexts
         inputName.addTextChangedListener(new MyTextWatcher(inputName));
         inputEmail.addTextChangedListener(new MyTextWatcher(inputEmail));
         inputPhone.addTextChangedListener(new MyTextWatcher(inputPhone));
         inputQuestion.addTextChangedListener(new MyTextWatcher(inputQuestion));
-
 
     }
 
@@ -265,7 +285,8 @@ public class FormFragment extends Fragment {
      */
     private static boolean isValidEmail(String email) {
         // return if email is valid or not
-        return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+        return !TextUtils.isEmpty(email) &&
+                android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
     /**
@@ -294,7 +315,8 @@ public class FormFragment extends Fragment {
         // if view.requestFocus is true
         if (view.requestFocus()) {
             // request focus on that view
-            Util.getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+            Util.getActivity().getWindow().setSoftInputMode
+                    (WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         }
     }
 
@@ -431,14 +453,16 @@ public class FormFragment extends Fragment {
         protected void onPreExecute() {
             super.onPreExecute();
             // show progress dialog
-            progressDialog = ProgressDialog.show(Util.getActivity(), Util.getContext().getString(R.string.dialog_title_please_wait), Util.getContext().getString(R.string.dialog_sending_email), true, false);
+            progressDialog = ProgressDialog.show(Util.getActivity(), Util.getContext()
+                    .getString(R.string.dialog_title_please_wait), Util.getContext()
+                    .getString(R.string.dialog_sending_email), true, false);
 
         }
 
         /**
          * Sending email
          *
-         * @param aVoid
+         * @param aVoid of type Void
          */
         @Override
         protected Void doInBackground(Void... aVoid) {
@@ -465,7 +489,7 @@ public class FormFragment extends Fragment {
         /**
          * After completing background task
          *
-         * @param aVoid
+         * @param aVoid of type Void
          **/
         @Override
         protected void onPostExecute(Void aVoid) {
@@ -477,7 +501,8 @@ public class FormFragment extends Fragment {
             // if email was sent successfully
             if (success && successSent) {
                 // show message in Snackbar - "Email was sent to Hala"
-                Snackbar.make(relativeLayout, R.string.send_form_success, Snackbar.LENGTH_LONG).show();
+                Snackbar.make(relativeLayout, R.string.send_form_success,
+                        Snackbar.LENGTH_LONG).show();
                 // removed textWatchers from views
                 removeTextWatcherFromViews();
                 // clear all views
@@ -486,7 +511,8 @@ public class FormFragment extends Fragment {
                 inputName.requestFocus();
             } else {
                 // show message in Snackbar - "Email failed to send to Hala"
-                Snackbar.make(relativeLayout, R.string.send_form_not_success, Snackbar.LENGTH_LONG).show();
+                Snackbar.make(relativeLayout, R.string.send_form_not_success,
+                        Snackbar.LENGTH_LONG).show();
             }
 
         }

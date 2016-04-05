@@ -9,13 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.faigy.hala.Adapters.NewsAdapter;
-import com.example.faigy.hala.Classes.MySingleton;
 import com.example.faigy.hala.Classes.News;
-import com.example.faigy.hala.Interfaces.ClickListenerInterface;
-import com.example.faigy.hala.Listeners.RecyclerTouchListener;
 import com.example.faigy.hala.Utilities.DatabaseOperations;
 import com.example.faigy.hala.Activities.MainActivity;
 import com.example.faigy.hala.Classes.MyApplication;
@@ -29,10 +25,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
 
-/**
- * Created by Home on 2/3/2016.
- */
 public class InTheNewsFragment extends Fragment {
+
     // Declare controls
     private RecyclerView recyclerView;
     public NewsAdapter mAdapter;
@@ -42,7 +36,7 @@ public class InTheNewsFragment extends Fragment {
     News[] newsData;
     ArrayList<News> newsList;
     String tabSelected;
-    public static String TAG ="json_news_request";
+    public static String TAG = "json_news_request";
     String url;
 
     // Declare activities
@@ -84,11 +78,6 @@ public class InTheNewsFragment extends Fragment {
         // register listeners for controls
         registerListeners();
 
-        // set toolbar title
-        //Util.setToolbarTitle(R.string.fragment_news, mainActivity.toolbar);
-
-        //set navigation selected to current fragment
-        // mainActivity.setSelectedNavigationItem(R.id.nav_news);
         return rootView;
     }
 
@@ -102,8 +91,6 @@ public class InTheNewsFragment extends Fragment {
         // initialize and reference RecyclerView
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
 
-        recyclerView.addOnItemTouchListener(recyclerViewOnItemTouchListener);
-
     }
 
     /**
@@ -113,11 +100,13 @@ public class InTheNewsFragment extends Fragment {
         // instantiate mAdapter
         mAdapter = new NewsAdapter(getActivity());
         // initialize linearLayoutManager
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager
+                (getActivity().getBaseContext());
         // Set layout manager to position the items
         recyclerView.setLayoutManager(mLayoutManager);
         // add item decorator to recyclerView
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),
+                LinearLayoutManager.VERTICAL));
         // set item animator to DefaultAnimator
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         // attach the adapter to the recyclerView to populate items
@@ -150,13 +139,11 @@ public class InTheNewsFragment extends Fragment {
     public void downloadData() {
         // set url data to corresponding language of phone settings
         if (!Locale.getDefault().getLanguage().equals("en")) {
-
             url = "http://162.243.100.186/news_array_he.php";
-
         } else {
-
             url = "http://162.243.100.186/news_array.php";
         }
+
         // call makeJsonArrayRequest and send url, tag, errorTextView and instantiate a callBack
         databaseOperations.makeJsonArrayRequest(url, TAG, errorTextView,
                 new DatabaseOperations.VolleyCallback() {
@@ -181,9 +168,10 @@ public class InTheNewsFragment extends Fragment {
 
     /**
      * Function to sort arrayList
-     * @param newsList
+     *
+     * @param newsList ArrayList of type News
      * @param tabSelected tab selected
-     * @return
+     * @return ArrayList of type News
      */
     public ArrayList<News> sortList(ArrayList<News> newsList, String tabSelected) {
         // instantiate list
@@ -199,26 +187,9 @@ public class InTheNewsFragment extends Fragment {
         return list;
     }
 
-
-
-
-
-    /**
-     * OnItemTouchListener for recyclerView
-     */
-    RecyclerTouchListener recyclerViewOnItemTouchListener = new RecyclerTouchListener
-            (getActivity(), recyclerView, new ClickListenerInterface() {
-                @Override
-                public void onClick(View view, int position) {
-                    //Toast.makeText(Util.getContext(),newsList.get(position).getUrl().toString(),Toast.LENGTH_LONG).show();
-                    // set and store the clicked position in the recycler view
-                   // MySingleton.getInstance().setPosition(position);
-                    // switch to service detail fragment
-                   // Util.replaceFragment(mainActivity.serviceDetailFragment, R.string.fragment_service_Detail);
-                }
-            });
     /**
      * Function to set fragment to this main activity
+     *
      * @param mainActivity - set main activity
      */
     public void setMainActivity(MainActivity mainActivity) {

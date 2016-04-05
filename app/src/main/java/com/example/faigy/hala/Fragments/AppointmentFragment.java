@@ -10,9 +10,6 @@ import com.example.faigy.hala.Activities.MainActivity;
 import com.example.faigy.hala.R;
 import com.example.faigy.hala.Utilities.Util;
 
-/**
- * Created by Home on 2/11/2016.
- */
 public class AppointmentFragment extends Fragment {
 
     // Declare Activity
@@ -39,25 +36,25 @@ public class AppointmentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_appointment, container, false);
-        // Initialize the views for this fragment
-        initializeViews(rootView);
+        ;
         // set toolbar title
         Util.setToolbarTitle(R.string.fragment_appointment, mainActivity.toolbar);
+
         //set navigation selected to current fragment
         mainActivity.setSelectedNavigationItem(R.id.nav_appointments);
+
         return rootView;
 
     }
 
     /**
-     * Function to initialize controls
+     * Function to set fragment to this main activity
+     *
+     * @param mainActivity - set main activity
      */
-    public void initializeViews(View rootView) {
-
-    }
-
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }

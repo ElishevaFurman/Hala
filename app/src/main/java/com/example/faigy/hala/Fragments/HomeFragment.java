@@ -1,8 +1,6 @@
 package com.example.faigy.hala.Fragments;
 
 import android.app.Fragment;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,10 +14,8 @@ import com.example.faigy.hala.Utilities.Util;
 
 import java.lang.reflect.Field;
 
-/**
- * Created by Home on 1/21/2016.
- */
 public class HomeFragment extends Fragment {
+
     // Declare Activities
     MainActivity mainActivity;
 
@@ -28,7 +24,7 @@ public class HomeFragment extends Fragment {
     ImageView homeImageView;
 
     public HomeFragment() {
-
+        // Required empty public constructor
     }
 
     @Override
@@ -38,7 +34,7 @@ public class HomeFragment extends Fragment {
         Util.hideSoftKeyboard();
     }
 
-        @Override
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -47,18 +43,18 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mainActivity.getSupportActionBar().show();
+
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
         // Initialize the views for this fragment
         initializeViews(rootView);
 
+        // Register listeners for controls
         registerListeners();
 
         // set toolbar title
         Util.setToolbarTitle(R.string.fragment_home, mainActivity.toolbar);
-
 
         //set navigation selected to current fragment
         mainActivity.setSelectedNavigationItem(R.id.nav_home);
@@ -76,6 +72,8 @@ public class HomeFragment extends Fragment {
         contactLinearLayout = (LinearLayout) rootView.findViewById(R.id.contactLinearLayout);
         // initialize and reference ImageView
         homeImageView = (ImageView) rootView.findViewById(R.id.homeImageView);
+
+        // set imageBitmap to homeImageView
         homeImageView.setImageBitmap(
                 Util.decodeSampledBitmapFromResource(getResources(), R.drawable.flower, 180, 180));
 
@@ -128,8 +126,6 @@ public class HomeFragment extends Fragment {
             Util.replaceFragment(mainActivity.contactUsFragment, R.string.fragment_contact);
             //set navigation selected to current fragment
             mainActivity.setSelectedNavigationItem(R.id.nav_contact);
-
-
         }
     };
 
@@ -152,6 +148,7 @@ public class HomeFragment extends Fragment {
 
     /**
      * Function to set fragment to this main activity
+     *
      * @param mainActivity - set main activity
      */
     public void setMainActivity(MainActivity mainActivity) {
