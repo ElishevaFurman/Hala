@@ -37,7 +37,6 @@ public class TeamListFragment extends Fragment {
     // Declare controls
     RecyclerView recyclerView;
     LinearLayoutManager llm;
-    ProgressDialog pDialog;
     TextView errorTextView;
 
     // Declare variables
@@ -47,7 +46,7 @@ public class TeamListFragment extends Fragment {
     TeamMemberAdapter mAdapter;
     private static String TAG = "json_team_request";
     private String url;
-    private int prev = -1;
+    private int prev;
 
 
     public TeamListFragment() {
@@ -109,6 +108,7 @@ public class TeamListFragment extends Fragment {
         mAdapter = new TeamMemberAdapter(getActivity());
         llm = new LinearLayoutManager(getActivity().getBaseContext());
         errorTextView = (TextView) rootView.findViewById(R.id.errorTextView);
+        prev = -1;
     }
 
     /**

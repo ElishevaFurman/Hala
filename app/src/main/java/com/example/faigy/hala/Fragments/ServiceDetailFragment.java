@@ -81,10 +81,8 @@ public class ServiceDetailFragment extends Fragment {
         image = (ImageView) rootView.findViewById(R.id.imageView1);
         imageProgressBar = (ProgressBar)rootView.findViewById(R.id.imageProgressBar);
 
-        //mainActivity.setSupportActionBar((Toolbar) rootView.findViewById(R.id.toolbar));
         collapsingToolbarLayout = (CollapsingToolbarLayout) rootView.findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle("Collapsing");
-        collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(android.R.color.transparent));
 
         WebView serviceDescriptionTextViews = (WebView)rootView.findViewById(R.id.serviceDescriptionTextViews);
 
@@ -121,13 +119,6 @@ public class ServiceDetailFragment extends Fragment {
 
         super.onPause();
 
-        //mainActivity.getSupportActionBar().show();
-
-        //mainActivity.openNavigationDrawer();
-        //toolbar.hideOverflowMenu();
-
-        //Util.setToolbarTitle(R.string.fragment_faq, mainActivity.toolbar);
-        //MySingleton.getInstance().setServicesDetails(true);
     }
 
     /**

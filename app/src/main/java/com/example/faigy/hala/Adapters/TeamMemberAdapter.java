@@ -28,7 +28,7 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
     private List<TeamMember> teamMembersList;
 
     // Declare variables
-    public static int expandedPosition = -1;
+    public static int expandedPosition;
 
     // Declare class
     public TeamMember tm;
@@ -39,6 +39,7 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
     // Constructor
     public TeamMemberAdapter(Context context) {
         this.context = context;
+        expandedPosition = -1;
     }
 
     /**

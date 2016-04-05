@@ -31,6 +31,7 @@ public class FAQExpandableAdapter extends RecyclerView.Adapter<FAQExpandableAdap
     // Constructor
     public FAQExpandableAdapter(Context context) {
         this.context = context;
+        expandedPosition = -1;
     }
 
     /**
