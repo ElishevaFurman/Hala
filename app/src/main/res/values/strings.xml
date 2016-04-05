@@ -1,7 +1,6 @@
 <resources>
     <!-- activity_main -->
     <string name="app_name">Hala</string>
-    <string name="app_title">The Rachel Nash Jerusalem Comprehensive Breast Clinic</string>
     <string name="nav_home">Home</string>
     <string name="nav_about">About Us</string>
     <string name="nav_team">Our Team</string>
@@ -21,18 +20,14 @@
     <string name="our_location">Our Location</string>
     <string name="contact_form">Contact Form</string>
     <string name="fragment_contact">Contact Us</string>
-    <string name="contact_title"><![CDATA[The Rachel Nash Jerusalem <br /> Comprehensive Breast Clinic]]></string>
+    <string name="contact_title"><![CDATA[The Rachel Nash Jerusalem <br />
+    Comprehensive Breast Clinic]]></string>
     <string name="contact_location"><![CDATA[Bet Ofer <br /> 5 Nachum Heftzadi St. <br />
     Jerusalem, 95484, Israel]]></string>
     <string name="contact_phone"><![CDATA[T: <a href="">"+972.2.659.5533"</a>]]></string>
     <string name="contact_email"><![CDATA[E: <a href="">"tor@hala.org.il"</a>]]></string>
     <string name="contact_fax">F: +972.2.659.5535</string>
     <string name="contact_bus">Buses #: 6, 52, 54, 55, 65, 74, 78a and 75</string>
-    <string name="image_location">image location</string>
-    <string name="image_phone">image phone</string>
-    <string name="image_email">image email</string>
-    <string name="image_fax">image fax</string>
-    <string name="image_bus">image bus</string>
     <string name="submit_button">SUBMIT</string>
     <string name="call_hala">Call Hala</string>
     <string name="call">CALL</string>
@@ -56,11 +51,9 @@
 
     <!-- fragment_home -->
     <string name="fragment_home">Hala</string>
-     <string name="home_banner_large_text2">CANCER IS A WORD. NOT A SENTENCE!</string>
-    <string name="home_banner_large_text">Hala clinic has gained it\'s reputation as Israel\'s
-        leading and most advanced breast cancer detection center, and probably one of the best in  the world</string>
-        <string name="home_banner_large_text1">HALA CLINIC HAS GAINED IT\'S REPUTATION AS ISRAEL\'S
-            LEADING AND MOST ADVANCED BREAST CANCER DETECTION CENTER, AND PROBABLY ONE OF THE BEST IN THE WORLD</string>
+    <string name="home_banner_large_text1">HALA CLINIC HAS GAINED IT\'S REPUTATION AS ISRAEL\'S
+            LEADING AND MOST ADVANCED BREAST CANCER DETECTION CENTER, AND PROBABLY
+        ONE OF THE BEST IN THE WORLD</string>
     <string name="home_banner_small_text">-- Yaakov Litzman</string>
     <string name="home_banner_small_text2">Minister of Health, State of Israel</string>
     <string name="about_icon">about icon</string>
@@ -74,45 +67,37 @@
     <string name="fragment_testimonials">Testimonials</string>
     <string name="testimonial1">SARAH BROWN</string>
     <string name="testimonial2">LADY SHARON HAREL - COHEN</string>
-    <string name="testimonial3">SUSAN G. KOMEN</string>
-    <string name="testimonial4">ISRAEL\'S MINISTRY OF HEALTH</string>
-    <string name="image_testimonial">image testimonial</string>
     <string name="testimonial_title">HEAR WHAT PEOPLE ARE SAYING ABOUT HALA</string>
-
-    <!-- fragment_testimonial_view -->
-    <string name="pdf_view">pdf view</string>
 
     <!-- fragment_ask -->
     <string name="fragment_ask">Ask</string>
-    <string name="name_hint">Name</string>
-    <string name="email_hint">Email Address</string>
     <string name="phone_hint">Phone</string>
     <string name="question_hint">Message / Question</string>
-    <string name="ask_button">ASK</string>
 
     <!-- fragment_our_mission -->
     <string name="image_description">image description</string>
     <string name="our_mission_title">HALA\'S MISSION IS TO SAVE LIVES. HOW?</string>
     <string name="our_mission_fact1">By providing the most advanced, comprehensive breast cancer
         screening and diagnostic center in Israel.</string>
-   <string name="our_mission_fact2">By giving women the necessary exams in one place, at one time,
+    <string name="our_mission_fact2">By giving women the necessary exams in one place, at one time,
        with on-the- spot results. If non-surgical needle biopsies are performed, results are
        generally back within days, not weeks.</string>
-     <string name="our_mission_fact3">By detecting breast cancer at its earliest stages, before it\'s
-         too late to treat effectively.</string>
-   <string name="our_mission_fact4">By expanding the Center to include a wider range of services and
-       significantly increase capacity.</string>
+    <string name="our_mission_fact3">By detecting breast cancer at its earliest stages, before
+         it\'s too late to treat effectively.</string>
+    <string name="our_mission_fact4">By expanding the Center to include a wider range of services
+        and significantly increase capacity.</string>
 
     <!-- fragment_about_us -->
-     <string name="the_hala_advantage_title">THE HALA ADVANTAGE</string>
- <string name="the_hala_advantage_fact1">Hala is Israel\'s only non-profit comprehensive breast
+   <string name="the_hala_advantage_title">THE HALA ADVANTAGE</string>
+   <string name="the_hala_advantage_fact1">Hala is Israel\'s only non-profit comprehensive breast
      screening diagnostic clinic.</string>
- <string name="the_hala_advantage_fact2">Hala is committed to providing a new level of diagnostic
+   <string name="the_hala_advantage_fact2">Hala is committed to providing a new level of diagnostic
      expertise in the field of breast cancer detection</string>
-    <string name="the_hala_advantage_fact3">At Hala, all exams and procedures are conducted in one visit.</string>
- <string name="the_hala_advantage_fact4">At Hala, exam results, other than biopsy, are given to
+   <string name="the_hala_advantage_fact3">At Hala, all exams and procedures are conducted in
+        one visit.</string>
+   <string name="the_hala_advantage_fact4">At Hala, exam results, other than biopsy, are given to
      the patient on the spot.</string>
-    <string name="the_hala_advantage_fact5">Hala has an unsurpassed detection rate of 98.7%.</string>
+   <string name="the_hala_advantage_fact5">Hala has an unsurpassed detection rate of 98.7%.</string>
  <string name="the_hala_advantage_fact6">Hala\'s detection rate is a 31% increase from
      non-comprehensive models.</string>
  <string name="the_hala_advantage_fact7">Hala has reduced false positives (incorrect diagnoses
@@ -123,46 +108,39 @@
      a 3D Tomosynthesis and C-View system.</string>
  <string name="the_hala_advantage_fact10">Hala\'s specialists consistently catch the 20% of
      early-stage tumors that are impossible to detect with conventional film techniques. </string>
- <string name="the_hala_advantage_fact11">Hala\'s doors are open to every woman, regardless of social
-     status, race, religion or financial status.</string>
+ <string name="the_hala_advantage_fact11">Hala\'s doors are open to every woman, regardless of
+     social status, race, religion or financial status.</string>
  <string name="the_hala_advantage_fact12">Hala is internationally recognized as an innovator in
      breast cancer detection.</string>
  <string name="the_hala_advantage_fact13">Hala performs beta testing for companies from Israel and
-     abroad who are creating state-of-the-art breast imaging and cancer identification technologies.</string>
+     abroad who are creating state-of-the-art breast imaging and cancer identification
+     technologies.</string>
      <string name="the_hala_advantage_fact14">Hala has screened over 180,000 women in the Middle
          East over the past 17 years.</string>
 
-    <!-- fragment_help_us_grow -->
-    <string name="help_us_grow_fact1">An expanded diagnostic clinic</string>
-    <string name="help_us_grow_fact2">One of the world\'s most advanced, and Israel’s first,
-        breast-dedicated MRI Unit</string>
-    <string name="help_us_grow_fact3">A LumaGem Molecular Breast Imaging System (press here to get
-        Lavi\'s letter)</string>
-    <string name="help_us_grow_fact4">Tomosynthesis digital mammography units</string>
-    <string name="help_us_grow_fact5">An international research center for breast cancer experts in
-        Israel and around the world</string>
-    <string name="help_us_grow_fact6">Expanded laboratory facilities</string>
-    <string name="help_us_grow_fact7">A new live-tissue bank (press here to get Advantests’s letter)</string>
-    <string name="help_us_grow_fact8">A call center</string>
-    <string name="help_us_grow_fact9">Pre- and post-operation care unit for ongoing and follow-up
-        consultation</string>
-
     <!-- fragment_appointment -->
-     <string name="appointment_type1">Routine Examination</string>
+    <string name="appointment_type1">Routine Examination</string>
     <string name="appointment_type2">Urgent Diagnostics</string>
     <string name="appointment_type3">Health Insurance Coverage</string>
-     <string name="appointment_type1_description">To schedule a routine screening, please contact our call center, and our representative will schedule an appointment. Please call: 02.659.5533</string>
-     <string name="appointment_type2_description">Hala is a referral clinic, and therefore handles emergency cases , high risk patients as well as routine patients. Referrals are made by medical clinics throughout Israel. If an urgent appointment is required please fax the referral with your contact details to fax number: 02.659.5535. One of our staff members will contact you.</string>
-     <string name="appointment_type3_description">Hala accepts private patients as well as referrals from the following health carriers: Maccabi (national) Leumit (national) and Clalit (Jerusalem and Central-Mercaz districts only). All UN and Consulate workers are given reduced rates.</string>
-     <string name="appointment_type3_description2">Please bring past mammograms or any other results or tests that were performed for breast screening outside of Hala.</string>
+    <string name="appointment_type1_description">To schedule a routine screening,
+        please contact our call center, and our representative will schedule an appointment.
+        Please call: 02.659.5533</string>
+    <string name="appointment_type2_description">Hala is a referral clinic, and therefore handles
+        emergency cases , high risk patients as well as routine patients. Referrals are made by
+        medical clinics throughout Israel. If an urgent appointment is required please fax the
+        referral with your contact details to fax number: 02.659.5535. One of our staff members
+        will contact you.</string>
+    <string name="appointment_type3_description">Hala accepts private patients as well as referrals
+        from the following health carriers: Maccabi (national) Leumit (national) and Clalit
+        (Jerusalem and Central-Mercaz districts only). All UN and Consulate workers are given
+        reduced rates.</string>
+    <string name="appointment_type3_description2">Please bring past mammograms or any other
+        results or tests that were performed for breast screening outside of Hala.</string>
 
 
     <!-- fragment_services -->
     <string name="fragment_services">Services</string>
 
-    <!-- fragment_service_detail -->
-    <string name="fragment_service_Detail">Service Detail</string>
-    <string name="impact_button">BE PART OF THE IMPACT!</string>
 
     <!-- fragment_faq-->
     <string name="fragment_faq">FAQs</string>
@@ -189,18 +167,6 @@
 
     <!-- fragment_appointment-->
     <string name="fragment_appointment">Appointment Info</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-
-
-
-
-    <string name="hint_name">Full Name</string>
-    <string name="hint_email">Email</string>
-    <string name="hint_password">Password</string>
-    <string name="btn_sign_up">Sign Up</string>
     <string name="err_msg_name">Enter your full name</string>
     <string name="err_msg_phone">Enter valid phone number</string>
     <string name="err_msg_email">Enter valid email address</string>
@@ -210,11 +176,7 @@
     <!-- node to check success of query -->
     <string name="TAG_SUCCESS">success</string>
 
-
-
-
-
-  <!-- app intro -->
+    <!-- app intro -->
 
     <string name="servicesTitle">SERVICES</string>
     <string name="newsTitle">NEWS</string>
@@ -222,23 +184,30 @@
 
     <string name="servicesDescription">Get a list of Halas services</string>
     <string name="newsDescription">Read and share the latest news about Hala</string>
-    <string name="faqDescription">Submit a question and get an answer from one of our doctors</string>
+    <string name="faqDescription">Submit a question and get an answer from one of our doctors
+    </string>
 
-    <string name="skip">SKIP</string>
     <string name="app_intro_done_button">DONE</string>
 
     <!-- Volley error messages -->
-    <string name="error_no_connection_found">"No connection found. Click here to download again."</string>
-    <string name="error_authentication_failed">"Authentication Failed. Click here to download again."</string>
-    <string name="error_server_error">"A server error occurred. Click here to download again."</string>
-    <string name="error_network_error">"A network error occurred. Click here to download again."</string>
-    <string name="error_parsing_error">"Unable to parse data. Click here to download again."</string>
+    <string name="error_no_connection_found">"No connection found. Click here to download again."
+    </string>
+    <string name="error_authentication_failed">"Authentication Failed. Click here to download
+        again."</string>
+    <string name="error_server_error">"A server error occurred. Click here to download again."
+    </string>
+    <string name="error_network_error">"A network error occurred. Click here to download again."
+    </string>
+    <string name="error_parsing_error">"Unable to parse data. Click here to download again."
+    </string>
 
 
     <!-- fragment_donate_now -->
     <string name="donate_now_title">HELP US MAKE A DIFFERENCE!</string>
-    <string name="donate_now_title2">JOIN US TO BUILD A LANDMARK WOMEN\'S HEALTH CENTER&#8230; AND SAVE LIVES</string>
-    <string name="donate_now_title3">Donations to Hala are tax deductible in the United States, England and Israel.</string>
+    <string name="donate_now_title2">JOIN US TO BUILD A LANDMARK WOMEN\'S HEALTH CENTER&#8230;
+        AND SAVE LIVES</string>
+    <string name="donate_now_title3">Donations to Hala are tax deductible in the United States,
+        England and Israel.</string>
     <string name="donate_now_button">DONATE NOW</string>
     <string name="donate_now_usa">USA:</string>
     <string name="donate_now_usa_info1">American Friends of Hala</string>

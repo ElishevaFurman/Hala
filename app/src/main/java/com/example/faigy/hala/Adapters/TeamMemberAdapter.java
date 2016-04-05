@@ -28,7 +28,7 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
     private List<TeamMember> teamMembersList;
 
     // Declare variables
-    public static int expandedPosition;
+    public int expandedPosition;
 
     // Declare class
     public TeamMember tm;
@@ -119,7 +119,8 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
                         // Remove progressBar on error of loaded image
                         teamMemberViewHolder.imageProgressBar.setVisibility(View.GONE);
                         // Set the image to default
-                        teamMemberViewHolder.teamMemberImageView.setBackgroundResource(R.mipmap.ic_launcher_hala);
+                        teamMemberViewHolder.teamMemberImageView.setBackgroundResource(
+                                R.mipmap.ic_launcher_hala);
                     }
                 });
 

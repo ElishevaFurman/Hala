@@ -1,7 +1,6 @@
 <resources>
     <!-- activity_main -->
     <string name="app_name">הלאה</string>
-    <string name="app_title">The Rachel Nash Jerusalem Comprehensive Breast Clinic</string>
     <string name="nav_home">דף הבית</string>
     <string name="nav_about">אודותינו</string>
     <string name="nav_team">הצוות הרפואי</string>
@@ -9,7 +8,6 @@
     <string name="nav_news">מהחדשות</string>
     <string name="nav_testimonials">עדויות</string>
     <string name="nav_appointments">זימון תורים</string>
-    <string name="nav_grow">עזרו לנו לגדול</string>
     <string name="nav_donate">תרמו עכשיו</string>
     <string name="nav_contact">צור קשר</string>
     <string name="nav_faqs">שאלות ותשובות</string>
@@ -28,14 +26,11 @@
     <string name="contact_location"><![CDATA[בית עופר <br /> רחוב נחום חפצדי 5<br />
      95484 ירושלים]]></string>
     <string name="contact_phone"><![CDATA[ טל: <a href="">"+972.2.659.5533"</a> ]]></string>
-    <string name="contact_email"><![CDATA[דואר אלקטרוני: <a href="">"tor@hala.org.il"</a>]]></string>
+    <string name="contact_email"><![CDATA[דואר אלקטרוני: <a href="">"tor@hala.org.il"</a>]]>
+    </string>
     <string name="contact_fax">פקס: +972.2.659.5535</string>
     <string name="contact_bus">אוטובוסים: 6, 52, 54, 55, 65, 74, 75 , 78 א</string>
     <string name="image_location">image location</string>
-    <string name="image_phone">image phone</string>
-    <string name="image_email">image email</string>
-    <string name="image_fax">image fax</string>
-    <string name="image_bus">image bus</string>
     <string name="call_hala">תתקשר למכון הלאה</string>
     <string name="call">בצע/י שיחה</string>
     <string name="cancel">ביטול</string>
@@ -55,9 +50,6 @@
 
     <!-- fragment_home -->
     <string name="fragment_home">הלאה</string>
-    <string name="home_banner_large_text2">CANCER IS A WORD. NOT A SENTENCE!</string>
-    <string name="home_banner_large_text">Hala clinic has gained it\'s reputation as Israel\'s
-        leading and most advanced breast cancer detection center, and probably one of the best in  the world</string>
     <string name="home_banner_small_text">-- יעקב ליצמן</string>
     <string name="home_banner_small_text2">שר הבריאות, מדינת ישראל</string>
     <string name="about_icon">about icon</string>
@@ -71,13 +63,9 @@
     <string name="fragment_testimonials">עדויות</string>
     <string name="testimonial1">שרה בראון</string>
     <string name="testimonial2">ליידי שרון הראל - כהן</string>
-    <string name="testimonial3">סוזן ג. קומן</string>
-    <string name="testimonial4">שר הבריאות</string>
     <string name="image_testimonial">image testimonial</string>
     <string name="testimonial_title">דברים שאנשים אומרים על הלאה!</string>
 
-    <!-- fragment_testimonial_view -->
-    <string name="pdf_view">pdf view</string>
 
     <!-- fragment_ask -->
     <string name="fragment_ask">שאל</string>
@@ -85,7 +73,6 @@
     <string name="hint_email">אימייל</string>
     <string name="phone_hint">מפר טלפון</string>
     <string name="question_hint">שאלה</string>
-    <string name="ask_button">שאל</string>
     <string name="submit_button">שלח</string>
 
     <string name="hint_password">סיסמה</string>
@@ -120,21 +107,6 @@
     <string name="the_hala_advantage_fact13">הלאה עורכת מבחני ביתא לחברות מישראל וחו"ל, חברות שמפתחות טכנולוגיות מדרגה ראשונה להדמיית שד ואבחון סרטן. </string>
     <string name="the_hala_advantage_fact14">הלאה בדקה למעלה מ-180,000 נשים במזרח התיכון בשבע עשרה השנים האחרונות.</string>
 
-    <!-- fragment_help_us_grow -->
-    <string name="help_us_grow_fact1">An expanded diagnostic clinic</string>
-    <string name="help_us_grow_fact2">One of the world\'s most advanced, and Israel’s first,
-        breast-dedicated MRI Unit</string>
-    <string name="help_us_grow_fact3">A LumaGem Molecular Breast Imaging System (press here to get
-        Lavi\'s letter)</string>
-    <string name="help_us_grow_fact4">Tomosynthesis digital mammography units</string>
-    <string name="help_us_grow_fact5">An international research center for breast cancer experts in
-        Israel and around the world</string>
-    <string name="help_us_grow_fact6">Expanded laboratory facilities</string>
-    <string name="help_us_grow_fact7">A new live-tissue bank (press here to get Advantests’s letter)</string>
-    <string name="help_us_grow_fact8">A call center</string>
-    <string name="help_us_grow_fact9">Pre- and post-operation care unit for ongoing and follow-up
-        consultation</string>
-
 
     <!-- fragment_appointment -->
     <string name="appointment_type1">בדיקה שגרתית</string>
@@ -149,17 +121,12 @@
 
     <!-- fragment_service_detail -->
     <string name="fragment_service_Detail">שירותים</string>
-    <string name="impact_button">BE PART OF THE IMPACT!</string>
 
     <!-- fragment_faq-->
     <string name="fragment_faq">שאלות ותשובות</string>
-    <string name="faq_title">ASK THE DOCTOR</string>
 
     <!-- fragment_about-->
     <string name="fragment_about">אודותינו</string>
-
-    <!-- fragment_grow-->
-    <string name="fragment_grow">עזרו לנו לגדול</string>
 
     <!-- fragment_news-->
     <string name="fragment_news">מהחדשות</string>
@@ -214,7 +181,6 @@
     <string name="newsDescription">קרא/י ושתפ/י כתבות על מכון הלאה בחדשות</string>
     <string name="faqDescription">שלח/י שאלה וקבל/י מענה מאחד הרופאים של מכון הלאה</string>
 
-    <string name="skip">SKIP</string>
     <string name="app_intro_done_button">דלג</string>
 
 

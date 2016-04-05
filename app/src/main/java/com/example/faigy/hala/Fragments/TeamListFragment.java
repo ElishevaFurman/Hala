@@ -137,25 +137,24 @@ public class TeamListFragment extends Fragment {
             new ClickListenerInterface() {
                 @Override
                 public void onClick(View view, int position) {
-                    int expandedPosition = TeamMemberAdapter.expandedPosition;
                     // Check for an expanded view, collapse if you find one
-                    if (expandedPosition >= 0) {
+                    if (mAdapter.expandedPosition >= 0) {
                         // set pre to expandedPosition
-                        prev = expandedPosition;
+                        prev = mAdapter.expandedPosition;
                         // notify adapter on item changed
                         mAdapter.notifyItemChanged(prev);
                     }
                     // if position is expanded
-                    if (position == expandedPosition) {
+                    if (position == mAdapter.expandedPosition) {
                         // Set the current position to "collapse"
-                        expandedPosition = -1;
+                        mAdapter.expandedPosition = -1;
                         // notify adapter on item changed
-                        mAdapter.notifyItemChanged(expandedPosition);
+                        mAdapter.notifyItemChanged(mAdapter.expandedPosition);
                     } else {
                         // Set the current position to "expanded"
-                        expandedPosition = position;
+                        mAdapter.expandedPosition = position;
                         // notify adapter on item changed
-                        mAdapter.notifyItemChanged(expandedPosition);
+                        mAdapter.notifyItemChanged(mAdapter.expandedPosition);
                     }
                 }
             });
