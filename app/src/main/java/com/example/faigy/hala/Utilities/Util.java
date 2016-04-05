@@ -361,6 +361,12 @@ public class Util extends Activity {
                     case "email":
                         emailHala();
                         break;
+                    case "bus":
+                        openUrlInBrowser(param);
+                        break;
+                    case "googleMaps":
+                        navigationIntent(param);
+                        break;
                     default:
                         break;
                 }

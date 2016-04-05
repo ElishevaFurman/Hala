@@ -1,6 +1,5 @@
 package com.example.faigy.hala.Fragments;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -44,10 +43,9 @@ public class TeamListFragment extends Fragment {
     ArrayList<TeamMember> teamMembersList;
     DatabaseOperations databaseOperations;
     TeamMemberAdapter mAdapter;
-    private static String TAG = "json_team_request";
-    private String url;
+    static String TAG = "json_team_request";
+    String url;
     private int prev;
-
 
     public TeamListFragment() {
         // Required empty public constructor
@@ -114,7 +112,7 @@ public class TeamListFragment extends Fragment {
     /**
      * Function to set up recyclerView
      */
-    public void setUpRecyclerView(){
+    public void setUpRecyclerView() {
         // set layout manager to recycler view
         recyclerView.setLayoutManager(llm);
         // set orientation for linear layout manager
@@ -135,30 +133,32 @@ public class TeamListFragment extends Fragment {
     }
 
     // Listener to expand and collapse items in recyclerView
-    RecyclerTouchListener expandItems = new RecyclerTouchListener(getActivity(), recyclerView, new ClickListenerInterface() {
-        @Override
-        public void onClick(View view, int position) {
-            // Check for an expanded view, collapse if you find one
-            if (mAdapter.expandedPosition >= 0) {
-                // set pre to expandedPosition
-                prev = mAdapter.expandedPosition;
-                // notify adapter on item changed
-                mAdapter.notifyItemChanged(prev);
-            }
-            // if position is expanded
-            if (position == mAdapter.expandedPosition) {
-                // Set the current position to "collapse"
-                mAdapter.expandedPosition = -1;
-                // notify adapter on item changed
-                mAdapter.notifyItemChanged(mAdapter.expandedPosition);
-            } else {
-                // Set the current position to "expanded"
-                mAdapter.expandedPosition = position;
-                // notify adapter on item changed
-                mAdapter.notifyItemChanged(mAdapter.expandedPosition);
-            }
-        }
-    });
+    RecyclerTouchListener expandItems = new RecyclerTouchListener(getActivity(), recyclerView,
+            new ClickListenerInterface() {
+                @Override
+                public void onClick(View view, int position) {
+                    int expandedPosition = TeamMemberAdapter.expandedPosition;
+                    // Check for an expanded view, collapse if you find one
+                    if (expandedPosition >= 0) {
+                        // set pre to expandedPosition
+                        prev = expandedPosition;
+                        // notify adapter on item changed
+                        mAdapter.notifyItemChanged(prev);
+                    }
+                    // if position is expanded
+                    if (position == expandedPosition) {
+                        // Set the current position to "collapse"
+                        expandedPosition = -1;
+                        // notify adapter on item changed
+                        mAdapter.notifyItemChanged(expandedPosition);
+                    } else {
+                        // Set the current position to "expanded"
+                        expandedPosition = position;
+                        // notify adapter on item changed
+                        mAdapter.notifyItemChanged(expandedPosition);
+                    }
+                }
+            });
 
     // Listener set to errorTextVeiw
     View.OnClickListener errorTextViewListener = new View.OnClickListener() {
@@ -173,14 +173,14 @@ public class TeamListFragment extends Fragment {
     /**
      * Method to make json array request where response starts with
      */
-    public void downloadData(){
+    public void downloadData() {
         // set url data to corresponding language of phone settings
         if (!Locale.getDefault().getLanguage().equals("en")) {
-
+            // set url to pick up hebrew data
             url = "http://162.243.100.186/members_array_he.php";
 
         } else {
-
+            // set url to pick up english data
             url = "http://162.243.100.186/members_array.php";
         }
 

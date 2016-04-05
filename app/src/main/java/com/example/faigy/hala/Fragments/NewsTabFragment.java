@@ -1,9 +1,7 @@
 package com.example.faigy.hala.Fragments;
 
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -18,11 +16,7 @@ import com.example.faigy.hala.Utilities.Util;
 import com.example.faigy.hala.Utilities.CustomViewPager;
 
 import java.lang.reflect.Field;
-import java.util.Locale;
 
-/**
- * Created by Home on 2/1/2016.
- */
 public class NewsTabFragment extends Fragment {
     // Declare controls
     MainActivity mainActivity;
@@ -116,13 +110,15 @@ public class NewsTabFragment extends Fragment {
     }
 
 
-/**
+    /**
      * Function to setup ViewPager
-     * @param viewPager
+     *
+     * @param viewPager - set viewPager
      */
     private void setupViewPager(final ViewPager viewPager) {
         adapter = new ViewPagerAdapter(getChildFragmentManager());
 
+        // add 3 tab fragments to the adapter
         adapter.addFrag((new InTheNewsFragment()), Util.getContext().getString(R.string.news_tab1));
         adapter.addFrag((new InTheNewsFragment()), Util.getContext().getString(R.string.news_tab2));
         adapter.addFrag((new InTheNewsFragment()), Util.getContext().getString(R.string.news_tab3));

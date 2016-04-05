@@ -15,12 +15,9 @@ import android.widget.TextView;
 import com.example.faigy.hala.Adapters.ServicesAdapter;
 import com.example.faigy.hala.Classes.Services;
 import com.example.faigy.hala.Utilities.DatabaseOperations;
-import com.example.faigy.hala.Interfaces.ClickListenerInterface;
 import com.example.faigy.hala.Activities.MainActivity;
 import com.example.faigy.hala.Classes.MyApplication;
-import com.example.faigy.hala.Classes.MySingleton;
 import com.example.faigy.hala.R;
-import com.example.faigy.hala.Listeners.RecyclerTouchListener;
 import com.example.faigy.hala.Utilities.Util;
 import com.example.faigy.hala.Utilities.DividerItemDecoration;
 import com.google.gson.Gson;
@@ -43,8 +40,8 @@ public class ServicesFragment extends Fragment {
     // Declare variables
     Services[] servicesData;
     ArrayList<Services> servicesList;
-    private static String TAG = "json_services_request";
-    private String url;
+    static String TAG = "json_services_request";
+    String url;
     FragmentManager.BackStackEntry backStackEntry;
 
     // Declare class
@@ -117,9 +114,11 @@ public class ServicesFragment extends Fragment {
         // initialize and reference RecyclerView
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
 
-        serviceImageView  = (ImageView) rootView.findViewById(R.id.serviceImageView);
-        serviceImageView.setImageBitmap(
-                Util.decodeSampledBitmapFromResource(getResources(), R.drawable.services_image2, 180, 180));
+        // initialize and reference ImageView
+        serviceImageView = (ImageView) rootView.findViewById(R.id.serviceImageView);
+        // set image bitmap to ImageView
+        serviceImageView.setImageBitmap(Util.decodeSampledBitmapFromResource(getResources(),
+                R.drawable.services_image2, 180, 180));
 
     }
 
@@ -145,19 +144,6 @@ public class ServicesFragment extends Fragment {
         }
     };
 
-//    /**
-//     * OnItemTouchListener for recyclerView
-//     */
-//    RecyclerTouchListener recyclerViewOnItemTouchListener = new RecyclerTouchListener
-//            (getActivity(), recyclerView, new ClickListenerInterface() {
-//        @Override
-//        public void onClick(View view, int position) {
-//            // set and store the clicked position in the recycler view
-//            MySingleton.getInstance().setPosition(position);
-//            // switch to service detail fragment
-//            Util.replaceFragment(mainActivity.serviceDetailFragment, R.string.fragment_service_Detail);
-//        }
-//    });
 
     /**
      * Function to set up RecyclerView
@@ -166,16 +152,17 @@ public class ServicesFragment extends Fragment {
         // instantiate mAdapter
         mAdapter = new ServicesAdapter(getActivity());
         // initialize linearLayoutManager
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(
+                getActivity().getBaseContext());
         // Set layout manager to position the items
         recyclerView.setLayoutManager(mLayoutManager);
         // add item decorator to recyclerView
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),
+                LinearLayoutManager.VERTICAL));
         // set item animator to DefaultAnimator
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         // attach the adapter to the recyclerView to populate items
         recyclerView.setAdapter(mAdapter);
-
     }
 
     /**
@@ -246,8 +233,6 @@ public class ServicesFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        // display the toolbar for the next fragment
-        mainActivity.getSupportActionBar().show();
     }
 
 }

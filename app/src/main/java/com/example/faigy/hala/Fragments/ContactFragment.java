@@ -1,7 +1,5 @@
 package com.example.faigy.hala.Fragments;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.FloatingActionButton;
@@ -10,13 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.faigy.hala.Activities.MainActivity;
 import com.example.faigy.hala.R;
 import com.example.faigy.hala.Utilities.Util;
-
 
 public class ContactFragment extends Fragment {
     // Declare activities
@@ -26,6 +22,9 @@ public class ContactFragment extends Fragment {
     TextView titleTextView, locationTextView, phoneTextView, emailTextView, busesTextView;
     FloatingActionButton mapFab;
     ImageView mapView;
+
+    //Declare variables
+    String url;
 
     public ContactFragment() {
         // Required empty public constructor
@@ -50,9 +49,13 @@ public class ContactFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_contact, container, false);
+
         // Initialize the views for this fragment
         initializeViews(rootView);
+
+        // Register listeners
         registerListeners();
+
         return rootView;
 
     }
@@ -95,8 +98,10 @@ public class ContactFragment extends Fragment {
     View.OnClickListener addressListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            // open Google Maps and populate it with defaultLocation
-            Util.navigationIntent("5 nakhum khaftsadi st, Jerusalem, 95484, Israel");
+            // open dialog for Google Maps
+            Util.createDialog(R.string.google_map, R.string.google_map_message, R.string.open,
+                    R.string.cancel, "googleMaps",
+                    "5 nakhum khaftsadi st, Jerusalem, 95484, Israel");
         }
     };
 
@@ -106,8 +111,9 @@ public class ContactFragment extends Fragment {
     View.OnClickListener phoneListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-
-           Util.createDialog(R.string.call_hala, R.string.call, R.string.call, R.string.cancel, "call", "02-659-5533");
+            // open dialog to call Hala
+            Util.createDialog(R.string.call_hala, R.string.call, R.string.call, R.string.cancel,
+                    "call", "02-659-5533");
         }
     };
 
@@ -117,8 +123,9 @@ public class ContactFragment extends Fragment {
     View.OnClickListener emailListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-
-            Util.createDialog(R.string.email_hala, R.string.send_email, R.string.send_email, R.string.cancel, "email", null);
+            // open dialog to email Hala
+            Util.createDialog(R.string.email_hala, R.string.send_email, R.string.send_email,
+                    R.string.cancel, "email", null);
 
         }
     };
@@ -129,12 +136,15 @@ public class ContactFragment extends Fragment {
     View.OnClickListener busesListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            startActivity(new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("http://mslworld.egged.co.il/?language=he&state=2#/search")));
+            // set url to Egged's website
+            url = "http://mslworld.egged.co.il/?language=he&state=2#/search";
+            // open dialog to view Egged's bus schedule
+            Util.createDialog(R.string.egged, R.string.egged_message, R.string.open,
+                    R.string.cancel, "bus", url);
         }
     };
 
-    public void setMainActivity(MainActivity mainActivity){
+    public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }
 
