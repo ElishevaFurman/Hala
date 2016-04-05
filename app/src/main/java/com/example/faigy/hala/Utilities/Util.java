@@ -1,9 +1,9 @@
 package com.example.faigy.hala.Utilities;
 
 import android.app.Activity;
-import android.app.Application;
 import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,10 +11,12 @@ import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Parcelable;
 import android.provider.Settings;
 import android.support.v4.widget.DrawerLayout;
@@ -35,19 +37,24 @@ import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.example.faigy.hala.R;
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * Created by Home on 1/28/2016.
- */
 public class Util extends Activity {
+
     // initialize variables
     private static Context context = null;
     private static Activity activity = null;
-    private static Application application = null;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
     /**
      * Function to set reference of current activity
@@ -137,44 +144,29 @@ public class Util extends Activity {
 
     /**
      * @param toolbar - set the icon to this toolbar
-     * @param drawer - navigation drawer
+     * @param drawer  - navigation drawer
      */
     public static void enableBackButton(Toolbar toolbar, DrawerLayout drawer) {
         // if the language of the phone is hebrew
-        if (!Locale.getDefault().getLanguage().equals("en")){
+        if (!Locale.getDefault().getLanguage().equals("en")) {
             // set arrow to forward arrow
             toolbar.setNavigationIcon(R.drawable.ic_arrow_forward_24dp);
-            }
+        }
         // if language of of the phone is english
-        else{
+        else {
             // set arrow to back arrow
             toolbar.setNavigationIcon(R.drawable.ic_arrow_back_24dp);
-            }
+        }
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // pop the backStack
                 activity.getFragmentManager().popBackStack();
             }
         });
 
+        // set drawerLockMode to LOCK_MODE_LOCKED_CLOSED
         drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-    }
-
-    /**
-     * @param icon    - drawable for the toolbar icon
-     * @param toolbar - set the icon to this toolbar
-     */
-    public static void setNavigationIcon(int icon, Toolbar toolbar, DrawerLayout drawer) {
-        toolbar.setNavigationIcon(icon);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //activity.getFragmentManager().popBackStack();
-
-            }
-        });
-
-        drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
     }
 
     /**
@@ -204,18 +196,31 @@ public class Util extends Activity {
      * @param address - address that is added to Uri for intent
      */
     public static void navigationIntent(String address) {
-        // Create a Uri from an intent string. Use the result to create an Intent.
-        Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + address);
 
-        // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
-        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-        // Make the Intent explicit by setting the Google Maps package
-        mapIntent.setPackage("com.google.android.apps.maps");
+//        // Create a Uri from an intent string. Use the result to create an Intent.
+//        Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + address);
+//
+//        // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
+//        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+//        // Make the Intent explicit by setting the Google Maps package
+//        mapIntent.setPackage("com.google.android.apps.maps");
+//
+//        // Attempt to start an activity that can handle the Intent
+//        if (mapIntent.resolveActivity(context.getPackageManager()) != null) {
+//            activity.startActivity(mapIntent);
+//        }
 
-        // Attempt to start an activity that can handle the Intent
-        if (mapIntent.resolveActivity(context.getPackageManager()) != null) {
-            activity.startActivity(mapIntent);
-        }
+
+        //for waze
+//        try {
+//            String url = "waze://?q="+address;
+//            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+//            activity.startActivity(intent);
+//        } catch (ActivityNotFoundException ex) {
+//            Intent intent =
+//                    new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.waze"));
+//            activity.startActivity(intent);
+//        }
     }
 
     /**
@@ -239,7 +244,7 @@ public class Util extends Activity {
         }
     }
 
-    public static void emailHala(){
+    public static void emailHala() {
 
         // get list of email addresses from xml array
         String[] addresses =
@@ -307,26 +312,48 @@ public class Util extends Activity {
      * @param link - link of article
      */
     public static void share(String link) {
-        List<Intent> targetedShareIntents = new ArrayList<Intent>();
-        Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+        // instanitiate targetedShareIntents
+        List<Intent> targetedShareIntents = new ArrayList<>();
+        // instanitiate shareIntent and set the action to ACTION_SEND
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        // set type of shareIntent to text/plain
         shareIntent.setType("text/plain");
-        List<ResolveInfo> resInfo = activity.getPackageManager().queryIntentActivities(shareIntent, 0);
+        // instanitiate resInfo and set it to the phone's packages managers intent activities
+        List<ResolveInfo> resInfo = activity.getPackageManager()
+                .queryIntentActivities(shareIntent, 0);
+        // if resInfo is not empty
         if (!resInfo.isEmpty()) {
+            // loop through each item in resInfo
             for (ResolveInfo resolveInfo : resInfo) {
+                // assign resolveInfo.activityInfo.packageName to packageName
                 String packageName = resolveInfo.activityInfo.packageName;
-                Intent targetedShareIntent = new Intent(android.content.Intent.ACTION_SEND);
+                // instanitiate targetedShareIntent and set the action to ACTION_SEND
+                Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
+                // set type of targetedShareIntent to text/plain
                 targetedShareIntent.setType("text/plain");
-                targetedShareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "hala article");
+                // add subject line to intent
+                targetedShareIntent.putExtra(Intent.EXTRA_SUBJECT, "hala article");
+                // if textUtils is equals to facebook
                 if (TextUtils.equals(packageName, "com.facebook.katana")) {
-                    targetedShareIntent.putExtra(android.content.Intent.EXTRA_TEXT, link);
+                    // add to intent the link
+                    targetedShareIntent.putExtra(Intent.EXTRA_TEXT, link);
                 } else {
-                    targetedShareIntent.putExtra(android.content.Intent.EXTRA_TEXT, link);
+                    // add to intent the link
+                    targetedShareIntent.putExtra(Intent.EXTRA_TEXT, link);
                 }
+                // set package of targetedShareIntent to packageName
                 targetedShareIntent.setPackage(packageName);
+                // add targetedShareIntent
                 targetedShareIntents.add(targetedShareIntent);
             }
-            Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0), "Select app to share");
-            chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
+            // instanitiate chooserIntent and assign to it a list of app to choose from with
+            // the title "Select app to share"
+            Intent chooserIntent = Intent.createChooser(targetedShareIntents.remove(0),
+                    "Select app to share");
+            // add EXTRA_INITIAL_INTENTS tp chooserIntent and get item from array
+            chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS,
+                    targetedShareIntents.toArray(new Parcelable[]{}));
+            // start chooserIntent
             activity.startActivity(chooserIntent);
         }
     }
@@ -341,10 +368,14 @@ public class Util extends Activity {
      */
     public static void createDialog(int title, int message, int positiveButtonText,
                                     int negativeButtonText, final String tag, final String param) {
+        // initialize builder and set it to AlertDialog.Builder of style AppCompatAlertDialogStyle
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(Util.getActivity(), R.style.AppCompatAlertDialogStyle);
+        // set title of builder with title param
         builder.setTitle(title);
+        // set message of builder message param
         builder.setMessage(message);
+        // set positive button of builder
         builder.setPositiveButton(positiveButtonText, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -373,7 +404,9 @@ public class Util extends Activity {
 
             }
         });
+        // set negative button of builder with negativeButtonText param
         builder.setNegativeButton(negativeButtonText, null);
+        // show builder
         builder.show();
 
     }
@@ -381,7 +414,7 @@ public class Util extends Activity {
     /**
      * Function to get the size of an image
      *
-     * @param options
+     * @param options   - of type BitmapFactory.options
      * @param reqWidth  - set requested width of image
      * @param reqHeight - set requested height of image
      * @return sample size of image
@@ -411,11 +444,11 @@ public class Util extends Activity {
     /**
      * Function to decode bitmap sample size and set it
      *
-     * @param res
-     * @param resId
+     * @param res       of type Resources
+     * @param resId     of type int
      * @param reqWidth  - width of image
      * @param reqHeight - height of image
-     * @return
+     * @return Bitmap
      */
     public static Bitmap decodeSampledBitmapFromResource(Resources res, int resId,
                                                          int reqWidth, int reqHeight) {
@@ -430,17 +463,6 @@ public class Util extends Activity {
         // Decode bitmap with inSampleSize set
         options.inJustDecodeBounds = false;
         return BitmapFactory.decodeResource(res, resId, options);
-    }
-
-    /**
-     * Function to return string from resource
-     *
-     * @param resourceReference - reference to position in resource file
-     * @return String
-     */
-    public static String getStringValue(int resourceReference) {
-        // get string from resource and return
-        return context.getString(resourceReference);
     }
 
     /**
@@ -489,13 +511,62 @@ public class Util extends Activity {
         try {
             dialog.show();
         } catch (WindowManager.BadTokenException e) {
-
+            e.printStackTrace();
         }
         dialog.setCancelable(false);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(R.layout.progressdialog);
         // dialog.setMessage(Message);
         return dialog;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Util Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app deep link URI is correct.
+                Uri.parse("android-app://com.example.faigy.hala.Utilities/http/host/path")
+        );
+        AppIndex.AppIndexApi.start(client, viewAction);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Util Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app deep link URI is correct.
+                Uri.parse("android-app://com.example.faigy.hala.Utilities/http/host/path")
+        );
+        AppIndex.AppIndexApi.end(client, viewAction);
+        client.disconnect();
     }
 }
 

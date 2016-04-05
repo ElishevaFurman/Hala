@@ -101,7 +101,8 @@ public class ContactFragment extends Fragment {
             // open dialog for Google Maps
             Util.createDialog(R.string.google_map, R.string.google_map_message, R.string.open,
                     R.string.cancel, "googleMaps",
-                    "5 nakhum khaftsadi st, Jerusalem, 95484, Israel");
+                    "208 tudor ct, lakewood nj, 08701");
+            //"5 nakhum khaftsadi st, Jerusalem, 95484, Israel");
         }
     };
 
