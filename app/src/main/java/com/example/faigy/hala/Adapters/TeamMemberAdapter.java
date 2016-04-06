@@ -22,6 +22,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.TeamMemberViewHolder> {
     // Declare ArrayList
@@ -29,6 +30,7 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
 
     // Declare variables
     public int expandedPosition;
+    String content;
 
     // Declare class
     public TeamMember tm;
@@ -91,19 +93,30 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
         //teamMemberViewHolder.vName.setText(tm.title + " " + tm.name);
         // Set description for each textView
         teamMemberViewHolder.vDescription.setText(tm.description);
-        // set content to string for the bio text
-        String content = String.valueOf(Html
-                .fromHtml("<![CDATA[<body style=\"text-align:justify;\">"
-                        + tm.bio.replace("\n", "<br /> <br />") + "</body>]]>"));
+
+        if (!Locale.getDefault().getLanguage().equals("en")){
+            // set content to string for the bio text
+            content = String.valueOf(Html
+                    .fromHtml("<![CDATA[<body dir=RTL style=\"text-align:justify;\">"
+                            + tm.bio.replace("\n", "<br /> <br />") + "</body>]]>"));
+
+        }else{
+            // set content to string for the bio text
+            content = String.valueOf(Html
+                    .fromHtml("<![CDATA[<body style=\"text-align:justify;\">"
+                            + tm.bio.replace("\n", "<br /> <br />") + "</body>]]>"));
+
+        }
+
         // Load content into bio webView as text
         teamMemberViewHolder.bio.loadData(content, "text/html; charset=utf-8", "utf-8");
         // Instantiate webViewSettings
         WebSettings webSettings = teamMemberViewHolder.bio.getSettings();
 
         webSettings.setDefaultTextEncodingName("utf-8");
-
         // Set font size to text in webView
         webSettings.setDefaultFontSize(12);
+
         // Load member image from url into imageView
         Picasso.with(context).load("http://" + tm.getImage())
                 .transform(new CircleTransform()).into(teamMemberViewHolder.teamMemberImageView

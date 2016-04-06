@@ -20,10 +20,6 @@ public class DonateFragment extends Fragment {
     RelativeLayout donateRelativeLayout;
     ImageView donateImageView;
 
-    // Declare variables
-    String url = "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=SCKZLDNUTW3DW&lc=US" +
-            "&item_name=Hala&currency_code=AUD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted";
-
     @Override
     public void onResume() {
         super.onResume();
@@ -90,8 +86,12 @@ public class DonateFragment extends Fragment {
     View.OnClickListener donateNowListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            // Declare variables
+            String url = "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=SCKZLDNUTW3DW&lc=US" +
+                    "&item_name=Hala&currency_code=AUD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted";
+
             Util.createDialog(R.string.donate, R.string.donate_message, R.string.donate_now,
-                    R.string.cancel, "url", url);
+                    R.string.cancel, null, "url", url);
 
         }
     };

@@ -122,6 +122,7 @@ public class NewsTabFragment extends Fragment {
         adapter.addFrag((new InTheNewsFragment()), Util.getContext().getString(R.string.news_tab1));
         adapter.addFrag((new InTheNewsFragment()), Util.getContext().getString(R.string.news_tab2));
         adapter.addFrag((new InTheNewsFragment()), Util.getContext().getString(R.string.news_tab3));
+        adapter.addFrag((new InTheNewsFragment()), Util.getContext().getString(R.string.news_tab4));
         viewPager.setTag("0");
         viewPager.setAdapter(adapter);
     }

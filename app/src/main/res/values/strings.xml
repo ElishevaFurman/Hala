@@ -34,8 +34,11 @@
     <string name="cancel">CANCEL</string>
     <string name="egged">Egged Bus Schedule</string>
     <string name="egged_message">View bus schedule on Egged\'s website.</string>
-    <string name="google_map">Open Google Maps</string>
-    <string name="google_map_message">Open google maps to view Hala\'s location.</string>
+    <string name="google_map">Hala\'s Location</string>
+    <string name="google_map_message">View Hala\'s location in&#8230;</string>
+    <string name="google_map_button">GOOGLE MAPS</string>
+    <string name="waze_map_button">WAZE</string>
+    <string name="error_waze_not_installed">"Waze application is not installed on this device"</string>
 
     <!-- internet_connection -->
     <string name="internet_connection">Internet Connection</string>
@@ -71,8 +74,12 @@
 
     <!-- fragment_ask -->
     <string name="fragment_ask">Ask</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_email">Email</string>
     <string name="phone_hint">Phone</string>
     <string name="question_hint">Message / Question</string>
+    <string name="hint_password">password</string>
+
 
     <!-- fragment_our_mission -->
     <string name="image_description">image description</string>
@@ -236,6 +243,7 @@
     <string name="news_tab1">"NEWS"</string>
     <string name="news_tab2">"PUBLICATIONS"</string>
     <string name="news_tab3">"PRESENTATIONS"</string>
+    <string name="news_tab4">"CHANNEL"</string>
 
     <string name="email_hala">Email Hala</string>
     <string name="send_email">SEND EMAIL</string>

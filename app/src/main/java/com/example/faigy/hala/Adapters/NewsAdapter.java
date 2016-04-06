@@ -109,7 +109,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
         holder.textLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Util.createDialog(R.string.news, R.string.news_message, R.string.open, R.string.cancel, "url", url);
+                Util.createDialog(R.string.news, R.string.news_message, R.string.open, R.string.cancel, null, "url", url);
 
             }
         });

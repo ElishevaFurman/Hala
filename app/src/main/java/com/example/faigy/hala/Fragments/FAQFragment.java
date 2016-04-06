@@ -1,5 +1,7 @@
 package com.example.faigy.hala.Fragments;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -93,6 +95,7 @@ public class FAQFragment extends Fragment {
         //set navigation selected to current fragment
         mainActivity.setSelectedNavigationItem(R.id.nav_faqs);
 
+        animate();
         return rootView;
     }
 
@@ -200,11 +203,30 @@ public class FAQFragment extends Fragment {
     View.OnClickListener fabListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+
             // switch to ask fragment
             getFragmentManager().beginTransaction().addToBackStack("ASK").replace(R.id.container,
-                    mainActivity.contactFormFragment).commit();
+                     mainActivity.contactFormFragment).commit();
         }
     };
+
+
+    public void animate(){
+        ObjectAnimator scalex = ObjectAnimator.ofFloat(fab, "scaleX", 0, 1);
+        ObjectAnimator scaley = ObjectAnimator.ofFloat(fab, "scaleY", 0, 1);
+        AnimatorSet scaleFab = new AnimatorSet();
+        scaleFab.playTogether(scalex, scaley);
+
+        int titleStartValue = collapsingToolbar.getTop();
+        int titleEndValue = collapsingToolbar.getBottom();
+        ObjectAnimator animatorTitle = ObjectAnimator.ofInt(collapsingToolbar, "bottom", titleStartValue);
+
+        AnimatorSet set = new AnimatorSet();
+        set.playSequentially(scaleFab);
+        set.start();
+    }
+
+
 
     /**
      * Function to set fragment to this main activity

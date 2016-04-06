@@ -15,7 +15,7 @@ public class NetworkStateReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
 
       if (!Util.isConnected()){
-          Util.createDialog(R.string.internet_connection, R.string.internet_message, R.string.connect, R.string.cancel, "internet", null);
+          Util.createDialog(R.string.internet_connection, R.string.internet_message, R.string.connect, R.string.cancel, null,  "internet", null);
       }
 
 

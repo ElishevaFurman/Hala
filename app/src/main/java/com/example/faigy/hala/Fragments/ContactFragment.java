@@ -20,7 +20,7 @@ public class ContactFragment extends Fragment {
 
     // Declare controls
     TextView titleTextView, locationTextView, phoneTextView, emailTextView, busesTextView;
-    FloatingActionButton mapFab;
+    FloatingActionButton callFab;
     ImageView mapView;
 
     //Declare variables
@@ -74,7 +74,7 @@ public class ContactFragment extends Fragment {
         emailTextView = (TextView) rootView.findViewById(R.id.emailTextView);
         emailTextView.setText(Html.fromHtml(getString(R.string.contact_email)));
         busesTextView = (TextView) rootView.findViewById(R.id.busesTextView);
-        mapFab = (FloatingActionButton) rootView.findViewById(R.id.contactFab);
+        callFab = (FloatingActionButton) rootView.findViewById(R.id.contactFab);
         mapView = (ImageView) rootView.findViewById(R.id.mapView);
     }
 
@@ -85,7 +85,7 @@ public class ContactFragment extends Fragment {
     private void registerListeners() {
         // set onClickListeners
         mapView.setOnClickListener(addressListener);
-        mapFab.setOnClickListener(phoneListener);
+        callFab.setOnClickListener(phoneListener);
         locationTextView.setOnClickListener(addressListener);
         phoneTextView.setOnClickListener(phoneListener);
         emailTextView.setOnClickListener(emailListener);
@@ -98,11 +98,11 @@ public class ContactFragment extends Fragment {
     View.OnClickListener addressListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            String neutralButton = getResources().getString(R.string.cancel);
             // open dialog for Google Maps
-            Util.createDialog(R.string.google_map, R.string.google_map_message, R.string.open,
-                    R.string.cancel, "googleMaps",
-                    "208 tudor ct, lakewood nj, 08701");
-            //"5 nakhum khaftsadi st, Jerusalem, 95484, Israel");
+            Util.createDialog(R.string.google_map, R.string.google_map_message, R.string.google_map_button,
+                    R.string.waze_map_button, neutralButton, "maps",
+                    "5 nakhum khaftsadi st, Jerusalem, 95484, Israel");
         }
     };
 
@@ -112,8 +112,9 @@ public class ContactFragment extends Fragment {
     View.OnClickListener phoneListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            animate();
             // open dialog to call Hala
-            Util.createDialog(R.string.call_hala, R.string.call, R.string.call, R.string.cancel,
+            Util.createDialog(R.string.call_hala, R.string.call, R.string.call, R.string.cancel, null,
                     "call", "02-659-5533");
         }
     };
@@ -126,7 +127,7 @@ public class ContactFragment extends Fragment {
         public void onClick(View v) {
             // open dialog to email Hala
             Util.createDialog(R.string.email_hala, R.string.send_email, R.string.send_email,
-                    R.string.cancel, "email", null);
+                    R.string.cancel, null, "email", null);
 
         }
     };
@@ -141,9 +142,15 @@ public class ContactFragment extends Fragment {
             url = "http://mslworld.egged.co.il/?language=he&state=2#/search";
             // open dialog to view Egged's bus schedule
             Util.createDialog(R.string.egged, R.string.egged_message, R.string.open,
-                    R.string.cancel, "bus", url);
+                    R.string.cancel, null, "bus", url);
         }
     };
+
+    public void animate(){
+        callFab.setScaleX(0);
+        callFab.setScaleY(0);
+        callFab.animate().scaleX(1).scaleY(1).start();
+    }
 
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;

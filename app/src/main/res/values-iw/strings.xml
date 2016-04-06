@@ -45,7 +45,11 @@
     <string name="egged">זמני אוטובוסים</string>
     <string name="egged_message">ראה/י לוח זמנים של אוטובוסים באתר של אגד.</string>
     <string name="google_map">מפה</string>
-    <string name="google_map_message">פתח/י מפה בגוגל</string>
+    <string name="google_map_message">פתח/י את המפה ב&#8230;</string>
+    <string name="google_map_button">גוגל</string>
+    <string name="waze_map_button">WAZE</string>
+    <string name="error_waze_not_installed">"האפליקציה של WAZE לא מותקנת במכשיר זה"</string>
+
 
 
     <!-- fragment_home -->
@@ -202,7 +206,7 @@
     <string name="news_tab1">"חדשות"</string>
     <string name="news_tab2">"פרסומים"</string>
     <string name="news_tab3">"מצגות"</string>
-
+    <string name="news_tab4">"בערוץ"</string>
 
     <string name="email_hala">שלח אימייל למכון הלאה</string>
     <string name="send_email">שלח אימייל</string>

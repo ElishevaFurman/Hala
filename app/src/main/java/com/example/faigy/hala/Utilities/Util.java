@@ -7,6 +7,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -195,32 +196,61 @@ public class Util extends Activity {
      *
      * @param address - address that is added to Uri for intent
      */
-    public static void navigationIntent(String address) {
+    public static void navigationIntent(String address, String tag) {
 
-//        // Create a Uri from an intent string. Use the result to create an Intent.
-//        Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + address);
-//
-//        // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
-//        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-//        // Make the Intent explicit by setting the Google Maps package
-//        mapIntent.setPackage("com.google.android.apps.maps");
-//
-//        // Attempt to start an activity that can handle the Intent
-//        if (mapIntent.resolveActivity(context.getPackageManager()) != null) {
-//            activity.startActivity(mapIntent);
-//        }
+        if (tag.equals("googleMaps")){
+            // Create a Uri from an intent string. Use the result to create an Intent.
+            Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + address);
 
+            // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+            // Make the Intent explicit by setting the Google Maps package
+            mapIntent.setPackage("com.google.android.apps.maps");
 
-        //for waze
-//        try {
-//            String url = "waze://?q="+address;
-//            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-//            activity.startActivity(intent);
-//        } catch (ActivityNotFoundException ex) {
-//            Intent intent =
-//                    new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.waze"));
-//            activity.startActivity(intent);
-//        }
+            // Attempt to start an activity that can handle the Intent
+            if (mapIntent.resolveActivity(context.getPackageManager()) != null) {
+                activity.startActivity(mapIntent);
+            }
+        }else{
+            //for waze
+            if (isPackageInstalled("com.waze", getContext())){
+                try {
+
+                    String url = "waze://?q="+address;
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    activity.startActivity(intent);
+                } catch (ActivityNotFoundException ex) {
+                    Intent intent =
+                            new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.waze"));
+                    activity.startActivity(intent);
+                }
+            }else {
+                Toast.makeText(getContext(),R.string.error_waze_not_installed, Toast.LENGTH_LONG).show();
+            }
+
+        }
+
+    }
+
+    /**
+     *
+     * @param packageName - name of package
+     * @param context - activity's context
+     * @return boolean
+     */
+    private static boolean isPackageInstalled(String packageName, Context context) {
+        // istanitiate pm
+        PackageManager pm = context.getPackageManager();
+        try {
+            // try to get packageInfo of pm
+            pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+            // return true
+            return true;
+        // if no information about the package was found
+        } catch (PackageManager.NameNotFoundException e) {
+            // return false
+            return false;
+        }
     }
 
     /**
@@ -362,12 +392,13 @@ public class Util extends Activity {
      * @param title              - set dialog title
      * @param message            - set dialog message
      * @param positiveButtonText - set text for positive button in dialog
-     * @param negativeButtonText - set text for negative butoon in dialog
+     * @param negativeButtonText - set text for negative button in dialog
+     * @param neutralButtonText - set text for neutral button in dialog
      * @param tag                - set tag for listener in dialog
      * @param param              - set param for listener in dialog
      */
     public static void createDialog(int title, int message, int positiveButtonText,
-                                    int negativeButtonText, final String tag, final String param) {
+                                    int negativeButtonText, String neutralButtonText, final String tag, final String param) {
         // initialize builder and set it to AlertDialog.Builder of style AppCompatAlertDialogStyle
         AlertDialog.Builder builder =
                 new AlertDialog.Builder(Util.getActivity(), R.style.AppCompatAlertDialogStyle);
@@ -395,8 +426,8 @@ public class Util extends Activity {
                     case "bus":
                         openUrlInBrowser(param);
                         break;
-                    case "googleMaps":
-                        navigationIntent(param);
+                    case "maps":
+                        navigationIntent(param ,"googleMaps");
                         break;
                     default:
                         break;
@@ -404,8 +435,17 @@ public class Util extends Activity {
 
             }
         });
+
+        builder.setNegativeButton(negativeButtonText, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (tag.equals("maps")){
+                    navigationIntent(param, "waze");
+                }
+            }
+        });
         // set negative button of builder with negativeButtonText param
-        builder.setNegativeButton(negativeButtonText, null);
+        builder.setNeutralButton(neutralButtonText, null);
         // show builder
         builder.show();
 

@@ -96,7 +96,7 @@ public class TestimonialFragment extends Fragment {
             public void onClick(View v) {
                 String url = "http://www.hala.org.il/Image/uploaded/lady-sarrah-letr-medium.jpg";
                 Util.createDialog(R.string.testimonial, R.string.testimonial_message, R.string.open,
-                        R.string.cancel, "url", url);
+                        R.string.cancel, null, "url", url);
             }
         });
 
@@ -105,7 +105,7 @@ public class TestimonialFragment extends Fragment {
             public void onClick(View v) {
                 String url = "http://www.hala.org.il/Image/uploaded/lady-sharon-letr-medium1.jpg";
                 Util.createDialog(R.string.testimonial, R.string.testimonial_message, R.string.open,
-                        R.string.cancel, "url", url);
+                        R.string.cancel, null, "url", url);
             }
         });
 
@@ -114,7 +114,7 @@ public class TestimonialFragment extends Fragment {
             public void onClick(View v) {
                 String url = "http://www.hala.org.il/Image/uploaded/Hala_Komen_Partnership.pdf";
                 Util.createDialog(R.string.testimonial, R.string.testimonial_message, R.string.open,
-                        R.string.cancel, "url", url);
+                        R.string.cancel, null, "url", url);
 
             }
         });
@@ -125,7 +125,7 @@ public class TestimonialFragment extends Fragment {
                 String url = "http://www.hala.org.il/Image/uploaded/" +
                         "Letter%20from%20Ministry%20of%20Health.pdf";
                 Util.createDialog(R.string.testimonial, R.string.testimonial_message, R.string.open,
-                        R.string.cancel, "url", url);
+                        R.string.cancel, null, "url", url);
             }
         });
     }

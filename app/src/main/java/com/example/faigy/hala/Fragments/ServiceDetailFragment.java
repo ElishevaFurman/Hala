@@ -29,11 +29,15 @@ import java.util.Locale;
  * A simple {@link Fragment} subclass.
  */
 public class ServiceDetailFragment extends Fragment {
+
     // Declare Activities
     MainActivity mainActivity;
+
     // Declare Variables
     ArrayList<Services> servicesArrayList;
     int position;
+    String content;
+
     // Declare Controls
     CollapsingToolbarLayout collapsingToolbarLayout;
     ImageView image;
@@ -92,20 +96,20 @@ public class ServiceDetailFragment extends Fragment {
         settings.setDefaultTextEncodingName("utf-8");
 
         if(!Locale.getDefault().getLanguage().equals("en")){
-            String content = String.valueOf(Html
+            content = String.valueOf(Html
                     .fromHtml("<![CDATA[<body dir=RTL style=\"text-align:justify;\">"
                             + mainActivity.servicesFragment.servicesList.get(position).getDescription()
                             .replace("\n", "<br />") + "</body>]]>"));
-            serviceDescriptionTextViews.loadData(content, "text/html; charset=utf-8", "utf-8");
+
         }else{
-            String content = String.valueOf(Html
+            content = String.valueOf(Html
                     .fromHtml("<![CDATA[<body style=\"text-align:justify;\">"
                             + mainActivity.servicesFragment.servicesList.get(position).getDescription()
                             .replace("\n", "<br />") + "</body>]]>"));
-            serviceDescriptionTextViews.loadData(content, "text/html; charset=utf-8", "utf-8");
+
         }
 
-
+        serviceDescriptionTextViews.loadData(content, "text/html; charset=utf-8", "utf-8");
 
 
         Picasso.with(Util.getActivity()).load("http://" + mainActivity.servicesFragment.servicesList.get(position).getImage())

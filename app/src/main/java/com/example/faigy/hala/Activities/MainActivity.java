@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity
         // check if phone is connected to internet or not
         if (!Util.isConnected()) {
             // if its not connected, show dialog:"No connection found. Please connect to internet"
-            Util.createDialog(R.string.internet_connection, R.string.internet_message, R.string.connect, R.string.cancel, "internet", null);
+            Util.createDialog(R.string.internet_connection, R.string.internet_message, R.string.connect, R.string.cancel, null,"internet", null);
         }
 
         initializeViews();
