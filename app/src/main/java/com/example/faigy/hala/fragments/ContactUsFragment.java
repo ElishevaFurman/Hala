@@ -136,7 +136,7 @@ public class ContactUsFragment extends Fragment {
 
         /**
          *
-         * @param position
+         * @param position - of type int
          * @return Fragment
          */
         @Override
@@ -145,12 +145,10 @@ public class ContactUsFragment extends Fragment {
             switch (position) {
                 case 0:
                     // initialize tab1
-                    ContactFragment tab1 = new ContactFragment();
-                    return tab1;
+                    return new ContactFragment();
                 case 1:
                     // initialize tab2
-                    FormFragment tab2 = new FormFragment();
-                    return tab2;
+                    return new FormFragment();
                 default:
                     return null;
             }

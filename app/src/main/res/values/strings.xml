@@ -14,7 +14,6 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_settings">Settings</string>
 
     <!-- fragment_contact -->
     <string name="our_location">Our Location</string>
@@ -78,8 +77,6 @@
     <string name="hint_email">Email</string>
     <string name="phone_hint">Phone</string>
     <string name="question_hint">Message / Question</string>
-    <string name="hint_password">password</string>
-
 
     <!-- fragment_our_mission -->
     <string name="image_description">image description</string>
@@ -151,13 +148,10 @@
 
     <!-- fragment_faq-->
     <string name="fragment_faq">FAQs</string>
-    <string name="faq_title">ASK THE DOCTOR</string>
 
     <!-- fragment_about-->
     <string name="fragment_about">About Us</string>
 
-    <!-- fragment_grow-->
-    <string name="fragment_grow">Help Us Grow</string>
 
     <!-- fragment_news-->
     <string name="fragment_news">In The News</string>
@@ -179,9 +173,6 @@
     <string name="err_msg_email">Enter valid email address</string>
     <string name="err_msg_question">Enter your message</string>
 
-
-    <!-- node to check success of query -->
-    <string name="TAG_SUCCESS">success</string>
 
     <!-- app intro -->
 

@@ -1,8 +1,5 @@
 package com.example.faigy.hala.utilities;
 
-/**
- * Created by Home on 3/6/2016.
- */
 /*
  * Copyright (C) 2011 Patrik Akerfeldt
  * Copyright (C) 2011 Jake Wharton
@@ -29,6 +26,7 @@ package com.example.faigy.hala.utilities;
         import android.graphics.drawable.Drawable;
         import android.os.Parcel;
         import android.os.Parcelable;
+        import android.support.v4.content.ContextCompat;
         import android.support.v4.view.MotionEventCompat;
         import android.support.v4.view.ViewConfigurationCompat;
         import android.support.v4.view.ViewPager;
@@ -86,10 +84,10 @@ public class CirclePageIndicator extends View implements PageIndicator {
 
         //Load defaults from resources
         final Resources res = getResources();
-        final int defaultPageColor = res.getColor(R.color.default_circle_indicator_page_color);
-        final int defaultFillColor = res.getColor(R.color.default_circle_indicator_fill_color);
+        final int defaultPageColor = ContextCompat.getColor(getContext(), R.color.default_circle_indicator_page_color);
+        final int defaultFillColor = ContextCompat.getColor(getContext(), R.color.default_circle_indicator_fill_color);
         final int defaultOrientation = res.getInteger(R.integer.default_circle_indicator_orientation);
-        final int defaultStrokeColor = res.getColor(R.color.default_circle_indicator_stroke_color);
+        final int defaultStrokeColor = ContextCompat.getColor(getContext(), R.color.default_circle_indicator_stroke_color);
         final float defaultStrokeWidth = res.getDimension(R.dimen.default_circle_indicator_stroke_width);
         final float defaultRadius = res.getDimension(R.dimen.viewpager_circleindicator_radius);
         final boolean defaultCentered = res.getBoolean(R.bool.default_circle_indicator_centered);
@@ -112,7 +110,7 @@ public class CirclePageIndicator extends View implements PageIndicator {
 
         Drawable background = a.getDrawable(R.styleable.CirclePageIndicator_android_background);
         if (background != null) {
-            setBackgroundDrawable(background);
+            setBackground(background);
         }
 
         a.recycle();
@@ -375,13 +373,13 @@ public class CirclePageIndicator extends View implements PageIndicator {
             return;
         }
         if (mViewPager != null) {
-            mViewPager.setOnPageChangeListener(null);
+            mViewPager.addOnPageChangeListener(null);
         }
         if (view.getAdapter() == null) {
             throw new IllegalStateException("ViewPager does not have adapter instance.");
         }
         mViewPager = view;
-        mViewPager.setOnPageChangeListener(this);
+        mViewPager.addOnPageChangeListener(this);
         invalidate();
     }
 
@@ -566,15 +564,15 @@ interface PageIndicator extends ViewPager.OnPageChangeListener {
     /**
      * Bind the indicator to a ViewPager.
      *
-     * @param view
+     * @param view - of type ViewPager
      */
     void setViewPager(ViewPager view);
 
     /**
      * Bind the indicator to a ViewPager.
      *
-     * @param view
-     * @param initialPosition
+     * @param view - of type ViewPager
+     * @param initialPosition - of type int
      */
     void setViewPager(ViewPager view, int initialPosition);
 
@@ -584,14 +582,14 @@ interface PageIndicator extends ViewPager.OnPageChangeListener {
      * <p>This <strong>must</strong> be used if you need to set the page before
      * the views are drawn on screen (e.g., default start page).</p>
      *
-     * @param item
+     * @param item - of type int
      */
     void setCurrentItem(int item);
 
     /**
      * Set a page change listener which will receive forwarded events.
      *
-     * @param listener
+     * @param listener - of type OnPageChangeListener
      */
     void setOnPageChangeListener(ViewPager.OnPageChangeListener listener);
 

@@ -1,8 +1,5 @@
 package com.example.faigy.hala.utilities;
 
-/**
- * Created by Home on 3/6/2016.
- */
 
 import android.graphics.Color;
 

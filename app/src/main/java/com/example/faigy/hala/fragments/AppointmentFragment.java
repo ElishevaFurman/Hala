@@ -39,7 +39,7 @@ public class AppointmentFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_appointment, container, false);
-        ;
+
         // set toolbar title
         Util.setToolbarTitle(R.string.fragment_appointment, mainActivity.toolbar);
 

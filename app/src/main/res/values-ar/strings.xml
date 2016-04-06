@@ -15,8 +15,6 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_settings">Settings</string>
-
     <!-- fragment_contact -->
     <string name="our_location">המיקום שלנו</string>
     <string name="contact_form">טופס יצירת קשר</string>
@@ -30,7 +28,6 @@
     </string>
     <string name="contact_fax">פקס: +972.2.659.5535</string>
     <string name="contact_bus">אוטובוסים: 6, 52, 54, 55, 65, 74, 75 , 78 א</string>
-    <string name="image_location">image location</string>
     <string name="call_hala">תתקשר למכון הלאה</string>
     <string name="call">בצע/י שיחה</string>
     <string name="cancel">ביטול</string>
@@ -66,7 +63,6 @@
     <string name="fragment_testimonials">עדויות</string>
     <string name="testimonial1">שרה בראון</string>
     <string name="testimonial2">ליידי שרון הראל - כהן</string>
-    <string name="image_testimonial">image testimonial</string>
     <string name="testimonial_title">דברים שאנשים אומרים על הלאה!</string>
 
 
@@ -78,7 +74,6 @@
     <string name="question_hint">שאלה</string>
     <string name="submit_button">שלח</string>
 
-    <string name="hint_password">סיסמה</string>
     <string name="err_msg_name">מלא את שמך</string>
     <string name="err_msg_phone">מלא את מספר הטלפון שלך</string>
     <string name="err_msg_email">מלא את אימייל שלך</string>
@@ -121,9 +116,6 @@
     <string name="appointment_type3_description2">
 נא להביא צילומי ממוגרפיה קודמים וכל התוצאות והבדיקות הרלבנטיות שנעשו מחוץ להלאה.</string>
 
-
-    <!-- fragment_service_detail -->
-    <string name="fragment_service_Detail">שירותים</string>
 
     <!-- fragment_faq-->
     <string name="fragment_faq">שאלות ותשובות</string>
