@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.example.faigy.hala.Utilities.CustomViewPager
+    <com.example.faigy.hala.utilities.CustomViewPager
         android:id="@+id/tabanim_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
