@@ -6,7 +6,7 @@
 
     <array name="landing_bg">
         <item>@color/colorPrimary</item>
-        <item>@color/colorAccentLight</item>
+        <item>@color/colorPrimaryLight</item>
         <item>@color/colorPrimaryExtraLight</item>
     </array>
 
