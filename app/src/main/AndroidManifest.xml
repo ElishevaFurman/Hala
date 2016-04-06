@@ -8,7 +8,7 @@
 
 
     <application
-        android:name=".ClassesTemp.MyApplication"
+        android:name=".classes.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_hala"
         android:label="@string/app_name"
@@ -17,7 +17,7 @@
         android:installLocation="preferExternal">
 
         <activity
-            android:name=".ActivitiesTemp.SplashActivity"
+            android:name=".activities.SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
@@ -43,7 +43,7 @@
         </activity>
 
         <activity
-            android:name=".ActivitiesTemp.AppIntroActivity"
+            android:name=".activities.AppIntroActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
@@ -67,7 +67,7 @@
         </activity>
 
         <activity
-            android:name=".ActivitiesTemp.MainActivity"
+            android:name=".activities.MainActivity"
             android:configChanges="locale"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
@@ -91,7 +91,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".UtilitiesTemp.NetworkStateReceiver">
+        <receiver android:name=".utilities.NetworkStateReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
