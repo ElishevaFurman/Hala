@@ -10,9 +10,6 @@ import com.android.volley.toolbox.Volley;
 
 import java.util.ArrayList;
 
-/**
- * Created by Home on 2/22/2016.
- */
 public class MyApplication extends Application {
 
     // Declare variables
@@ -38,7 +35,8 @@ public class MyApplication extends Application {
     }
 
     public static Context getContext() {
-        return context; }
+        return context;
+    }
 
     public static final String TAG = MyApplication.class.getSimpleName();
 
@@ -54,8 +52,7 @@ public class MyApplication extends Application {
         initSingletons();
     }
 
-    protected void initSingletons()
-    {
+    protected void initSingletons() {
         // Initialize the instance of MySingleton
         MySingleton.initInstance();
     }

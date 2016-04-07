@@ -1,11 +1,9 @@
 package com.example.faigy.hala.classes;
 
-/**
- * Created by faigy on 3/3/2016.
- */
 public class Faqs {
     int id;
     String question, answer;
+
     public Faqs() {
 
     }

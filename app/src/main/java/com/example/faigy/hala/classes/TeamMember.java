@@ -1,8 +1,5 @@
 package com.example.faigy.hala.classes;
 
-/**
- * Created by Home on 1/31/2016.
- */
 public class TeamMember {
     // class members
     int id;

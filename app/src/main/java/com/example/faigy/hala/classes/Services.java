@@ -1,8 +1,5 @@
 package com.example.faigy.hala.classes;
 
-/**
- * Created by Home on 3/7/2016.
- */
 public class Services {
     int id;
     String title, description, image;
@@ -39,7 +36,7 @@ public class Services {
         this.description = description;
     }
 
-    public Services(int id, String title, String description){
+    public Services(int id, String title, String description) {
         this.id = id;
         this.title = title;
         this.description = description;

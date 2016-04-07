@@ -1,8 +1,5 @@
 package com.example.faigy.hala.classes;
 
-/**
- * Created by Home on 2/3/2016.
- */
 public class News {
     // class members
     public String title, publication, url, date, category;

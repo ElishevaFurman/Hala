@@ -2,9 +2,6 @@ package com.example.faigy.hala.classes;
 
 import java.util.ArrayList;
 
-/**
- * Created by Home on 2/25/2016.
- */
 public class MySingleton {
     // Declare classes
     private static MySingleton instance;
@@ -47,23 +44,19 @@ public class MySingleton {
         this.servicesArrayList = servicesArrayList;
     }
 
-    public static void initInstance()
-    {
-        if (instance == null)
-        {
+    public static void initInstance() {
+        if (instance == null) {
             // Create the instance
             instance = new MySingleton();
         }
     }
 
-    public static MySingleton getInstance()
-    {
+    public static MySingleton getInstance() {
         // Return the instance
         return instance;
     }
 
-    private MySingleton()
-    {
+    private MySingleton() {
         // Constructor hidden because this is a singleton
     }
 
