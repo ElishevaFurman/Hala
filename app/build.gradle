@@ -21,7 +21,7 @@ android {
 
 
     defaultConfig {
-        applicationId "com.example.faigy.hala"
+        applicationId "org.hala"
         minSdkVersion 17
         targetSdkVersion 23
         versionCode 1

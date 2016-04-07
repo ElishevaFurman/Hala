@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.faigy.hala">
+    package="org.hala">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -8,7 +8,7 @@
 
 
     <application
-        android:name=".classes.MyApplication"
+        android:name="org.hala.classes.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_hala"
         android:label="@string/app_name"
@@ -17,7 +17,7 @@
         android:installLocation="preferExternal">
 
         <activity
-            android:name=".activities.SplashActivity"
+            android:name="org.hala.activities.SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
@@ -43,7 +43,7 @@
         </activity>
 
         <activity
-            android:name=".activities.AppIntroActivity"
+            android:name="org.hala.activities.AppIntroActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
@@ -67,7 +67,7 @@
         </activity>
 
         <activity
-            android:name=".activities.MainActivity"
+            android:name="org.hala.activities.MainActivity"
             android:configChanges="locale"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
@@ -91,7 +91,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".utilities.NetworkStateReceiver">
+        <receiver android:name="org.hala.utilities.NetworkStateReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
