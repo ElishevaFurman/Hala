@@ -8,14 +8,18 @@ import android.view.View;
 
 import com.example.faigy.hala.interfaces.ClickListenerInterface;
 
-/**
- * Created by faigy on 2/2/2016.
- */
+
 public class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
 
     private GestureDetector gestureDetector;
     private ClickListenerInterface clickListener;
 
+    /**
+     * This method is called when a item in the RecyclerView is clicked
+     * @param context - of type Context
+     * @param recyclerView - of type recyclerView
+     * @param clickListener - of type ClickListener
+     */
     public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final ClickListenerInterface clickListener) {
         this.clickListener = clickListener;
         gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
@@ -28,6 +32,13 @@ public class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
         });
     }
 
+
+    /**
+     * This method is called on a touch event of the recyclerView
+     * @param rv - recyclerView
+     * @param e - MotionEvent
+     * @return boolean
+     */
     @Override
     public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
 

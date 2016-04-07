@@ -1,9 +1,5 @@
 package com.example.faigy.hala.utilities;
 
-/**
- * Created by faigy on 3/10/2016.
- */
-
 import com.example.faigy.hala.classes.MySingleton;
 
 import javax.activation.DataHandler;
@@ -23,7 +19,7 @@ import java.security.Security;
 import java.util.Properties;
 
 public class GMailSender extends javax.mail.Authenticator {
-    private String mailhost = "smtp.gmail.com";
+    public String mailhost = "smtp.gmail.com";
     private String user;
     private String password;
     private Session session;

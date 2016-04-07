@@ -1,8 +1,5 @@
 package com.example.faigy.hala.utilities;
 
-/**
- * Created by faigy on 3/10/2016.
- */
 /*
  *  Licensed to the Apache Software Foundation (ASF) under one or more
  *  contributor license agreements.  See the NOTICE file distributed with

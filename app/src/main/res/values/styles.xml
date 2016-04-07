@@ -88,6 +88,7 @@
 
     <style name="MineCustomTabText" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">10sp</item>
+
     </style>
 
     <style name="testimonial_tile_style">

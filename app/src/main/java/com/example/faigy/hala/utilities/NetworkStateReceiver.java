@@ -6,9 +6,6 @@ import android.content.Intent;
 
 import com.example.faigy.hala.R;
 
-/**
- * Created by faigy on 3/8/2016.
- */
 public class NetworkStateReceiver extends BroadcastReceiver {
 
     @Override

@@ -64,7 +64,6 @@
 
         <com.andexert.library.RippleView
             android:id="@+id/rippleView"
-            rv_centered="true"
             android:layout_width="?android:actionBarSize"
             android:layout_height="?android:actionBarSize"
             android:layout_margin="5dp">

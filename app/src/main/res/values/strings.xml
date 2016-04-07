@@ -48,7 +48,7 @@
     <string name="testimonial">Open Testimonial</string>
     <string name="testimonial_message">View testimonial in browser</string>
     <string name="open">OPEN</string>
-    <string name="news_message">View article in browser</string>
+    <string name="news_message">Open link in browser</string>
     <string name="news">Open Article</string>
 
     <!-- fragment_home -->

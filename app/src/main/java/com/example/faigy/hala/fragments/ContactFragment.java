@@ -112,6 +112,7 @@ public class ContactFragment extends Fragment {
     View.OnClickListener phoneListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            if (v == callFab)
             animate();
             // open dialog to call Hala
             Util.createDialog(R.string.call_hala, R.string.call, R.string.call, R.string.cancel, null,
