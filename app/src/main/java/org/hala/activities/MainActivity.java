@@ -1,5 +1,8 @@
 package org.hala.activities;
 
+import android.content.BroadcastReceiver;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.design.internal.NavigationMenuView;
 import android.support.design.widget.NavigationView;
@@ -28,6 +31,7 @@ import org.hala.fragments.TeamListFragment;
 import org.hala.fragments.TestimonialFragment;
 import org.hala.classes.MyApplication;
 import org.hala.R;
+import org.hala.utilities.NetworkStateReceiver;
 import org.hala.utilities.Util;
 
 
@@ -59,6 +63,7 @@ public class MainActivity extends AppCompatActivity
     protected MyApplication app;
     NewsTabFragment newsTabFragment;
     DatabaseOperations databaseOperations;
+    BroadcastReceiver networkStateReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,18 +79,27 @@ public class MainActivity extends AppCompatActivity
         // send activity reference to Util class
         Util.setReference(this);
 
-        // check if phone is connected to internet or not
-        if (!Util.isConnected()) {
-            // if its not connected, show dialog:"No connection found. Please connect to internet"
-            Util.createDialog(R.string.internet_connection, R.string.internet_message, R.string.connect, R.string.cancel, null,"internet", null);
-        }
-
         initializeViews();
         initializeFragments();
         inflateScrollViewWithFragment();
         app = (MyApplication) getApplication();
     }
 
+    @Override
+    protected void onPause() {
+        unregisterReceiver(networkStateReceiver);
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        this.networkStateReceiver = new NetworkStateReceiver();
+        registerReceiver(
+                this.networkStateReceiver,
+                new IntentFilter(
+                        ConnectivityManager.CONNECTIVITY_ACTION));
+        super.onResume();
+    }
 
     /**
      * Function to initialize controls
