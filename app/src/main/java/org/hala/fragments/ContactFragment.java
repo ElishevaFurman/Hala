@@ -76,6 +76,7 @@ public class ContactFragment extends Fragment {
         busesTextView = (TextView) rootView.findViewById(R.id.busesTextView);
         callFab = (FloatingActionButton) rootView.findViewById(R.id.contactFab);
         mapView = (ImageView) rootView.findViewById(R.id.mapView);
+        mapView.setImageBitmap(Util.decodeSampledBitmapFromResource(getResources(), R.drawable.map_view, 180, 180));
     }
 
 
