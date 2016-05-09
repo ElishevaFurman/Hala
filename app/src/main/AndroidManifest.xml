@@ -60,9 +60,9 @@
                 <!-- ATTENTION: This data URL was auto-generated. We recommend that you use the HTTP scheme.
                   TODO: Change the host or pathPrefix as necessary. -->
                 <data
-                    android:host="hala.faigy.example.com"
                     android:pathPrefix="/appintro"
-                    android:scheme="http" />
+                    android:scheme="hala"
+                    android:host="open" />
             </intent-filter>
         </activity>
 
@@ -102,6 +102,8 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
+        <meta-data android:name="io.branch.sdk.BranchKey"
+            android:value="key_live_bfc9s1eRXoxF0R3fUnKRBddotvpWAcIF" />
     </application>
 
 </manifest>

@@ -13,7 +13,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-
 import org.hala.utilities.DatabaseOperations;
 import org.hala.fragments.AboutUsFragment;
 import org.hala.fragments.AppointmentFragment;
@@ -33,9 +32,6 @@ import org.hala.classes.MyApplication;
 import org.hala.R;
 import org.hala.utilities.NetworkStateReceiver;
 import org.hala.utilities.Util;
-
-
-
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity

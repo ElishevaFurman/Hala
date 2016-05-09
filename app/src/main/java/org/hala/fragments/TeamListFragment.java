@@ -1,5 +1,4 @@
 package org.hala.fragments;
-
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,19 +7,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import org.hala.adapters.TeamMemberAdapter;
 import org.hala.classes.TeamMember;
 import org.hala.utilities.DatabaseOperations;
-import org.hala.interfaces.ClickListenerInterface;
 import org.hala.activities.MainActivity;
 import org.hala.classes.MyApplication;
 import org.hala.R;
-import org.hala.listeners.RecyclerTouchListener;
 import org.hala.utilities.Util;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
@@ -106,7 +101,7 @@ public class TeamListFragment extends Fragment {
         mAdapter = new TeamMemberAdapter(getActivity());
         llm = new LinearLayoutManager(getActivity().getBaseContext());
         errorTextView = (TextView) rootView.findViewById(R.id.errorTextView);
-        prev = -1;
+        //prev = -1;
     }
 
     /**
@@ -128,36 +123,7 @@ public class TeamListFragment extends Fragment {
         // set on click listener to refresh the data in the recycler view
         errorTextView.setOnClickListener(errorTextViewListener);
         // set click listener for items in recyclerView to expand and collapse
-        recyclerView.addOnItemTouchListener(expandItems);
-
     }
-
-    // Listener to expand and collapse items in recyclerView
-    RecyclerTouchListener expandItems = new RecyclerTouchListener(getActivity(), recyclerView,
-            new ClickListenerInterface() {
-                @Override
-                public void onClick(View view, int position) {
-                    // Check for an expanded view, collapse if you find one
-                    if (mAdapter.expandedPosition >= 0) {
-                        // set pre to expandedPosition
-                        prev = mAdapter.expandedPosition;
-                        // notify adapter on item changed
-                        mAdapter.notifyItemChanged(prev);
-                    }
-                    // if position is expanded
-                    if (position == mAdapter.expandedPosition) {
-                        // Set the current position to "collapse"
-                        mAdapter.expandedPosition = -1;
-                        // notify adapter on item changed
-                        mAdapter.notifyItemChanged(mAdapter.expandedPosition);
-                    } else {
-                        // Set the current position to "expanded"
-                        mAdapter.expandedPosition = position;
-                        // notify adapter on item changed
-                        mAdapter.notifyItemChanged(mAdapter.expandedPosition);
-                    }
-                }
-            });
 
     // Listener set to errorTextVeiw
     View.OnClickListener errorTextViewListener = new View.OnClickListener() {

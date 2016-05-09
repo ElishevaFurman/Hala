@@ -1,6 +1,7 @@
 package org.hala.adapters;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -31,6 +32,7 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
     // Declare variables
     public int expandedPosition;
     String content;
+    private int prev;
 
     // Declare class
     public TeamMember tm;
@@ -42,6 +44,7 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
     public TeamMemberAdapter(Context context) {
         this.context = context;
         expandedPosition = -1;
+        prev = -1;
     }
 
     /**
@@ -74,7 +77,7 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
      *
      */
     @Override
-    public void onBindViewHolder(final TeamMemberViewHolder teamMemberViewHolder, int position) {
+    public void onBindViewHolder(final TeamMemberViewHolder teamMemberViewHolder, final int position) {
         // get data from your newsList at this position
         // replace the contents of the view with that newsList data
         tm = teamMembersList.get(position);
@@ -151,6 +154,33 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
             teamMemberViewHolder.expandArrow.setImageResource(R.drawable.ic_expand_more);
         }
 
+
+
+        teamMemberViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Check for an expanded view, collapse if you find one
+                if (expandedPosition >= 0) {
+                    // set pre to expandedPosition
+                    prev = expandedPosition;
+                    // notify adapter on item changed
+                    notifyItemChanged(prev);
+                }
+                // if position is expanded
+                if (position == expandedPosition) {
+                    // Set the current position to "collapse"
+                    expandedPosition = -1;
+                    // notify adapter on item changed
+                    notifyItemChanged(expandedPosition);
+                } else {
+                    // Set the current position to "expanded"
+                    expandedPosition = position;
+                    // notify adapter on item changed
+                    notifyItemChanged(expandedPosition);
+                }
+            }
+        });
+
     }
 
     /**
@@ -175,6 +205,7 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
         public ImageButton expandArrow;
         public ImageView teamMemberImageView;
         public ProgressBar imageProgressBar;
+        public CardView cardView;
 
         public TeamMemberViewHolder(View v) {
             super(v);
@@ -186,6 +217,7 @@ public class TeamMemberAdapter extends RecyclerView.Adapter<TeamMemberAdapter.Te
             expandArrow = (ImageButton) v.findViewById(R.id.expandArrow);
             teamMemberImageView = (ImageView) v.findViewById(R.id.teamMemberImageView);
             imageProgressBar = (ProgressBar) v.findViewById(R.id.imageProgressBar);
+            cardView = (CardView) v.findViewById(R.id.card_view);
         }
     }
 }
