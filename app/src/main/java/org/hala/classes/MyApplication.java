@@ -10,8 +10,6 @@ import com.android.volley.toolbox.Volley;
 
 import java.util.ArrayList;
 
-import io.branch.referral.Branch;
-
 public class MyApplication extends Application {
 
     // Declare variables
@@ -52,7 +50,6 @@ public class MyApplication extends Application {
         mInstance = this;
         context = getApplicationContext();
         initSingletons();
-        Branch.getAutoInstance(this);
     }
 
     protected void initSingletons() {

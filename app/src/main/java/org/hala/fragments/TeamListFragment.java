@@ -40,7 +40,6 @@ public class TeamListFragment extends Fragment {
     TeamMemberAdapter mAdapter;
     static String TAG = "json_team_request";
     String url;
-    private int prev;
 
     public TeamListFragment() {
         // Required empty public constructor
