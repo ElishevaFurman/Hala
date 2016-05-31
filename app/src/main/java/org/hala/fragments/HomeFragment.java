@@ -2,6 +2,7 @@ package org.hala.fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,8 +54,12 @@ public class HomeFragment extends Fragment {
         // Register listeners for controls
         registerListeners();
 
+        if (mainActivity.toolbar!= null){
+
+        }
         // set toolbar title
-        Util.setToolbarTitle(R.string.fragment_home, mainActivity.toolbar);
+        //Util.setToolbarTitle(R.string.fragment_home, mainActivity.toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Home");
 
         //set navigation selected to current fragment
         mainActivity.setSelectedNavigationItem(R.id.nav_home);

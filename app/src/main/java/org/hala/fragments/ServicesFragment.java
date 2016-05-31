@@ -3,6 +3,7 @@ package org.hala.fragments;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -90,7 +91,8 @@ public class ServicesFragment extends Fragment {
         checkBackStackEntry();
 
         // set toolbar title
-        Util.setToolbarTitle(R.string.fragment_services, mainActivity.toolbar);
+        //Util.setToolbarTitle(R.string.fragment_services, mainActivity.toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Services");
 
         // set navigation drawer to toggle
         mainActivity.openNavigationDrawer();

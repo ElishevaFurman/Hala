@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatActivity
         assert getSupportActionBar() != null;
         // designate toolbar as the action bar for this activity
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Home");
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         openNavigationDrawer();

@@ -3,6 +3,7 @@ package org.hala.fragments;
 
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,7 +49,8 @@ public class TestimonialFragment extends Fragment {
         registerListeners();
 
         // set toolbar title
-        Util.setToolbarTitle(R.string.fragment_testimonials, mainActivity.toolbar);
+        //Util.setToolbarTitle(R.string.fragment_testimonials, mainActivity.toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Testimonials");
 
         // remove keyboard from screen
         Util.hideSoftKeyboard();

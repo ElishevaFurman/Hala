@@ -2,6 +2,7 @@ package org.hala.fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +48,8 @@ public class DonateFragment extends Fragment {
         registerListeners();
 
         // set toolbar title
-        Util.setToolbarTitle(R.string.fragment_donate, mainActivity.toolbar);
+        //Util.setToolbarTitle(R.string.fragment_donate, mainActivity.toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Donate Now");
 
         // set navigation drawer to toggle
         mainActivity.openNavigationDrawer();

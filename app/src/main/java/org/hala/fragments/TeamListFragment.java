@@ -1,6 +1,7 @@
 package org.hala.fragments;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -81,7 +82,8 @@ public class TeamListFragment extends Fragment {
         downloadData();
 
         // set toolbar title
-        Util.setToolbarTitle(R.string.fragment_team, mainActivity.toolbar);
+        //Util.setToolbarTitle(R.string.fragment_team, mainActivity.toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Our Team");
 
         // remove keyboard from screen
         Util.hideSoftKeyboard();

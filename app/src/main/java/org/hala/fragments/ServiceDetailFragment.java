@@ -4,6 +4,7 @@ package org.hala.fragments;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,7 +56,8 @@ public class ServiceDetailFragment extends Fragment {
         // get title of servicesListArray in that position
         String title = mainActivity.servicesFragment.servicesList.get(position).getTitle();
         // set toolbar title with the title of the service that was selected
-        Util.setToolbarTitle(title, mainActivity.toolbar);
+        //Util.setToolbarTitle(title, mainActivity.toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(title);
         // set back button on toolbar
         Util.enableBackButton(mainActivity.toolbar, mainActivity.drawer);
         // remove keyboard from screen

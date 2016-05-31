@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -124,7 +125,8 @@ public class FormFragment extends Fragment {
         // if lastFragment is equal to "faqFragment"
         if (lastFragment.equals("faqFragment")) {
             // set toolbar title to "ask"
-            Util.setToolbarTitle(R.string.fragment_ask, mainActivity.toolbar);
+            //Util.setToolbarTitle(R.string.fragment_ask, mainActivity.toolbar);
+            ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Ask");
             // set back button in action bar
             Util.enableBackButton(mainActivity.toolbar, mainActivity.drawer);
         }
@@ -468,13 +470,13 @@ public class FormFragment extends Fragment {
         protected Void doInBackground(Void... aVoid) {
             try {
                 // instantiate sender and send params (values from editTexts)
-                GMailSender sender = new GMailSender("le7friedman@gmail.com", "100508701");
+                GMailSender sender = new GMailSender("lkwdappdevelopers@gmail.com", "android2016");
                 sender.sendMail("Contact Form From Hala App",
                         "Name: " + name + "\n" +
                                 "Phone: " + phone + "\n" +
                                 "Message: " + message,
                         email,
-                        "le7friedman@gmail.com");
+                        "lkwdappdevelopers@gmail.com");
                 // set success to true
                 success = true;
             } catch (Exception e) {

@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,7 +64,8 @@ public class NewsTabFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_in_the_news_tabs, container, false);
         initializeViews(rootView);
         // set toolbar title
-        Util.setToolbarTitle(R.string.fragment_news, mainActivity.toolbar);
+        //Util.setToolbarTitle(R.string.fragment_news, mainActivity.toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("In The News");
         // remove keyboard from screen
         Util.hideSoftKeyboard();
         //set navigation selected to current fragment

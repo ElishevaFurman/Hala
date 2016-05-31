@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -82,7 +83,8 @@ public class FAQFragment extends Fragment {
         setupRecyclerView();
 
         // set title for toolbar
-        Util.setToolbarTitle(R.string.fragment_faq, mainActivity.toolbar);
+        //Util.setToolbarTitle(R.string.fragment_faq, mainActivity.toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Faq's");
 
         mainActivity.openNavigationDrawer();
 

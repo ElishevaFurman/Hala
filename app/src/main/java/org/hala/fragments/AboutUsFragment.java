@@ -2,6 +2,7 @@ package org.hala.fragments;
 
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +51,8 @@ public class AboutUsFragment extends Fragment {
         initializeViews(rootView);
 
         // set toolbar title
-        Util.setToolbarTitle(R.string.fragment_about, mainActivity.toolbar);
+        //Util.setToolbarTitle(R.string.fragment_about, mainActivity.toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("About Us");
 
         //set navigation selected to current fragment
         mainActivity.setSelectedNavigationItem(R.id.nav_about);

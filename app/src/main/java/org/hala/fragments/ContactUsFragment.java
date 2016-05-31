@@ -7,6 +7,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,7 +72,8 @@ public class ContactUsFragment extends Fragment {
         initializeViews(rootView);
 
         // set toolbar title
-        Util.setToolbarTitle(R.string.fragment_contact, mainActivity.toolbar);
+        //Util.setToolbarTitle(R.string.fragment_contact, mainActivity.toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Contact Us");
 
         //set navigation selected to current fragment
         mainActivity.setSelectedNavigationItem(R.id.nav_contact);
