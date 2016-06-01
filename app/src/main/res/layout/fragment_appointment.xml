@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:text="@string/appointment_type1"
+            android:textColor="@color/colorAccent"
             android:textAllCaps="true" />
 
         <TextView
@@ -38,7 +39,8 @@
             android:layout_gravity="start"
             android:layout_marginTop="8dp"
             android:text="@string/appointment_type2"
-            android:textAllCaps="true" />
+            android:textAllCaps="true"
+            android:textColor="@color/colorAccent"/>
 
         <TextView
             android:id="@+id/urgentDiagnosticsTextView"
@@ -59,7 +61,8 @@
             android:layout_gravity="start"
             android:layout_marginTop="8dp"
             android:text="@string/appointment_type3"
-            android:textAllCaps="true" />
+            android:textAllCaps="true"
+            android:textColor="@color/colorAccent"/>
 
         <TextView
             android:id="@+id/healthInsuranceCoverageTextView1"

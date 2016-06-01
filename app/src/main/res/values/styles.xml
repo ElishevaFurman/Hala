@@ -82,7 +82,7 @@
     <style name="tile_style">
         <item name="android:layout_marginEnd">@dimen/activity_horizontal_margin</item>
         <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
-        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:textStyle">bold</item>
     </style>
 

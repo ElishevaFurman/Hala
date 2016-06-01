@@ -84,7 +84,7 @@ public class FAQFragment extends Fragment {
 
         // set title for toolbar
         //Util.setToolbarTitle(R.string.fragment_faq, mainActivity.toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Faq's");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.fragment_faq));
 
         mainActivity.openNavigationDrawer();
 

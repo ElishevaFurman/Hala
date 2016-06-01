@@ -47,17 +47,17 @@ public class MainActivity extends AppCompatActivity
     public ContactFragment contactFragment;
     public FormFragment contactFormFragment;
     public ContactUsFragment contactUsFragment;
-    TestimonialFragment testimonialFragment;
+    public TestimonialFragment testimonialFragment;
     TeamListFragment teamListFragment;
     FAQFragment faqFragment;
-    InTheNewsFragment inTheNewsFragment;
+    public InTheNewsFragment inTheNewsFragment;
     public ServicesFragment servicesFragment;
     public DonateFragment donateFragment;
     public ServiceDetailFragment serviceDetailFragment;
     public AboutUsFragment aboutUsFragment;
     AppointmentFragment appointmentFragment;
     protected MyApplication app;
-    NewsTabFragment newsTabFragment;
+    public NewsTabFragment newsTabFragment;
     DatabaseOperations databaseOperations;
     BroadcastReceiver networkStateReceiver;
 
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity
         assert getSupportActionBar() != null;
         // designate toolbar as the action bar for this activity
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Home");
+        getSupportActionBar().setTitle(getResources().getString(R.string.fragment_home));
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         openNavigationDrawer();

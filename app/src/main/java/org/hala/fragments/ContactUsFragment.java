@@ -73,7 +73,7 @@ public class ContactUsFragment extends Fragment {
 
         // set toolbar title
         //Util.setToolbarTitle(R.string.fragment_contact, mainActivity.toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Contact Us");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.fragment_contact));
 
         //set navigation selected to current fragment
         mainActivity.setSelectedNavigationItem(R.id.nav_contact);

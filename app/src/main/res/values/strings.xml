@@ -61,8 +61,10 @@
     <string name="about_icon">about icon</string>
     <string name="services_icon">services icon</string>
     <string name="contact_icon">contact icon</string>
-    <string name="about">ABOUT</string>
-    <string name="services">SERVICES</string>
+    <string name="home_about_us">HALA\'S MISSION TO SAVE LIVES.</string>
+    <string name="home_services">HALA\'S SERVICES</string>
+    <string name="home_testimonials">HEAR WHAT PEOPLE SAY ABOUT HALA</string>
+    <string name="home_news">HALA IN THE NEWS</string>
     <string name="contact">CONTACT</string>
 
     <!-- fragment_testimonials -->

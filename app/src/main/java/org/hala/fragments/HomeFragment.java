@@ -3,11 +3,11 @@ package org.hala.fragments;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import org.hala.activities.MainActivity;
 import org.hala.R;
@@ -21,8 +21,8 @@ public class HomeFragment extends Fragment {
     MainActivity mainActivity;
 
     // Declare Controls
-    LinearLayout aboutLinearLayout, servicesLinearLayout, contactLinearLayout;
-    ImageView homeImageView;
+    ImageView homeImageView, servicesImageView, testimonialsImageView, newsImageView;
+    CardView aboutUsCardView, servicesCardView, testimonialsCardView, newsCardView;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -59,7 +59,7 @@ public class HomeFragment extends Fragment {
         }
         // set toolbar title
         //Util.setToolbarTitle(R.string.fragment_home, mainActivity.toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Home");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.fragment_home));
 
         //set navigation selected to current fragment
         mainActivity.setSelectedNavigationItem(R.id.nav_home);
@@ -72,15 +72,21 @@ public class HomeFragment extends Fragment {
      */
     public void initializeViews(View rootView) {
         // initialize and reference LinearLayouts
-        aboutLinearLayout = (LinearLayout) rootView.findViewById(R.id.aboutLinearLayout);
-        servicesLinearLayout = (LinearLayout) rootView.findViewById(R.id.servicesLinearLayout);
-        contactLinearLayout = (LinearLayout) rootView.findViewById(R.id.contactLinearLayout);
+        aboutUsCardView = (CardView) rootView.findViewById(R.id.aboutUsCardView);
+        servicesCardView = (CardView) rootView.findViewById(R.id.servicesCardView);
+        testimonialsCardView = (CardView) rootView.findViewById(R.id.testimonialsCardView);
+        newsCardView = (CardView) rootView.findViewById(R.id.newsCardView);
         // initialize and reference ImageView
         homeImageView = (ImageView) rootView.findViewById(R.id.homeImageView);
+        servicesImageView = (ImageView) rootView.findViewById(R.id.servicesImageView);
+        testimonialsImageView = (ImageView) rootView.findViewById(R.id.testimonialsImageView);
+        newsImageView = (ImageView) rootView.findViewById(R.id.newsImageView);
 
         // set imageBitmap to homeImageView
-        homeImageView.setImageBitmap(
-                Util.decodeSampledBitmapFromResource(getResources(), R.drawable.flower, 180, 180));
+        homeImageView.setImageBitmap(Util.decodeSampledBitmapFromResource(getResources(), R.drawable.help_us_grow, 180, 180));
+        servicesImageView.setImageBitmap(Util.decodeSampledBitmapFromResource(getResources(), R.drawable.home_services_image, 180, 180));
+        testimonialsImageView.setImageBitmap(Util.decodeSampledBitmapFromResource(getResources(), R.drawable.testimonials_image, 180, 180));
+        newsImageView.setImageBitmap(Util.decodeSampledBitmapFromResource(getResources(), R.drawable.home_news_image, 180, 180));
 
     }
 
@@ -89,15 +95,16 @@ public class HomeFragment extends Fragment {
      */
     public void registerListeners() {
         // set onClickListeners
-        aboutLinearLayout.setOnClickListener(aboutLinearLayoutListener);
-        servicesLinearLayout.setOnClickListener(servicesLinearLayoutListener);
-        contactLinearLayout.setOnClickListener(contactLinearLayoutListener);
+        aboutUsCardView.setOnClickListener(aboutUsCardViewListener);
+        servicesCardView.setOnClickListener(servicesCardViewListener);
+        newsCardView.setOnClickListener(newsCardViewListener);
+        testimonialsCardView.setOnClickListener(testimonialsListener);
     }
 
     /**
      * OnClickListener for aboutLinearLayoutListener
      */
-    View.OnClickListener aboutLinearLayoutListener = new View.OnClickListener() {
+    View.OnClickListener aboutUsCardViewListener = new View.OnClickListener() {
 
         @Override
         public void onClick(View v) {
@@ -110,7 +117,7 @@ public class HomeFragment extends Fragment {
     /**
      * OnClickListener for servicesLinearLayoutListener
      */
-    View.OnClickListener servicesLinearLayoutListener = new View.OnClickListener() {
+    View.OnClickListener servicesCardViewListener = new View.OnClickListener() {
 
         @Override
         public void onClick(View v) {
@@ -123,14 +130,29 @@ public class HomeFragment extends Fragment {
     /**
      * OnClickListener for contactLinearLayoutListener
      */
-    View.OnClickListener contactLinearLayoutListener = new View.OnClickListener() {
+    View.OnClickListener testimonialsListener = new View.OnClickListener() {
 
         @Override
         public void onClick(View v) {
 
-            Util.replaceFragment(mainActivity.contactUsFragment, R.string.fragment_contact);
+            Util.replaceFragment(mainActivity.testimonialFragment, R.string.fragment_testimonials);
             //set navigation selected to current fragment
-            mainActivity.setSelectedNavigationItem(R.id.nav_contact);
+            mainActivity.setSelectedNavigationItem(R.id.nav_testimonials);
+        }
+    };
+
+
+    /**
+     * OnClickListener for contactLinearLayoutListener
+     */
+    View.OnClickListener newsCardViewListener = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+
+            Util.replaceFragment(mainActivity.newsTabFragment, R.string.fragment_news);
+            //set navigation selected to current fragment
+            mainActivity.setSelectedNavigationItem(R.id.nav_news);
         }
     };
 

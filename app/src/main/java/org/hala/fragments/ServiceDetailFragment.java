@@ -68,7 +68,7 @@ public class ServiceDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_service_detail, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_service_details, container, false);
         // get servicesArrayList from MySingleton class
         servicesArrayList = MySingleton.getInstance().getServicesArrayList();
         // Initialize the views for this fragment
@@ -88,13 +88,13 @@ public class ServiceDetailFragment extends Fragment {
         image = (ImageView) rootView.findViewById(R.id.imageView1);
         imageProgressBar = (ProgressBar)rootView.findViewById(R.id.imageProgressBar);
 
-        collapsingToolbarLayout = (CollapsingToolbarLayout) rootView.findViewById(R.id.collapsing_toolbar);
-        collapsingToolbarLayout.setTitle("Collapsing");
+        //collapsingToolbarLayout = (CollapsingToolbarLayout) rootView.findViewById(R.id.collapsing_toolbar);
+        //collapsingToolbarLayout.setTitle("Collapsing");
 
         WebView serviceDescriptionTextViews = (WebView)rootView.findViewById(R.id.serviceDescriptionTextViews);
 
         WebSettings settings = serviceDescriptionTextViews.getSettings();
-
+        settings.setDefaultFontSize(14);
         settings.setDefaultTextEncodingName("utf-8");
 
         if(!Locale.getDefault().getLanguage().equals("en")){

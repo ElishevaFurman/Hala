@@ -50,7 +50,7 @@ public class TestimonialFragment extends Fragment {
 
         // set toolbar title
         //Util.setToolbarTitle(R.string.fragment_testimonials, mainActivity.toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Testimonials");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.fragment_testimonials));
 
         // remove keyboard from screen
         Util.hideSoftKeyboard();

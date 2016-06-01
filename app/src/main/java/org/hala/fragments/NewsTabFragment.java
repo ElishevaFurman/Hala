@@ -65,7 +65,7 @@ public class NewsTabFragment extends Fragment {
         initializeViews(rootView);
         // set toolbar title
         //Util.setToolbarTitle(R.string.fragment_news, mainActivity.toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("In The News");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.fragment_news));
         // remove keyboard from screen
         Util.hideSoftKeyboard();
         //set navigation selected to current fragment

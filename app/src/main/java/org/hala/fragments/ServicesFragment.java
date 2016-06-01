@@ -36,7 +36,6 @@ public class ServicesFragment extends Fragment {
     private RecyclerView recyclerView;
     private ServicesAdapter mAdapter;
     TextView errorTextView;
-    ImageView serviceImageView;
 
     // Declare variables
     Services[] servicesData;
@@ -92,7 +91,7 @@ public class ServicesFragment extends Fragment {
 
         // set toolbar title
         //Util.setToolbarTitle(R.string.fragment_services, mainActivity.toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Services");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.fragment_services));
 
         // set navigation drawer to toggle
         mainActivity.openNavigationDrawer();
@@ -115,13 +114,7 @@ public class ServicesFragment extends Fragment {
 
         // initialize and reference RecyclerView
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
-
-        // initialize and reference ImageView
-        serviceImageView = (ImageView) rootView.findViewById(R.id.serviceImageView);
-        // set image bitmap to ImageView
-        serviceImageView.setImageBitmap(Util.decodeSampledBitmapFromResource(getResources(),
-                R.drawable.services_image2, 180, 180));
-
+        
     }
 
     /**

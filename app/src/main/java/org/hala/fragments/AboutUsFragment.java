@@ -52,8 +52,7 @@ public class AboutUsFragment extends Fragment {
 
         // set toolbar title
         //Util.setToolbarTitle(R.string.fragment_about, mainActivity.toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("About Us");
-
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.fragment_about));
         //set navigation selected to current fragment
         mainActivity.setSelectedNavigationItem(R.id.nav_about);
 
@@ -68,7 +67,7 @@ public class AboutUsFragment extends Fragment {
         aboutUsImageView = (ImageView) rootView.findViewById(R.id.aboutUsImageView);
         // set imageBitmap
         aboutUsImageView.setImageBitmap(
-                Util.decodeSampledBitmapFromResource(getResources(), R.drawable.hala_image7, 180, 180));
+                Util.decodeSampledBitmapFromResource(getResources(), R.drawable.about_us_image, 180, 180));
     }
 
     /**

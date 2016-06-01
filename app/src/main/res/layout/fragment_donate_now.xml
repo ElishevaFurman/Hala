@@ -35,6 +35,7 @@ android:orientation="vertical">
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_horizontal_margin"
             android:text="@string/donate_now_title"
+            android:textColor="@color/colorAccent"
             android:textAppearance="?android:attr/textAppearanceMedium" />
         </LinearLayout>
 
@@ -50,6 +51,7 @@ android:orientation="vertical">
             style="@style/tile_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:layout_marginBottom="@dimen/activity_horizontal_margin"
@@ -92,7 +94,7 @@ android:orientation="vertical">
                         android:text="@string/donate_now_usa"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/colorPrimaryLight"
-                        android:textStyle="bold"/>
+                   />
 
                     <TextView
                         android:id="@+id/donateUsaNameTextViewName"
@@ -156,7 +158,7 @@ android:orientation="vertical">
                         android:text="@string/donate_now_england"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/colorPrimaryLight"
-                        android:textStyle="bold"/>
+                        />
 
                     <TextView
                         android:id="@+id/donateEnglandNameTextViewName"
@@ -210,7 +212,7 @@ android:orientation="vertical">
                         android:text="@string/donate_now_israel"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textColor="@color/colorPrimaryLight"
-                        android:textStyle="bold"/>
+                        />
 
                     <TextView
                         android:id="@+id/donateIsraelNameTextViewName"
@@ -268,9 +270,7 @@ android:orientation="vertical">
                         android:id="@+id/servicesTextView1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_gravity="center"
-                        android:gravity="center_horizontal"
+                        android:layout_alignParentEnd="true"
                         android:text="@string/donate_now_button"
                         android:textStyle="bold"
                         android:textAppearance="?android:attr/textAppearanceMedium"

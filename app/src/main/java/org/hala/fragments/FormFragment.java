@@ -126,7 +126,7 @@ public class FormFragment extends Fragment {
         if (lastFragment.equals("faqFragment")) {
             // set toolbar title to "ask"
             //Util.setToolbarTitle(R.string.fragment_ask, mainActivity.toolbar);
-            ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Ask");
+            ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.fragment_ask));
             // set back button in action bar
             Util.enableBackButton(mainActivity.toolbar, mainActivity.drawer);
         }

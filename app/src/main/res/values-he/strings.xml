@@ -57,9 +57,11 @@
     <string name="about_icon">about icon</string>
     <string name="services_icon">services icon</string>
     <string name="contact_icon">contact icon</string>
-    <string name="about">אודות</string>
-    <string name="services">שירותים</string>
     <string name="contact">צור קשר</string>
+    <string name="home_about_us">השליחות של מכון הלאה היא הצלת חיים</string>
+    <string name="home_services">שירותי מכון הלאה</string>
+    <string name="home_testimonials">מה אנשים אומרים על מכון הלאה</string>
+    <string name="home_news">מכון הלאה בחדשות</string>
 
     <!-- fragment_testimonials -->
     <string name="fragment_testimonials">עדויות</string>

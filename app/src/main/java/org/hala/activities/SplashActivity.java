@@ -45,7 +45,7 @@ public class SplashActivity extends Activity {
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
-                Intent i = new Intent(SplashActivity.this, AppIntroActivity.class);
+                Intent i = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(i);
                 // set transition between activities
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);

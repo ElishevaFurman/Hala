@@ -43,7 +43,7 @@ public class AppointmentFragment extends Fragment {
 
         // set toolbar title
         //Util.setToolbarTitle(R.string.fragment_appointment, mainActivity.toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Appointment Info");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.fragment_appointment));
 
         //set navigation selected to current fragment
         mainActivity.setSelectedNavigationItem(R.id.nav_appointments);
