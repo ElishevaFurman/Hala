@@ -172,16 +172,32 @@ public class ContactUsFragment extends Fragment {
     }
 
 
+//    @Override
+//    public void onDetach() {
+//        super.onDetach();
+//
+//        if (sChildFragmentManagerField != null) {
+//            try {
+//                sChildFragmentManagerField.set(this, null);
+//            } catch (Exception e) {
+//                Log.e(LOGTAG, "Error setting mChildFragmentManager field", e);
+//            }
+//        }
+//    }
+
     @Override
     public void onDetach() {
         super.onDetach();
 
-        if (sChildFragmentManagerField != null) {
-            try {
-                sChildFragmentManagerField.set(this, null);
-            } catch (Exception e) {
-                Log.e(LOGTAG, "Error setting mChildFragmentManager field", e);
-            }
+        try {
+            Field childFragmentManager = Fragment.class.getDeclaredField("mChildFragmentManager");
+            childFragmentManager.setAccessible(true);
+            childFragmentManager.set(this, null);
+
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
         }
     }
 
