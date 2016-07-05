@@ -16,7 +16,6 @@ import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import org.hala.adapters.FAQExpandableAdapter;
 import org.hala.classes.Faqs;
 import org.hala.utilities.DatabaseOperations;
@@ -27,7 +26,6 @@ import org.hala.utilities.Util;
 import org.hala.utilities.DividerItemDecoration;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
@@ -212,6 +210,21 @@ public class FAQFragment extends Fragment {
         }
     };
 
+
+    /**
+     * Function to post data to the server
+     */
+    public void postData() {
+
+        // call makeJsonArrayRequest and send url, tag, errorTextView and instantiate a callBack
+        databaseOperations.post("http://162.243.100.186/faqs_post.php", TAG, errorTextView,
+                new DatabaseOperations.VolleyCallback() {
+                    @Override
+                    public void onSuccessResponse(String result) {
+
+                    }
+                });
+    }
 
     public void animate(){
         ObjectAnimator scalex = ObjectAnimator.ofFloat(fab, "scaleX", 0, 1);

@@ -13,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
+
 import org.hala.utilities.DatabaseOperations;
 import org.hala.fragments.AboutUsFragment;
 import org.hala.fragments.AppointmentFragment;
@@ -211,12 +213,15 @@ public class MainActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         }
         // if there are fragments in the back stack
-        else if (getFragmentManager().getBackStackEntryCount() > 1) {
+        if (getFragmentManager().getBackStackEntryCount() > 1) {
             // undo the last back stack transaction
             getFragmentManager().popBackStack();
+            //super.onBackPressed();
         } else {
             // finish this activity
-            super.onBackPressed();
+            //super.onBackPressed();
+            //Toast.makeText(getApplicationContext(), "back press is call", Toast.LENGTH_LONG).show();
+            finish();
         }
     }
 
