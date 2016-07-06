@@ -45,6 +45,17 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
     }
 
     /**
+     * Function sets the newsList
+     */
+    public void clearNewsList() {
+        this.newsList = newsList;
+        newsList.clear();
+        // notify the adapter of item range changed
+        //notifyItemRangeChanged(0, newsList.size());
+        notifyDataSetChanged();
+    }
+
+    /**
      * Function that create new views (invoked by the layout manager)
      */
     @Override

@@ -31,6 +31,7 @@ public class DatabaseOperations {
     public static final String KEY_ID = "id";
     public static final String KEY_QUESTION = "question";
     public static final String KEY_ANSWER = "answer";
+    public static final String KEY_SEARCH= "param";
 
     /**
      * Method to make json array request where response starts with
@@ -120,6 +121,59 @@ public class DatabaseOperations {
 
         };
         // Adding request to request queue
+        MyApplication.getInstance().addToRequestQueue(stringRequest, "tag");
+    }
+
+
+
+    /**
+     * Method to make post a string request to the server
+     */
+    public void postSearch(String url, final String searchValue,
+                           final TextView errorTextView, final VolleyCallback callback){
+
+// // declaring varaibles
+        final String search = searchValue;
+// final String answer = "test answer";
+// final String id = "9";
+
+        if (pDialog == null) {
+            pDialog = Util.createProgressDialog(Util.getActivity());
+        }
+        pDialog.show();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        pDialog.hide();
+                        try {
+                            // pass jsonOutput to callback interface
+                            callback.onSuccessResponse(response);
+                        } catch (JsonSyntaxException e) {
+                            e.printStackTrace();
+                        } catch (JsonParseException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(Util.getActivity(),error.toString(),Toast.LENGTH_LONG).show();
+                        pDialog.hide();
+                    }
+                }){
+            // build parameters for post request
+            @Override
+            protected Map<String,String> getParams(){
+                Map<String,String> params = new HashMap<String, String>();
+                params.put(KEY_SEARCH, search);
+                return params;
+            }
+
+        };
+// Adding request to request queue
         MyApplication.getInstance().addToRequestQueue(stringRequest, "tag");
     }
 

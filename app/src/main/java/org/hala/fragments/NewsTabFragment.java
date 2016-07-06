@@ -21,7 +21,7 @@ import java.lang.reflect.Field;
 public class NewsTabFragment extends Fragment {
     // Declare controls
     MainActivity mainActivity;
-    TabLayout tabLayout;
+    static TabLayout tabLayout;
     ViewPagerAdapter adapter;
     CustomViewPager customViewPager;
     int id;
