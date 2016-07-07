@@ -81,7 +81,6 @@ public class FAQFragment extends Fragment {
         setupRecyclerView();
 
         // set title for toolbar
-        //Util.setToolbarTitle(R.string.fragment_faq, mainActivity.toolbar);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.fragment_faq));
 
         mainActivity.openNavigationDrawer();
@@ -96,6 +95,7 @@ public class FAQFragment extends Fragment {
         mainActivity.setSelectedNavigationItem(R.id.nav_faqs);
 
         animate();
+
         return rootView;
     }
 
@@ -155,7 +155,7 @@ public class FAQFragment extends Fragment {
         }
 
         // call makeJsonArrayRequest and send url, tag, errorTextView and instantiate a callBack
-        databaseOperations.makeJsonArrayRequest(url, TAG, errorTextView,
+        databaseOperations.makeJsonArrayRequest(url, TAG, errorTextView, null,
                 new DatabaseOperations.VolleyCallback() {
                     @Override
                     public void onSuccessResponse(String result) {

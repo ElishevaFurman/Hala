@@ -195,7 +195,7 @@ public class ServicesFragment extends Fragment {
             url = "http://162.243.100.186/services_array.php";
         }
         // call makeJsonArrayRequest and send url, tag, errorTextView and instantiate a callBack
-        databaseOperations.makeJsonArrayRequest(url, TAG, errorTextView,
+        databaseOperations.makeJsonArrayRequest(url, TAG, errorTextView, null,
                 new DatabaseOperations.VolleyCallback() {
                     @Override
                     public void onSuccessResponse(String result) {

@@ -201,6 +201,12 @@
     <string name="error_parsing_error">"Unable to parse data. Click here to download again."
     </string>
 
+    <!-- Search error messages -->
+    <string name="enter_search_phrase">"Please enter a search phrase"</string>
+    <string name="sql_error">"A Sql error occurred"</string>
+    <string name="no_matches">"No matches found"</string>
+    <string name="search_empty">"Your search is empty"</string>
+    <string name="volley_error_no_connection">"Data not available at the moment. Please check your internet connection" </string>
 
     <!-- fragment_donate_now -->
     <string name="donate_now_title">HELP US MAKE A DIFFERENCE!</string>

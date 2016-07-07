@@ -13,10 +13,9 @@ import org.hala.R;
 import org.hala.utilities.Util;
 
 
-
 public class AboutUsFragment extends Fragment {
 
-    // Declare Activities
+    // Declare activities
     MainActivity mainActivity;
 
     // Declare controls
@@ -51,8 +50,8 @@ public class AboutUsFragment extends Fragment {
         initializeViews(rootView);
 
         // set toolbar title
-        //Util.setToolbarTitle(R.string.fragment_about, mainActivity.toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.fragment_about));
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.fragment_about));
+
         //set navigation selected to current fragment
         mainActivity.setSelectedNavigationItem(R.id.nav_about);
 
@@ -65,6 +64,7 @@ public class AboutUsFragment extends Fragment {
     public void initializeViews(View rootView) {
         // initialize and reference controls
         aboutUsImageView = (ImageView) rootView.findViewById(R.id.aboutUsImageView);
+
         // set imageBitmap
         aboutUsImageView.setImageBitmap(
                 Util.decodeSampledBitmapFromResource(getResources(), R.drawable.about_us_image, 180, 180));

@@ -207,4 +207,12 @@
     <string name="email_hala">שלח אימייל למכון הלאה</string>
     <string name="send_email">שלח אימייל</string>
 
+    <!-- Search error messages -->
+    <string name="enter_search_phrase">"נא הכניסו בטוי חיפוש"</string>
+    <string name="sql_error">"Sql error ארע"</string>
+    <string name="no_matches">"לא נמצאו התאמות לחיפושך"</string>
+    <string name="search_empty">"חיפושך ריק"</string>
+    <string name="volley_error_no_connection">"האינפורמצה לא זמינה כעת. נא בדקו את חיבורכם לאינטרנט" </string>
+
+
 </resources>

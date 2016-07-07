@@ -148,6 +148,9 @@ public class ContactFragment extends Fragment {
         }
     };
 
+    /**
+     * Function to animate fab
+     */
     public void animate(){
         callFab.setScaleX(0);
         callFab.setScaleY(0);

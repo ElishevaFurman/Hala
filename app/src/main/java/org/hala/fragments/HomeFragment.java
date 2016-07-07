@@ -58,7 +58,6 @@ public class HomeFragment extends Fragment {
 
         }
         // set toolbar title
-        //Util.setToolbarTitle(R.string.fragment_home, mainActivity.toolbar);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.fragment_home));
 
         //set navigation selected to current fragment
@@ -76,6 +75,7 @@ public class HomeFragment extends Fragment {
         servicesCardView = (CardView) rootView.findViewById(R.id.servicesCardView);
         testimonialsCardView = (CardView) rootView.findViewById(R.id.testimonialsCardView);
         newsCardView = (CardView) rootView.findViewById(R.id.newsCardView);
+
         // initialize and reference ImageView
         homeImageView = (ImageView) rootView.findViewById(R.id.homeImageView);
         servicesImageView = (ImageView) rootView.findViewById(R.id.servicesImageView);
@@ -83,10 +83,14 @@ public class HomeFragment extends Fragment {
         newsImageView = (ImageView) rootView.findViewById(R.id.newsImageView);
 
         // set imageBitmap to homeImageView
-        homeImageView.setImageBitmap(Util.decodeSampledBitmapFromResource(getResources(), R.drawable.help_us_grow, 180, 180));
-        servicesImageView.setImageBitmap(Util.decodeSampledBitmapFromResource(getResources(), R.drawable.home_services_image, 180, 180));
-        testimonialsImageView.setImageBitmap(Util.decodeSampledBitmapFromResource(getResources(), R.drawable.testimonials_image, 180, 180));
-        newsImageView.setImageBitmap(Util.decodeSampledBitmapFromResource(getResources(), R.drawable.home_news_image, 180, 180));
+        homeImageView.setImageBitmap(Util.decodeSampledBitmapFromResource(getResources(),
+                R.drawable.help_us_grow, 180, 180));
+        servicesImageView.setImageBitmap(Util.decodeSampledBitmapFromResource(getResources(),
+                R.drawable.home_services_image, 180, 180));
+        testimonialsImageView.setImageBitmap(Util.decodeSampledBitmapFromResource(getResources(),
+                R.drawable.testimonials_image, 180, 180));
+        newsImageView.setImageBitmap(Util.decodeSampledBitmapFromResource(getResources(),
+                R.drawable.home_news_image, 180, 180));
 
     }
 

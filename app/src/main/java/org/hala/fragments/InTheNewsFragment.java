@@ -2,7 +2,6 @@ package org.hala.fragments;
 
 import android.os.Bundle;
 import android.app.Fragment;
-import android.os.ParcelFileDescriptor;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,10 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import org.hala.adapters.NewsAdapter;
-import org.hala.classes.Faqs;
 import org.hala.classes.News;
 import org.hala.utilities.DatabaseOperations;
 import org.hala.activities.MainActivity;
@@ -23,11 +19,8 @@ import org.hala.classes.MyApplication;
 import org.hala.R;
 import org.hala.utilities.Util;
 import org.hala.utilities.DividerItemDecoration;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
@@ -37,7 +30,7 @@ public class InTheNewsFragment extends Fragment {
     // Declare controls
     private RecyclerView recyclerView;
     public NewsAdapter mAdapter;
-    TextView errorTextView;
+    TextView errorTextView, searchErrorTextView;
     SearchView searchView;
     FloatingActionButton fab;
 
@@ -46,7 +39,7 @@ public class InTheNewsFragment extends Fragment {
     ArrayList<News> newsList;
     String tabSelected;
     public static String TAG = "json_news_request";
-    String url;
+    String url, searchUrl;
 
     // Declare activities
     MainActivity mainActivity;
@@ -63,8 +56,7 @@ public class InTheNewsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //instantiate databaseOperations
-        databaseOperations = new DatabaseOperations();
+
     }
 
     @Override
@@ -72,6 +64,10 @@ public class InTheNewsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_in_the_news, container, false);
+
+        //instantiate databaseOperations
+        databaseOperations = new DatabaseOperations();
+
         // get the position of the tab in the layout
         tabSelected = container.getTag().toString();
 
@@ -96,6 +92,7 @@ public class InTheNewsFragment extends Fragment {
     public void initializeViews(final View rootView) {
         // initialize and reference TextView
         errorTextView = (TextView) rootView.findViewById(R.id.errorTextView);
+        searchErrorTextView = (TextView) rootView.findViewById(R.id.searchErrorTextView);
 
         // initialize and reference RecyclerView
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
@@ -106,6 +103,7 @@ public class InTheNewsFragment extends Fragment {
         // initialize and refrence searchFab
         fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
 
+
     }
 
     /**
@@ -114,16 +112,21 @@ public class InTheNewsFragment extends Fragment {
     public void setupRecyclerView() {
         // instantiate mAdapter
         mAdapter = new NewsAdapter(getActivity());
+
         // initialize linearLayoutManager
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager
                 (getActivity().getBaseContext());
+
         // Set layout manager to position the items
         recyclerView.setLayoutManager(mLayoutManager);
+
         // add item decorator to recyclerView
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),
                 LinearLayoutManager.VERTICAL));
+
         // set item animator to DefaultAnimator
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+
         // attach the adapter to the recyclerView to populate items
         recyclerView.setAdapter(mAdapter);
     }
@@ -144,32 +147,37 @@ public class InTheNewsFragment extends Fragment {
     View.OnClickListener errorTextViewListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            errorTextView.setText("");
+            errorTextView.setVisibility(View.GONE);
             // download data from url
             downloadData();
         }
     };
 
     /**
-     * OnClickListener for errorTextView
+     * OnClickListener for fab
      */
     View.OnClickListener searchFabListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             // set searchView to visible
             searchView.setVisibility(View.VISIBLE);
+
             // set focus
             searchView.setIconifiedByDefault(true);
             searchView.setFocusable(true);
             searchView.setIconified(false);
             searchView.requestFocusFromTouch();
+
             // hide fab
             fab.hide();
             // remove tabLayout
             NewsTabFragment.tabLayout.setVisibility(View.GONE);
-            // clear recyclerView
-            mAdapter.clearNewsList();
 
+            // check that newsList is not null or empty
+            if (newsList != null || !newsList.isEmpty()) {
+                // clear recyclerView
+                mAdapter.clearNewsList();
+            }
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override
                 public boolean onQueryTextSubmit(String query) {
@@ -189,7 +197,7 @@ public class InTheNewsFragment extends Fragment {
 
 
     /**
-     * OnClickListener for errorTextView
+     * OnClickListener for searchView
      */
 
     SearchView.OnCloseListener searchViewCloseListener = new SearchView.OnCloseListener() {
@@ -197,15 +205,21 @@ public class InTheNewsFragment extends Fragment {
         public boolean onClose() {
             // remove searchView
             searchView.setVisibility(View.GONE);
+
             // clear recyclerView
             mAdapter.clearNewsList();
+
             downloadData();
+
             // show tabLayout
             NewsTabFragment.tabLayout.setVisibility(View.VISIBLE);
+
             // show fab
             fab.show();
+
             // remove errorTextView
-            errorTextView.setVisibility(View.GONE);
+            searchErrorTextView.setVisibility(View.GONE);
+
             return false;
         }
     };
@@ -214,7 +228,8 @@ public class InTheNewsFragment extends Fragment {
      * Function to download data from url
      */
     public void downloadData() {
-        // set url data to corresponding language of phone settings
+
+        // set data url to corresponding language of phone settings
         if (!Locale.getDefault().getLanguage().equals("en")) {
             url = "http://162.243.100.186/news_array_he.php";
         } else {
@@ -222,20 +237,25 @@ public class InTheNewsFragment extends Fragment {
         }
 
         // call makeJsonArrayRequest and send url, tag, errorTextView and instantiate a callBack
-        databaseOperations.makeJsonArrayRequest(url, TAG, errorTextView,
+        databaseOperations.makeJsonArrayRequest(url, TAG, errorTextView, fab,
                 new DatabaseOperations.VolleyCallback() {
                     @Override
                     public void onSuccessResponse(String result) {
                         // initialize gson object
                         Gson gson = new Gson();
+
                         try {
+
                             // convert json array into array of class type
                             newsData = gson.fromJson(result, News[].class);
+
                             // convert array to arrayList
                             newsList = new ArrayList<>(Arrays.asList(newsData));
+
                             // set list to adapter
                             //mAdapter.setNewsList(newsList);
                             mAdapter.setNewsList(sortList(newsList, tabSelected));
+
                         } catch (JsonSyntaxException e) {
                             e.printStackTrace();
                         }
@@ -253,6 +273,7 @@ public class InTheNewsFragment extends Fragment {
     public ArrayList<News> sortList(ArrayList<News> newsList, String tabSelected) {
         // instantiate list
         ArrayList<News> list = new ArrayList<>();
+
         // loop through all news items in newsList
         for (News news : newsList) {
             // if category of current news item is equal to tabSelected
@@ -274,34 +295,51 @@ public class InTheNewsFragment extends Fragment {
     }
 
 
+    /**
+     * Function to run a query in database
+     */
     public void searchDb(String query) {
+        // clear arrayList
         mAdapter.clearNewsList();
-        errorTextView.setVisibility(View.GONE);
-        if (query.isEmpty() || query == null) {
-            errorTextView.setVisibility(View.VISIBLE);
-            errorTextView.setText("Please enter a search phrase");
-        } else {
 
-            /**
-             * Function to download data from url
-             */
+        // remove errorTextView
+        searchErrorTextView.setVisibility(View.GONE);
+
+        // if query is empty or null
+        if (query.isEmpty() || query == null) {
+            setTextOfErrorTextView(getResources().getString(R.string.enter_search_phrase));
+        }
+        // if query has a value
+        else {
+
+            // set data url to corresponding language of phone settings
+            if (!Locale.getDefault().getLanguage().equals("en")) {
+                searchUrl = "http://162.243.100.186/news_he_search_post.php";
+            } else {
+                searchUrl = "http://162.243.100.186/news_search_post.php";
+            }
+
             // call makeJsonArrayRequest and send url, tag, errorTextView and instantiate a callBack
-            databaseOperations.postSearch("http://162.243.100.186/news_search_post.php", query, errorTextView,
+            databaseOperations.postSearch(searchUrl, query, errorTextView,
                     new DatabaseOperations.VolleyCallback() {
                         @Override
                         public void onSuccessResponse(String result) {
+                            // if result contains "sqlError" - query didn't run
                             if (result.contains("sqlError")) {
-                                errorTextView.setVisibility(View.VISIBLE);
-                                errorTextView.setText("A Sql error occurred");
-                            } else {
+                                setTextOfErrorTextView(getResources().getString(R.string.sql_error));
+                            }
+                            // if query ran
+                            else {
+                                // if query returned no results
                                 if (result.contains("noProducts")) {
-                                    errorTextView.setVisibility(View.VISIBLE);
-                                    errorTextView.setText("No matches found");
-                                } else if (result.contains("noFields")) {
-                                    errorTextView.setVisibility(View.VISIBLE);
-                                    errorTextView.setText("Your search is empty");
-
-                                } else {
+                                    setTextOfErrorTextView(getResources().getString(R.string.no_matches));
+                                }
+                                // if query is missing required fields param
+                                else if (result.contains("noFields")) {
+                                    setTextOfErrorTextView(getResources().getString(R.string.search_empty));
+                                }
+                                // if query returned results
+                                else {
                                     // initialize gson object
                                     Gson gson = new Gson();
                                     try {
@@ -317,9 +355,23 @@ public class InTheNewsFragment extends Fragment {
                                 }
                             }
                         }
-                    });
 
+                    });
         }
+    }
+
+    /**
+     * Function to set text of errorTextView
+     */
+    public void setTextOfErrorTextView(String text){
+        // set errorTextView to visible
+        searchErrorTextView.setVisibility(View.VISIBLE);
+        // set errorTextView to visible
+        searchErrorTextView.setText(text);
+    }
+
+    public static void exitSearch(){
+
     }
 
 }

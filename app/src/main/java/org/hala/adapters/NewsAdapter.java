@@ -48,11 +48,12 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyNewsHolder> 
      * Function sets the newsList
      */
     public void clearNewsList() {
-        this.newsList = newsList;
-        newsList.clear();
-        // notify the adapter of item range changed
-        //notifyItemRangeChanged(0, newsList.size());
-        notifyDataSetChanged();
+        if (newsList != null || !newsList.isEmpty()){
+            newsList.clear();
+            // notify the adapter of item range changed
+            notifyDataSetChanged();
+        }
+
     }
 
     /**

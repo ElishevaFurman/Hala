@@ -72,7 +72,6 @@ public class ContactUsFragment extends Fragment {
         initializeViews(rootView);
 
         // set toolbar title
-        //Util.setToolbarTitle(R.string.fragment_contact, mainActivity.toolbar);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.fragment_contact));
 
         //set navigation selected to current fragment
@@ -93,9 +92,11 @@ public class ContactUsFragment extends Fragment {
         tabLayout.addTab(tabLayout.newTab().setText(R.string.our_location));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.contact_form));
         viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
+
         // set adapter
         viewPager.setAdapter(new PagerAdapter
                 (getChildFragmentManager(), tabLayout.getTabCount()));
+
         // add OnPageChangeListener to tabLayout
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
@@ -105,6 +106,7 @@ public class ContactUsFragment extends Fragment {
             public void onTabSelected(TabLayout.Tab tab) {
                 // set currentItem of viewpager to tabs position
                 viewPager.setCurrentItem(tab.getPosition());
+
                 // if position of tab is not equal to 1
                 if (tab.getPosition() != 1) {
                     // hide soft keyboard

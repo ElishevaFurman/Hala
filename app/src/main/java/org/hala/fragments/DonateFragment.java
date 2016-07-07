@@ -48,7 +48,6 @@ public class DonateFragment extends Fragment {
         registerListeners();
 
         // set toolbar title
-        //Util.setToolbarTitle(R.string.fragment_donate, mainActivity.toolbar);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.fragment_donate));
 
         // set navigation drawer to toggle

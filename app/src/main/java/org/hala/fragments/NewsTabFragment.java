@@ -24,6 +24,8 @@ public class NewsTabFragment extends Fragment {
     static TabLayout tabLayout;
     ViewPagerAdapter adapter;
     CustomViewPager customViewPager;
+
+    // Declare variables
     int id;
 
     public NewsTabFragment() {

@@ -42,7 +42,6 @@ public class AppointmentFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_appointment, container, false);
 
         // set toolbar title
-        //Util.setToolbarTitle(R.string.fragment_appointment, mainActivity.toolbar);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.fragment_appointment));
 
         //set navigation selected to current fragment
